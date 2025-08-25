@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://ca4qmd7sththm"]
+
+[ext_resource type="Texture2D" uid="uid://bufnhynqhpi7o" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/b_m.png" id="1_6s5nf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s5nf"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(0, 132, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn336"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(128, 132, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8qd"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(256, 132, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eykdy"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(384, 132, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omqpg"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(256, 0, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn7lg"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(384, 0, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub06r"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(0, 0, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkovj"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(128, 0, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt3gp"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(128, 264, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frbff"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(0, 264, 128, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt3gp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s5nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn336")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u8qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eykdy")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omqpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn7lg")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub06r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkovj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt3gp")
+}],
+"loop": false,
+"name": &"magic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frbff")
+}],
+"loop": false,
+"name": &"win",
+"speed": 5.0
+}]
+
+[node name="Daughter" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tt3gp")
+animation = &"win"
+autoplay = "idle"
