@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca4qmd7sththm"]
+[gd_scene load_steps=14 format=3 uid="uid://ca4qmd7sththm"]
 
 [ext_resource type="Texture2D" uid="uid://bufnhynqhpi7o" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/b_m.png" id="1_6s5nf"]
 
@@ -100,9 +100,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qh4ic"]
+radius = 9.0
+height = 102.0
+
 [node name="Daughter" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tt3gp")
-animation = &"win"
+animation = &"idle"
 autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(24, -4)
+shape = SubResource("CapsuleShape2D_qh4ic")
