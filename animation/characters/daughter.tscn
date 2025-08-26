@@ -108,7 +108,7 @@ height = 102.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tt3gp")
-animation = &"idle"
+animation = &"magic"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]

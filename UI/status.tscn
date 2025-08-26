@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfevhk3th4yw7"]
+
+[ext_resource type="Texture2D" uid="uid://b7dnjkpqww181" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/hb3.png" id="1_c0bbr"]
+[ext_resource type="FontFile" uid="uid://duxpxgtk512d6" path="res://fronts/22_FZCuQian-M17S.ttf" id="2_jng3d"]
+
+[node name="Status" type="Sprite2D"]
+texture = ExtResource("1_c0bbr")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 106.487)
+
+[node name="Name" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.0
+offset_top = -43.0
+offset_right = -123.0
+offset_bottom = -20.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jng3d")
+text = "Name"
+
+[node name="Name2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 8.0
+offset_right = -173.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jng3d")
+text = "Name"
