@@ -1,6 +1,6 @@
 # PM4 Reimagined (美少女梦工厂4 重置版)
 
-**PM4 Reimagined** 是对经典游戏《美少女梦工厂4（Princess Maker 4）》的重置版项目。项目使用 [Godot Engine](https://godotengine.org/) 开发，参考了 PM4 完璧版、NDS 版、比目鱼 Flash 盗版以及火山的女儿等版本，旨在重现原作的精髓并加入现代化的改进。
+**PM4 Reimagined** 是对经典游戏《美少女梦工厂4（Princess Maker 4）》的重置版项目。项目使用 [Godot Engine](https://godotengine.org/) 开发，参考了 PM4 完璧版、NDS 版、比目鱼 Flash 盗版等版本以及国内的精神续作火山的女儿，旨在重现原作的精髓并加入现代化的改进。
 
 该项目完全开源，欢迎任何对游戏开发、剧情重制、角色设计感兴趣的开发者参与。
 
