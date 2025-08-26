@@ -13,6 +13,9 @@
 - **角色养成系统**：重现原作的养成机制，同时优化操作体验  
 - **多平台支持**：计划支持 Windows、Linux 和 macOS  
 - **开源开放**：所有资源和代码均在 GitHub 上公开
+<img width="954" height="714" alt="image" src="https://github.com/user-attachments/assets/0b382398-f9b1-4e2a-82ff-0fe378b2728b" />
+<img width="947" height="537" alt="image" src="https://github.com/user-attachments/assets/6247b68c-e07f-4cd7-926f-4053c24bbcf8" />
+<img width="1169" height="668" alt="339fd32cd64b57ce38596cbef484700d_720" src="https://github.com/user-attachments/assets/252775b8-d92d-464b-ad9b-9bb3b202ab3c" />
 
 ---
 
@@ -20,7 +23,7 @@
 
 1. 克隆项目到本地：
     ```bash
-    git clone https://github.com/你的用户名/pm4-reimagined.git
+    git clone https://github.com/YanDang/PM4Remake.git
     cd pm4-reimagined
     ```
 2. 下载并安装 [Godot Engine 4.x](https://godotengine.org/download)
@@ -75,5 +78,5 @@
 
 如有问题或建议，请通过 GitHub Issues 或邮件联系：
 
-- GitHub: [https://github.com/你的用户名/pm4-reimagined](https://github.com/YanDang/PM4Remake)
+- GitHub: [https://github.com/YanDang/PM4Remake](https://github.com/YanDang/PM4Remake)
 - 邮箱: yilog017@gmail.com
