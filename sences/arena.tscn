@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc46wrphmhcs7"]
 
 [ext_resource type="Texture2D" uid="uid://bvf2av1y40oub" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/hb4.png" id="1_8g0wo"]
-[ext_resource type="PackedScene" uid="uid://bfevhk3th4yw7" path="res://UI/status.tscn" id="2_3m5vi"]
 [ext_resource type="PackedScene" uid="uid://ca4qmd7sththm" path="res://animation/characters/daughter.tscn" id="3_c5rbh"]
 [ext_resource type="PackedScene" uid="uid://bcuuc4wr5re2o" path="res://animation/characters/lise.tscn" id="4_3m5vi"]
+[ext_resource type="PackedScene" uid="uid://dht27jvhpjqaj" path="res://UI/stats.tscn" id="4_b1ick"]
 
 [node name="Arena" type="Node"]
 
@@ -12,20 +12,22 @@ position = Vector2(576, 324)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_8g0wo")
 
-[node name="UI" type="Node" parent="."]
-
-[node name="Player" parent="UI" instance=ExtResource("2_3m5vi")]
-position = Vector2(1024, 56)
-
-[node name="Enemy" parent="UI" instance=ExtResource("2_3m5vi")]
-position = Vector2(128, 56)
-
 [node name="TeamA" type="Node2D" parent="."]
-
-[node name="Daughter" parent="TeamA" instance=ExtResource("3_c5rbh")]
 position = Vector2(800, 320)
 
+[node name="Daughter" parent="TeamA" instance=ExtResource("3_c5rbh")]
+metadata/_edit_group_ = true
+
 [node name="TeamB" type="Node2D" parent="."]
+position = Vector2(340, 320)
 
 [node name="Lise" parent="TeamB" instance=ExtResource("4_3m5vi")]
-position = Vector2(352, 328)
+metadata/_edit_group_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Player" parent="UI" instance=ExtResource("4_b1ick")]
+position = Vector2(1024, 56)
+
+[node name="Enemy" parent="UI" instance=ExtResource("4_b1ick")]
+position = Vector2(128, 56)
