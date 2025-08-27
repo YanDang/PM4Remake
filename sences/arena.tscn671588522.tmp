@@ -44,4 +44,3 @@ position = Vector2(340, 320)
 script = ExtResource("7_gx5if")
 
 [connection signal="atk_pressed" from="ActionList" to="BattleConsole" method="_on_action_list_atk_pressed"]
-[connection signal="action_finished" from="BattleConsole" to="BattleConsole" method="_on_action_finished"]

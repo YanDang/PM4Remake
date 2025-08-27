@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca4qmd7sththm"]
+[gd_scene load_steps=15 format=3 uid="uid://ca4qmd7sththm"]
 
 [ext_resource type="Texture2D" uid="uid://bufnhynqhpi7o" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/b_m.png" id="1_6s5nf"]
+[ext_resource type="Script" uid="uid://b1k5r2l1ofcnc" path="res://scripts/daughter.gd" id="1_75w8d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6s5nf"]
 atlas = ExtResource("1_6s5nf")
@@ -22,10 +23,6 @@ region = Rect2(384, 132, 128, 132)
 atlas = ExtResource("1_6s5nf")
 region = Rect2(256, 0, 128, 132)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fn7lg"]
-atlas = ExtResource("1_6s5nf")
-region = Rect2(384, 0, 128, 132)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub06r"]
 atlas = ExtResource("1_6s5nf")
 region = Rect2(0, 0, 128, 132)
@@ -33,6 +30,10 @@ region = Rect2(0, 0, 128, 132)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pkovj"]
 atlas = ExtResource("1_6s5nf")
 region = Rect2(128, 0, 128, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh4ic"]
+atlas = ExtResource("1_6s5nf")
+region = Rect2(384, 0, 128, 132)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tt3gp"]
 atlas = ExtResource("1_6s5nf")
@@ -64,9 +65,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_omqpg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fn7lg")
 }],
 "loop": false,
 "name": &"hit",
@@ -81,6 +79,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh4ic")
+}],
+"loop": false,
+"name": &"loss",
 "speed": 5.0
 }, {
 "frames": [{
@@ -105,10 +111,11 @@ radius = 9.0
 height = 102.0
 
 [node name="Daughter" type="Node2D"]
+script = ExtResource("1_75w8d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tt3gp")
-animation = &"magic"
+animation = &"loss"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]

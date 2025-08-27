@@ -22,10 +22,6 @@ region = Rect2(384, 128, 128, 128)
 atlas = ExtResource("1_nc43x")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wkbch"]
-atlas = ExtResource("1_nc43x")
-region = Rect2(384, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bycuf"]
 atlas = ExtResource("1_nc43x")
 region = Rect2(0, 0, 128, 128)
@@ -33,6 +29,10 @@ region = Rect2(0, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mxl1"]
 atlas = ExtResource("1_nc43x")
 region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc43x"]
+atlas = ExtResource("1_nc43x")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nbvr"]
 atlas = ExtResource("1_nc43x")
@@ -64,9 +64,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_26h8l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wkbch")
 }],
 "loop": false,
 "name": &"hit",
@@ -81,6 +78,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc43x")
+}],
+"loop": false,
+"name": &"loss",
 "speed": 5.0
 }, {
 "frames": [{
@@ -108,7 +113,7 @@ height = 102.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_arwnt")
-animation = &"idle"
+animation = &"loss"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]

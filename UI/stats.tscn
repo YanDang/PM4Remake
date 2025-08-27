@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dht27jvhpjqaj"]
+[gd_scene load_steps=6 format=3 uid="uid://dht27jvhpjqaj"]
 
 [ext_resource type="Texture2D" uid="uid://b7dnjkpqww181" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/hb3.png" id="1_chifh"]
+[ext_resource type="Script" uid="uid://teigue34fwv1" path="res://UI/stats.gd" id="2_chifh"]
 [ext_resource type="FontFile" uid="uid://duxpxgtk512d6" path="res://fronts/22_FZCuQian-M17S.ttf" id="3_005ma"]
 [ext_resource type="FontFile" uid="uid://d4hemy6c68usa" path="res://fronts/663_FZCuQian-M17T.ttf" id="4_kua32"]
 
@@ -12,6 +13,7 @@ region = Rect2(0, 109, 12, 15)
 texture = ExtResource("1_chifh")
 region_enabled = true
 region_rect = Rect2(0, 0, 256, 106.487)
+script = ExtResource("2_chifh")
 
 [node name="Name" type="Label" parent="."]
 anchors_preset = 5

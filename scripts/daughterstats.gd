@@ -15,21 +15,21 @@ class_name DaughterStats
 ## 道德
 @export var morals:int=20
 ## 气质
-@export var highclass:int
+@export var highclass:int=25
 ## 感受
-@export var sensitive:int
+@export var sensitive:int=25
 ## 体贴
-@export var temper:int
+@export var temper:int=20
 ## 知名度
-@export var fame:int
+@export var fame:int=0
 ## 武术
-@export var martial:int
+@export var martial:int=20
 ## 魔法
-@export var magic:int
+@export var magic:int=20
 ## 罪孽
-@export var sin:int
+@export var sin:int=0
 ## 疲劳
-@export var stress:int
+@export var stress:int=0
 
 ## 年龄
 @export var age:int = 10
