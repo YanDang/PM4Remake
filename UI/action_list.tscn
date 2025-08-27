@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://j8hplvaplle5"]
+
+[ext_resource type="Texture2D" uid="uid://3uid6mwvlasn" path="res://assets/sys/658.png" id="1_67ft0"]
+[ext_resource type="Texture2D" uid="uid://bd2pelpl65aqt" path="res://assets/sys/679.png" id="3_5xmbh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pasop"]
+texture = ExtResource("3_5xmbh")
+
+[node name="ActionList" type="Sprite2D"]
+scale = Vector2(0.916, 1)
+texture = ExtResource("1_67ft0")
+
+[node name="ATK" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = -144.0
+offset_right = -36.0
+offset_bottom = -84.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pasop")
+text = "攻击"
+
+[node name="MATK" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = -74.0
+offset_right = -36.0
+offset_bottom = -14.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pasop")
+text = "魔法"
+
+[node name="DEF" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = -4.0
+offset_right = -36.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pasop")
+text = "防御"
+
+[node name="ESCAPE" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = 66.0
+offset_right = -36.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_pasop")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pasop")
+text = "逃跑"
