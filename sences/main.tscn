@@ -43,9 +43,7 @@ position = Vector2(1068, 100)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_mqxhw")
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
+[node name="HealthStat" type="Sprite2D" parent="UI"]
 position = Vector2(1068, 268)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3dblt")
-
-[node name="Sprite2D2" type="Sprite2D" parent="UI"]
