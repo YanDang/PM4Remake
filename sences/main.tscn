@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4ks2hbreawnh"]
+
+[ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
+[ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
+[ext_resource type="PackedScene" uid="uid://dfbhhdlxskhds" path="res://illustration/dautghter_live.tscn" id="3_r4dii"]
+[ext_resource type="Texture2D" uid="uid://c4285tkcnaaqe" path="res://assets/sys/w_name.png" id="4_40i81"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
+atlas = ExtResource("4_40i81")
+region = Rect2(0, 0, 200, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dblt"]
+atlas = ExtResource("4_40i81")
+region = Rect2(0, 85, 200, 85)
+
+[node name="main" type="Node"]
+
+[node name="BackGround" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_1q3g2")
+metadata/_edit_lock_ = true
+
+[node name="Date" type="Sprite2D" parent="."]
+position = Vector2(232, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1j6d1")
+metadata/_edit_lock_ = true
+
+[node name="DautghterLive" parent="." instance=ExtResource("3_r4dii")]
+position = Vector2(640, 560)
+scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BaseInfo" type="Sprite2D" parent="UI"]
+position = Vector2(1068, 100)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_mqxhw")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(1068, 268)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_3dblt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UI"]

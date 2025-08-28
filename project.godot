@@ -15,11 +15,18 @@ run/main_scene="uid://dc46wrphmhcs7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Daughterstats="*res://scripts/daughterstats.gd"
+
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=960
 window/stretch/mode="canvas_items"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

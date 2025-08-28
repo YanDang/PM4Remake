@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfbhhdlxskhds"]
+
+[ext_resource type="Texture2D" uid="uid://cx6ilvwv0ubwp" path="res://assets/Patricia Halliwel/ch01c01.png" id="1_887kw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_887kw"]
+atlas = ExtResource("1_887kw")
+region = Rect2(0, 50, 0, 398)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_675bg"]
+atlas = ExtResource("1_887kw")
+region = Rect2(2, 2, 77, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8dht"]
+atlas = ExtResource("1_887kw")
+region = Rect2(83, 2, 77, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhmc6"]
+atlas = ExtResource("1_887kw")
+region = Rect2(164, 2, 77, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lo8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_675bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhmc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_675bg")
+}],
+"loop": false,
+"name": &"wink",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_675bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhmc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_675bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhmc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_675bg")
+}],
+"loop": false,
+"name": &"wink_double",
+"speed": 10.0
+}]
+
+[node name="DautghterLive" type="Node2D"]
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_887kw")
+
+[node name="Eyes" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, -105.5)
+sprite_frames = SubResource("SpriteFrames_8lo8v")
+animation = &"wink_double"
+autoplay = "wink_double"
