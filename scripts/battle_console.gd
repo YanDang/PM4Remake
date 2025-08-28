@@ -8,6 +8,9 @@ enum DamageType { PHYSICAL, MAGIC }
 var character_offset = Vector2(50,0)
 var goalenemy_offset = Vector2(-50,0)
 signal action_finished(character: Node2D, goalenemy: Node2D)
+var player_can_batter = true
+var enemy_can_batter = true
+var player_turn = true
 
 func _ready() -> void:
 	connect("action_finished", Callable(self, "_on_action_finished"))
@@ -49,6 +52,8 @@ func damage_settlement(character: Node2D, goalenemy:Node2D,damage_type:int) -> b
 
 func atk_action(character: Node2D, goalenemy:Node2D, offset:Vector2):
 	action_list.hide()
+	# 攻击方图层设置为1
+	character.z_index = 1
 	var character_sprite = character.get_node("AnimatedSprite2D")
 	var goalenemy_sprite = goalenemy.get_node("AnimatedSprite2D")
 	var start_pos = character.position  # 记录初始位置
@@ -66,17 +71,49 @@ func atk_action(character: Node2D, goalenemy:Node2D, offset:Vector2):
 	tween.tween_callback(Callable(character_sprite, "play").bind("idle"))
 	tween.tween_callback(Callable(goalenemy_sprite, "play").bind("idle"))
 	tween.tween_callback(Callable(action_list, "show"))
-	tween.tween_callback(func():emit_signal("action_finished", character, goalenemy))
+	tween.tween_callback(func():
+		character.z_index = 0
+		emit_signal("action_finished", character, goalenemy)
+	)
 
 
 func _on_action_list_atk_pressed(character: Node2D, goalenemy: Node2D) -> void:
-	# 第一个攻击完成后，调用第二个攻击
+	player_can_batter = true
+	enemy_can_batter = true
+	player_turn = true
 	atk_action(character, goalenemy, character_offset)
 
 func _on_action_finished(character: Node2D, goalenemy: Node2D) -> void:
-	if character == daughter:
-		# 玩家行动结束，敌人行动一次
+	if player_turn:
+		if player_can_batter:
+			var batter_rand = randi() % 100
+			if batter_rand < character.batter:
+				player_can_batter = false
+				atk_action(character, goalenemy, character_offset)
+				return
+		# 玩家连击结束，轮到敌人
+		player_turn = false
+		enemy_can_batter = true
 		atk_action(goalenemy, character, goalenemy_offset)
+		check_result(character,goalenemy)
 	else:
-		# 敌人行动结束，回到菜单
+		if enemy_can_batter:
+			var batter_rand = randi() % 100
+			if batter_rand < goalenemy.batter:
+				enemy_can_batter = false
+				atk_action(character,goalenemy,goalenemy_offset)
+				return
+		# 敌人连击结束，回到玩家回合
+		player_turn = true
+		check_result(character,goalenemy)
 		action_list.show()
+
+func check_result(character: Node2D, goalenemy: Node2D) -> void:
+	var character_sprite = character.get_node("AnimatedSprite2D")
+	var goalenemy_sprite = goalenemy.get_node("AnimatedSprite2D")
+	if character.is_dead():
+		character_sprite.play("loss")
+		goalenemy_sprite.play("win")
+	elif goalenemy.is_dead():
+		character_sprite.play("win")
+		goalenemy_sprite.play("loss")
