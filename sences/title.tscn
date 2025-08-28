@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c57uy6namqnh2"]
+[gd_scene load_steps=6 format=3 uid="uid://c57uy6namqnh2"]
 
 [ext_resource type="Texture2D" uid="uid://4m47d5x0eq3m" path="res://assets/sys/tmenu1.png" id="1_1kkkf"]
+[ext_resource type="Script" uid="uid://bgjyqqxm2pquk" path="res://sences/title.gd" id="1_do8e1"]
 [ext_resource type="Script" uid="uid://bynaa4gvs4i8j" path="res://sences/back_ground.gd" id="2_3bd7d"]
+[ext_resource type="FontFile" uid="uid://mhh3u2u40mb" path="res://fronts/Dymon-ShouXieTi.otf" id="3_25g24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25g24"]
 
 [node name="Title" type="Node"]
+script = ExtResource("1_do8e1")
 
 [node name="BackGround" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -14,18 +19,148 @@ grow_vertical = 2
 texture = ExtResource("1_1kkkf")
 script = ExtResource("2_3bd7d")
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -15.5
-offset_right = 36.0
-offset_bottom = 15.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -380.0
+offset_right = 72.0
+offset_bottom = -179.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="GridContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.2, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_25g24")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25g24")
 text = "开始游戏"
+
+[node name="Load" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.2, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_25g24")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25g24")
+text = "继续游戏"
+
+[node name="Setting" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.2, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_25g24")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25g24")
+text = "设定选项"
+
+[node name="Gallery" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.2, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_25g24")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25g24")
+text = "画廊"
+
+[node name="Exit" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.9, 0.2, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.6, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_25g24")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_25g24")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25g24")
+text = "退出游戏"
+
+[connection signal="button_down" from="GridContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="GridContainer/Exit" to="." method="_on_exit_button_down"]
