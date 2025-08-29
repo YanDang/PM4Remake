@@ -6,7 +6,7 @@ extends Sprite2D
 signal atk_pressed(character:Node2D, goalenemy:Node2D)
 
 func _ready():
-	$ATK.pressed.connect(_on_atc_pressed)
+	$GridContainer/ATK.pressed.connect(_on_atc_pressed)
 
 func _on_atc_pressed():
 	emit_signal("atk_pressed", character, goalenemy)

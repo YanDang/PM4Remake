@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=17 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
 [ext_resource type="PackedScene" uid="uid://dfbhhdlxskhds" path="res://illustration/dautghter_live.tscn" id="3_r4dii"]
 [ext_resource type="Texture2D" uid="uid://c4285tkcnaaqe" path="res://assets/sys/w_name.png" id="4_40i81"]
+[ext_resource type="FontFile" uid="uid://61pco5cuhnpb" path="res://fronts/Baloo_2/Baloo2-ExtraBold.ttf" id="4_nfa5d"]
+[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://UI/date.gd" id="4_pwca7"]
+[ext_resource type="PackedScene" uid="uid://yxcc6681skpk" path="res://UI/daily_action.tscn" id="5_mqxhw"]
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="6_blwv4"]
+[ext_resource type="FontFile" uid="uid://c0avuh67i6ngv" path="res://fronts/EBGaramond-Bold.ttf" id="6_h7cyd"]
+[ext_resource type="Texture2D" uid="uid://02yvjw4qvpjn" path="res://assets/sys/w_cmd.png" id="7_nfa5d"]
+[ext_resource type="Script" uid="uid://db8x2028tte0m" path="res://UI/base_info.gd" id="8_qtx5w"]
+[ext_resource type="Script" uid="uid://c5kjbabkc3sxw" path="res://UI/health_stat.gd" id="10_djnrh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -12,6 +20,13 @@ region = Rect2(0, 0, 200, 85)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3dblt"]
 atlas = ExtResource("4_40i81")
 region = Rect2(0, 85, 200, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bljpj"]
+atlas = ExtResource("7_nfa5d")
+region = Rect2(0, 302, 202, 34)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h7cyd"]
+texture = SubResource("AtlasTexture_bljpj")
 
 [node name="main" type="Node"]
 
@@ -25,12 +40,6 @@ size_flags_horizontal = 4
 texture = ExtResource("1_1q3g2")
 metadata/_edit_lock_ = true
 
-[node name="Date" type="Sprite2D" parent="."]
-position = Vector2(232, 112)
-scale = Vector2(2, 2)
-texture = ExtResource("2_1j6d1")
-metadata/_edit_lock_ = true
-
 [node name="DautghterLive" parent="." instance=ExtResource("3_r4dii")]
 position = Vector2(640, 560)
 scale = Vector2(2, 2)
@@ -38,12 +47,292 @@ metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Date" type="Sprite2D" parent="UI"]
+position = Vector2(232, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1j6d1")
+script = ExtResource("4_pwca7")
+
+[node name="Week" type="Label" parent="UI/Date"]
+offset_left = -68.0
+offset_top = -4.0
+offset_right = -28.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 20
+text = "周一"
+vertical_alignment = 1
+
+[node name="Year" type="Label" parent="UI/Date"]
+offset_left = -52.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0.835294, 0.776471, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 25
+text = "1440"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Month" type="Label" parent="UI/Date"]
+offset_left = -28.0
+offset_top = -15.0
+offset_right = 4.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_h7cyd")
+theme_override_font_sizes/font_size = 30
+text = "12"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Day" type="Label" parent="UI/Date"]
+offset_left = 20.0
+offset_top = -40.5
+offset_right = 78.0
+offset_bottom = 32.5
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_h7cyd")
+theme_override_font_sizes/font_size = 50
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitSign" type="Label" parent="UI/Date"]
+offset_left = 1.5
+offset_top = -31.0
+offset_right = 25.5
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_h7cyd")
+theme_override_font_sizes/font_size = 35
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BaseInfo" type="Sprite2D" parent="UI"]
-position = Vector2(1068, 100)
+position = Vector2(1040, 100)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_mqxhw")
+script = ExtResource("8_qtx5w")
+metadata/_edit_lock_ = true
+
+[node name="FirstName" type="Label" parent="UI/BaseInfo"]
+offset_left = -60.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -10.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "帕特莉希娅"
+vertical_alignment = 1
+
+[node name="SecondName" type="Label" parent="UI/BaseInfo"]
+offset_left = -60.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "海威尔"
+vertical_alignment = 1
+
+[node name="Age" type="Label" parent="UI/BaseInfo"]
+offset_left = -48.0
+offset_top = 2.0
+offset_right = -23.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0.835294, 0.776471, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 25
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Label" parent="UI/BaseInfo"]
+offset_left = -19.0
+offset_top = 8.5
+offset_right = 65.0
+offset_bottom = 40.5
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 20
+text = "1000000"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="HealthStat" type="Sprite2D" parent="UI"]
-position = Vector2(1068, 268)
+position = Vector2(1040, 268)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3dblt")
+script = ExtResource("10_djnrh")
+metadata/_edit_lock_ = true
+
+[node name="Tactics" type="Label" parent="UI/HealthStat"]
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 40.0
+offset_bottom = -2.0
+theme_override_colors/font_color = Color(0.996078, 0.643137, 0.643137, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 16
+text = "顺其自然"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B" type="Label" parent="UI/HealthStat"]
+offset_left = -65.0
+offset_top = 9.0
+offset_right = -41.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.996078, 0.741176, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.0980392, 0.0862745, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 18
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="UI/HealthStat"]
+offset_left = -7.5
+offset_top = 9.0
+offset_right = 16.5
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.996078, 0.741176, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.0980392, 0.0862745, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 18
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="H" type="Label" parent="UI/HealthStat"]
+offset_left = 52.0
+offset_top = 9.0
+offset_right = 76.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.996078, 0.741176, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.0980392, 0.0862745, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 18
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heigh" type="Label" parent="UI/HealthStat"]
+offset_left = -55.0
+offset_top = -9.5
+offset_right = -25.0
+offset_bottom = 19.5
+theme_override_colors/font_color = Color(0.996078, 0.666667, 0.666667, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 18
+text = "140"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Weight" type="Label" parent="UI/HealthStat"]
+offset_left = 9.5
+offset_top = -9.5
+offset_right = 35.5
+offset_bottom = 19.5
+theme_override_colors/font_color = Color(0.996078, 0.666667, 0.666667, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("4_nfa5d")
+theme_override_font_sizes/font_size = 18
+text = "40"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DailyAction" parent="UI" instance=ExtResource("5_mqxhw")]
+offset_left = 835.0
+offset_top = 370.0
+offset_right = 1039.0
+offset_bottom = 486.0
+scale = Vector2(2, 2)
+
+[node name="Plan" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+offset_left = 832.0
+offset_top = 590.0
+offset_right = 1032.0
+offset_bottom = 626.0
+scale = Vector2(2, 2)
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_h7cyd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h7cyd")
+text = "安排行程"

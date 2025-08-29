@@ -1,0 +1,162 @@
+[gd_scene load_steps=5 format=3 uid="uid://yxcc6681skpk"]
+
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="1_pavwg"]
+[ext_resource type="Texture2D" uid="uid://02yvjw4qvpjn" path="res://assets/sys/w_cmd.png" id="2_djtmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pavwg"]
+atlas = ExtResource("2_djtmw")
+region = Rect2(0, 378, 102, 34)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_licnl"]
+texture = SubResource("AtlasTexture_pavwg")
+
+[node name="DailyAction" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Status" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_pavwg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "状态"
+
+[node name="Talk" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_pavwg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "对话"
+
+[node name="Health" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_pavwg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "健康"
+
+[node name="Item" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_pavwg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "道具"
+
+[node name="Street" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_pavwg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "上街"
+
+[node name="System" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_pavwg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "系统"
