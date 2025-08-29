@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name CharacterFightStats
 signal stats_changed
 
 ## batter:连击，仅第一次攻击触发
@@ -18,6 +18,6 @@ var batter:int=50
 var criticalhit:int=10
 var criticaldamage:float=1.5
 var dodge:int=10
-
+	
 func is_dead() -> bool:
 	return hp <= 0

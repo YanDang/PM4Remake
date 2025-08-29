@@ -1,3 +1,4 @@
+extends Node
 ## 名字
 var firstname:String="Patricia"
 var secondname:String="Halliwel"
