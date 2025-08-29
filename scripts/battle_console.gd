@@ -12,8 +12,6 @@ var player_can_batter = true
 var enemy_can_batter = true
 var player_turn = true
 
-func _ready() -> void:
-	connect("action_finished", Callable(self, "_on_action_finished"))
 
 func _deal_damage(character: Node2D, goalenemy: Node2D, damage_type:int,offset:Vector2) -> void:
 	var goalenemy_sprite = goalenemy.get_node("AnimatedSprite2D")

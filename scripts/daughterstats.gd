@@ -24,7 +24,7 @@ var martial:int=20
 ## 魔法
 var magic:int=20
 ## 罪孽
-var sin:int=0
+var crime:int=0
 ## 疲劳
 var stress:int=0
 

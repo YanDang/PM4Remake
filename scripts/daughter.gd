@@ -4,7 +4,3 @@ extends "res://scripts/characterfightstats.gd"
 func _ready() -> void:
 	name = "Daughter"
 	emit_signal("stats_changed")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

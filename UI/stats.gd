@@ -17,7 +17,3 @@ func update_stats() -> void:
 func _ready() -> void:
 	character.stats_changed.connect(update_stats)
 	update_stats()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
