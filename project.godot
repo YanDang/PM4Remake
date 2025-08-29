@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Daughterstats="*res://scripts/daughterstats.gd"
+Daughterstatus="*res://scripts/daughterstatus.gd"
 Global="*res://scripts/global.gd"
 
 [display]

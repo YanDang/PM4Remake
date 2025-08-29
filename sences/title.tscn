@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c57uy6namqnh2"]
 
 [ext_resource type="Texture2D" uid="uid://4m47d5x0eq3m" path="res://assets/sys/tmenu1.png" id="1_1kkkf"]
-[ext_resource type="Script" uid="uid://bgjyqqxm2pquk" path="res://sences/title.gd" id="1_do8e1"]
-[ext_resource type="Script" uid="uid://bynaa4gvs4i8j" path="res://sences/back_ground.gd" id="2_3bd7d"]
+[ext_resource type="Script" uid="uid://bgjyqqxm2pquk" path="res://scripts/title/title.gd" id="1_do8e1"]
+[ext_resource type="Script" uid="uid://bynaa4gvs4i8j" path="res://scripts/title/back_ground.gd" id="2_3bd7d"]
 [ext_resource type="FontFile" uid="uid://mhh3u2u40mb" path="res://fronts/Dymon-ShouXieTi.otf" id="3_25g24"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25g24"]

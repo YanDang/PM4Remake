@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://j8hplvaplle5"]
 
 [ext_resource type="Texture2D" uid="uid://3uid6mwvlasn" path="res://assets/sys/658.png" id="1_67ft0"]
-[ext_resource type="Script" uid="uid://cdbmlqhscuthc" path="res://UI/action_list.gd" id="2_5xmbh"]
+[ext_resource type="Script" uid="uid://cdbmlqhscuthc" path="res://scripts/Battle/action_list.gd" id="2_5xmbh"]
 [ext_resource type="Texture2D" uid="uid://bd2pelpl65aqt" path="res://assets/sys/679.png" id="3_5xmbh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pasop"]

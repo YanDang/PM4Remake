@@ -1,0 +1,52 @@
+extends Node
+## 名字
+var firstname:String="帕特莉希娅"
+var secondname:String="海威尔"
+## 体力
+var stamina:int=clamp(50, 0, 999)
+## 智力
+var smarts:int=clamp(25,0,999)
+## 魅力
+var charm:int=clamp(25,0,999)
+## 自尊
+var pride:int=clamp(25,0,999)
+## 道德
+var morals:int=clamp(20,0,999)
+## 气质
+var highclass:int=clamp(25,0,999)
+## 感受
+var sensitive:int=clamp(25,0,999)
+## 体贴
+var temper:int=clamp(20,0,999)
+## 知名度
+var fame:int=clamp(0,0,999)
+## 武术
+var martial:int=clamp(20,0,999)
+## 魔法
+var magic:int=clamp(20,0,999)
+## 罪孽
+var crime:int=clamp(0,0,999)
+## 疲劳
+var stress:int=clamp(0,0,999)
+
+## 年龄
+var age:int = 10
+## 出生日期
+var birth_year:int=1430
+var birth_month:int=4
+var birth_day:int=1
+
+## 血型
+var bloodtype:String="O"
+## 身高
+var high:int=clamp(140,140,999)
+## 体重
+var weight:int=clamp(38,38,999)
+## 胸围
+var bust:float=clamp(66,66,999)
+## 腰围
+var waist:float=clamp(55,55,999)
+## 臀围
+var hips:float=clamp(68,68,999)
+## 信赖度
+var trust:int=0

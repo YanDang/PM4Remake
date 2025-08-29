@@ -1,17 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=27 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
+[ext_resource type="Script" uid="uid://bjgkgtecsiptg" path="res://scripts/UI/ui.gd" id="3_nevkc"]
 [ext_resource type="PackedScene" uid="uid://dfbhhdlxskhds" path="res://illustration/dautghter_live.tscn" id="3_r4dii"]
 [ext_resource type="Texture2D" uid="uid://c4285tkcnaaqe" path="res://assets/sys/w_name.png" id="4_40i81"]
 [ext_resource type="FontFile" uid="uid://61pco5cuhnpb" path="res://fronts/Baloo_2/Baloo2-ExtraBold.ttf" id="4_nfa5d"]
-[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://UI/date.gd" id="4_pwca7"]
-[ext_resource type="PackedScene" uid="uid://yxcc6681skpk" path="res://UI/daily_action.tscn" id="5_mqxhw"]
+[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://scripts/UI/date.gd" id="4_pwca7"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="6_blwv4"]
 [ext_resource type="FontFile" uid="uid://c0avuh67i6ngv" path="res://fronts/EBGaramond-Bold.ttf" id="6_h7cyd"]
 [ext_resource type="Texture2D" uid="uid://02yvjw4qvpjn" path="res://assets/sys/w_cmd.png" id="7_nfa5d"]
-[ext_resource type="Script" uid="uid://db8x2028tte0m" path="res://UI/base_info.gd" id="8_qtx5w"]
-[ext_resource type="Script" uid="uid://c5kjbabkc3sxw" path="res://UI/health_stat.gd" id="10_djnrh"]
+[ext_resource type="Script" uid="uid://db8x2028tte0m" path="res://scripts/UI/base_info.gd" id="8_qtx5w"]
+[ext_resource type="Script" uid="uid://c5kjbabkc3sxw" path="res://scripts/UI/health_stat.gd" id="10_djnrh"]
+[ext_resource type="Texture2D" uid="uid://dovqbvgls7nr4" path="res://assets/sys/w_stat2.png" id="14_db7pr"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="15_1aw7l"]
+[ext_resource type="Texture2D" uid="uid://b2ft0o882hnx" path="res://assets/sys/empty_stat.png" id="15_bswka"]
+[ext_resource type="Script" uid="uid://btppw067o41bj" path="res://scripts/UI/stature.gd" id="15_db7pr"]
+[ext_resource type="Script" uid="uid://c2kb8awbioduq" path="res://scripts/UI/character_attribute.gd" id="17_1aw7l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -21,12 +26,31 @@ region = Rect2(0, 0, 200, 85)
 atlas = ExtResource("4_40i81")
 region = Rect2(0, 85, 200, 85)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3oe0"]
+atlas = ExtResource("7_nfa5d")
+region = Rect2(0, 378, 102, 34)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_licnl"]
+texture = SubResource("AtlasTexture_n3oe0")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bljpj"]
 atlas = ExtResource("7_nfa5d")
 region = Rect2(0, 302, 202, 34)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h7cyd"]
 texture = SubResource("AtlasTexture_bljpj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi3wh"]
+atlas = ExtResource("14_db7pr")
+region = Rect2(0, 0, 200, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db7pr"]
+atlas = ExtResource("15_bswka")
+region = Rect2(0, 0, 212, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h6gh"]
+atlas = ExtResource("15_bswka")
+region = Rect2(1, 457, 20, 14)
 
 [node name="main" type="Node"]
 
@@ -46,12 +70,15 @@ scale = Vector2(2, 2)
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_nevkc")
 
 [node name="Date" type="Sprite2D" parent="UI"]
 position = Vector2(232, 112)
 scale = Vector2(2, 2)
 texture = ExtResource("2_1j6d1")
 script = ExtResource("4_pwca7")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Week" type="Label" parent="UI/Date"]
 offset_left = -68.0
@@ -138,6 +165,7 @@ scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_mqxhw")
 script = ExtResource("8_qtx5w")
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="FirstName" type="Label" parent="UI/BaseInfo"]
 offset_left = -60.0
@@ -206,6 +234,7 @@ position = Vector2(1040, 268)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3dblt")
 script = ExtResource("10_djnrh")
+metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Tactics" type="Label" parent="UI/HealthStat"]
@@ -270,7 +299,7 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Heigh" type="Label" parent="UI/HealthStat"]
+[node name="High" type="Label" parent="UI/HealthStat"]
 offset_left = -55.0
 offset_top = -9.5
 offset_right = -25.0
@@ -302,14 +331,163 @@ text = "40"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="DailyAction" parent="UI" instance=ExtResource("5_mqxhw")]
+[node name="DailyAction" type="GridContainer" parent="UI"]
 offset_left = 835.0
 offset_top = 370.0
 offset_right = 1039.0
 offset_bottom = 486.0
 scale = Vector2(2, 2)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="Plan" type="Button" parent="."]
+[node name="Status" type="Button" parent="UI/DailyAction"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "状态"
+
+[node name="Talk" type="Button" parent="UI/DailyAction"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "对话"
+
+[node name="Health" type="Button" parent="UI/DailyAction"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "健康"
+
+[node name="Item" type="Button" parent="UI/DailyAction"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "道具"
+
+[node name="Street" type="Button" parent="UI/DailyAction"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "上街"
+
+[node name="System" type="Button" parent="UI/DailyAction"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.87451, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_licnl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_licnl")
+text = "系统"
+
+[node name="Plan" type="Button" parent="UI"]
 custom_minimum_size = Vector2(100, 36)
 offset_left = 832.0
 offset_top = 590.0
@@ -336,3 +514,906 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_h7cyd")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_h7cyd")
 theme_override_styles/normal = SubResource("StyleBoxTexture_h7cyd")
 text = "安排行程"
+metadata/_edit_lock_ = true
+
+[node name="Birthday" type="Sprite2D" parent="UI"]
+visible = false
+position = Vector2(-268, 544)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_gi3wh")
+metadata/_edit_group_ = true
+
+[node name="BirthdayText" type="Label" parent="UI/Birthday"]
+offset_left = -88.0
+offset_top = -24.0
+offset_right = -48.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.839216, 0.776471, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 20
+text = "生日"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Year" type="Label" parent="UI/Birthday"]
+offset_left = -40.0
+offset_top = -24.0
+theme_override_colors/font_color = Color(0.839216, 0.776471, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 20
+text = "1430"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Month" type="Label" parent="UI/Birthday"]
+offset_left = 13.0
+offset_top = -24.0
+offset_right = 53.0
+theme_override_colors/font_color = Color(0.839216, 0.776471, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 20
+text = "12"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Day" type="Label" parent="UI/Birthday"]
+offset_left = 63.0
+offset_top = -24.0
+offset_right = 86.0
+theme_override_colors/font_color = Color(0.839216, 0.776471, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 20
+text = "31"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BloodTypeText" type="Label" parent="UI/Birthday"]
+offset_left = -88.0
+offset_right = -48.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.996078, 0.666667, 0.666667, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 20
+text = "血型"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BloodType" type="Label" parent="UI/Birthday"]
+offset_left = -40.0
+offset_top = -5.0
+offset_right = -24.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.996078, 0.666667, 0.666667, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 26
+text = "AB"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stature" type="Node2D" parent="UI"]
+visible = false
+position = Vector2(-268, 648)
+scale = Vector2(2, 2)
+script = ExtResource("15_db7pr")
+metadata/_edit_group_ = true
+
+[node name="high" type="Sprite2D" parent="UI/Stature"]
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/Stature/high"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "身高"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/Stature/high"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/high"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 200.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="weight" type="Sprite2D" parent="UI/Stature"]
+position = Vector2(0, 26)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/Stature/weight"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "体重"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/Stature/weight"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/weight"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="B" type="Sprite2D" parent="UI/Stature"]
+position = Vector2(0, 52)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/Stature/B"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "胸围"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/Stature/B"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/B"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="W" type="Sprite2D" parent="UI/Stature"]
+position = Vector2(0, 78)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/Stature/W"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "腰围"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/Stature/W"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/W"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="H" type="Sprite2D" parent="UI/Stature"]
+position = Vector2(0, 104)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/Stature/H"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "臀围"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/Stature/H"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/H"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="CharacterAttribute" type="Node2D" parent="UI"]
+visible = false
+position = Vector2(1540, 232)
+scale = Vector2(2, 2)
+script = ExtResource("17_1aw7l")
+metadata/_edit_group_ = true
+
+[node name="stamina" type="Sprite2D" parent="UI/CharacterAttribute"]
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/stamina"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "体力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/stamina"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/stamina"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="smarts" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 26)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/smarts"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "智力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/smarts"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/smarts"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="charm" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 52)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/charm"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "魅力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/charm"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/charm"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="pride" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 78)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/pride"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "自尊"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/pride"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/pride"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="morals" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 104)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/morals"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "道德"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/morals"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/morals"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="highclass" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 130)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/highclass"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "气质"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/highclass"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/highclass"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="sensitive" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 156)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/sensitive"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "感受"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/sensitive"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/sensitive"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="temper" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 182)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/temper"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "体贴"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/temper"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/temper"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="fame" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 208)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/fame"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "知名度"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/fame"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/fame"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="martial" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 234)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/martial"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "武术能力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/martial"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/martial"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="magic" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 260)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/magic"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "魔法能力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/magic"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/magic"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="crime" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 286)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/crime"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "罪孽"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/crime"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/crime"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[node name="stress" type="Sprite2D" parent="UI/CharacterAttribute"]
+position = Vector2(0, 312)
+texture = SubResource("AtlasTexture_db7pr")
+
+[node name="Label" type="Label" parent="UI/CharacterAttribute/stress"]
+offset_left = -98.0
+offset_top = -11.0
+offset_right = -58.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 14
+text = "疲劳"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="UI/CharacterAttribute/stress"]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/CharacterAttribute/stress"]
+offset_left = 27.0
+offset_top = -6.0
+offset_right = 91.0
+offset_bottom = 8.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_4h6gh")
+
+[connection signal="button_down" from="UI/DailyAction/Status" to="UI" method="_on_status_button_down"]
+[connection signal="button_down" from="UI/DailyAction/Status" to="UI/DailyAction" method="_on_status_button_down"]

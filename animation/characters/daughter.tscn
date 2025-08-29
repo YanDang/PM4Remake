@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://ca4qmd7sththm"]
 
 [ext_resource type="Texture2D" uid="uid://bufnhynqhpi7o" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/b_m.png" id="1_6s5nf"]
-[ext_resource type="Script" uid="uid://b1k5r2l1ofcnc" path="res://scripts/daughter.gd" id="1_75w8d"]
+[ext_resource type="Script" uid="uid://b1k5r2l1ofcnc" path="res://scripts/Battle/daughter.gd" id="1_75w8d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6s5nf"]
 atlas = ExtResource("1_6s5nf")

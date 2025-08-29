@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bvf2av1y40oub" path="res://assets/PC _ Computer - Princess Maker 4 - Harvest Festival - Arena/hb4.png" id="1_8g0wo"]
 [ext_resource type="PackedScene" uid="uid://ca4qmd7sththm" path="res://animation/characters/daughter.tscn" id="3_c5rbh"]
 [ext_resource type="PackedScene" uid="uid://bcuuc4wr5re2o" path="res://animation/characters/lise.tscn" id="4_3m5vi"]
-[ext_resource type="PackedScene" uid="uid://dht27jvhpjqaj" path="res://UI/stats.tscn" id="4_b1ick"]
+[ext_resource type="PackedScene" uid="uid://dht27jvhpjqaj" path="res://UI/status.tscn" id="4_b1ick"]
 [ext_resource type="PackedScene" uid="uid://j8hplvaplle5" path="res://UI/action_list.tscn" id="5_b1ick"]
-[ext_resource type="Script" uid="uid://cxiymq7u3m8x" path="res://scripts/battle_console.gd" id="6_qjm77"]
-[ext_resource type="Script" uid="uid://cr1l61opkaw3j" path="res://animation/characters/lise.gd" id="7_gx5if"]
+[ext_resource type="Script" uid="uid://cxiymq7u3m8x" path="res://scripts/Battle/battle_console.gd" id="6_qjm77"]
+[ext_resource type="Script" uid="uid://cr1l61opkaw3j" path="res://scripts/Battle/lise.gd" id="7_gx5if"]
 
 [node name="Arena" type="Node"]
 
