@@ -87,8 +87,8 @@
 - **角色养成系统**：重现原作的养成机制，同时优化操作体验  
 - **多平台支持**：计划支持 Windows、Linux 和 macOS  
 - **开源开放**：所有资源和代码均在 GitHub 上公开
-<img width="954" height="714" alt="image" src="https://github.com/user-attachments/assets/0b382398-f9b1-4e2a-82ff-0fe378b2728b" />
-<img width="947" height="537" alt="image" src="https://github.com/user-attachments/assets/6247b68c-e07f-4cd7-926f-4053c24bbcf8" />
+<img width="804" height="602" alt="image" src="https://github.com/user-attachments/assets/7b76b74d-2248-453f-ad4d-d03ac74004b2" />
+<img width="1280" height="967" alt="image" src="https://github.com/user-attachments/assets/88b2fd8b-fca9-4325-aad9-8de2b3d4c7cf" />
 <img width="1169" height="668" alt="339fd32cd64b57ce38596cbef484700d_720" src="https://github.com/user-attachments/assets/252775b8-d92d-464b-ad9b-9bb3b202ab3c" />
 
 ---
