@@ -17,6 +17,6 @@ func UpdateProgressBar(target_sprite:Sprite2D,val:int):
 func UpdateStatus() -> void:
 	UpdateProgressBar(high,Daughterstatus.high)
 	UpdateProgressBar(weight,Daughterstatus.weight)
-	UpdateProgressBar(b,Daughterstatus.bust)
-	UpdateProgressBar(w,Daughterstatus.waist)
-	UpdateProgressBar(h,Daughterstatus.hips)
+	UpdateProgressBar(b,int(Daughterstatus.bust))
+	UpdateProgressBar(w,int(Daughterstatus.waist))
+	UpdateProgressBar(h,int(Daughterstatus.hips))

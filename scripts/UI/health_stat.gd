@@ -12,3 +12,4 @@ func UpdateStatus() -> void:
 	$H.text = str(int(Daughterstatus.hips))
 	$High.text = str(int(Daughterstatus.high))
 	$Weight.text = str(int(Daughterstatus.weight))
+	$Tactics.text = Global.health_tactics[Global.health_index]
