@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=40 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://btppw067o41bj" path="res://scripts/UI/stature.gd" id="15_db7pr"]
 [ext_resource type="Script" uid="uid://c2kb8awbioduq" path="res://scripts/UI/character_attribute.gd" id="17_1aw7l"]
 [ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="18_dj16x"]
+[ext_resource type="Script" uid="uid://njj4n41yixax" path="res://scripts/MainSence/talk.gd" id="19_ascla"]
 [ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://UI/wide_choice_list.tscn" id="19_e42fx"]
 [ext_resource type="PackedScene" uid="uid://dpq7srv5788dd" path="res://UI/narrow_choice_list.tscn" id="20_2n76t"]
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
@@ -1524,27 +1525,37 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_e42fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e42fx")
 text = "取 消"
 
-[node name="Talk" parent="UI" instance=ExtResource("19_e42fx")]
+[node name="Talk" type="Node" parent="UI"]
+script = ExtResource("19_ascla")
+
+[node name="Talk" parent="UI/Talk" instance=ExtResource("19_e42fx")]
 visible = false
 position = Vector2(980, 480)
 scale = Vector2(2, 2)
 
-[node name="Health" parent="UI" instance=ExtResource("19_e42fx")]
+[node name="Health" type="Node" parent="UI"]
+
+[node name="Health" parent="UI/Health" instance=ExtResource("19_e42fx")]
 visible = false
 position = Vector2(980, 480)
 scale = Vector2(2, 2)
 
-[node name="Street" parent="UI" instance=ExtResource("20_2n76t")]
+[node name="Street" type="Node" parent="UI"]
+
+[node name="Street" parent="UI/Street" instance=ExtResource("20_2n76t")]
 visible = false
 position = Vector2(1090, 380)
 scale = Vector2(2, 2)
 
-[node name="System" parent="UI" instance=ExtResource("20_2n76t")]
+[node name="System" type="Node" parent="UI"]
+
+[node name="System" parent="UI/System" instance=ExtResource("20_2n76t")]
 visible = false
 position = Vector2(1090, 380)
 scale = Vector2(2, 2)
 
 [node name="Money" type="Sprite2D" parent="UI"]
+visible = false
 position = Vector2(1540, 70)
 scale = Vector2(2, 2)
 texture = ExtResource("21_yio88")

@@ -14,12 +14,12 @@ var is_status_canvas = false
 
 # 对话
 var is_talk_canvas = false
-@onready var talk: Node2D = $Talk
+@onready var talk: Node2D = $Talk/Talk
 var talk_node_list:Array
 
 # 健康
 var is_health_canvas = false
-@onready var health: Node2D = $Health
+@onready var health: Node2D = $Health/Health
 var health_node_list:Array
 
 # 道具
@@ -28,14 +28,14 @@ var is_item_canvas = false
 
 # 上街
 var is_street_canvas = false
-@onready var street: Node2D = $Street
+@onready var street: Node2D = $Street/Street
 @onready var money: Sprite2D = $Money
 
 var street_node_list:Array
 
 # 系统
 var is_system_canvas = false
-@onready var system: Node2D = $System
+@onready var system: Node2D = $System/System
 var system_node_list:Array
 # 动画位移
 var move_vector = Vector2(500,0)
@@ -61,60 +61,30 @@ func InitialUI() -> void:
 	street.hide()
 	system.hide()
 	money.hide()
-
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#if event.pressed:
-			#if is_status_canvas:
-				#if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
-					#is_status_canvas = false
-					#LeaveStatus()
-			#if is_talk_canvas:
-				#if event.button_index == MOUSE_BUTTON_RIGHT:
-					#is_talk_canvas = false
-					#LeaveTalk()
-			#if is_health_canvas:
-				#if event.button_index == MOUSE_BUTTON_RIGHT:
-					#is_health_canvas = false
-					#LeaveHealth()
-			#if is_item_canvas:
-				#if event.button_index == MOUSE_BUTTON_RIGHT:
-					#is_item_canvas = false
-					#LeaveItem()
-			#if is_street_canvas:
-				#if event.button_index == MOUSE_BUTTON_RIGHT:
-					#is_street_canvas = false
-					#LeaveStreet()
-			#if is_system_canvas:
-				#if event.button_index == MOUSE_BUTTON_RIGHT:
-					#is_system_canvas = false
-					#LeaveSystem()
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == MOUSE_BUTTON_RIGHT or event.is_action_pressed("cancel"):
-				if is_status_canvas:
-					is_status_canvas = false
-					LeaveStatus()
-				if is_talk_canvas:
-					is_talk_canvas = false
-					LeaveTalk()
-				if is_health_canvas:
-					is_health_canvas = false
-					LeaveHealth()
-				if is_item_canvas:
-					is_item_canvas = false
-					LeaveItem()
-				if is_street_canvas:
-					is_street_canvas = false
-					LeaveStreet()
-				if is_system_canvas:
-					is_system_canvas = false
-					LeaveSystem()
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				if is_status_canvas:
-					is_status_canvas = false
-					LeaveStatus()
+	if event.is_action_pressed("cancel"):
+		if is_status_canvas:
+			is_status_canvas = false
+			LeaveStatus()
+		if is_talk_canvas:
+			is_talk_canvas = false
+			LeaveTalk()
+		if is_health_canvas:
+			is_health_canvas = false
+			LeaveHealth()
+		if is_item_canvas:
+			is_item_canvas = false
+			LeaveItem()
+		if is_street_canvas:
+			is_street_canvas = false
+			LeaveStreet()
+		if is_system_canvas:
+			is_system_canvas = false
+			LeaveSystem()
+	if event.is_action_pressed("confirm"):
+		if is_status_canvas:
+			is_status_canvas = false
+			LeaveStatus()
 			
 					
 
