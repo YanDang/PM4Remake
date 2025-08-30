@@ -26,4 +26,7 @@ func LoadChoices() -> Array:
 		var temp_node = $NinePatchRect/GridContainer.get_node("Choice"+str(i))
 		temp_node.text = choice_list[i]
 		choice_node_list.append(temp_node)
+		temp_node.pressed.connect(func() -> void:
+			get_parent()._on_choice_pressed(temp_node.text,i)
+		)
 	return choice_node_list

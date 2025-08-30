@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=41 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://njj4n41yixax" path="res://scripts/MainSence/talk.gd" id="19_ascla"]
 [ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://UI/wide_choice_list.tscn" id="19_e42fx"]
 [ext_resource type="PackedScene" uid="uid://dpq7srv5788dd" path="res://UI/narrow_choice_list.tscn" id="20_2n76t"]
+[ext_resource type="Script" uid="uid://brrq0pfen5h0o" path="res://scripts/MainSence/health.gd" id="21_y2vmt"]
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
 [ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/UI/money.gd" id="22_ijfao"]
 
@@ -1534,6 +1535,7 @@ position = Vector2(980, 480)
 scale = Vector2(2, 2)
 
 [node name="Health" type="Node" parent="UI"]
+script = ExtResource("21_y2vmt")
 
 [node name="Health" parent="UI/Health" instance=ExtResource("19_e42fx")]
 visible = false
