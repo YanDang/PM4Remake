@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=34 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ft0o882hnx" path="res://assets/sys/empty_stat.png" id="15_bswka"]
 [ext_resource type="Script" uid="uid://btppw067o41bj" path="res://scripts/ui/stature.gd" id="15_db7pr"]
 [ext_resource type="Script" uid="uid://c2kb8awbioduq" path="res://scripts/ui/character_attribute.gd" id="17_1aw7l"]
-[ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="18_dj16x"]
+[ext_resource type="PackedScene" uid="uid://c1uuer33shq74" path="res://ui/item.tscn" id="18_y2vmt"]
 [ext_resource type="Script" uid="uid://njj4n41yixax" path="res://scripts/main_sence/talk.gd" id="19_ascla"]
 [ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="19_e42fx"]
 [ext_resource type="PackedScene" uid="uid://dpq7srv5788dd" path="res://ui/narrow_choice_list.tscn" id="20_2n76t"]
@@ -58,31 +58,6 @@ region = Rect2(0, 0, 212, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h6gh"]
 atlas = ExtResource("15_bswka")
 region = Rect2(1, 457, 20, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqm0r"]
-atlas = ExtResource("18_dj16x")
-region = Rect2(0, 0, 400, 276)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4u0i4"]
-atlas = ExtResource("18_dj16x")
-region = Rect2(402, 128, 46, 40)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3n7ln"]
-texture = SubResource("AtlasTexture_4u0i4")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0b3i"]
-atlas = ExtResource("18_dj16x")
-region = Rect2(402, 168, 46, 40)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6xva"]
-texture = SubResource("AtlasTexture_m0b3i")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dj16x"]
-atlas = ExtResource("18_dj16x")
-region = Rect2(403, 65, 77, 29)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e42fx"]
-texture = SubResource("AtlasTexture_dj16x")
 
 [node name="main" type="Node"]
 
@@ -1447,84 +1422,9 @@ value = 100.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_4h6gh")
 
-[node name="Item" type="Node2D" parent="UI"]
+[node name="Item" parent="UI" instance=ExtResource("18_y2vmt")]
 visible = false
 position = Vector2(-570, 360)
-scale = Vector2(2, 2)
-
-[node name="BackGround" type="Sprite2D" parent="UI/Item"]
-texture = SubResource("AtlasTexture_hqm0r")
-metadata/_edit_lock_ = true
-
-[node name="Previous" type="Button" parent="UI/Item"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -23.0
-offset_top = -134.0
-offset_right = 23.0
-offset_bottom = -94.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_styles/focus = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/hover = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_3n7ln")
-theme_override_styles/normal = SubResource("StyleBoxTexture_3n7ln")
-
-[node name="Next" type="Button" parent="UI/Item"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -23.0
-offset_top = 83.0
-offset_right = 23.0
-offset_bottom = 123.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_styles/focus = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/hover = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_c6xva")
-theme_override_styles/normal = SubResource("StyleBoxTexture_c6xva")
-
-[node name="Cancel" type="Button" parent="UI/Item"]
-offset_left = 95.0
-offset_top = 90.0
-offset_right = 171.0
-offset_bottom = 121.0
-theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
-theme_override_colors/font_outline_color = Color(0.756863, 0.466667, 0.384314, 1)
-theme_override_colors/font_color = Color(0.988235, 0.980392, 0.976471, 1)
-theme_override_colors/font_focus_color = Color(0.988235, 0.980392, 0.976471, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("6_blwv4")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_e42fx")
-text = "取 消"
 
 [node name="Talk" type="Node" parent="UI"]
 script = ExtResource("19_ascla")
@@ -1586,4 +1486,3 @@ vertical_alignment = 1
 [connection signal="button_down" from="UI/DailyAction/Item" to="UI" method="_on_item_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Street" to="UI" method="_on_street_button_down"]
 [connection signal="button_down" from="UI/DailyAction/System" to="UI" method="_on_system_button_down"]
-[connection signal="button_down" from="UI/Item/Cancel" to="UI" method="_on_cancel_button_down"]

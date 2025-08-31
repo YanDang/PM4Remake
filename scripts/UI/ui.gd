@@ -280,4 +280,4 @@ func _on_system_button_down() -> void:
 	tween.tween_callback(func():now_canvas_type=CanvasType.SYSTEM)
 
 func _on_cancel_button_down() -> void:
-	LeaveItem()
+	CloseCanvas()

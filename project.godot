@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Daughterstatus="*res://scripts/daughterstatus.gd"
 Global="*res://scripts/global.gd"
+Globaljson="*res://scripts/globaljson.gd"
+Inventory="*res://scripts/inventory.gd"
 
 [display]
 

@@ -32,4 +32,4 @@ func ChangeClothes(clothes_name:String):
 	body.texture = atlas_tex
 
 func _ready() -> void:
-	ChangeClothes("睡衣")
+	ChangeClothes("常服")

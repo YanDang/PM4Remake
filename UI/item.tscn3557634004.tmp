@@ -1,0 +1,185 @@
+[gd_scene load_steps=15 format=3 uid="uid://c1uuer33shq74"]
+
+[ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="1_2j75d"]
+[ext_resource type="Script" uid="uid://dj0gv6mgepoca" path="res://scripts/ui/item.gd" id="1_w6ot5"]
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_w6ot5"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="4_nxa2r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqm0r"]
+atlas = ExtResource("1_2j75d")
+region = Rect2(0, 0, 400, 276)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u0i4"]
+atlas = ExtResource("1_2j75d")
+region = Rect2(402, 128, 46, 40)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3n7ln"]
+texture = SubResource("AtlasTexture_4u0i4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0b3i"]
+atlas = ExtResource("1_2j75d")
+region = Rect2(402, 168, 46, 40)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6xva"]
+texture = SubResource("AtlasTexture_m0b3i")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj16x"]
+atlas = ExtResource("1_2j75d")
+region = Rect2(403, 65, 77, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e42fx"]
+texture = SubResource("AtlasTexture_dj16x")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxa2r"]
+atlas = ExtResource("1_2j75d")
+region = Rect2(0, 276, 297, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6ot5"]
+atlas = ExtResource("1_2j75d")
+region = Rect2(435, 212, 30, 30)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6ot5"]
+
+[node name="Item" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_w6ot5")
+metadata/_edit_horizontal_guides_ = [-132.0, -200.0, -124.0, -56.0]
+metadata/_edit_vertical_guides_ = [-248.0, 326.0]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hqm0r")
+metadata/_edit_lock_ = true
+
+[node name="Previous" type="Button" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = -134.0
+offset_right = 23.0
+offset_bottom = -94.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_3n7ln")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3n7ln")
+
+[node name="Next" type="Button" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 83.0
+offset_right = 23.0
+offset_bottom = 123.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_c6xva")
+theme_override_styles/normal = SubResource("StyleBoxTexture_c6xva")
+
+[node name="Cancel" type="Button" parent="."]
+offset_left = 95.0
+offset_top = 90.0
+offset_right = 171.0
+offset_bottom = 121.0
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.756863, 0.466667, 0.384314, 1)
+theme_override_colors/font_color = Color(0.988235, 0.980392, 0.976471, 1)
+theme_override_colors/font_focus_color = Color(0.988235, 0.980392, 0.976471, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_w6ot5")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_e42fx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e42fx")
+text = "取 消"
+
+[node name="ChoiceHighLight" type="Sprite2D" parent="."]
+position = Vector2(19.5, -83)
+texture = SubResource("AtlasTexture_nxa2r")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -98.0
+offset_right = 152.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/v_separation = 8
+
+[node name="Button0" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_pressed_color = Color(0.976471, 0.894118, 0.772549, 1)
+theme_override_colors/font_hover_color = Color(0.913725, 0.831373, 0.709804, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_color = Color(0.819608, 0.741176, 0.603922, 1)
+theme_override_colors/font_focus_color = Color(0.819608, 0.741176, 0.603922, 1)
+theme_override_colors/font_pressed_color = Color(0.976471, 0.894118, 0.772549, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("2_w6ot5")
+theme_override_font_sizes/font_size = 16
+theme_override_icons/icon = SubResource("AtlasTexture_w6ot5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6ot5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w6ot5")
+text = "常服"
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/Button0"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = -1.0
+offset_right = 314.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_nxa2r")
+theme_override_font_sizes/font_size = 20
+text = "10000 G"
+horizontal_alignment = 2
+vertical_alignment = 1
