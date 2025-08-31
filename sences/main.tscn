@@ -2,28 +2,28 @@
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
-[ext_resource type="Script" uid="uid://bjgkgtecsiptg" path="res://scripts/UI/ui.gd" id="3_nevkc"]
+[ext_resource type="Script" uid="uid://bjgkgtecsiptg" path="res://scripts/ui/ui.gd" id="3_nevkc"]
 [ext_resource type="PackedScene" uid="uid://dfbhhdlxskhds" path="res://illustration/dautghter_live.tscn" id="3_r4dii"]
 [ext_resource type="Texture2D" uid="uid://c4285tkcnaaqe" path="res://assets/sys/w_name.png" id="4_40i81"]
 [ext_resource type="FontFile" uid="uid://61pco5cuhnpb" path="res://fronts/Baloo_2/Baloo2-ExtraBold.ttf" id="4_nfa5d"]
-[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://scripts/UI/date.gd" id="4_pwca7"]
+[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://scripts/ui/date.gd" id="4_pwca7"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="6_blwv4"]
 [ext_resource type="FontFile" uid="uid://c0avuh67i6ngv" path="res://fronts/EBGaramond-Bold.ttf" id="6_h7cyd"]
 [ext_resource type="Texture2D" uid="uid://02yvjw4qvpjn" path="res://assets/sys/w_cmd.png" id="7_nfa5d"]
-[ext_resource type="Script" uid="uid://db8x2028tte0m" path="res://scripts/UI/base_info.gd" id="8_qtx5w"]
-[ext_resource type="Script" uid="uid://c5kjbabkc3sxw" path="res://scripts/UI/health_stat.gd" id="10_djnrh"]
+[ext_resource type="Script" uid="uid://db8x2028tte0m" path="res://scripts/ui/base_info.gd" id="8_qtx5w"]
+[ext_resource type="Script" uid="uid://c5kjbabkc3sxw" path="res://scripts/ui/health_stat.gd" id="10_djnrh"]
 [ext_resource type="Texture2D" uid="uid://dovqbvgls7nr4" path="res://assets/sys/w_stat2.png" id="14_db7pr"]
 [ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="15_1aw7l"]
 [ext_resource type="Texture2D" uid="uid://b2ft0o882hnx" path="res://assets/sys/empty_stat.png" id="15_bswka"]
-[ext_resource type="Script" uid="uid://btppw067o41bj" path="res://scripts/UI/stature.gd" id="15_db7pr"]
-[ext_resource type="Script" uid="uid://c2kb8awbioduq" path="res://scripts/UI/character_attribute.gd" id="17_1aw7l"]
+[ext_resource type="Script" uid="uid://btppw067o41bj" path="res://scripts/ui/stature.gd" id="15_db7pr"]
+[ext_resource type="Script" uid="uid://c2kb8awbioduq" path="res://scripts/ui/character_attribute.gd" id="17_1aw7l"]
 [ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="18_dj16x"]
-[ext_resource type="Script" uid="uid://njj4n41yixax" path="res://scripts/MainSence/talk.gd" id="19_ascla"]
-[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://UI/wide_choice_list.tscn" id="19_e42fx"]
-[ext_resource type="PackedScene" uid="uid://dpq7srv5788dd" path="res://UI/narrow_choice_list.tscn" id="20_2n76t"]
-[ext_resource type="Script" uid="uid://brrq0pfen5h0o" path="res://scripts/MainSence/health.gd" id="21_y2vmt"]
+[ext_resource type="Script" uid="uid://njj4n41yixax" path="res://scripts/main_sence/talk.gd" id="19_ascla"]
+[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="19_e42fx"]
+[ext_resource type="PackedScene" uid="uid://dpq7srv5788dd" path="res://ui/narrow_choice_list.tscn" id="20_2n76t"]
+[ext_resource type="Script" uid="uid://brrq0pfen5h0o" path="res://scripts/main_sence/health.gd" id="21_y2vmt"]
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
-[ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/UI/money.gd" id="22_ijfao"]
+[ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/ui/money.gd" id="22_ijfao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -331,7 +331,7 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="High" type="Label" parent="UI/HealthStat"]
+[node name="Height" type="Label" parent="UI/HealthStat"]
 offset_left = -55.0
 offset_top = -9.5
 offset_right = -25.0
@@ -654,10 +654,10 @@ scale = Vector2(2, 2)
 script = ExtResource("15_db7pr")
 metadata/_edit_group_ = true
 
-[node name="high" type="Sprite2D" parent="UI/Stature"]
+[node name="height" type="Sprite2D" parent="UI/Stature"]
 texture = SubResource("AtlasTexture_db7pr")
 
-[node name="Label" type="Label" parent="UI/Stature/high"]
+[node name="Label" type="Label" parent="UI/Stature/height"]
 offset_left = -98.0
 offset_top = -11.0
 offset_right = -58.0
@@ -671,7 +671,7 @@ text = "身高"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Num" type="Label" parent="UI/Stature/high"]
+[node name="Num" type="Label" parent="UI/Stature/height"]
 offset_left = -19.0
 offset_top = -11.0
 offset_right = 21.0
@@ -687,7 +687,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/high"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Stature/height"]
 offset_left = 27.0
 offset_top = -6.0
 offset_right = 91.0

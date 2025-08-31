@@ -6,14 +6,13 @@ var choice_list:Array = ["打招呼","温柔地说话","严厉地说话","给零
 var base_heigh:int = 24
 var base_choice:int = 1
 
-func init(p_choice_list) -> Array:
+func init(p_choice_list) -> void:
 	if p_choice_list.size() > 0:
 		choice_list = p_choice_list
-	return LoadChoices()
+	LoadChoices()
 
-func LoadChoices() -> Array:
+func LoadChoices() -> void:
 	var choice_nums:int = len(choice_list)
-	var choice_node_list:Array = []
 	$NinePatchRect.size.y = choice_nums * base_heigh
 	$NinePatchRect/GridContainer.size.y = $NinePatchRect.size.y
 	$Buttom.position.y = $NinePatchRect.size.y + base_heigh
@@ -25,8 +24,6 @@ func LoadChoices() -> Array:
 		# 获取所有的选项
 		var temp_node = $NinePatchRect/GridContainer.get_node("Choice"+str(i))
 		temp_node.text = choice_list[i]
-		choice_node_list.append(temp_node)
 		temp_node.pressed.connect(func() -> void:
 			get_parent()._on_choice_pressed(temp_node.text,i)
 		)
-	return choice_node_list

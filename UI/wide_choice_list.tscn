@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv3nfskm8jxku"]
 
 [ext_resource type="Texture2D" uid="uid://bt80fki1lxxc6" path="res://assets/sys/w_slct.png" id="1_nrnuy"]
-[ext_resource type="Script" uid="uid://dr7gfi10shu8l" path="res://scripts/UI/choice_list.gd" id="1_vun6r"]
+[ext_resource type="Script" uid="uid://dr7gfi10shu8l" path="res://scripts/ui/choice_list.gd" id="1_vun6r"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_ay3e7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay3e7"]

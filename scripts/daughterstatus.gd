@@ -39,7 +39,7 @@ var birth_day:int=1
 ## 血型
 var bloodtype:String="O"
 ## 身高
-var high:int=clamp(140,140,999)
+var height:int=clamp(140,140,999)
 ## 体重
 var weight:int=clamp(38,38,999)
 ## 胸围

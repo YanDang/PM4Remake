@@ -6,46 +6,38 @@ extends CanvasLayer
 @onready var plan: Button = $Plan
 @onready var health_stat: Sprite2D = $HealthStat
 
+enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM}
+var now_canvas_type = CanvasType.MAIN
+
 # 状态
-var is_status_canvas = false
 @onready var birthday: Sprite2D = $Birthday
 @onready var stature: Node2D = $Stature
 @onready var character_attribute: Node2D = $CharacterAttribute
 
 # 对话
-var is_talk_canvas = false
 @onready var talk: Node2D = $Talk/Talk
-var talk_node_list:Array
 
 # 健康
-var is_health_canvas = false
 @onready var health: Node2D = $Health/Health
-var health_node_list:Array
 
 # 道具
-var is_item_canvas = false
 @onready var item: Node2D = $Item
 
 # 上街
-var is_street_canvas = false
 @onready var street: Node2D = $Street/Street
 @onready var money: Sprite2D = $Money
 
-var street_node_list:Array
-
 # 系统
-var is_system_canvas = false
 @onready var system: Node2D = $System/System
-var system_node_list:Array
 # 动画位移
 var move_vector = Vector2(500,0)
 
 func _ready() -> void:
 	InitialUI()
-	talk_node_list = talk.init(["打招呼","温柔地说话","严厉地说话","给零用钱"])
-	health_node_list = health.init(["顺其自然","以活泼为目标培养","以娴静为目标培养","进行减肥"])
-	street_node_list = street.init(["道具店","洋装店","餐厅","教会","医院"])
-	system_node_list = system.init(["储存游戏","读取记录","设定选项","标题界面"])
+	talk.init(["打招呼","温柔地说话","严厉地说话","给零用钱"])
+	health.init(["顺其自然","以活泼为目标培养","以娴静为目标培养","进行减肥"])
+	street.init(["道具店","洋装店","餐厅","教会","医院"])
+	system.init(["储存游戏","读取记录","设定选项","标题界面"])
 
 func InitialUI() -> void:
 	date.show()
@@ -61,30 +53,30 @@ func InitialUI() -> void:
 	street.hide()
 	system.hide()
 	money.hide()
+
+# 返回主界面
+func CloseCanvas() -> void:
+	match now_canvas_type:
+		CanvasType.STATUS:
+			LeaveStatus()
+		CanvasType.TALK:
+			LeaveTalk()
+		CanvasType.HEALTH:
+			LeaveHealth()
+		CanvasType.ITEM:
+			LeaveItem()
+		CanvasType.STREET:
+			LeaveStreet()
+		CanvasType.SYSTEM:
+			LeaveSystem()
+	now_canvas_type = CanvasType.MAIN
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel"):
-		if is_status_canvas:
-			is_status_canvas = false
-			LeaveStatus()
-		if is_talk_canvas:
-			is_talk_canvas = false
-			LeaveTalk()
-		if is_health_canvas:
-			is_health_canvas = false
-			LeaveHealth()
-		if is_item_canvas:
-			is_item_canvas = false
-			LeaveItem()
-		if is_street_canvas:
-			is_street_canvas = false
-			LeaveStreet()
-		if is_system_canvas:
-			is_system_canvas = false
-			LeaveSystem()
+		CloseCanvas()
 	if event.is_action_pressed("confirm"):
-		if is_status_canvas:
-			is_status_canvas = false
-			LeaveStatus()
+		if now_canvas_type == CanvasType.STATUS:
+			CloseCanvas()
 			
 					
 
@@ -210,7 +202,7 @@ func _on_status_button_down() -> void:
 	tween.tween_property(birthday, "position", birthday.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(stature, "position", stature.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(character_attribute, "position", character_attribute.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_callback(func():is_status_canvas=true)
+	tween.tween_callback(func():now_canvas_type=CanvasType.STATUS)
 
 func _on_talk_button_down() -> void:
 	OnAnimation()
@@ -222,7 +214,7 @@ func _on_talk_button_down() -> void:
 		plan.hide())
 	tween.tween_callback(func():
 		talk.show())
-	tween.tween_callback(func():is_talk_canvas=true)
+	tween.tween_callback(func():now_canvas_type=CanvasType.TALK)
 
 func _on_health_button_down() -> void:
 	OnAnimation()
@@ -234,7 +226,7 @@ func _on_health_button_down() -> void:
 		plan.hide())
 	tween.tween_callback(func():
 		health.show())
-	tween.tween_callback(func():is_health_canvas=true)
+	tween.tween_callback(func():now_canvas_type=CanvasType.HEALTH)
 
 func _on_item_button_down() -> void:
 	OnAnimation()
@@ -253,7 +245,7 @@ func _on_item_button_down() -> void:
 	tween.tween_callback(func():
 		item.show())
 	tween.tween_property(item, "position", item.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_callback(func():is_item_canvas=true)
+	tween.tween_callback(func():now_canvas_type=CanvasType.ITEM)
 
 func _on_street_button_down() -> void:
 	OnAnimation()
@@ -273,7 +265,7 @@ func _on_street_button_down() -> void:
 		street.show()
 		money.show())
 	tween.tween_property(money, "position", money.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_callback(func():is_street_canvas=true)
+	tween.tween_callback(func():now_canvas_type=CanvasType.STREET)
 
 func _on_system_button_down() -> void:
 	OnAnimation()
@@ -285,7 +277,7 @@ func _on_system_button_down() -> void:
 		plan.hide())
 	tween.tween_callback(func():
 		system.show())
-	tween.tween_callback(func():is_system_canvas=true)
+	tween.tween_callback(func():now_canvas_type=CanvasType.SYSTEM)
 
 func _on_cancel_button_down() -> void:
 	LeaveItem()

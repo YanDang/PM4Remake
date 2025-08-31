@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var high: Sprite2D = $high
+@onready var height: Sprite2D = $height
 @onready var weight: Sprite2D = $weight
 @onready var b: Sprite2D = $B
 @onready var w: Sprite2D = $W
@@ -15,7 +15,7 @@ func UpdateProgressBar(target_sprite:Sprite2D,val:int):
 	target_sprite.get_node("TextureProgressBar").value = val
 
 func UpdateStatus() -> void:
-	UpdateProgressBar(high,Daughterstatus.high)
+	UpdateProgressBar(height,Daughterstatus.height)
 	UpdateProgressBar(weight,Daughterstatus.weight)
 	UpdateProgressBar(b,int(Daughterstatus.bust))
 	UpdateProgressBar(w,int(Daughterstatus.waist))
