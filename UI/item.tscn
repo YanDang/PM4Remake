@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://c1uuer33shq74"]
 
 [ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="1_2j75d"]
-[ext_resource type="Script" uid="uid://dj0gv6mgepoca" path="res://scripts/ui/item.gd" id="1_w6ot5"]
+[ext_resource type="Script" uid="uid://dj0gv6mgepoca" path="res://scripts/UI/item.gd" id="1_w6ot5"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_w6ot5"]
 [ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="4_nxa2r"]
 
@@ -183,3 +183,6 @@ theme_override_font_sizes/font_size = 20
 text = "10000 G"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

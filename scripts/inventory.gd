@@ -11,6 +11,7 @@ func _ready() -> void:
 		{"item": Globaljson.items["c02"], "count": 1},
 		{"item": Globaljson.items["c04"], "count": 1},
 		{"item": Globaljson.items["c05"], "count": 1},
+		{"item": Globaljson.items["c16"], "count": 1},
 	]
 	SortSlots()
 
