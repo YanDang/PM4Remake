@@ -12,7 +12,7 @@ var week_index = 0
 # 所持金
 var money:int = clamp(2000,-5000,9999999)
 # 健康策略
-var health_index = 2
+var health_index = 0
 
 # 月度增长（monthly growth）
 var height_monthly_growth:float = 0.39

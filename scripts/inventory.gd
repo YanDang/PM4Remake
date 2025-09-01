@@ -13,7 +13,6 @@ func _ready() -> void:
 		{"item": Globaljson.items["c05"], "count": 1},
 		{"item": Globaljson.items["c16"], "count": 1},
 	]
-	SortSlots()
 
 # 添加物品
 func AddItem(item_id: String, add_num: int = 1) -> bool:
@@ -21,17 +20,13 @@ func AddItem(item_id: String, add_num: int = 1) -> bool:
 	if not item:
 		push_warning("Item not found: %s" % item_id)
 		return false
-	
 	# 查找是否已存在该物品
 	for slot in slots:
 		if slot["item"].id == item_id:
 			slot["count"] += add_num
-			SortSlots()
 			return true
-	
 	# 不存在则新建一个格子
 	slots.append({"item": item, "count": add_num})
-	SortSlots()
 	return true
 
 # 删除物品

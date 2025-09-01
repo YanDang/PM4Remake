@@ -45,6 +45,15 @@
 		"important":true
 	},
 	{
+		"id":"c06",
+		"name":"豪华礼服",
+		"description":"豪华的礼服",
+		"types":"CLOTHES",
+		"prices":3000,
+		"can_use":true,
+		"important":true
+	},
+	{
 		"id":"c07",
 		"name":"武术服",
 		"description":"适合练武的服装",
@@ -54,11 +63,38 @@
 		"important":true
 	},
 	{
+		"id":"c08",
+		"name":"魔术师服",
+		"description":"适合释放魔法的服装",
+		"types":"CLOTHES",
+		"prices":800,
+		"can_use":true,
+		"important":true
+	},
+	{
+		"id":"c11",
+		"name":"皮衣",
+		"description":"皮质的皮衣",
+		"types":"CLOTHES",
+		"prices":2000,
+		"can_use":true,
+		"important":true
+	},
+	{
 		"id":"c12",
 		"name":"修道服",
 		"description":"修女的修道服",
 		"types":"CLOTHES",
-		"prices":0,
+		"prices":1000,
+		"can_use":true,
+		"important":true
+	},
+	{
+		"id":"c14",
+		"name":"结婚礼服",
+		"description":"结婚时穿的礼服",
+		"types":"CLOTHES",
+		"prices":10000,
 		"can_use":true,
 		"important":true
 	},
@@ -77,6 +113,33 @@
 		"description":"睡衣",
 		"types":"CLOTHES",
 		"prices":0,
+		"can_use":true,
+		"important":true
+	},
+	{
+		"id":"c17",
+		"name":"倾国礼服",
+		"description":"倾国倾城的礼服",
+		"types":"CLOTHES",
+		"prices":10000,
+		"can_use":true,
+		"important":true
+	},
+	{
+		"id":"c18",
+		"name":"魔公主礼服",
+		"description":"象征着魔公主的礼服",
+		"types":"CLOTHES",
+		"prices":10000,
+		"can_use":true,
+		"important":true
+	},
+	{
+		"id":"c19",
+		"name":"龙的礼服",
+		"description":"龙的礼服",
+		"types":"CLOTHES",
+		"prices":10000,
 		"can_use":true,
 		"important":true
 	}

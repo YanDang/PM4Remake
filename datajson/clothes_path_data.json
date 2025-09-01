@@ -1,0 +1,47 @@
+{
+	"child":{
+		"常服":"res://assets/Patricia Halliwel/ch01c01.png",
+		"夏季服":"res://assets/Patricia Halliwel/ch01c02.png",
+		"冬季服":"res://assets/Patricia Halliwel/ch01c03.png",
+		"洋装":"res://assets/Patricia Halliwel/ch01c04.png",
+		"丝质洋装":"res://assets/Patricia Halliwel/ch01c05.png",
+		"武术服":"res://assets/Patricia Halliwel/ch01c07.png",
+		"修道服":"res://assets/Patricia Halliwel/ch01c12.png",
+		"不良装扮":"res://assets/Patricia Halliwel/ch01c15.png",
+		"睡衣":"res://assets/Patricia Halliwel/ch01c16.png"
+	},
+	"teen":{
+		"常服":"res://assets/Patricia Halliwel/ch01l01.png",
+		"夏季服":"res://assets/Patricia Halliwel/ch01l02.png",
+		"冬季服":"res://assets/Patricia Halliwel/ch01l03.png",
+		"洋装":"res://assets/Patricia Halliwel/ch01l04.png",
+		"丝质洋装":"res://assets/Patricia Halliwel/ch01l05.png",
+		"豪华礼服":"res://assets/Patricia Halliwel/ch01l06.png",
+		"武术服":"res://assets/Patricia Halliwel/ch01l07.png",
+		"魔术师服":"res://assets/Patricia Halliwel/ch01l08.png",
+		"皮衣":"res://assets/Patricia Halliwel/ch01l11.png",
+		"修道服":"res://assets/Patricia Halliwel/ch01l12.png",
+		"不良装扮":"res://assets/Patricia Halliwel/ch01l15.png",
+		"睡衣":"res://assets/Patricia Halliwel/ch01l16.png",
+		"魔公主礼服":"res://assets/Patricia Halliwel/ch01l18.png",
+		"龙的礼服":"res://assets/Patricia Halliwel/ch01l19.png"
+	},
+	"adult":{
+		"常服":"res://assets/Patricia Halliwel/ch01h01.png",
+		"夏季服":"res://assets/Patricia Halliwel/ch01h02.png",
+		"冬季服":"res://assets/Patricia Halliwel/ch01h03.png",
+		"洋装":"res://assets/Patricia Halliwel/ch01h04.png",
+		"丝质洋装":"res://assets/Patricia Halliwel/ch01h05.png",
+		"豪华礼服":"res://assets/Patricia Halliwel/ch01h06.png",
+		"武术服":"res://assets/Patricia Halliwel/ch01h07.png",
+		"魔术师服":"res://assets/Patricia Halliwel/ch01h08.png",
+		"皮衣":"res://assets/Patricia Halliwel/ch01h11.png",
+		"修道服":"res://assets/Patricia Halliwel/ch01h12.png",
+		"结婚礼服":"res://assets/Patricia Halliwel/ch01h14.png",
+		"不良装扮":"res://assets/Patricia Halliwel/ch01h15.png",
+		"睡衣":"res://assets/Patricia Halliwel/ch01h16.png",
+		"倾国礼服":"res://assets/Patricia Halliwel/ch01h17.png",
+		"魔公主礼服":"res://assets/Patricia Halliwel/ch01h18.png",
+		"龙的礼服":"res://assets/Patricia Halliwel/ch01h19.png"
+	}
+}

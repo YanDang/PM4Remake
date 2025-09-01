@@ -1,5 +1,7 @@
 extends Node
 
+enum AgeStageType {CHILD,TEEN,ADULT}
+
 ## 名字
 var firstname:String="帕特莉希娅"
 var secondname:String="海威尔"
@@ -32,7 +34,8 @@ var stress:int=clamp(0,0,999)
 
 ## 年龄
 var age:int = 10
-var age_stage = "child"
+var age_stage_names = ["child","teen","adult"]
+var age_stage = AgeStageType.CHILD
 ## 出生日期
 var birth_year:int=1430
 var birth_month:int=4

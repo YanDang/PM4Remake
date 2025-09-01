@@ -4,6 +4,8 @@ extends Node2D
 @onready var ui: CanvasLayer = $".."
 @onready var dautghter_live: Node2D = $"../../DautghterLive"
 
+@onready var previous: Button = $Previous
+@onready var next: Button = $Next
 
 # 基本位移量
 var base_heigh:int = 38
@@ -53,32 +55,52 @@ func on_button_pressed(_button:Button,item:Item):
 		ui.CloseCanvas()
 		dautghter_live.ChangeClothes(item.name)
 
+func on_choice_pressed(i:int):
+	var slots_index = i + start_index
+	if slots_index < len(Inventory.slots):
+		var item:Item = Inventory.slots[slots_index]["item"]
+		on_button_pressed($GridContainer.get_node("Button" + str(i)), item)
+
 ## 加载按钮,一次全加载出来算了……没用到的直接hide
 func LoadChoices() -> void:
 	$GridContainer.size.y = max_item_nums * base_heigh
-	for i in range(1,max_item_nums):
-		var new_choice = $GridContainer/Button0.duplicate()
-		new_choice.name = "Button" + str(i)
-		$GridContainer.add_child(new_choice)
+	for i in range(max_item_nums):
+		var new_choice:Button
+		if i == 0:
+			new_choice = $GridContainer/Button0
+		else:
+			new_choice = $GridContainer/Button0.duplicate()
+			new_choice.name = "Button" + str(i)
+			$GridContainer.add_child(new_choice)
+		new_choice.pressed.connect(func():on_choice_pressed(i))
+		# 连接鼠标进入信号，同时传递按钮和索引
+		new_choice.mouse_entered.connect(func(): on_button_hovered(new_choice, i))
+		# 连接鼠标离开信号（可选）
+		new_choice.mouse_exited.connect(func(): on_button_unhovered(new_choice, i))
 
 ## 更新选项并且更新函数事件
 func UpdateChoice() -> void:
 	var choice_nums:int = min(item_nums-start_index,max_item_nums)
 	var temp_node:Button
+	var slots_index:int
 	for i in range(choice_nums):
+		slots_index = i + start_index
 		# 获取所有的选项
 		temp_node = $GridContainer.get_node("Button"+str(i))
 		temp_node.show()
-		temp_node.text = Inventory.slots[i]["item"].name
-		temp_node.get_node("Label").text = str(Inventory.slots[i]["item"].prices) + " G"
-		temp_node.pressed.connect(func():on_button_pressed(temp_node,Inventory.slots[i]["item"]))
-		# 连接鼠标进入信号，同时传递按钮和索引
-		temp_node.mouse_entered.connect(func(): on_button_hovered(temp_node, i))
-		# 连接鼠标离开信号（可选）
-		temp_node.mouse_exited.connect(func(): on_button_unhovered(temp_node, i))
+		temp_node.text = Inventory.slots[slots_index]["item"].name
+		temp_node.get_node("Label").text = str(Inventory.slots[slots_index]["item"].prices) + " G"
 	for i in range(choice_nums,max_item_nums):
 		temp_node = $GridContainer.get_node("Button"+str(i))
 		temp_node.hide()
+	if start_index <= 0:
+		previous.hide()
+	else:
+		previous.show()
+	if start_index+max_item_nums > item_nums:
+		next.hide()
+	else:
+		next.show()
 
 func _on_next_pressed() -> void:
 	start_index += 5
@@ -87,3 +109,4 @@ func _on_next_pressed() -> void:
 func _on_previous_pressed() -> void:
 	start_index -= 5
 	UpdateChoice()
+	

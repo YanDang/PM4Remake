@@ -230,6 +230,12 @@ func _on_health_button_down() -> void:
 
 func _on_item_button_down() -> void:
 	OnAnimation()
+	# 在显示时对仓库进行一次排序
+	Inventory.SortSlots()
+	# 每次进入重置index
+	item.start_index = 0
+	item.item_nums = len(Inventory.slots)
+	item.UpdateChoice()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
