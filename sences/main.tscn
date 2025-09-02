@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=35 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://brrq0pfen5h0o" path="res://scripts/main_sence/health.gd" id="21_y2vmt"]
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
 [ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/ui/money.gd" id="22_ijfao"]
+[ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="25_kn2hr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -1478,6 +1479,9 @@ theme_override_font_sizes/font_size = 20
 text = "1000000"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
+layer = 2
 
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI/DailyAction" method="_on_status_button_down"]

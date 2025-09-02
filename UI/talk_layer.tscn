@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=3 uid="uid://dphqni55a6j0o"]
+
+[ext_resource type="Script" uid="uid://dnvabybhbdkdx" path="res://scripts/talk/talk_layer.gd" id="1_opmkx"]
+[ext_resource type="Texture2D" uid="uid://igda0sebo5ub" path="res://assets/sys/w_mess.png" id="2_opmkx"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="3_26vjv"]
+[ext_resource type="Texture2D" uid="uid://fjo3isbdudiv" path="res://assets/sys/w_face1.png" id="4_rhlbh"]
+[ext_resource type="Texture2D" uid="uid://c621knbca3l2m" path="res://assets/PM4_FC/f_dc01.png" id="5_rl8ay"]
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="6_oxcfx"]
+[ext_resource type="Texture2D" uid="uid://d18aenfaedcdj" path="res://assets/sys/w_mwait.png" id="7_5v4b8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccdaq"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(0, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yuc7"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(30, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idm1v"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(60, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sk8m"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(90, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jtw3"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(120, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tira"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(150, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehf2w"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(180, 0, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8meo2"]
+atlas = ExtResource("7_5v4b8")
+region = Rect2(210, 0, 30, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qebi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccdaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yuc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idm1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sk8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jtw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tira")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehf2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8meo2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="TalkLayer" type="CanvasLayer"]
+script = ExtResource("1_opmkx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -750.0
+offset_right = 1000.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TalkEvent" type="Node2D" parent="."]
+position = Vector2(320, 800)
+scale = Vector2(2, 2)
+
+[node name="TalkBox" type="Sprite2D" parent="TalkEvent"]
+position = Vector2(219, 1)
+texture = ExtResource("2_opmkx")
+
+[node name="TalkText" type="Label" parent="TalkEvent/TalkBox"]
+offset_left = -190.0
+offset_top = -30.0
+offset_right = 160.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/line_spacing = -4
+theme_override_constants/paragraph_spacing = -1
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_26vjv")
+theme_override_font_sizes/font_size = 20
+text = "测试文本
+测试文本
+测试文本"
+autowrap_mode = 1
+
+[node name="People" type="Sprite2D" parent="TalkEvent"]
+texture = ExtResource("4_rhlbh")
+
+[node name="Headshot" type="Sprite2D" parent="TalkEvent/People"]
+position = Vector2(-63, 10)
+texture = ExtResource("5_rl8ay")
+
+[node name="FirstName" type="Label" parent="TalkEvent/People"]
+offset_left = -72.0
+offset_top = -58.0
+offset_right = 8.0
+offset_bottom = -38.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_oxcfx")
+theme_override_font_sizes/font_size = 15
+text = "帕特莉希娅"
+vertical_alignment = 1
+
+[node name="NextArrow" type="AnimatedSprite2D" parent="TalkEvent"]
+position = Vector2(396, 34)
+sprite_frames = SubResource("SpriteFrames_qebi0")
+autoplay = "default"
+frame_progress = 0.617345

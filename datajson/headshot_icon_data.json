@@ -1,0 +1,25 @@
+{
+    "charles":"f_ch",
+    "jeep":"f_cu",
+    "daughter":{
+        "child":"f_dc",
+        "teen":"f_dl",
+        "adult":"f_dh"},
+    "christina":{
+        "child":"f_krc",
+        "teen":"f_krl",
+        "adult":"f_krh"},
+    "lee":"f_le",
+    "lise":{
+        "child":"f_lic",
+        "teen":"f_lil",
+        "adult":"f_lih"
+    },
+    "marie":{
+        "child":"f_mec",
+        "teen":"f_mel",
+        "adult":"f_meh"
+    },
+    "baora":"f_va",
+    "other":"f_sub"
+}
