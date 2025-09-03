@@ -1,0 +1,34 @@
+{ 
+	"顺其自然":[ 
+		{
+			"character": "jeep",
+			"emotion": "calm",
+			"text": "小姐的饮食策略已切换为顺其自然，日常作息将按自然节奏进行。",
+			"voice": ""
+		}
+	],
+	"活泼取向":[
+		{
+			"character": "jeep",
+			"emotion": "happy",
+			"text": "小姐的饮食策略已切换为活泼取向，食谱将更偏向轻快与活力。",
+			"voice": ""
+		}
+	],
+	"娴静取向":[
+		{
+			"character": "jeep",
+			"emotion": "calm",
+			"text": "小姐的饮食策略已切换为娴静取向，餐点将更注重清淡与安宁。",
+			"voice": ""
+		} 
+	], 
+	"进行减肥":[ 
+		{ 
+			"character": "jeep", 
+			"emotion": "doubtful", 
+			"text": "小姐已选择进行减肥，请务必注意营养均衡与身体健康。", 
+			"voice": "" 
+		} 
+	] 
+}

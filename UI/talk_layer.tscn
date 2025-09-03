@@ -101,20 +101,21 @@ texture = ExtResource("2_opmkx")
 offset_left = -190.0
 offset_top = -30.0
 offset_right = 160.0
-offset_bottom = 50.0
+offset_bottom = 47.0
 theme_override_colors/font_color = Color(0.996078, 0.94902, 0.901961, 1)
 theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
 theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
-theme_override_constants/line_spacing = -4
-theme_override_constants/paragraph_spacing = -1
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("3_26vjv")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "测试文本
 测试文本
 测试文本"
 autowrap_mode = 1
+max_lines_visible = 3
 
 [node name="People" type="Sprite2D" parent="TalkEvent"]
 texture = ExtResource("4_rhlbh")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=36 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
+[ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_1j6d1"]
 [ext_resource type="Script" uid="uid://bjgkgtecsiptg" path="res://scripts/ui/ui.gd" id="3_nevkc"]
 [ext_resource type="PackedScene" uid="uid://dfbhhdlxskhds" path="res://illustration/dautghter_live.tscn" id="3_r4dii"]
@@ -61,6 +62,7 @@ atlas = ExtResource("15_bswka")
 region = Rect2(1, 457, 20, 14)
 
 [node name="main" type="Node"]
+script = ExtResource("1_e225g")
 
 [node name="BackGround" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -1482,6 +1484,7 @@ vertical_alignment = 1
 
 [node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
 layer = 2
+visible = false
 
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI/DailyAction" method="_on_status_button_down"]
@@ -1490,3 +1493,4 @@ layer = 2
 [connection signal="button_down" from="UI/DailyAction/Item" to="UI" method="_on_item_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Street" to="UI" method="_on_street_button_down"]
 [connection signal="button_down" from="UI/DailyAction/System" to="UI" method="_on_system_button_down"]
+[connection signal="talk_end" from="TalkLayer" to="UI/Talk" method="_on_talk_layer_talk_end"]

@@ -16,9 +16,11 @@ var now_canvas_type = CanvasType.MAIN
 
 # 对话
 @onready var talk: Node2D = $Talk/Talk
+@onready var talk_console:Node = $Talk
 
 # 健康
 @onready var health: Node2D = $Health/Health
+@onready var health_console: Node = $Health
 
 # 道具
 @onready var item: Node2D = $Item
@@ -205,6 +207,7 @@ func _on_status_button_down() -> void:
 	tween.tween_callback(func():now_canvas_type=CanvasType.STATUS)
 
 func _on_talk_button_down() -> void:
+	talk_console.LoadJsonData()
 	OnAnimation()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -217,6 +220,7 @@ func _on_talk_button_down() -> void:
 	tween.tween_callback(func():now_canvas_type=CanvasType.TALK)
 
 func _on_health_button_down() -> void:
+	health_console.LoadJsonData()
 	OnAnimation()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

@@ -1,0 +1,104 @@
+{
+    "child": {
+        "greeting": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "早安爸爸！今天可以一起吃早饭吗？",
+                "voice": ""
+            }
+        ],
+        "softly": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "爸爸最温柔了，我最喜欢跟爸爸在一起！",
+                "voice": ""
+            }
+        ],
+        "sternly": [
+            {
+                "character": "daughter",
+                "emotion": "sad",
+                "text": "是不是我做错了什么……爸爸不要生气……",
+                "voice": ""
+            }
+        ],
+        "allowance": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "谢谢爸爸！我会把钱存起来买小玩具~",
+                "voice": ""
+            }
+        ]
+    },
+    "teen": {
+        "greeting": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "早啊爸爸，我要赶去学校了，你也要加油！",
+                "voice": ""
+            }
+        ],
+        "softly": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "爸爸这样关心我……其实我挺开心的。",
+                "voice": ""
+            }
+        ],
+        "sternly": [
+            {
+                "character": "daughter",
+                "emotion": "sad",
+                "text": "好吧，是我不对……下次我会注意的。",
+                "voice": ""
+            }
+        ],
+        "allowance": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "谢啦爸，我会用在正经地方的！",
+                "voice": ""
+            }
+        ]
+    },
+    "adult": {
+        "greeting": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "早上好爸爸，今天也要加油哦。",
+                "voice": ""
+            }
+        ],
+        "softly": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "爸爸一直这么体贴，我真的很感激。",
+                "voice": ""
+            }
+        ],
+        "sternly": [
+            {
+                "character": "daughter",
+                "emotion": "sad",
+                "text": "我明白了，是我考虑不周，下次会做得更好。",
+                "voice": ""
+            }
+        ],
+        "allowance": [
+            {
+                "character": "daughter",
+                "emotion": "happy",
+                "text": "谢谢爸爸，我会认真规划这笔钱的。",
+                "voice": ""
+            }
+        ]
+    }
+}

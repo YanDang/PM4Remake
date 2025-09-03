@@ -10,8 +10,3 @@ var image_paths = [
 func _ready() -> void:
 	var image_rand = randi() % 3
 	self.texture = load(image_paths[image_rand])
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

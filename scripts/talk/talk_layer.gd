@@ -3,8 +3,11 @@ extends CanvasLayer
 @onready var talk_text: Label = $TalkEvent/TalkBox/TalkText
 @onready var headshot: Sprite2D = $TalkEvent/People/Headshot
 @onready var first_name: Label = $TalkEvent/People/FirstName
+
 # 女主和女配有年龄差分
 @onready var special_name: Array = ["daughter","lise","christina","marie"]
+
+signal talk_end
 
 # 平静，开心，生气，失望，惊讶，怀疑，喜出望外，伤心，不满，不耐烦，生病
 @onready var emotions:Dictionary = {
@@ -23,24 +26,35 @@ extends CanvasLayer
 
 var icon_path:String
 
-var talk_even = [["daughter","happy","感谢游玩！"],["daughter","calm","这是PM4重制版"],["daughter","surprised","项目免费开源"]]
-var current_index = 0
+var current_index:int = 0
+var talk_even:Array
 
-func _ready() -> void:
-	$ColorRect.MOUSE_FILTER_STOP
+func TalkStart(talk_array:Array):
+	current_index = 0
+	show()
+	talk_even = talk_array
+	set_process_input(true)
+	TalkPolling()  # 立刻显示第一句
+	
 
-func talk_polling(talk_even:Array):
+func TalkEnd():
+	set_process_input(false)  # 完全停止输入处理
+	hide()
+
+func TalkPolling():
 	if current_index < talk_even.size():
 		var entry = talk_even[current_index]
-		Happen(entry[0], entry[1], entry[2])
+		Happen(entry["character"], entry["emotion"], entry["text"])
 		current_index += 1
 	else:
-		hide()
+		# 发射结束信号
+		emit_signal("talk_end")
+		TalkEnd()
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirm"):
-		talk_polling(talk_even)
+		TalkPolling()
 
 # 谁，什么情绪，说啥了
 func Happen(who:String,emotion:String,text:String) -> void:
@@ -52,11 +66,10 @@ func Happen(who:String,emotion:String,text:String) -> void:
 	if who == "daughter":
 		first_name.text = Daughterstatus.firstname
 	else:
-		first_name.text = who
+		first_name.text = Globaljson.human_translation[who]
 	if not emotions.get(emotion):
 		headshot.hide()
 		push_warning("Load emotion ERROR")
 		return
-	print(icon_path)
 	headshot.texture = load(icon_path)
 	talk_text.text = text
