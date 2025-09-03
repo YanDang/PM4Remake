@@ -22,16 +22,6 @@ func UpdateProgressBar(target_sprite:Sprite2D,val:int):
 	target_sprite.get_node("TextureProgressBar").value = val
 
 func UpdateStatus() -> void:
-	UpdateProgressBar(stamina,Daughterstatus.stamina)
-	UpdateProgressBar(smarts,Daughterstatus.smarts)
-	UpdateProgressBar(charm,Daughterstatus.charm)
-	UpdateProgressBar(pride,Daughterstatus.pride)
-	UpdateProgressBar(morals,Daughterstatus.morals)
-	UpdateProgressBar(highclass,Daughterstatus.highclass)
-	UpdateProgressBar(sensitive,Daughterstatus.sensitive)
-	UpdateProgressBar(temper,Daughterstatus.temper)
-	UpdateProgressBar(fame,Daughterstatus.fame)
-	UpdateProgressBar(martial,Daughterstatus.martial)
-	UpdateProgressBar(magic,Daughterstatus.magic)
-	UpdateProgressBar(crime,Daughterstatus.crime)
-	UpdateProgressBar(stress,Daughterstatus.stress)
+	for key in Daughterstatus.attributes.keys():
+		var node = get_node(key) # 假设 UI 节点名字和 key 一致
+		UpdateProgressBar(node, Daughterstatus.attributes[key])

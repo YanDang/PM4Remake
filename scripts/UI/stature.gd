@@ -15,8 +15,8 @@ func UpdateProgressBar(target_sprite:Sprite2D,val:int):
 	target_sprite.get_node("TextureProgressBar").value = val
 
 func UpdateStatus() -> void:
-	UpdateProgressBar(height,Daughterstatus.height)
-	UpdateProgressBar(weight,Daughterstatus.weight)
-	UpdateProgressBar(b,int(Daughterstatus.bust))
-	UpdateProgressBar(w,int(Daughterstatus.waist))
-	UpdateProgressBar(h,int(Daughterstatus.hips))
+	UpdateProgressBar(height, Daughterstatus.body_stats["height"])
+	UpdateProgressBar(weight, Daughterstatus.body_stats["weight"])
+	UpdateProgressBar(b, int(Daughterstatus.body_stats["bust"]))
+	UpdateProgressBar(w, int(Daughterstatus.body_stats["waist"]))
+	UpdateProgressBar(h, int(Daughterstatus.body_stats["hips"]))

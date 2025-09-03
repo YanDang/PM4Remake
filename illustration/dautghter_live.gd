@@ -37,7 +37,7 @@ func ChangeClothes(clothes_name:String):
 		timer.start()
 
 func _ready() -> void:
-	Daughterstatus.age_stage = Daughterstatus.AgeStageType.TEEN
+	Daughterstatus.age_stage = Daughterstatus.AgeStageType.CHILD
 	cloth_file_dict = Globaljson.clothes_path[Daughterstatus.age_stage_names[Daughterstatus.age_stage]]
 	print(Daughterstatus.age_stage)
 	Inventory.AddItem("c14")

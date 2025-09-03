@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var special_name: Array = ["daughter","lise","christina","marie"]
 
 signal talk_end
+signal attribute_settle
 
 # 平静，开心，生气，失望，惊讶，怀疑，喜出望外，伤心，不满，不耐烦，生病
 @onready var emotions:Dictionary = {
@@ -35,7 +36,6 @@ func TalkStart(talk_array:Array):
 	talk_even = talk_array
 	set_process_input(true)
 	TalkPolling()  # 立刻显示第一句
-	
 
 func TalkEnd():
 	set_process_input(false)  # 完全停止输入处理
@@ -48,14 +48,21 @@ func TalkPolling():
 		current_index += 1
 	else:
 		# 发射结束信号
-		emit_signal("talk_end")
-		TalkEnd()
-
+		emit_signal("attribute_settle")
+		
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirm"):
 		TalkPolling()
-
+	elif event.is_action_pressed("next_view"):
+		if current_index < len(talk_even):
+			TalkPolling()
+	elif event.is_action_pressed("back_view"):
+		if current_index > 1:
+			current_index -= 2 
+			TalkPolling()
+	# 吃事件,阻止事件向下传递
+	get_viewport().set_input_as_handled()
 # 谁，什么情绪，说啥了
 func Happen(who:String,emotion:String,text:String) -> void:
 	if who in special_name:
@@ -73,3 +80,7 @@ func Happen(who:String,emotion:String,text:String) -> void:
 		return
 	headshot.texture = load(icon_path)
 	talk_text.text = text
+
+func _on_arrtibute_settle_end() -> void:
+	emit_signal("talk_end")
+	TalkEnd()

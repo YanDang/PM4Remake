@@ -1,6 +1,7 @@
 extends Node
 
 @onready var talk_layer: CanvasLayer = $"../../TalkLayer"
+@onready var arrtibute: CanvasLayer = $"../../Arrtibute"
 @onready var talk_names:Array = ["greeting","softly","sternly","allowance"]
 @onready var ui: CanvasLayer = $".."
 @onready var talk: Node2D = $Talk
@@ -18,3 +19,6 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 
 func _on_talk_layer_talk_end() -> void:
 	ui.CloseCanvas()
+
+func _on_talk_layer_attribute_settle() -> void:
+	arrtibute.AnnotationStart({"charm":10})

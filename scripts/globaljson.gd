@@ -5,6 +5,7 @@ var items:Dictionary
 var clothes_path:Dictionary
 var icon_path:Dictionary
 var human_translation:Dictionary
+#var arrtibute_translation:Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +13,8 @@ func _ready() -> void:
 	LoadItemsFromJson("res://datajson/item_data.json")
 	clothes_path = JSON.parse_string(FileAccess.open("res://datajson/clothes_path_data.json", FileAccess.READ).get_as_text())
 	icon_path = JSON.parse_string(FileAccess.open("res://datajson/headshot_icon_data.json", FileAccess.READ).get_as_text())
-	human_translation = JSON.parse_string(FileAccess.open("res://datajson/human_translation.json", FileAccess.READ).get_as_text())
+	human_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/human_translation.json", FileAccess.READ).get_as_text())
+	#arrtibute_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/arrtibute_translation.json", FileAccess.READ).get_as_text())
 
 func LoadItemsFromJson(path:String):
 	var file = FileAccess.open(path,FileAccess.READ)

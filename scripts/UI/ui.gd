@@ -79,8 +79,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirm"):
 		if now_canvas_type == CanvasType.STATUS:
 			CloseCanvas()
-			
-					
 
 func LeaveStatus() -> void:
 	var tween = get_tree().create_tween()
@@ -201,6 +199,10 @@ func _on_status_button_down() -> void:
 		birthday.show()
 		stature.show()
 		character_attribute.show())
+	# 显示的时候做一次更新
+	stature.UpdateStatus()
+	character_attribute.UpdateStatus()
+	
 	tween.tween_property(birthday, "position", birthday.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(stature, "position", stature.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(character_attribute, "position", character_attribute.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

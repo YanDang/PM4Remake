@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=37 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
 [ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/ui/money.gd" id="22_ijfao"]
 [ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="25_kn2hr"]
+[ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="27_52x8f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -1486,6 +1487,11 @@ vertical_alignment = 1
 layer = 2
 visible = false
 
+[node name="Arrtibute" parent="." instance=ExtResource("27_52x8f")]
+visible = false
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI/DailyAction" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Talk" to="UI" method="_on_talk_button_down"]
@@ -1493,4 +1499,6 @@ visible = false
 [connection signal="button_down" from="UI/DailyAction/Item" to="UI" method="_on_item_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Street" to="UI" method="_on_street_button_down"]
 [connection signal="button_down" from="UI/DailyAction/System" to="UI" method="_on_system_button_down"]
+[connection signal="attribute_settle" from="TalkLayer" to="UI/Talk" method="_on_talk_layer_attribute_settle"]
 [connection signal="talk_end" from="TalkLayer" to="UI/Talk" method="_on_talk_layer_talk_end"]
+[connection signal="settle_end" from="Arrtibute" to="TalkLayer" method="_on_arrtibute_settle_end"]

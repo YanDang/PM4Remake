@@ -1,0 +1,612 @@
+[gd_scene load_steps=7 format=3 uid="uid://o1kucs5hpvp2"]
+
+[ext_resource type="Script" uid="uid://dmnh06c83a4qx" path="res://scripts/ui/arrtibute.gd" id="1_tdh6y"]
+[ext_resource type="Texture2D" uid="uid://b2ft0o882hnx" path="res://assets/sys/empty_stat.png" id="2_ncq4b"]
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="3_qk3lr"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="4_iyef2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdh6y"]
+atlas = ExtResource("2_ncq4b")
+region = Rect2(0, 0, 212, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s27p2"]
+atlas = ExtResource("2_ncq4b")
+region = Rect2(1, 457, 20, 14)
+
+[node name="Arrtibute" type="CanvasLayer"]
+script = ExtResource("1_tdh6y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -750.0
+offset_right = 1000.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ArrtibuteList" type="GridContainer" parent="."]
+z_index = 5
+offset_left = 665.0
+offset_top = 180.0
+offset_right = 877.0
+offset_bottom = 518.0
+theme_override_constants/v_separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="stamina" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/stamina"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "体力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/stamina"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/stamina"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="smarts" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/smarts"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "智力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/smarts"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(1, 0.701961, 0.627451, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/smarts"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="charm" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/charm"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "魅力"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/charm"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/charm"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="pride" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/pride"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "自尊"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/pride"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/pride"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="morals" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/morals"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "道德"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/morals"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/morals"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="highclass" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/highclass"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "气质"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/highclass"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/highclass"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="sensitive" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/sensitive"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "感受"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/sensitive"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/sensitive"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="temper" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/temper"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "体贴"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/temper"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/temper"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="fame" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/fame"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "知名度"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/fame"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/fame"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="martial" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/martial"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "武术"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/martial"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/martial"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="magic" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/magic"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "魔法"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/magic"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/magic"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="crime" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/crime"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "罪孽"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/crime"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/crime"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
+
+[node name="stress" type="TextureRect" parent="ArrtibuteList"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdh6y")
+
+[node name="Label" type="Label" parent="ArrtibuteList/stress"]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.960784, 0.729412, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0.72549, 0.364706, 0.298039, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qk3lr")
+theme_override_font_sizes/font_size = 14
+text = "疲劳"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="ArrtibuteList/stress"]
+offset_left = 87.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.627451, 1, 0.854902, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_iyef2")
+theme_override_font_sizes/font_size = 16
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/stress"]
+offset_left = 133.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 21.0
+max_value = 500.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_s27p2")
