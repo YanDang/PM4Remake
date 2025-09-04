@@ -14,8 +14,7 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 	Global.health_index = choice_index
 	talk_layer.TalkStart(conversation[health_tactics])
 	health.hide()
-	for key in Globaljson.health_growth[Daughterstatus.age_stage_names[Daughterstatus.age_stage]][health_tactics].keys():
-		Global.set(key,Globaljson.health_growth[Daughterstatus.age_stage_names[Daughterstatus.age_stage]][health_tactics][key])
+	Global.growth_rates = Globaljson.health_growth[Daughterstatus.age_stage_names[Daughterstatus.age_stage]][health_tactics]
 
 func _on_talk_layer_talk_end() -> void:
 	health_stat.UpdateStatus()

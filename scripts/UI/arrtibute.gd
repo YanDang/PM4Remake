@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var arrtibute_list: GridContainer = $ArrtibuteList
+@onready var talk_layer: CanvasLayer = $"../TalkLayer"
 
 @onready var attribute_nodes:Dictionary = {
 	"stamina": $ArrtibuteList/stamina,
@@ -63,7 +64,7 @@ func AnnotationStart(arrtibute_dict:Dictionary):
 		else:
 			num.add_theme_color_override("font_color",colors["normal"])
 		# 全局数值更新
-		Daughterstatus.attributes[key] += arrtibute_dict[key]
+		Daughterstatus.attributes[key] = clamp(Daughterstatus.attributes[key]+arrtibute_dict[key],0,999)
 		num.text = str(int(Daughterstatus.attributes[key]))
 		progressbar.value = Daughterstatus.attributes[key]
 	tween.tween_callback(func():annotation_visible=true)
@@ -74,3 +75,6 @@ func AnnotationEnd():
 	tween.tween_callback(AttributeHide)
 	tween.tween_callback(hide)
 	tween.tween_callback(func():emit_signal("settle_end"))
+
+func _on_talk_layer_attribute_settle(attribute_dict: Variant) -> void:
+	AnnotationStart(attribute_dict)

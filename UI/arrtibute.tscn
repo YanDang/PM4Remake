@@ -44,6 +44,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/stamina"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -58,6 +59,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/stamina"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -74,6 +76,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/stamina"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -88,6 +91,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/smarts"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -102,6 +106,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/smarts"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -118,6 +123,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/smarts"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -132,6 +138,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/charm"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -146,6 +153,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/charm"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -162,6 +170,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/charm"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -176,6 +185,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/pride"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -190,6 +200,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/pride"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -206,6 +217,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/pride"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -220,6 +232,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/morals"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -234,6 +247,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/morals"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -250,6 +264,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/morals"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -264,6 +279,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/highclass"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -278,6 +294,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/highclass"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -294,6 +311,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/highclass"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -308,6 +326,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/sensitive"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -322,6 +341,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/sensitive"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -338,6 +358,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/sensitive"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -352,6 +373,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/temper"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -366,6 +388,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/temper"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -382,6 +405,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/temper"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -396,6 +420,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/fame"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -410,6 +435,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/fame"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -426,6 +452,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/fame"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -440,6 +467,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/martial"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -454,6 +482,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/martial"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -470,6 +499,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/martial"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -484,6 +514,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/magic"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -498,6 +529,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/magic"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -514,6 +546,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/magic"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -528,6 +561,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/crime"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -542,6 +576,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/crime"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -558,6 +593,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/crime"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0
@@ -572,6 +608,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tdh6y")
 
 [node name="Label" type="Label" parent="ArrtibuteList/stress"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 48.0
@@ -586,6 +623,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Num" type="Label" parent="ArrtibuteList/stress"]
+layout_mode = 0
 offset_left = 87.0
 offset_top = 2.0
 offset_right = 127.0
@@ -602,6 +640,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ArrtibuteList/stress"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 7.0
 offset_right = 197.0

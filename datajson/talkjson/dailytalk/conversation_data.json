@@ -56,6 +56,12 @@
         ],
         "allowance": [
             {
+                "character": "",
+                "emotion": "",
+                "text": "给了她50G的零用钱。",
+                "voice": ""
+            },
+            {
                 "character": "daughter",
                 "emotion": "happy",
                 "text": "谢谢爸爸！我会把钱存起来买小玩具~",

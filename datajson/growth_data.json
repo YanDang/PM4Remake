@@ -1,176 +1,224 @@
 {
-	"child":{
-		"顺其自然":{
-			"height_monthly_growth":0.39,
-			"weight_monthly_growth":0.26,
-			"bust_monthly_growth":0.3,
-			"waist_monthly_growth":0.15,
-			"hip_monthly_growth":0.33,
-			"stamina_monthly_growth":0,
-			"height_annual_growth":4.68,
-			"weight_annual_growth":3.12,
-			"bust_annual_growth":3.6,
-			"waist_annual_growth":1.8,
-			"hip_annual_growth":3.96,
-			"stamina_annual_growth":0
-		},
-		"活泼取向":{
-			"height_monthly_growth":0.5,
-			"weight_monthly_growth":0.7,
-			"bust_monthly_growth":0.4,
-			"waist_monthly_growth":0.55,
-			"hip_monthly_growth":0.4,
-			"stamina_monthly_growth":2.5,
-			"height_annual_growth":6,
-			"weight_annual_growth":8.4,
-			"bust_annual_growth":4.8,
-			"waist_annual_growth":6.6,
-			"hip_annual_growth":4.8,
-			"stamina_annual_growth":30
-		},
-		"娴静取向":{
-			"height_monthly_growth":0.3,
-			"weight_monthly_growth":0.19,
-			"bust_monthly_growth":0.29,
-			"waist_monthly_growth":0.12,
-			"hip_monthly_growth":0.3,
-			"stamina_monthly_growth":-2.5,
-			"height_annual_growth":3.6,
-			"weight_annual_growth":2.28,
-			"bust_annual_growth":3.48,
-			"waist_annual_growth":1.44,
-			"hip_annual_growth":3.6,
-			"stamina_annual_growth":-30
-		},
-		"进行减肥":{
-			"height_monthly_growth":0.2,
-			"weight_monthly_growth":-0.05,
-			"bust_monthly_growth":0.25,
-			"waist_monthly_growth":-0.05,
-			"hip_monthly_growth":0.27,
-			"stamina_monthly_growth":-0.5,
-			"height_annual_growth":2.4,
-			"weight_annual_growth":-0.6,
-			"bust_annual_growth":3,
-			"waist_annual_growth":-0.6,
-			"hip_annual_growth":3.24,
-			"stamina_annual_growth":-60
-		}
-	},
-	"teen":{
-		"顺其自然":{
-			"height_monthly_growth":0.17,
-			"weight_monthly_growth":0.17,
-			"bust_monthly_growth":0.18,
-			"waist_monthly_growth":0.05,
-			"hip_monthly_growth":0.18,
-			"stamina_monthly_growth":0,
-			"height_annual_growth":2.04,
-			"weight_annual_growth":2.04,
-			"bust_annual_growth":2.16,
-			"waist_annual_growth":0.6,
-			"hip_annual_growth":2.16,
-			"stamina_annual_growth":0
-		},
-		"活泼取向":{
-			"height_monthly_growth":0.35,
-			"weight_monthly_growth":0.5,
-			"bust_monthly_growth":0.2,
-			"waist_monthly_growth":0.35,
-			"hip_monthly_growth":0.2,
-			"stamina_monthly_growth":10,
-			"height_annual_growth":4.2,
-			"weight_annual_growth":6,
-			"bust_annual_growth":2.4,
-			"waist_annual_growth":4.2,
-			"hip_annual_growth":2.4,
-			"stamina_annual_growth":60
-		},
-		"娴静取向":{
-			"height_monthly_growth":0.12,
-			"weight_monthly_growth":0.08,
-			"bust_monthly_growth":0.17,
-			"waist_monthly_growth":0.04,
-			"hip_monthly_growth":0.15,
-			"stamina_monthly_growth":-5,
-			"height_annual_growth":1.44,
-			"weight_annual_growth":0.96,
-			"bust_annual_growth":2.04,
-			"waist_annual_growth":0.48,
-			"hip_annual_growth":1.8,
-			"stamina_annual_growth":-60
-		},
-		"进行减肥":{
-			"height_monthly_growth":0.1,
-			"weight_monthly_growth":-0.4,
-			"bust_monthly_growth":0.14,
-			"waist_monthly_growth":-0.4,
-			"hip_monthly_growth":0.15,
-			"stamina_monthly_growth":-10,
-			"height_annual_growth":1.2,
-			"weight_annual_growth":-4.8,
-			"bust_annual_growth":1.68,
-			"waist_annual_growth":-4.85,
-			"hip_annual_growth":1.8,
-			"stamina_annual_growth":-120
-		}
-	},
-	"adult":{
-		"顺其自然":{
-			"height_monthly_growth":0.1,
-			"weight_monthly_growth":0.08,
-			"bust_monthly_growth":0.1,
-			"waist_monthly_growth":0.02,
-			"hip_monthly_growth":0.1,
-			"stamina_monthly_growth":0,
-			"height_annual_growth":1.2,
-			"weight_annual_growth":0.96,
-			"bust_annual_growth":1.2,
-			"waist_annual_growth":0.24,
-			"hip_annual_growth":1.2,
-			"stamina_annual_growth":0
-		},
-		"活泼取向":{
-			"height_monthly_growth":0.15,
-			"weight_monthly_growth":0.3,
-			"bust_monthly_growth":0.18,
-			"waist_monthly_growth":0.2,
-			"hip_monthly_growth":0.18,
-			"stamina_monthly_growth":10,
-			"height_annual_growth":1.8,
-			"weight_annual_growth":3.6,
-			"bust_annual_growth":2.16,
-			"waist_annual_growth":2.4,
-			"hip_annual_growth":2.16,
-			"stamina_annual_growth":60
-		},
-		"娴静取向":{
-			"height_monthly_growth":0.08,
-			"weight_monthly_growth":0.05,
-			"bust_monthly_growth":0.08,
-			"waist_monthly_growth":0.01,
-			"hip_monthly_growth":0.08,
-			"stamina_monthly_growth":-5,
-			"height_annual_growth":0.96,
-			"weight_annual_growth":0.6,
-			"bust_annual_growth":0.96,
-			"waist_annual_growth":0.12,
-			"hip_annual_growth":0.96,
-			"stamina_annual_growth":-60
-		},
-		"进行减肥":{
-			"height_monthly_growth":0.05,
-			"weight_monthly_growth":-0.6,
-			"bust_monthly_growth":0.05,
-			"waist_monthly_growth":-0.6,
-			"hip_monthly_growth":0.05,
-			"stamina_monthly_growth":-15,
-			"height_annual_growth":0.6,
-			"weight_annual_growth":-7.2,
-			"bust_annual_growth":0.6,
-			"waist_annual_growth":-7.2,
-			"hip_annual_growth":0.6,
-			"stamina_annual_growth":-180
-		}
-	}
+  "child": {
+    "顺其自然": {
+      "monthly": {
+        "height": 0.39,
+        "weight": 0.26,
+        "bust": 0.3,
+        "waist": 0.15,
+        "hip": 0.33,
+        "stamina": 0
+      },
+      "annual": {
+        "height": 4.68,
+        "weight": 3.12,
+        "bust": 3.6,
+        "waist": 1.8,
+        "hip": 3.96,
+        "stamina": 0
+      }
+    },
+    "活泼取向": {
+      "monthly": {
+        "height": 0.5,
+        "weight": 0.7,
+        "bust": 0.4,
+        "waist": 0.55,
+        "hip": 0.4,
+        "stamina": 2.5
+      },
+      "annual": {
+        "height": 6,
+        "weight": 8.4,
+        "bust": 4.8,
+        "waist": 6.6,
+        "hip": 4.8,
+        "stamina": 30
+      }
+    },
+    "娴静取向": {
+      "monthly": {
+        "height": 0.3,
+        "weight": 0.19,
+        "bust": 0.29,
+        "waist": 0.12,
+        "hip": 0.3,
+        "stamina": -2.5
+      },
+      "annual": {
+        "height": 3.6,
+        "weight": 2.28,
+        "bust": 3.48,
+        "waist": 1.44,
+        "hip": 3.6,
+        "stamina": -30
+      }
+    },
+    "进行减肥": {
+      "monthly": {
+        "height": 0.2,
+        "weight": -0.05,
+        "bust": 0.25,
+        "waist": -0.05,
+        "hip": 0.27,
+        "stamina": -0.5
+      },
+      "annual": {
+        "height": 2.4,
+        "weight": -0.6,
+        "bust": 3,
+        "waist": -0.6,
+        "hip": 3.24,
+        "stamina": -60
+      }
+    }
+  },
+  "teen": {
+    "顺其自然": {
+      "monthly": {
+        "height": 0.17,
+        "weight": 0.17,
+        "bust": 0.18,
+        "waist": 0.05,
+        "hip": 0.18,
+        "stamina": 0
+      },
+      "annual": {
+        "height": 2.04,
+        "weight": 2.04,
+        "bust": 2.16,
+        "waist": 0.6,
+        "hip": 2.16,
+        "stamina": 0
+      }
+    },
+    "活泼取向": {
+      "monthly": {
+        "height": 0.35,
+        "weight": 0.5,
+        "bust": 0.2,
+        "waist": 0.35,
+        "hip": 0.2,
+        "stamina": 10
+      },
+      "annual": {
+        "height": 4.2,
+        "weight": 6,
+        "bust": 2.4,
+        "waist": 4.2,
+        "hip": 2.4,
+        "stamina": 60
+      }
+    },
+    "娴静取向": {
+      "monthly": {
+        "height": 0.12,
+        "weight": 0.08,
+        "bust": 0.17,
+        "waist": 0.04,
+        "hip": 0.15,
+        "stamina": -5
+      },
+      "annual": {
+        "height": 1.44,
+        "weight": 0.96,
+        "bust": 2.04,
+        "waist": 0.48,
+        "hip": 1.8,
+        "stamina": -60
+      }
+    },
+    "进行减肥": {
+      "monthly": {
+        "height": 0.1,
+        "weight": -0.4,
+        "bust": 0.14,
+        "waist": -0.4,
+        "hip": 0.15,
+        "stamina": -10
+      },
+      "annual": {
+        "height": 1.2,
+        "weight": -4.8,
+        "bust": 1.68,
+        "waist": -4.85,
+        "hip": 1.8,
+        "stamina": -120
+      }
+    }
+  },
+  "adult": {
+    "顺其自然": {
+      "monthly": {
+        "height": 0.1,
+        "weight": 0.08,
+        "bust": 0.1,
+        "waist": 0.02,
+        "hip": 0.1,
+        "stamina": 0
+      },
+      "annual": {
+        "height": 1.2,
+        "weight": 0.96,
+        "bust": 1.2,
+        "waist": 0.24,
+        "hip": 1.2,
+        "stamina": 0
+      }
+    },
+    "活泼取向": {
+      "monthly": {
+        "height": 0.15,
+        "weight": 0.3,
+        "bust": 0.18,
+        "waist": 0.2,
+        "hip": 0.18,
+        "stamina": 10
+      },
+      "annual": {
+        "height": 1.8,
+        "weight": 3.6,
+        "bust": 2.16,
+        "waist": 2.4,
+        "hip": 2.16,
+        "stamina": 60
+      }
+    },
+    "娴静取向": {
+      "monthly": {
+        "height": 0.08,
+        "weight": 0.05,
+        "bust": 0.08,
+        "waist": 0.01,
+        "hip": 0.08,
+        "stamina": -5
+      },
+      "annual": {
+        "height": 0.96,
+        "weight": 0.6,
+        "bust": 0.96,
+        "waist": 0.12,
+        "hip": 0.96,
+        "stamina": -60
+      }
+    },
+    "进行减肥": {
+      "monthly": {
+        "height": 0.05,
+        "weight": -0.6,
+        "bust": 0.05,
+        "waist": -0.6,
+        "hip": 0.05,
+        "stamina": -15
+      },
+      "annual": {
+        "height": 0.6,
+        "weight": -7.2,
+        "bust": 0.6,
+        "waist": -7.2,
+        "hip": 0.6,
+        "stamina": -180
+      }
+    }
+  }
 }

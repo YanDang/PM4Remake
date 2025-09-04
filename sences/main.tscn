@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=38 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
 [ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/ui/money.gd" id="22_ijfao"]
 [ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="25_kn2hr"]
+[ext_resource type="PackedScene" uid="uid://bk7phpkjl6rqj" path="res://ui/plan_choose.tscn" id="26_w0awg"]
 [ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="27_52x8f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
@@ -1462,7 +1463,7 @@ scale = Vector2(2, 2)
 
 [node name="Money" type="Sprite2D" parent="UI"]
 visible = false
-position = Vector2(1540, 70)
+position = Vector2(1040, 70)
 scale = Vector2(2, 2)
 texture = ExtResource("21_yio88")
 script = ExtResource("22_ijfao")
@@ -1483,6 +1484,13 @@ text = "1000000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="PlanSchedule" type="Node2D" parent="UI"]
+visible = false
+
+[node name="PlanChoose" parent="UI/PlanSchedule" instance=ExtResource("26_w0awg")]
+position = Vector2(950, 450)
+scale = Vector2(2, 2)
+
 [node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
 layer = 2
 visible = false
@@ -1499,6 +1507,7 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 [connection signal="button_down" from="UI/DailyAction/Item" to="UI" method="_on_item_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Street" to="UI" method="_on_street_button_down"]
 [connection signal="button_down" from="UI/DailyAction/System" to="UI" method="_on_system_button_down"]
-[connection signal="attribute_settle" from="TalkLayer" to="UI/Talk" method="_on_talk_layer_attribute_settle"]
+[connection signal="attribute_settle" from="TalkLayer" to="Arrtibute" method="_on_talk_layer_attribute_settle"]
 [connection signal="talk_end" from="TalkLayer" to="UI/Talk" method="_on_talk_layer_talk_end"]
+[connection signal="talk_end" from="TalkLayer" to="UI/Health" method="_on_talk_layer_talk_end"]
 [connection signal="settle_end" from="Arrtibute" to="TalkLayer" method="_on_arrtibute_settle_end"]

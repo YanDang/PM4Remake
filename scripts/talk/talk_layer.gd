@@ -3,12 +3,13 @@ extends CanvasLayer
 @onready var talk_text: Label = $TalkEvent/TalkBox/TalkText
 @onready var headshot: Sprite2D = $TalkEvent/People/Headshot
 @onready var first_name: Label = $TalkEvent/People/FirstName
+@onready var arrtibute: CanvasLayer = $"../Arrtibute"
 
 # 女主和女配有年龄差分
 @onready var special_name: Array = ["daughter","lise","christina","marie"]
 
 signal talk_end
-signal attribute_settle
+signal attribute_settle(attribute_dict)
 
 # 平静，开心，生气，失望，惊讶，怀疑，喜出望外，伤心，不满，不耐烦，生病
 @onready var emotions:Dictionary = {
@@ -29,9 +30,20 @@ var icon_path:String
 
 var current_index:int = 0
 var talk_even:Array
+# 需要属性变更
+var is_settle:bool = false
+var allow_emit:bool = true
+var attribute_dict:Dictionary
 
-func TalkStart(talk_array:Array):
+func TalkStart(talk_array:Array,data_dict:Dictionary={}):
 	current_index = 0
+	if data_dict.is_empty():
+		is_settle = false
+	else:
+		is_settle = true
+		attribute_dict = data_dict
+		allow_emit = true
+		
 	show()
 	talk_even = talk_array
 	set_process_input(true)
@@ -40,6 +52,7 @@ func TalkStart(talk_array:Array):
 func TalkEnd():
 	set_process_input(false)  # 完全停止输入处理
 	hide()
+	emit_signal("talk_end")
 
 func TalkPolling():
 	if current_index < talk_even.size():
@@ -47,8 +60,14 @@ func TalkPolling():
 		Happen(entry["character"], entry["emotion"], entry["text"])
 		current_index += 1
 	else:
-		# 发射结束信号
-		emit_signal("attribute_settle")
+		if is_settle:
+			if allow_emit:
+				# 发射结束信号,等待信号回传
+				emit_signal("attribute_settle",attribute_dict)
+				allow_emit = false
+		else:
+			# 不需要计算属性
+			TalkEnd()
 		
 
 func _input(event: InputEvent) -> void:
@@ -67,6 +86,12 @@ func _input(event: InputEvent) -> void:
 func Happen(who:String,emotion:String,text:String) -> void:
 	if who in special_name:
 		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + emotions[emotion] + ".png"
+	elif who == "":
+		# 旁白
+		headshot.hide()
+		first_name.text = ""
+		talk_text.text = text
+		return 
 	else:
 		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + emotions[emotion] + ".png"
 	headshot.show()
@@ -82,5 +107,4 @@ func Happen(who:String,emotion:String,text:String) -> void:
 	talk_text.text = text
 
 func _on_arrtibute_settle_end() -> void:
-	emit_signal("talk_end")
 	TalkEnd()

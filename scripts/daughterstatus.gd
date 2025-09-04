@@ -37,11 +37,14 @@ var attributes = {
 
 ## 年龄
 var age:int = 10
-var age_stage = AgeStageType.CHILD
+var age_stage:AgeStageType = AgeStageType.CHILD
 ## 出生日期
 var birth_year:int=1430
 var birth_month:int=4
 var birth_day:int=1
+
+# 生病了吗
+var is_ill:bool = false
 
 ## 血型
 var bloodtype:String="O"
