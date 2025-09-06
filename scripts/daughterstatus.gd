@@ -62,4 +62,6 @@ var body_stats = {
 }
 
 ## 信赖度
-var trust:int=0
+var trust:int = 0
+## 魔化度
+var demonization:int = 0

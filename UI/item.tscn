@@ -186,3 +186,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]

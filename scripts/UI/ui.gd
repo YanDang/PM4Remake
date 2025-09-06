@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var plan: Button = $Plan
 @onready var health_stat: Sprite2D = $HealthStat
 
-enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM}
+enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM,PLAN}
 var now_canvas_type = CanvasType.MAIN
 
 # 状态
@@ -31,6 +31,13 @@ var now_canvas_type = CanvasType.MAIN
 
 # 系统
 @onready var system: Node2D = $System/System
+
+# 行程安排
+@onready var plan_schedule: Node2D = $PlanSchedule
+@onready var plan_choose: Node2D = $PlanSchedule/PlanChoose
+@onready var plan_panel: Node2D = $PlanSchedule/PlanPanel
+@onready var daughter_live: Node2D = $"../DaughterLive"
+
 # 动画位移
 var move_vector = Vector2(500,0)
 
@@ -42,6 +49,7 @@ func _ready() -> void:
 	system.init(["储存游戏","读取记录","设定选项","标题界面"])
 
 func InitialUI() -> void:
+	daughter_live.show()
 	date.show()
 	base_info.show()
 	health_stat.show()
@@ -55,6 +63,7 @@ func InitialUI() -> void:
 	street.hide()
 	system.hide()
 	money.hide()
+	plan_schedule.hide()
 
 # 返回主界面
 func CloseCanvas() -> void:
@@ -71,10 +80,12 @@ func CloseCanvas() -> void:
 			LeaveStreet()
 		CanvasType.SYSTEM:
 			LeaveSystem()
+		CanvasType.PLAN:
+			LeavePlan()
 	now_canvas_type = CanvasType.MAIN
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("cancel"):
+	if event.is_action_pressed("cancel") and now_canvas_type != CanvasType.PLAN:
 		CloseCanvas()
 	if event.is_action_pressed("confirm"):
 		if now_canvas_type == CanvasType.STATUS:
@@ -167,6 +178,30 @@ func LeaveSystem() -> void:
 	tween.parallel().tween_property(plan, "position", plan.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(LeaveAnimation)
 
+func LeavePlan() -> void:
+	var tween = get_tree().create_tween()  # 创建一个 Tween
+	tween.tween_property(money, "position", money.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan_choose, "position", plan_choose.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan_panel, "position", plan_panel.position-2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(func():
+		daily_action.show()
+		plan.show()
+		health_stat.show()
+		base_info.show()
+		date.show()
+		daughter_live.show())
+	tween.tween_callback(func():
+		money.hide()
+		plan_schedule.hide())
+	tween.tween_property(daily_action, "position", daily_action.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan, "position", plan.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(health_stat, "position", health_stat.position-move_vector, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(base_info, "position", base_info.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(date, "position", date.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(daughter_live,"modulate:a", 1.0, 0.5)
+	tween.tween_callback(LeaveAnimation)
+	
+
 func OnAnimation() -> void:
 	$DailyAction/Status.disabled = true
 	$DailyAction/Talk.disabled = true
@@ -188,9 +223,9 @@ func LeaveAnimation() -> void:
 func _on_status_button_down() -> void:
 	OnAnimation()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
-	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(health_stat, "position", health_stat.position+move_vector, 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(health_stat, "position", health_stat.position+move_vector, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():
 		daily_action.hide()
 		plan.hide()
@@ -243,11 +278,11 @@ func _on_item_button_down() -> void:
 	item.item_nums = len(Inventory.slots)
 	item.UpdateChoice()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
-	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(health_stat, "position", health_stat.position+move_vector, 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(base_info, "position", base_info.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(date, "position", date.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(health_stat, "position", health_stat.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(base_info, "position", base_info.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(date, "position", date.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():
 		daily_action.hide()
 		plan.hide()
@@ -291,5 +326,33 @@ func _on_system_button_down() -> void:
 		system.show())
 	tween.tween_callback(func():now_canvas_type=CanvasType.SYSTEM)
 
-func _on_cancel_button_down() -> void:
+func _on_plan_button_down() -> void:
+	OnAnimation()
+	var tween = get_tree().create_tween()  # 创建一个 Tween
+	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(health_stat, "position", health_stat.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(base_info, "position", base_info.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(date, "position", date.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(func():
+		daily_action.hide()
+		plan.hide()
+		health_stat.hide()
+		base_info.hide()
+		date.hide())
+	tween.tween_callback(func():
+		money.show()
+		plan_schedule.show())
+	tween.tween_property(money, "position", money.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan_choose, "position", plan_choose.position-2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(plan_panel, "position", plan_panel.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(daughter_live,"modulate:a", 0.0, 0.3)
+	tween.tween_callback(func():
+		now_canvas_type=CanvasType.PLAN
+		daughter_live.hide())
+	
+func _on_item_cancel_click() -> void:
+	CloseCanvas()
+
+func _on_plan_panel_plan_exit() -> void:
 	CloseCanvas()

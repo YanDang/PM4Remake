@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dfbhhdlxskhds"]
 
-[ext_resource type="Script" uid="uid://2u2gylpoytlo" path="res://illustration/dautghter_live.gd" id="1_675bg"]
 [ext_resource type="Texture2D" uid="uid://cx6ilvwv0ubwp" path="res://assets/Patricia Halliwel/ch01c01.png" id="1_887kw"]
+[ext_resource type="Script" uid="uid://cmdcvo2y6pocw" path="res://illustration/daughter_live.gd" id="1_dhmc6"]
 [ext_resource type="Texture2D" uid="uid://cimfmdsle4tpp" path="res://assets/Patricia Halliwel/ch01l01.png" id="3_dhmc6"]
 [ext_resource type="Texture2D" uid="uid://wcbrxxe85qrm" path="res://assets/Patricia Halliwel/ch01h01.png" id="3_n8dht"]
 
@@ -218,8 +218,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="DautghterLive" type="Node2D"]
-script = ExtResource("1_675bg")
+[node name="DaughterLive" type="Node2D"]
+script = ExtResource("1_dhmc6")
 metadata/_edit_horizontal_guides_ = [199.0]
 
 [node name="Timer" type="Timer" parent="."]

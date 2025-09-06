@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var ui: CanvasLayer = $".."
-@onready var dautghter_live: Node2D = $"../../DautghterLive"
+@onready var daughter_live: Node2D = $"../../DaughterLive"
 
 @onready var previous: Button = $Previous
 @onready var next: Button = $Next
@@ -22,13 +22,13 @@ var item_nums:int = 1
 var choice_highlight_start:Vector2 = Vector2(19.5,-83)
 @onready var choice_high_light: Sprite2D = $ChoiceHighLight
 
+# 发射退出信号
+signal cancel_click
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	item_nums = len(Inventory.slots)
 	choice_high_light.hide()
-	$Cancel.pressed.connect(func() -> void:
-			ui._on_cancel_button_down()
-	)
 	# 加载选项
 	LoadChoices()
 	# 获取所有子节点（按钮）并连接信号
@@ -53,7 +53,7 @@ func on_button_pressed(_button:Button,item:Item):
 	print(item.name)
 	if item.types == Item.ItemType.CLOTHES:
 		ui.CloseCanvas()
-		dautghter_live.ChangeClothes(item.name)
+		daughter_live.ChangeClothes(item.name)
 
 func on_choice_pressed(i:int):
 	var slots_index = i + start_index
@@ -110,3 +110,5 @@ func _on_previous_pressed() -> void:
 	start_index -= 5
 	UpdateChoice()
 	
+func _on_cancel_pressed() -> void:
+	emit_signal("cancel_click")

@@ -1,0 +1,1284 @@
+[gd_scene load_steps=9 format=3 uid="uid://o4x3t8m7rd4a"]
+
+[ext_resource type="Script" uid="uid://clk3mqxj5nadn" path="res://scripts/ui/plan_panel.gd" id="1_wpu3g"]
+[ext_resource type="Texture2D" uid="uid://h0nn4blsr0u0" path="res://assets/sys/w_schd1.png" id="2_cu3nr"]
+[ext_resource type="FontFile" uid="uid://61pco5cuhnpb" path="res://fronts/Baloo_2/Baloo2-ExtraBold.ttf" id="3_suw40"]
+[ext_resource type="FontFile" uid="uid://c0avuh67i6ngv" path="res://fronts/EBGaramond-Bold.ttf" id="4_j62pb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlcym"]
+atlas = ExtResource("2_cu3nr")
+region = Rect2(0, 0, 322, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rngwn"]
+atlas = ExtResource("2_cu3nr")
+region = Rect2(322, 0, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hlcym"]
+load_path = "res://.godot/imported/w_schd1.png-10051e9a04272ceb5db8647cd90476f7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nrd5"]
+atlas = SubResource("CompressedTexture2D_hlcym")
+region = Rect2(84, 348, 28, 23)
+
+[node name="PlanPanel" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_wpu3g")
+
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_hlcym")
+
+[node name="PlanIconConsole" type="Node2D" parent="."]
+
+[node name="Plan0" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 60.0
+offset_right = 55.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan1" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 60.0
+offset_right = 96.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan2" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 60.0
+offset_right = 137.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan3" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 60.0
+offset_right = 178.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan4" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 60.0
+offset_right = 219.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan5" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 60.0
+offset_right = 260.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan6" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 60.0
+offset_right = 301.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan7" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 101.0
+offset_right = 55.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan8" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 101.0
+offset_right = 96.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan9" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 101.0
+offset_right = 137.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan10" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 101.0
+offset_right = 178.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan11" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 101.0
+offset_right = 219.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan12" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 101.0
+offset_right = 260.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan13" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 101.0
+offset_right = 301.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan14" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 142.0
+offset_right = 55.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan15" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 142.0
+offset_right = 96.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan16" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 142.0
+offset_right = 137.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan17" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 142.0
+offset_right = 178.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan18" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 142.0
+offset_right = 219.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan19" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 142.0
+offset_right = 260.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan20" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 142.0
+offset_right = 301.0
+offset_bottom = 182.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan21" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 183.0
+offset_right = 55.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan22" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 183.0
+offset_right = 96.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan23" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 183.0
+offset_right = 137.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan24" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 183.0
+offset_right = 178.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan25" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 183.0
+offset_right = 219.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan26" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 183.0
+offset_right = 260.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan27" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 183.0
+offset_right = 301.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan28" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 224.0
+offset_right = 55.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan29" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 224.0
+offset_right = 96.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan30" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 224.0
+offset_right = 137.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan31" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 224.0
+offset_right = 178.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan32" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 224.0
+offset_right = 219.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan33" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 224.0
+offset_right = 260.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan34" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 224.0
+offset_right = 301.0
+offset_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan35" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 265.0
+offset_right = 55.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan36" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 265.0
+offset_right = 96.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan37" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 265.0
+offset_right = 137.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan38" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 265.0
+offset_right = 178.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan39" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 265.0
+offset_right = 219.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan40" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 265.0
+offset_right = 260.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="Plan41" type="TextureRect" parent="PlanIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 265.0
+offset_right = 301.0
+offset_bottom = 305.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rngwn")
+
+[node name="DayIconConsole" type="Node2D" parent="."]
+
+[node name="Day0" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 80.0
+offset_right = 75.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day1" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 80.0
+offset_right = 116.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day2" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = 80.0
+offset_right = 157.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day3" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 80.0
+offset_right = 198.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day4" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 80.0
+offset_right = 239.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day5" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 280.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day6" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 80.0
+offset_right = 321.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day7" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 121.0
+offset_right = 75.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day8" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 121.0
+offset_right = 116.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day9" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = 121.0
+offset_right = 157.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day10" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 121.0
+offset_right = 198.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day11" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 121.0
+offset_right = 239.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day12" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 121.0
+offset_right = 280.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day13" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 121.0
+offset_right = 321.0
+offset_bottom = 161.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day14" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 162.0
+offset_right = 75.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day15" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 162.0
+offset_right = 116.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day16" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = 162.0
+offset_right = 157.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day17" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 162.0
+offset_right = 198.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day18" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 162.0
+offset_right = 239.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day19" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 162.0
+offset_right = 280.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day20" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 162.0
+offset_right = 321.0
+offset_bottom = 202.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day21" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 203.0
+offset_right = 75.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day22" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 203.0
+offset_right = 116.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day23" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = 203.0
+offset_right = 157.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day24" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 203.0
+offset_right = 198.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day25" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 203.0
+offset_right = 239.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day26" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 203.0
+offset_right = 280.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day27" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 203.0
+offset_right = 321.0
+offset_bottom = 243.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day28" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 244.0
+offset_right = 75.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day29" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 244.0
+offset_right = 116.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day30" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = 244.0
+offset_right = 157.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day31" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 244.0
+offset_right = 198.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day32" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 244.0
+offset_right = 239.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day33" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 244.0
+offset_right = 280.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day34" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 244.0
+offset_right = 321.0
+offset_bottom = 284.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day35" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 285.0
+offset_right = 75.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day36" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 285.0
+offset_right = 116.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day37" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = 285.0
+offset_right = 157.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day38" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 285.0
+offset_right = 198.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day39" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.0
+offset_top = 285.0
+offset_right = 239.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day40" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 285.0
+offset_right = 280.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Day41" type="TextureRect" parent="DayIconConsole"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 285.0
+offset_right = 321.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_2nrd5")
+
+[node name="Year" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 7.0
+offset_right = 85.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.835294, 0.776471, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_suw40")
+theme_override_font_sizes/font_size = 26
+text = "1440"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Month" type="Label" parent="."]
+offset_left = 87.5
+offset_top = 7.5
+offset_right = 154.5
+offset_bottom = 42.5
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_j62pb")
+theme_override_font_sizes/font_size = 26
+text = "Apr 4"
+horizontal_alignment = 1
+vertical_alignment = 1

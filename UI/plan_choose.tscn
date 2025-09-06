@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk7phpkjl6rqj"]
+[gd_scene load_steps=43 format=3 uid="uid://km6d22k236f6"]
 
 [ext_resource type="Script" uid="uid://lfeplf5iv8fl" path="res://scripts/ui/plan_choose.gd" id="1_3o4mn"]
 [ext_resource type="Texture2D" uid="uid://byd1gekwyjiv" path="res://assets/sys/w_schd2.png" id="1_xqixn"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_hhvuy"]
 [ext_resource type="Texture2D" uid="uid://h0nn4blsr0u0" path="res://assets/sys/w_schd1.png" id="4_ry5pr"]
 [ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="5_pnvv4"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="6_oemvv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhvuy"]
 atlas = ExtResource("1_xqixn")
@@ -15,17 +16,6 @@ atlas = ExtResource("1_xqixn")
 region = Rect2(0, 256, 224, 50)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o4mn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnvv4"]
-atlas = ExtResource("4_ry5pr")
-region = Rect2(402, 120, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dj16x"]
-atlas = ExtResource("5_pnvv4")
-region = Rect2(403, 65, 77, 29)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oemvv"]
-texture = SubResource("AtlasTexture_dj16x")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsv0q"]
 atlas = ExtResource("4_ry5pr")
@@ -57,22 +47,126 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8ifqm")
-}],
-"loop": false,
-"name": &"click",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gsv0q")
 }],
 "loop": false,
-"name": &"default",
-"speed": 5.0
+"name": &"click",
+"speed": 30.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oemvv"]
+atlas = ExtResource("4_ry5pr")
+region = Rect2(402, 120, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pnvv4"]
+load_path = "res://.godot/imported/w_schd1.png-10051e9a04272ceb5db8647cd90476f7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm4ij"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(442, 120, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eh3cb"]
+load_path = "res://.godot/imported/w_schd1.png-10051e9a04272ceb5db8647cd90476f7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa4op"]
+atlas = SubResource("CompressedTexture2D_eh3cb")
+region = Rect2(322, 160, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvudq"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(362, 160, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_draxv"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(402, 160, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjeuh"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(442, 160, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnvv4"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(322, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh3cb"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(362, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0jv8"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(402, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7bm7"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(442, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wv4g"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(322, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rcqb"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(362, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc5m3"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(442, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0luo1"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(402, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tw5k"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(322, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akdq8"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(362, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ljtu"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(402, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny1e1"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(442, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f2ii"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(322, 120, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ox4"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(362, 120, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qrpl"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(322, 200, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7kj1"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(362, 200, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh8n5"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(402, 200, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4mpw"]
+atlas = SubResource("CompressedTexture2D_pnvv4")
+region = Rect2(442, 200, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj16x"]
+atlas = ExtResource("5_pnvv4")
+region = Rect2(403, 65, 77, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oemvv"]
+texture = SubResource("AtlasTexture_dj16x")
+
 [node name="PlanChoose" type="Node2D"]
-position = Vector2(200, 200)
+scale = Vector2(2, 2)
 script = ExtResource("1_3o4mn")
 
 [node name="BackGround" type="Sprite2D" parent="."]
@@ -154,101 +248,46 @@ vertical_alignment = 1
 
 [node name="GrideConsole" type="Node2D" parent="."]
 
+[node name="ChooseHighLight" type="AnimatedSprite2D" parent="GrideConsole"]
+position = Vector2(-109, -45)
+sprite_frames = SubResource("SpriteFrames_mm4ij")
+animation = &"click"
+
 [node name="CourseGridContainer" type="GridContainer" parent="GrideConsole"]
 offset_left = -130.0
 offset_top = -65.0
 offset_right = 130.0
 offset_bottom = 65.0
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 6
 
-[node name="TextureButton0" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
+[node name="theory" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_oemvv")
 
-[node name="TextureButton1" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
+[node name="martialArts" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_mm4ij")
 
-[node name="TextureButton2" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
+[node name="magic" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_wa4op")
 
-[node name="TextureButton3" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
+[node name="etiquette" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_bvudq")
 
-[node name="TextureButton4" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
+[node name="art" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_draxv")
 
-[node name="TextureButton5" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
+[node name="dance" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton6" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton7" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton8" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton9" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton10" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton11" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton12" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton13" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton14" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton15" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton16" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton17" type="TextureButton" parent="GrideConsole/CourseGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_gjeuh")
 
 [node name="WorkGridContainer" type="GridContainer" parent="GrideConsole"]
+visible = false
 offset_left = -130.0
 offset_top = -65.0
 offset_right = 130.0
@@ -257,92 +296,64 @@ theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 6
 
-[node name="TextureButton0" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
+[node name="housework" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_pnvv4")
 
-[node name="TextureButton1" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
+[node name="nanny" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_eh3cb")
 
-[node name="TextureButton2" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
+[node name="farm" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_u0jv8")
 
-[node name="TextureButton3" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
+[node name="church" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_x7bm7")
 
-[node name="TextureButton4" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
+[node name="restaurant" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_7wv4g")
 
-[node name="TextureButton5" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="maid" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_6rcqb")
 
-[node name="TextureButton6" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="inn" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_fc5m3")
 
-[node name="TextureButton7" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="logging" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_0luo1")
 
-[node name="TextureButton8" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="market" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_6tw5k")
 
-[node name="TextureButton9" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="hotel" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_akdq8")
 
-[node name="TextureButton10" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="tutor" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_2ljtu")
 
-[node name="TextureButton11" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="maidHotel" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_ny1e1")
 
-[node name="TextureButton12" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="strangeHotel" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_3f2ii")
 
-[node name="TextureButton13" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
+[node name="casino" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton14" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton15" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton16" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton17" type="TextureButton" parent="GrideConsole/WorkGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_s4ox4")
 
 [node name="RestGridContainer" type="GridContainer" parent="GrideConsole"]
+visible = false
 offset_left = -130.0
 offset_top = -65.0
 offset_right = 130.0
@@ -351,90 +362,21 @@ theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 6
 
-[node name="TextureButton0" type="TextureButton" parent="GrideConsole/RestGridContainer"]
+[node name="rest" type="TextureButton" parent="GrideConsole/RestGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_7qrpl")
 
-[node name="TextureButton1" type="TextureButton" parent="GrideConsole/RestGridContainer"]
+[node name="vacation" type="TextureButton" parent="GrideConsole/RestGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_m7kj1")
 
-[node name="TextureButton2" type="TextureButton" parent="GrideConsole/RestGridContainer"]
+[node name="outing" type="TextureButton" parent="GrideConsole/RestGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_jh8n5")
 
-[node name="TextureButton3" type="TextureButton" parent="GrideConsole/RestGridContainer"]
+[node name="recover" type="TextureButton" parent="GrideConsole/RestGridContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton4" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton5" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton6" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton7" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton8" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton9" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton10" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton11" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton12" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton13" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton14" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton15" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton16" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
-
-[node name="TextureButton17" type="TextureButton" parent="GrideConsole/RestGridContainer"]
-visible = false
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pnvv4")
+texture_normal = SubResource("AtlasTexture_r4mpw")
 
 [node name="Cancel" type="Button" parent="."]
 offset_left = 60.0
@@ -462,10 +404,52 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_oemvv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_oemvv")
 text = "取 消"
 
-[node name="ChooseHighLight" type="AnimatedSprite2D" parent="."]
-position = Vector2(-109, -45)
-sprite_frames = SubResource("SpriteFrames_mm4ij")
-autoplay = "default"
+[node name="PlanInfo" type="Node2D" parent="."]
+
+[node name="CategoryName" type="Label" parent="PlanInfo"]
+offset_left = -119.0
+offset_top = -93.0
+offset_right = -26.0
+offset_bottom = -70.0
+theme_override_colors/font_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_hhvuy")
+theme_override_font_sizes/font_size = 20
+text = "理论  初级"
+vertical_alignment = 1
+
+[node name="Num" type="Label" parent="PlanInfo"]
+offset_left = 17.0
+offset_top = -98.5
+offset_right = 110.0
+offset_bottom = -67.5
+theme_override_colors/font_color = Color(0.627451, 0.831373, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("6_oemvv")
+theme_override_font_sizes/font_size = 26
+text = "+100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PlanInfo"]
+offset_left = 114.0
+offset_top = -91.5
+offset_right = 127.0
+offset_bottom = -67.5
+theme_override_colors/font_color = Color(0.976473, 0.791798, 0.540027, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_oemvv")
+theme_override_font_sizes/font_size = 20
+text = "G"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="HeadConsole/Course" to="." method="_on_course_mouse_entered"]
 [connection signal="mouse_exited" from="HeadConsole/Course" to="." method="_on_course_mouse_exited"]
@@ -473,3 +457,4 @@ autoplay = "default"
 [connection signal="mouse_exited" from="HeadConsole/Work" to="." method="_on_work_mouse_exited"]
 [connection signal="mouse_entered" from="HeadConsole/Rest" to="." method="_on_rest_mouse_entered"]
 [connection signal="mouse_exited" from="HeadConsole/Rest" to="." method="_on_rest_mouse_exited"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
