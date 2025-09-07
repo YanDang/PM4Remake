@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var health_stat: Sprite2D = $HealthStat
 
 enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM,PLAN}
-var now_canvas_type = CanvasType.MAIN
+var now_canvas_type:CanvasType = CanvasType.MAIN
 
 # 状态
 @onready var birthday: Sprite2D = $Birthday

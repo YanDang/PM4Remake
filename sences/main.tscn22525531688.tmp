@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=47 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://km6d22k236f6" path="res://ui/plan_choose.tscn" id="26_v8d0i"]
 [ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="27_52x8f"]
 [ext_resource type="PackedScene" uid="uid://o4x3t8m7rd4a" path="res://ui/plan_panel.tscn" id="27_78t24"]
+[ext_resource type="Script" uid="uid://bnxlexcrhr2ra" path="res://scripts/ui/choice_ui.gd" id="30_fmep2"]
+[ext_resource type="Texture2D" uid="uid://bt80fki1lxxc6" path="res://assets/sys/w_slct.png" id="31_vy7bs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -64,6 +66,23 @@ region = Rect2(0, 0, 212, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h6gh"]
 atlas = ExtResource("15_bswka")
 region = Rect2(1, 457, 20, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay3e7"]
+atlas = ExtResource("31_vy7bs")
+region = Rect2(0, 0, 292, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vun6r"]
+atlas = ExtResource("31_vy7bs")
+region = Rect2(0, 48, 292, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrnuy"]
+atlas = ExtResource("31_vy7bs")
+region = Rect2(0, 24, 292, 24)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vun6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di8xe"]
+bg_color = Color(1, 1, 1, 0.392157)
 
 [node name="main" type="Node"]
 script = ExtResource("1_e225g")
@@ -1505,10 +1524,65 @@ position = Vector2(-990, 10)
 layer = 2
 visible = false
 
-[node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("19_e42fx")]
+[node name="ChoiceUI" type="Node2D" parent="TalkLayer"]
 visible = false
 position = Vector2(980, 600)
 scale = Vector2(2, 2)
+script = ExtResource("30_fmep2")
+
+[node name="Top" type="Sprite2D" parent="TalkLayer/ChoiceUI"]
+texture = SubResource("AtlasTexture_ay3e7")
+
+[node name="Buttom" type="Sprite2D" parent="TalkLayer/ChoiceUI"]
+position = Vector2(0, 48)
+texture = SubResource("AtlasTexture_vun6r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TalkLayer/ChoiceUI"]
+clip_contents = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.0
+offset_top = 12.0
+offset_right = 146.0
+offset_bottom = 36.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_nrnuy")
+
+[node name="GridContainer" type="GridContainer" parent="TalkLayer/ChoiceUI/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_right = 130.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_constants/v_separation = 0
+
+[node name="Choice0" type="Button" parent="TalkLayer/ChoiceUI/NinePatchRect/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.886275, 0.870588, 0.866667, 1)
+theme_override_colors/font_outline_color = Color(0.101961, 0.0196078, 0, 1)
+theme_override_colors/font_color = Color(0.780392, 0.517647, 0.447059, 1)
+theme_override_colors/font_focus_color = Color(0.780392, 0.517647, 0.447059, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vun6r")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vun6r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vun6r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_di8xe")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_di8xe")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_di8xe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_di8xe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_di8xe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_di8xe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vun6r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vun6r")
+text = "打招呼"
 
 [node name="Arrtibute" parent="." instance=ExtResource("27_52x8f")]
 visible = false

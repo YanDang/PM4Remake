@@ -1507,7 +1507,7 @@ visible = false
 
 [node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("19_e42fx")]
 visible = false
-position = Vector2(980, 600)
+position = Vector2(980, 550)
 scale = Vector2(2, 2)
 
 [node name="Arrtibute" parent="." instance=ExtResource("27_52x8f")]

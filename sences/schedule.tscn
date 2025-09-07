@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmfv73hy7h0yq"]
+
+[ext_resource type="Script" uid="uid://dnvabybhbdkdx" path="res://scripts/talk/talk_layer.gd" id="1_erbon"]
+[ext_resource type="Script" uid="uid://dmnh06c83a4qx" path="res://scripts/ui/arrtibute.gd" id="2_4s1f5"]
+[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="2_s8t1j"]
+
+[node name="Schedule" type="Node"]
+
+[node name="TalkLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("1_erbon")
+
+[node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("2_s8t1j")]
+visible = false
+position = Vector2(980, 600)
+scale = Vector2(2, 2)
+
+[node name="Arrtibute" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("2_4s1f5")

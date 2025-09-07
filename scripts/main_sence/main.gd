@@ -10,4 +10,33 @@ func _ready() -> void:
 	back_ground.show()
 	daughter_live.show()
 	ui.show()
+	
 	talk_layer.TalkEnd()
+	#event_test()
+
+## 测试一个对话->选项->对话->属性加成的功能
+#func event_test() -> void:
+	#talk_layer.TalkStart([{
+				#"character": "daughter",
+				#"emotion": "happy",
+				#"text": "这里是PM4Remake",
+				#"voice": ""
+			#}],2,{},["是","否"])
+	#
+#func _on_talk_layer_choice_result(choice_index: Variant) -> void:
+	#print(choice_index)
+	#
+	#if choice_index == 0:
+		#talk_layer.TalkStart([{
+				#"character": "daughter",
+				#"emotion": "happy",
+				#"text": "选择了‘是’",
+				#"voice": ""
+			#}],1,{"smarts":10})
+	#else:
+		#talk_layer.TalkStart([{
+				#"character": "daughter",
+				#"emotion": "happy",
+				#"text": "选择了‘否’",
+				#"voice": ""
+			#}],1,{"fame":1})

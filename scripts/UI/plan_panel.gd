@@ -1,6 +1,9 @@
 extends Node2D
 @onready var plan_icon_console: Node2D = $PlanIconConsole
 @onready var day_icon_console: Node2D = $DayIconConsole
+@onready var talk_layer: CanvasLayer = $"../../../TalkLayer"
+@onready var ui: CanvasLayer = $"../.."
+
 # 获取所有子节点
 var plan_icons:Array
 var day_icons:Array
@@ -31,6 +34,10 @@ var plan_index:int = 0
 
 # 退出界面
 signal plan_exit
+signal plan_ready(plan_list:Array)
+
+# 本月行程安排
+var plan_list:Array
 
 # 计算日期对应的region
 func CalIconRegionPos() -> void:
@@ -86,10 +93,13 @@ func StartPlan():
 			day_icons[i].hide()
 
 func _on_plan_choose_plan_click(plan_button: TextureButton) -> void:
+	# 避免重复触发
 	if is_busy:
 		return
 	is_busy = true
 	if plan_index < 3:
+		# 将当前计划加入行程安排
+		plan_list.append(plan_button.name)
 		var start_index = plan_index*10+Global.week_index
 		var end_index
 		if plan_index == 2:
@@ -103,6 +113,9 @@ func _on_plan_choose_plan_click(plan_button: TextureButton) -> void:
 			plan_icons[i].texture = plan_button.texture_normal
 			await get_tree().create_timer(0.01).timeout  # 每次间隔 0.2 秒
 		plan_index += 1
+		# 选满后触发
+		if plan_index == 3:
+			emit_signal("plan_ready",plan_list)
 	is_busy = false
 
 func DelChoosePlan() -> void:
@@ -110,6 +123,8 @@ func DelChoosePlan() -> void:
 		return
 	is_busy = true
 	plan_index -= 1
+	# 弹出最后的行程计划
+	plan_list.pop_back()
 	var start_index = plan_index*10+Global.week_index-1
 	var end_index
 	if plan_index == 2:
@@ -119,6 +134,15 @@ func DelChoosePlan() -> void:
 	for i in range(end_index,start_index,-1):
 		plan_icons[i].hide()
 		await get_tree().create_timer(0.01).timeout  # 每次间隔 0.2 秒
+	is_busy = false
+
+func DelAllPlan() -> void:
+	if is_busy:
+		return
+	for i in range(Global.week_index,Global.week_index+end_day):
+		plan_icons[i].hide()
+	# 重置plan_index
+	plan_index = 0
 	is_busy = false
 	
 func _on_plan_choose_cancel_click() -> void:
@@ -130,11 +154,13 @@ func _on_plan_choose_cancel_click() -> void:
 		emit_signal("plan_exit")
 		
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("cancel"):
-		if plan_index > 0:
-			DelChoosePlan()
-		else:
-			emit_signal("plan_exit")
+	if talk_layer.visible == false and ui.now_canvas_type == ui.CanvasType.PLAN:
+		if event.is_action_pressed("cancel"):
+			print("PlanPanel触发")
+			if plan_index > 0:
+				DelChoosePlan()
+			else:
+				emit_signal("plan_exit")
 
 func _ready() -> void:
 	plan_icons = plan_icon_console.get_children()
