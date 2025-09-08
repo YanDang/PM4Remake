@@ -1,20 +1,149 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmfv73hy7h0yq"]
+[gd_scene load_steps=14 format=3 uid="uid://cmfv73hy7h0yq"]
 
-[ext_resource type="Script" uid="uid://dnvabybhbdkdx" path="res://scripts/talk/talk_layer.gd" id="1_erbon"]
-[ext_resource type="Script" uid="uid://dmnh06c83a4qx" path="res://scripts/ui/arrtibute.gd" id="2_4s1f5"]
-[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="2_s8t1j"]
+[ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://UI/talk_layer.tscn" id="1_erbon"]
+[ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_gwj3w"]
+[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://UI/wide_choice_list.tscn" id="2_s8t1j"]
+[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://scripts/UI/date.gd" id="3_defov"]
+[ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://UI/arrtibute.tscn" id="3_erbon"]
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="4_j23u4"]
+[ext_resource type="Texture2D" uid="uid://yc4p6m20obgn" path="res://assets/Backgrounds/gd_000038.png" id="4_s8t1j"]
+[ext_resource type="FontFile" uid="uid://61pco5cuhnpb" path="res://fronts/Baloo_2/Baloo2-ExtraBold.ttf" id="5_0ljse"]
+[ext_resource type="FontFile" uid="uid://c0avuh67i6ngv" path="res://fronts/EBGaramond-Bold.ttf" id="6_vtsov"]
+[ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="7_vtsov"]
+[ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/UI/money.gd" id="8_lvv6x"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="9_r54wj"]
+[ext_resource type="PackedScene" uid="uid://chvqrsguwoc8b" path="res://UI/schd.tscn" id="10_rm7m5"]
 
 [node name="Schedule" type="Node"]
 
-[node name="TalkLayer" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("1_erbon")
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_s8t1j")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Date" type="Sprite2D" parent="UI"]
+position = Vector2(232, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("2_gwj3w")
+script = ExtResource("3_defov")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Week" type="Label" parent="UI/Date"]
+offset_left = -68.0
+offset_top = -4.0
+offset_right = -28.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_j23u4")
+theme_override_font_sizes/font_size = 20
+text = "周一"
+vertical_alignment = 1
+
+[node name="Year" type="Label" parent="UI/Date"]
+offset_left = -52.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0.835294, 0.776471, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("5_0ljse")
+theme_override_font_sizes/font_size = 25
+text = "1440"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Month" type="Label" parent="UI/Date"]
+offset_left = -28.0
+offset_top = -15.0
+offset_right = 4.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_vtsov")
+theme_override_font_sizes/font_size = 30
+text = "12"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Day" type="Label" parent="UI/Date"]
+offset_left = 20.0
+offset_top = -40.5
+offset_right = 78.0
+offset_bottom = 32.5
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_vtsov")
+theme_override_font_sizes/font_size = 50
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitSign" type="Label" parent="UI/Date"]
+offset_left = 1.5
+offset_top = -31.0
+offset_right = 25.5
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_vtsov")
+theme_override_font_sizes/font_size = 35
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="UI"]
+position = Vector2(1040, 70)
+scale = Vector2(2, 2)
+texture = ExtResource("7_vtsov")
+script = ExtResource("8_lvv6x")
+
+[node name="Label" type="Label" parent="UI/Money"]
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 68.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("9_r54wj")
+theme_override_font_sizes/font_size = 20
+text = "1000000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Schd" parent="UI" instance=ExtResource("10_rm7m5")]
+position = Vector2(640, 440)
+scale = Vector2(2, 2)
+
+[node name="TalkLayer" parent="." instance=ExtResource("1_erbon")]
 
 [node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("2_s8t1j")]
 visible = false
 position = Vector2(980, 600)
 scale = Vector2(2, 2)
 
-[node name="Arrtibute" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("2_4s1f5")
+[node name="Arrtibute" parent="." instance=ExtResource("3_erbon")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)

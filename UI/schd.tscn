@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://chvqrsguwoc8b"]
+
+[ext_resource type="Texture2D" uid="uid://xsto88cakqs4" path="res://assets/PC _ Computer - Princess Maker 4 - Miscellaneous - Schedule/schd01.png" id="1_ssnsb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tit84"]
+atlas = ExtResource("1_ssnsb")
+region = Rect2(392, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nri4f"]
+atlas = ExtResource("1_ssnsb")
+region = Rect2(588, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw8e4"]
+atlas = ExtResource("1_ssnsb")
+region = Rect2(784, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu0iy"]
+atlas = ExtResource("1_ssnsb")
+region = Rect2(0, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su2hc"]
+atlas = ExtResource("1_ssnsb")
+region = Rect2(196, 0, 196, 224)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yrdx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tit84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nri4f")
+}],
+"loop": true,
+"name": &"fail",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw8e4")
+}],
+"loop": false,
+"name": &"rest",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu0iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su2hc")
+}],
+"loop": true,
+"name": &"success",
+"speed": 2.0
+}]
+
+[node name="Schd" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1yrdx")
+animation = &"success"
+autoplay = "success"

@@ -17,6 +17,9 @@ var health_index:int = 0
 # 这个月对话了吗
 var already_talk:bool = false
 
+# 本月行动
+var month_plan:Array
+
 # 月度增长（monthly growth）
 # 年度增长（annual growth）
 var growth_rates = {

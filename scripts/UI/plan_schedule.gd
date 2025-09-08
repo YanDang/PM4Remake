@@ -12,6 +12,10 @@ func _on_plan_panel_plan_ready(_plan_list: Array) -> void:
 		}],2,{},["是","否"])
 	
 func ChoiceEvent(choice_index:int):
+	plan_panel.DelAllPlan()
 	if choice_index == 0:
 		print("跳转到执行场景")
-	plan_panel.DelAllPlan()
+		print(plan_panel.plan_list)
+		Global.month_plan = plan_panel.plan_list
+		get_tree().change_scene_to_file("res://sences/schedule.tscn")
+		
