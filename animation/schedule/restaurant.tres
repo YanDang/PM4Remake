@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c3uutr3ogny0f"]
+
+[ext_resource type="Texture2D" uid="uid://b4s2ggffc6672" path="res://assets/Schedule/restaurant.png" id="1_d6x0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4fyw"]
+atlas = ExtResource("1_d6x0k")
+region = Rect2(392, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8j6v"]
+atlas = ExtResource("1_d6x0k")
+region = Rect2(588, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rariq"]
+atlas = ExtResource("1_d6x0k")
+region = Rect2(196, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgvds"]
+atlas = ExtResource("1_d6x0k")
+region = Rect2(0, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtu7a"]
+atlas = ExtResource("1_d6x0k")
+region = Rect2(784, 0, 196, 224)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4fyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8j6v")
+}],
+"loop": true,
+"name": &"fail",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rariq")
+}],
+"loop": false,
+"name": &"rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgvds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtu7a")
+}],
+"loop": true,
+"name": &"success",
+"speed": 2.0
+}]

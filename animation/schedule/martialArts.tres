@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dgkneaue1k10q"]
+
+[ext_resource type="Texture2D" uid="uid://dpwws8l0tl5je" path="res://assets/Schedule/martialArts.png" id="1_0fwvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf26v"]
+atlas = ExtResource("1_0fwvn")
+region = Rect2(392, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74cvg"]
+atlas = ExtResource("1_0fwvn")
+region = Rect2(588, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm3lg"]
+atlas = ExtResource("1_0fwvn")
+region = Rect2(784, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwjql"]
+atlas = ExtResource("1_0fwvn")
+region = Rect2(0, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doran"]
+atlas = ExtResource("1_0fwvn")
+region = Rect2(196, 0, 196, 224)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf26v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74cvg")
+}],
+"loop": true,
+"name": &"fail",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm3lg")
+}],
+"loop": false,
+"name": &"rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwjql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doran")
+}],
+"loop": true,
+"name": &"success",
+"speed": 2.0
+}]

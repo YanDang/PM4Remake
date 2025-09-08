@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cm40vv7p78hqh"]
+
+[ext_resource type="Texture2D" uid="uid://bvgqqn5ce4lv7" path="res://assets/Schedule/market.png" id="1_87m2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gflm1"]
+atlas = ExtResource("1_87m2k")
+region = Rect2(392, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jepdv"]
+atlas = ExtResource("1_87m2k")
+region = Rect2(588, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7ru5"]
+atlas = ExtResource("1_87m2k")
+region = Rect2(784, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uqnr"]
+atlas = ExtResource("1_87m2k")
+region = Rect2(0, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6p4q"]
+atlas = ExtResource("1_87m2k")
+region = Rect2(196, 0, 196, 224)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gflm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jepdv")
+}],
+"loop": true,
+"name": &"fail",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7ru5")
+}],
+"loop": false,
+"name": &"rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uqnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6p4q")
+}],
+"loop": true,
+"name": &"success",
+"speed": 2.0
+}]

@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://m8dfvm55c0kk"]
+
+[ext_resource type="Texture2D" uid="uid://cpi4362055o4k" path="res://assets/Schedule/recover_1.png" id="1_gtv7l"]
+[ext_resource type="Texture2D" uid="uid://db5v2fibp1rri" path="res://assets/Schedule/recover_0.png" id="2_1mhpv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppmlr"]
+atlas = ExtResource("1_gtv7l")
+region = Rect2(0, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u832t"]
+atlas = ExtResource("2_1mhpv")
+region = Rect2(0, 0, 196, 224)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppmlr")
+}],
+"loop": false,
+"name": &"hospital",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u832t")
+}],
+"loop": false,
+"name": &"house",
+"speed": 5.0
+}]
