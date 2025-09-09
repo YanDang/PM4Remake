@@ -19,6 +19,8 @@ var secondname:String="海威尔"
 ## 魔法
 ## 罪孽
 ## 疲劳
+## 信赖度
+## 魔化度
 var attributes = {
 	"stamina": 50,
 	"smarts": 25,
@@ -33,6 +35,8 @@ var attributes = {
 	"magic": 20,
 	"crime": 0,
 	"stress": 0,
+	"trust":0,
+	"demonization":0
 }
 
 ## 年龄
@@ -60,8 +64,3 @@ var body_stats = {
 	"waist": 55.0,  # cm
 	"hips": 68.0,   # cm
 }
-
-## 信赖度
-var trust:int = 0
-## 魔化度
-var demonization:int = 0

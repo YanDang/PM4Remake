@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://chvqrsguwoc8b"]
+[gd_scene load_steps=3 format=3 uid="uid://chvqrsguwoc8b"]
 
 [ext_resource type="Script" uid="uid://q4erqkmndj65" path="res://scripts/schedule/schd.gd" id="1_o5mm1"]
+[ext_resource type="SpriteFrames" uid="uid://cpsx2l1q20xh8" path="res://animation/schedule/art.tres" id="2_o5mm1"]
 
 [node name="Schd" type="Node2D"]
 script = ExtResource("1_o5mm1")
 
 [node name="Anim" type="AnimatedSprite2D" parent="."]
-animation = &"fail"
+sprite_frames = ExtResource("2_o5mm1")
+animation = &"success"

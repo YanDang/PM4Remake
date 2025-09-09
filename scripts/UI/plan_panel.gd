@@ -133,7 +133,7 @@ func DelChoosePlan() -> void:
 		end_index = start_index + 10
 	for i in range(end_index,start_index,-1):
 		plan_icons[i].hide()
-		await get_tree().create_timer(0.01).timeout  # 每次间隔 0.2 秒
+		await get_tree().create_timer(0.01).timeout  # 每次间隔 0.01 秒
 	is_busy = false
 
 func DelAllPlan() -> void:

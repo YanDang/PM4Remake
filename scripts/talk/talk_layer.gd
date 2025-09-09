@@ -85,6 +85,10 @@ func TalkPolling():
 		Happen(entry["character"], entry["emotion"], entry["text"])
 		current_index += 1
 	else:
+		if not is_settle:
+			# 不需要计算属性
+			TalkEnd()
+	if current_index == talk_even.size():
 		if is_settle:
 			if allow_emit:
 				# 发射结束信号,等待信号回传
@@ -93,11 +97,9 @@ func TalkPolling():
 						emit_signal("attribute_settle",attribute_dict)
 					SettleType.CHOICE:
 						choice_ui.init(choice_list)
+						await get_tree().process_frame # 等到下一帧
 						choice_ui.show()
 				allow_emit = false
-		else:
-			# 不需要计算属性
-			TalkEnd()
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirm"):

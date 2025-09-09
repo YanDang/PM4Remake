@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://2y3aoi3g8mta"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://2y3aoi3g8mta"]
 
 [ext_resource type="Texture2D" uid="uid://bac0aecfpcap1" path="res://assets/Schedule/theory.png" id="1_666ht"]
 
@@ -9,6 +9,10 @@ region = Rect2(392, 0, 196, 224)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg5ev"]
 atlas = ExtResource("1_666ht")
 region = Rect2(588, 0, 196, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_666ht"]
+atlas = ExtResource("1_666ht")
+region = Rect2(784, 0, 196, 224)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_risfa"]
 atlas = ExtResource("1_666ht")
@@ -31,7 +35,10 @@ animations = [{
 "name": &"fail",
 "speed": 2.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_666ht")
+}],
 "loop": false,
 "name": &"rest",
 "speed": 5.0

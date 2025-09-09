@@ -17,5 +17,6 @@ func ChoiceEvent(choice_index:int):
 		print("跳转到执行场景")
 		print(plan_panel.plan_list)
 		Global.month_plan = plan_panel.plan_list
+		Global.month_end_day = plan_panel.end_day
 		get_tree().change_scene_to_file("res://sences/schedule.tscn")
 		

@@ -35,6 +35,7 @@ func LoadCategoryFromTxt(path:String):
 			category_data[row_array[0]] = {temp_key:temp_dict}
 		else:
 			category_data[row_array[0]].merge({temp_key:temp_dict})
+			
 
 func LoadItemsFromJson(path:String):
 	var file = FileAccess.open(path,FileAccess.READ)

@@ -23,5 +23,6 @@ func UpdateProgressBar(target_sprite:Sprite2D,val:int):
 
 func UpdateStatus() -> void:
 	for key in Daughterstatus.attributes.keys():
-		var node = get_node(key) # 假设 UI 节点名字和 key 一致
-		UpdateProgressBar(node, Daughterstatus.attributes[key])
+		var node = get_node_or_null(key) # 假设 UI 节点名字和 key 一致
+		if node:
+			UpdateProgressBar(node, Daughterstatus.attributes[key])

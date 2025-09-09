@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmfv73hy7h0yq"]
+[gd_scene load_steps=15 format=3 uid="uid://cmfv73hy7h0yq"]
 
 [ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="1_erbon"]
+[ext_resource type="Script" uid="uid://c7w5c450ka7gh" path="res://scripts/schedule/schedule.gd" id="1_lvv6x"]
 [ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="2_gwj3w"]
 [ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="2_s8t1j"]
 [ext_resource type="Script" uid="uid://boot45ritj24f" path="res://scripts/ui/date.gd" id="3_defov"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://chvqrsguwoc8b" path="res://ui/schd.tscn" id="10_rm7m5"]
 
 [node name="Schedule" type="Node"]
+script = ExtResource("1_lvv6x")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 640.0
@@ -138,6 +140,7 @@ position = Vector2(640, 440)
 scale = Vector2(2, 2)
 
 [node name="TalkLayer" parent="." instance=ExtResource("1_erbon")]
+visible = false
 
 [node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("2_s8t1j")]
 visible = false
@@ -145,5 +148,10 @@ position = Vector2(980, 600)
 scale = Vector2(2, 2)
 
 [node name="Arrtibute" parent="." instance=ExtResource("3_erbon")]
+visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[connection signal="attribute_settle" from="TalkLayer" to="Arrtibute" method="_on_talk_layer_attribute_settle"]
+[connection signal="talk_end" from="TalkLayer" to="." method="_on_talk_layer_talk_end"]
+[connection signal="settle_end" from="Arrtibute" to="TalkLayer" method="_on_arrtibute_settle_end"]

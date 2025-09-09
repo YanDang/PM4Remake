@@ -19,6 +19,8 @@ var already_talk:bool = false
 
 # 本月行动
 var month_plan:Array
+# 本月结束日期
+var month_end_day:int
 
 # 月度增长（monthly growth）
 # 年度增长（annual growth）
