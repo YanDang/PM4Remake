@@ -54,19 +54,20 @@ func AnnotationStart(arrtibute_dict:Dictionary):
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(arrtibute_list, "position", arrtibute_list.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	for key in arrtibute_dict.keys():
-		var num:Label = attribute_nodes[key].get_node("Num")
-		var progressbar:TextureProgressBar = attribute_nodes[key].get_node("TextureProgressBar")
-		attribute_nodes[key].show()
-		if arrtibute_dict[key] > 0:
-			num.add_theme_color_override("font_color",colors["up"])
-		elif arrtibute_dict[key] < 0:
-			num.add_theme_color_override("font_color",colors["down"])
-		else:
-			num.add_theme_color_override("font_color",colors["normal"])
-		# 全局数值更新
-		Daughterstatus.attributes[key] = clamp(Daughterstatus.attributes[key]+arrtibute_dict[key],0,999)
-		num.text = str(int(Daughterstatus.attributes[key]))
-		progressbar.value = Daughterstatus.attributes[key]
+		if attribute_nodes.has(key):
+			var num:Label = attribute_nodes[key].get_node("Num")
+			var progressbar:TextureProgressBar = attribute_nodes[key].get_node("TextureProgressBar")
+			attribute_nodes[key].show()
+			if arrtibute_dict[key] > 0:
+				num.add_theme_color_override("font_color",colors["up"])
+			elif arrtibute_dict[key] < 0:
+				num.add_theme_color_override("font_color",colors["down"])
+			else:
+				num.add_theme_color_override("font_color",colors["normal"])
+			# 全局数值更新
+			Daughterstatus.attributes[key] = clamp(Daughterstatus.attributes[key]+arrtibute_dict[key],0,999)
+			num.text = str(int(Daughterstatus.attributes[key]))
+			progressbar.value = Daughterstatus.attributes[key]
 	tween.tween_callback(func():annotation_visible=true)
 	
 func AnnotationEnd():

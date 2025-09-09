@@ -30,7 +30,10 @@ func LoadCategoryFromTxt(path:String):
 		# 'level' + str
 		var temp_key:String = key_words[1] + row_array[1]
 		for i in range(2,row_array.size()):
-			temp_dict[key_words[i]] = float(row_array[i])
+			if i == row_array.size() - 1:
+				temp_dict[key_words[i]] = row_array[i]
+			else:
+				temp_dict[key_words[i]] = float(row_array[i])
 		if not category_data.has(row_array[0]):
 			category_data[row_array[0]] = {temp_key:temp_dict}
 		else:

@@ -40,7 +40,8 @@ var growth_rates = {
 		"waist": 1.8,
 		"hip": 3.96,
 		"stamina": 0
-	}
+	},
+	"money":30
 }
 
 # [阶段，次数]

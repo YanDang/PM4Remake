@@ -23,4 +23,5 @@ func UpdateStatus() -> void:
 		elif temp_money > Global.money:
 			tween.tween_property(label, "theme_override_colors/font_color",colors['down'],0.3)
 		tween.tween_property(label, "theme_override_colors/font_color",colors['normal'],0.3)
+	temp_money = Global.money
 	$Label.text = str(Global.money)

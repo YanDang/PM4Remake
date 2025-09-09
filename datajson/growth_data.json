@@ -16,7 +16,8 @@
         "waist": 1.8,
         "hip": 3.96,
         "stamina": 0
-      }
+      },
+      "money":30
     },
     "活泼取向": {
       "monthly": {
@@ -34,7 +35,8 @@
         "waist": 6.6,
         "hip": 4.8,
         "stamina": 30
-      }
+      },
+      "money":80
     },
     "娴静取向": {
       "monthly": {
@@ -52,7 +54,8 @@
         "waist": 1.44,
         "hip": 3.6,
         "stamina": -30
-      }
+      },
+      "money":10
     },
     "进行减肥": {
       "monthly": {
@@ -70,7 +73,8 @@
         "waist": -0.6,
         "hip": 3.24,
         "stamina": -60
-      }
+      },
+      "money":0
     }
   },
   "teen": {
@@ -90,7 +94,8 @@
         "waist": 0.6,
         "hip": 2.16,
         "stamina": 0
-      }
+      },
+      "money":30
     },
     "活泼取向": {
       "monthly": {
@@ -108,7 +113,8 @@
         "waist": 4.2,
         "hip": 2.4,
         "stamina": 60
-      }
+      },
+      "money":80
     },
     "娴静取向": {
       "monthly": {
@@ -126,7 +132,8 @@
         "waist": 0.48,
         "hip": 1.8,
         "stamina": -60
-      }
+      },
+      "money":10
     },
     "进行减肥": {
       "monthly": {
@@ -144,7 +151,8 @@
         "waist": -4.85,
         "hip": 1.8,
         "stamina": -120
-      }
+      },
+      "money":0
     }
   },
   "adult": {
@@ -164,7 +172,8 @@
         "waist": 0.24,
         "hip": 1.2,
         "stamina": 0
-      }
+      },
+      "money":30
     },
     "活泼取向": {
       "monthly": {
@@ -182,7 +191,8 @@
         "waist": 2.4,
         "hip": 2.16,
         "stamina": 60
-      }
+      },
+      "money":80
     },
     "娴静取向": {
       "monthly": {
@@ -200,7 +210,8 @@
         "waist": 0.12,
         "hip": 0.96,
         "stamina": -60
-      }
+      },
+      "money":10
     },
     "进行减肥": {
       "monthly": {
@@ -218,7 +229,8 @@
         "waist": -7.2,
         "hip": 0.6,
         "stamina": -180
-      }
+      },
+      "money":0
     }
   }
 }

@@ -112,32 +112,37 @@ func _input(event: InputEvent) -> void:
 			current_index -= 2 
 			TalkPolling()
 	# 吃事件,阻止事件向下传递
-	if settle != SettleType.CHOICE:
+	if settle != SettleType.CHOICE and get_viewport():
 		get_viewport().set_input_as_handled()
 		
 		
 # 谁，什么情绪，说啥了
 func Happen(who:String,emotion:String,text:String) -> void:
-	if who in special_name:
-		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + emotions[emotion] + ".png"
-	elif who == "":
+	if who == "":
 		# 旁白
 		headshot.hide()
 		first_name.text = ""
 		talk_text.text = text
 		return 
-	else:
-		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + emotions[emotion] + ".png"
-	print(icon_path)
-	headshot.show()
-	if who == "daughter":
-		first_name.text = Daughterstatus.firstname
+	# 普通npc的icon和其他的不一样
+	elif who in Globaljson.icon_path.keys():
+		if who in special_name:
+			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + emotions[emotion] + ".png"
+		else:
+			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + emotions[emotion] + ".png"
+		print(icon_path)
+		headshot.show()
+		if who == "daughter":
+			first_name.text = Daughterstatus.firstname
+		else:
+			first_name.text = Globaljson.human_translation[who]
+		if not emotions.get(emotion):
+			headshot.hide()
+			push_warning("Load emotion ERROR")
+			return
 	else:
 		first_name.text = Globaljson.human_translation[who]
-	if not emotions.get(emotion):
-		headshot.hide()
-		push_warning("Load emotion ERROR")
-		return
+		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + ".png"
 	headshot.texture = load(icon_path)
 	talk_text.text = text
 
