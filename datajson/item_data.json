@@ -142,5 +142,44 @@
 		"prices":10000,
 		"can_use":true,
 		"important":true
+	},
+	{
+		"id":"f01",
+		"name":"蛋糕",
+		"description":"疲劳-50\n体重+0.05%",
+		"types":"FOOD",
+		"prices":100,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stress":-50
+		},
+		"body_dict":{
+			"weight":0.0005
+		}
+	},
+	{
+		"id":"f02",
+		"name":"点心",
+		"description":"疲劳-10",
+		"types":"FOOD",
+		"prices":50,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stress":-10
+		}
+	},
+	{
+		"id":"f03",
+		"name":"全餐",
+		"description":"疲劳-100\n体重+0.25%",
+		"types":"FOOD",
+		"prices":300,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stress":-100
+		},
+		"body_dict":{
+			"weight":0.0025
+		}
 	}
 ]

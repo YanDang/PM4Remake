@@ -4,13 +4,14 @@ extends Node
 @onready var daughter_live: Node2D = $DaughterLive
 @onready var ui: CanvasLayer = $UI
 @onready var talk_layer: CanvasLayer = $TalkLayer
+@onready var item_info: CanvasLayer = $ItemInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	back_ground.show()
 	daughter_live.show()
 	ui.show()
-	
+	item_info.hide()
 	talk_layer.TalkEnd()
 	#event_test()
 

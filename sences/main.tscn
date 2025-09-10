@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=44 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -18,18 +18,22 @@
 [ext_resource type="Texture2D" uid="uid://b2ft0o882hnx" path="res://assets/sys/empty_stat.png" id="15_bswka"]
 [ext_resource type="Script" uid="uid://btppw067o41bj" path="res://scripts/ui/stature.gd" id="15_db7pr"]
 [ext_resource type="Script" uid="uid://c2kb8awbioduq" path="res://scripts/ui/character_attribute.gd" id="17_1aw7l"]
-[ext_resource type="PackedScene" uid="uid://c1uuer33shq74" path="res://ui/item.tscn" id="18_y2vmt"]
 [ext_resource type="Script" uid="uid://njj4n41yixax" path="res://scripts/main_sence/talk.gd" id="19_ascla"]
 [ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="19_e42fx"]
 [ext_resource type="PackedScene" uid="uid://dpq7srv5788dd" path="res://ui/narrow_choice_list.tscn" id="20_2n76t"]
 [ext_resource type="Script" uid="uid://brrq0pfen5h0o" path="res://scripts/main_sence/health.gd" id="21_y2vmt"]
 [ext_resource type="Texture2D" uid="uid://bdrcv7u51urfv" path="res://assets/sys/w_money.png" id="21_yio88"]
+[ext_resource type="PackedScene" uid="uid://dg38cv1k10qb2" path="res://ui/item_panel.tscn" id="22_fmep2"]
 [ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/ui/money.gd" id="22_ijfao"]
+[ext_resource type="Script" uid="uid://v6k2n3ng5f0s" path="res://scripts/ui/item_panel.gd" id="23_vy7bs"]
 [ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="25_kn2hr"]
 [ext_resource type="Script" uid="uid://7vnkn6n8a7fv" path="res://scripts/ui/plan_schedule.gd" id="26_78t24"]
 [ext_resource type="PackedScene" uid="uid://km6d22k236f6" path="res://ui/plan_choose.tscn" id="26_v8d0i"]
 [ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="27_52x8f"]
 [ext_resource type="PackedScene" uid="uid://o4x3t8m7rd4a" path="res://ui/plan_panel.tscn" id="27_78t24"]
+[ext_resource type="Script" uid="uid://bj87ykb3bnrhy" path="res://scripts/ui/item_info.gd" id="32_c5n7d"]
+[ext_resource type="Texture2D" uid="uid://igda0sebo5ub" path="res://assets/sys/w_mess.png" id="32_vy7bs"]
+[ext_resource type="Texture2D" uid="uid://fjo3isbdudiv" path="res://assets/sys/w_face1.png" id="33_c5n7d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -1434,10 +1438,6 @@ value = 100.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_4h6gh")
 
-[node name="Item" parent="UI" instance=ExtResource("18_y2vmt")]
-visible = false
-position = Vector2(-570, 360)
-
 [node name="Talk" type="Node" parent="UI"]
 script = ExtResource("19_ascla")
 
@@ -1445,6 +1445,12 @@ script = ExtResource("19_ascla")
 visible = false
 position = Vector2(980, 480)
 scale = Vector2(2, 2)
+
+[node name="Item" type="Node" parent="UI"]
+
+[node name="ItemPanel" parent="UI/Item" instance=ExtResource("22_fmep2")]
+position = Vector2(-570, 360)
+script = ExtResource("23_vy7bs")
 
 [node name="Health" type="Node" parent="UI"]
 script = ExtResource("21_y2vmt")
@@ -1503,7 +1509,6 @@ position = Vector2(-990, 10)
 
 [node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
 layer = 2
-visible = false
 
 [node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("19_e42fx")]
 visible = false
@@ -1515,6 +1520,41 @@ visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
+[node name="ItemInfo" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("32_c5n7d")
+
+[node name="ItemBox" type="Sprite2D" parent="ItemInfo"]
+position = Vector2(758, 802)
+scale = Vector2(2, 2)
+texture = ExtResource("32_vy7bs")
+
+[node name="InfoText" type="Label" parent="ItemInfo/ItemBox"]
+offset_left = -190.0
+offset_top = -30.0
+offset_right = 160.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 18
+text = "测试文本
+测试文本
+测试文本"
+autowrap_mode = 1
+max_lines_visible = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemIcon" type="Sprite2D" parent="ItemInfo"]
+position = Vector2(320, 800)
+scale = Vector2(2, 2)
+texture = ExtResource("33_c5n7d")
+
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI/DailyAction" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Talk" to="UI" method="_on_talk_button_down"]
@@ -1523,7 +1563,7 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 [connection signal="button_down" from="UI/DailyAction/Street" to="UI" method="_on_street_button_down"]
 [connection signal="button_down" from="UI/DailyAction/System" to="UI" method="_on_system_button_down"]
 [connection signal="button_down" from="UI/Plan" to="UI" method="_on_plan_button_down"]
-[connection signal="cancel_click" from="UI/Item" to="UI" method="_on_item_cancel_click"]
+[connection signal="item_hovered" from="UI/Item/ItemPanel" to="ItemInfo" method="_on_item_panel_item_hovered"]
 [connection signal="cancel_click" from="UI/PlanSchedule/PlanChoose" to="UI/PlanSchedule/PlanPanel" method="_on_plan_choose_cancel_click"]
 [connection signal="plan_click" from="UI/PlanSchedule/PlanChoose" to="UI/PlanSchedule/PlanPanel" method="_on_plan_choose_plan_click"]
 [connection signal="plan_exit" from="UI/PlanSchedule/PlanPanel" to="UI" method="_on_plan_panel_plan_exit"]

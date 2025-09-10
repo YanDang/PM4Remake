@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://igda0sebo5ub" path="res://assets/sys/w_mess.png" id="2_opmkx"]
 [ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="3_26vjv"]
 [ext_resource type="Texture2D" uid="uid://fjo3isbdudiv" path="res://assets/sys/w_face1.png" id="4_rhlbh"]
-[ext_resource type="Texture2D" uid="uid://c621knbca3l2m" path="res://assets/PM4_FC/f_dc01.png" id="5_rl8ay"]
+[ext_resource type="Texture2D" uid="uid://cnqdofbq5x4hi" path="res://assets/PM4_FC/f_dc01.png" id="5_rl8ay"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="6_oxcfx"]
 [ext_resource type="Texture2D" uid="uid://d18aenfaedcdj" path="res://assets/sys/w_mwait.png" id="7_5v4b8"]
 

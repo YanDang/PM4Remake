@@ -12,6 +12,8 @@ func _ready() -> void:
 		{"item": Globaljson.items["c04"], "count": 1},
 		{"item": Globaljson.items["c05"], "count": 1},
 		{"item": Globaljson.items["c16"], "count": 1},
+		{"item": Globaljson.items["f01"],"count":1},
+		{"item": Globaljson.items["f01"],"count":1}
 	]
 
 # 添加物品
@@ -31,6 +33,7 @@ func AddItem(item_id: String, add_num: int = 1) -> bool:
 
 # 删除物品
 func RemoveItem(item_id: String, remove_num: int = 1) -> bool:
+	print(item_id)
 	for i in range(slots.size()):
 		var slot = slots[i]
 		if slot["item"].id == item_id:

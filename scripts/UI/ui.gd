@@ -23,7 +23,9 @@ var now_canvas_type:CanvasType = CanvasType.MAIN
 @onready var health_console: Node = $Health
 
 # 道具
-@onready var item: Node2D = $Item
+@onready var item_console: Node = $Item
+@onready var item_panel: Node = $Item/ItemPanel
+@onready var item_info: CanvasLayer = $"../ItemInfo"
 
 # 上街
 @onready var street: Node2D = $Street/Street
@@ -58,7 +60,7 @@ func InitialUI() -> void:
 	birthday.hide()
 	stature.hide()
 	character_attribute.hide()
-	item.hide()
+	item_panel.hide()
 	health.hide()
 	street.hide()
 	system.hide()
@@ -133,9 +135,10 @@ func LeaveHealth() -> void:
 
 func LeaveItem() -> void:
 	var tween = get_tree().create_tween()  # 创建一个 Tween
-	tween.tween_property(item, "position", item.position-2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	item_info.hide()
+	tween.tween_property(item_panel, "position", item_panel.position-2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():
-		item.hide())
+		item_panel.hide())
 	tween.tween_callback(func():
 		daily_action.show()
 		plan.show()
@@ -274,9 +277,9 @@ func _on_item_button_down() -> void:
 	# 在显示时对仓库进行一次排序
 	Inventory.SortSlots()
 	# 每次进入重置index
-	item.start_index = 0
-	item.item_nums = len(Inventory.slots)
-	item.UpdateChoice()
+	item_panel.start_index = 0
+	item_panel.item_nums = len(Inventory.slots)
+	item_panel.UpdateChoice()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(plan, "position", plan.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -290,8 +293,9 @@ func _on_item_button_down() -> void:
 		base_info.hide()
 		date.hide())
 	tween.tween_callback(func():
-		item.show())
-	tween.tween_property(item, "position", item.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		item_panel.show()
+		item_info.show())
+	tween.tween_property(item_panel, "position", item_panel.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():now_canvas_type=CanvasType.ITEM)
 
 func _on_street_button_down() -> void:

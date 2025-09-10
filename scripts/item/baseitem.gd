@@ -19,3 +19,7 @@ var max_stack: int = 99
 var can_use:bool = false
 # 重要物品不可丢弃
 var important:bool = false
+
+var arrtibute_dict:Dictionary
+
+var body_dict:Dictionary
