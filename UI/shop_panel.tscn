@@ -1,46 +1,48 @@
-[gd_scene load_steps=14 format=3 uid="uid://dg38cv1k10qb2"]
+[gd_scene load_steps=15 format=3 uid="uid://taji8blf4lnl"]
 
-[ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="1_2nlfp"]
-[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_gjt6l"]
-[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="3_587pv"]
+[ext_resource type="Script" uid="uid://kxmj48po7ey7" path="res://scripts/ui/shop_panel.gd" id="1_8cue6"]
+[ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="1_jgj1k"]
+[ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_8cue6"]
+[ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="3_ls0g4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqm0r"]
-atlas = ExtResource("1_2nlfp")
+atlas = ExtResource("1_jgj1k")
 region = Rect2(0, 0, 400, 276)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4u0i4"]
-atlas = ExtResource("1_2nlfp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgj1k"]
+atlas = ExtResource("1_jgj1k")
 region = Rect2(402, 128, 46, 40)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3n7ln"]
-texture = SubResource("AtlasTexture_4u0i4")
+texture = SubResource("AtlasTexture_jgj1k")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0b3i"]
-atlas = ExtResource("1_2nlfp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cue6"]
+atlas = ExtResource("1_jgj1k")
 region = Rect2(402, 168, 46, 40)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6xva"]
-texture = SubResource("AtlasTexture_m0b3i")
+texture = SubResource("AtlasTexture_8cue6")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dj16x"]
-atlas = ExtResource("1_2nlfp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls0g4"]
+atlas = ExtResource("1_jgj1k")
 region = Rect2(403, 65, 77, 29)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e42fx"]
-texture = SubResource("AtlasTexture_dj16x")
+texture = SubResource("AtlasTexture_ls0g4")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxa2r"]
-atlas = ExtResource("1_2nlfp")
+atlas = ExtResource("1_jgj1k")
 region = Rect2(0, 276, 297, 44)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6ot5"]
-atlas = ExtResource("1_2nlfp")
+atlas = ExtResource("1_jgj1k")
 region = Rect2(435, 212, 30, 30)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6ot5"]
 
-[node name="ItemPanel" type="Node2D"]
+[node name="ShopPanel" type="Node2D"]
 scale = Vector2(2, 2)
+script = ExtResource("1_8cue6")
 metadata/_edit_horizontal_guides_ = [-132.0, -200.0, -124.0, -56.0]
 metadata/_edit_vertical_guides_ = [-248.0, 326.0]
 
@@ -103,7 +105,7 @@ theme_override_colors/font_color = Color(0.988235, 0.980392, 0.976471, 1)
 theme_override_colors/font_focus_color = Color(0.988235, 0.980392, 0.976471, 1)
 theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_gjt6l")
+theme_override_fonts/font = ExtResource("2_8cue6")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxTexture_e42fx")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_e42fx")
@@ -148,7 +150,7 @@ theme_override_colors/font_focus_color = Color(0.819608, 0.741176, 0.603922, 1)
 theme_override_colors/font_pressed_color = Color(0.976471, 0.894118, 0.772549, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 20
-theme_override_fonts/font = ExtResource("2_gjt6l")
+theme_override_fonts/font = ExtResource("2_8cue6")
 theme_override_font_sizes/font_size = 16
 theme_override_icons/icon = SubResource("AtlasTexture_w6ot5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w6ot5")
@@ -176,7 +178,7 @@ theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1
 theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("3_587pv")
+theme_override_fonts/font = ExtResource("3_ls0g4")
 theme_override_font_sizes/font_size = 20
 text = "10000 G"
 horizontal_alignment = 2

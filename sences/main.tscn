@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=45 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://km6d22k236f6" path="res://ui/plan_choose.tscn" id="26_v8d0i"]
 [ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="27_52x8f"]
 [ext_resource type="PackedScene" uid="uid://o4x3t8m7rd4a" path="res://ui/plan_panel.tscn" id="27_78t24"]
+[ext_resource type="PackedScene" uid="uid://c18wvbtpryt3j" path="res://ui/item_shop.tscn" id="30_87hvr"]
 [ext_resource type="Script" uid="uid://bj87ykb3bnrhy" path="res://scripts/ui/item_info.gd" id="32_c5n7d"]
 [ext_resource type="Texture2D" uid="uid://igda0sebo5ub" path="res://assets/sys/w_mess.png" id="32_vy7bs"]
 [ext_resource type="Texture2D" uid="uid://fjo3isbdudiv" path="res://assets/sys/w_face1.png" id="33_c5n7d"]
@@ -1506,6 +1507,12 @@ position = Vector2(1960, 430)
 
 [node name="PlanPanel" parent="UI/PlanSchedule" instance=ExtResource("27_78t24")]
 position = Vector2(-990, 10)
+
+[node name="StreetShop" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ItemShop" parent="StreetShop" instance=ExtResource("30_87hvr")]
+position = Vector2(430, 360)
 
 [node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
 layer = 2

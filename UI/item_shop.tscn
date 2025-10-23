@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c18wvbtpryt3j"]
+
+[ext_resource type="PackedScene" uid="uid://taji8blf4lnl" path="res://ui/shop_panel.tscn" id="1_3pufq"]
+[ext_resource type="Script" uid="uid://bxwhwm0g1bsxo" path="res://ui/item_shop.gd" id="1_nfp2i"]
+
+[node name="ItemShop" type="Node2D"]
+position = Vector2(500, 200)
+script = ExtResource("1_nfp2i")
+
+[node name="ShopPanel" parent="." instance=ExtResource("1_3pufq")]
+
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

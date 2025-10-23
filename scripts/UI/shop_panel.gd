@@ -1,9 +1,5 @@
 extends Node2D
 
-@onready var ui: CanvasLayer = $"../.."
-@onready var daughter_live: Node2D = $"../../../DaughterLive"
-@onready var arrtibute: CanvasLayer = $"../../../Arrtibute"
-
 @onready var previous: Button = $Previous
 @onready var next: Button = $Next
 @onready var cancel: Button = $Cancel
@@ -26,25 +22,28 @@ var type_name = ["clothes", "weapon", "armor", "food", "consumables", "other"]
 var choice_highlight_start:Vector2 = Vector2(19.5,-83)
 @onready var choice_high_light: Sprite2D = $ChoiceHighLight
 
+# 将商店的库存写入
+var shop_slots:Array
+
 # 发射选择信号
 signal item_hovered(item_description:String)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	item_nums = len(Inventory.slots)
+# Called when the node enters the scene tree for the first time
+func InitPanel(this_shop_slots:Array):
+	shop_slots = this_shop_slots
+	item_nums = len(shop_slots)
 	choice_high_light.hide()
 	# 加载选项
 	LoadChoices()
 	# 获取所有子节点（按钮）并连接信号
 	UpdateChoice()
-	#var buttons = grid_container.get_children()
-	cancel.pressed.connect(Callable(ui, "_on_cancel_pressed"))
+	cancel.pressed.connect(Callable(get_parent(), "_on_cancel_pressed"))
 
 func GetItem(i:int) -> Item:
 	var slots_index = i + start_index
 	var item:Item
-	if slots_index < len(Inventory.slots):
-		item = Inventory.slots[slots_index]["item"]
+	if slots_index < len(shop_slots):
+		item = shop_slots[slots_index]["item"]
 	return item
 
 # 鼠标悬停在按钮上时调用
@@ -65,29 +64,10 @@ func on_button_unhovered(_button: Button,_i:int):
 	choice_high_light.hide()
 	emit_signal("item_hovered","")
 
-# 点击物品就使用
-func on_button_pressed(_button:Button,item:Item):
-	print(item.name)
-	if item.types == Item.ItemType.CLOTHES:
-		ui.CloseCanvas()
-		daughter_live.ChangeClothes(item.name)
-	if item.types == Item.ItemType.FOOD:
-		for key in item.arrtibute_dict.keys():
-			arrtibute.AnnotationStart(item.arrtibute_dict)
-		for key in item.body_dict.keys():
-			Daughterstatus.body_stats[key] += item.body_dict[key] * Daughterstatus.body_stats[key]
-		await arrtibute.settle_end
-		Inventory.RemoveItem(item.id,1)
-		ui.CloseCanvas()
-		
-
 func on_choice_pressed(i:int):
-	#var slots_index = i + start_index
-	#if slots_index < len(Inventory.slots):
-		#var item:Item = Inventory.slots[slots_index]["item"]
 	var item:Item = GetItem(i)
 	if item:
-		on_button_pressed(grid_container.get_node("Button" + str(i)), item)
+		print(item.name)
 
 ## 加载按钮,一次全加载出来算了……没用到的直接hide
 func LoadChoices() -> void:
@@ -116,9 +96,9 @@ func UpdateChoice() -> void:
 		# 获取所有的选项
 		temp_node = grid_container.get_node("Button"+str(i))
 		temp_node.show()
-		temp_node.text = Inventory.slots[slots_index]["item"].name
-		temp_node.icon = load("res://animation/item/%s.tres" % type_name[Inventory.slots[slots_index]["item"].types])
-		temp_node.get_node("Label").text = str(Inventory.slots[slots_index]["item"].prices) + " G"
+		temp_node.text = shop_slots[slots_index]["item"].name
+		temp_node.icon = load("res://animation/item/%s.tres" % type_name[shop_slots[slots_index]["item"].types])
+		temp_node.get_node("Label").text = str(shop_slots[slots_index]["item"].prices) + " G"
 	for i in range(choice_nums,max_item_nums):
 		temp_node = grid_container.get_node("Button"+str(i))
 		temp_node.hide()

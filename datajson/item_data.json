@@ -14,8 +14,7 @@
 		"description":"夏季穿着的服装",
 		"types":"CLOTHES",
 		"prices":70,
-		"can_use":true,
-		"important":true
+		"can_use":true
 	},
 	{
 		"id":"c03",
@@ -23,71 +22,88 @@
 		"description":"冬季穿着的服装",
 		"types":"CLOTHES",
 		"prices":120,
-		"can_use":true,
-		"important":true
+		"can_use":true
 	},
 	{
 		"id":"c04",
 		"name":"洋装",
-		"description":"可以增加气质的洋装",
+		"description":"可以增加气质的洋装\n气质+15",
 		"types":"CLOTHES",
 		"prices":500,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"highclass":15
+		}
 	},
 	{
 		"id":"c05",
 		"name":"丝质洋装",
-		"description":"更有气质的丝质洋装",
+		"description":"更有气质的丝质洋装\n气质+40",
 		"types":"CLOTHES",
 		"prices":2000,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"highclass":40
+		}
 	},
 	{
 		"id":"c06",
 		"name":"豪华礼服",
-		"description":"豪华的礼服",
+		"description":"豪华的礼服\n气质+30 / 魅力+30",
 		"types":"CLOTHES",
 		"prices":3000,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"highclass":30,
+			"charm":30
+		}
 	},
 	{
 		"id":"c07",
 		"name":"武术服",
-		"description":"适合练武的服装",
+		"description":"适合练武的服装\n魅力-5 / 武术+10",
 		"types":"CLOTHES",
 		"prices":600,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"charm":-5,
+			"martial":10
+		}
 	},
 	{
 		"id":"c08",
 		"name":"魔术师服",
-		"description":"适合释放魔法的服装",
+		"description":"适合释放魔法的服装\n魅力-5 / 魔法+10",
 		"types":"CLOTHES",
 		"prices":800,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"charm":-5,
+			"magic":10
+		}
 	},
 	{
 		"id":"c11",
 		"name":"皮衣",
-		"description":"皮质的皮衣",
+		"description":"皮质的皮衣\n气质-20 / 魅力+50",
 		"types":"CLOTHES",
 		"prices":2000,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"highclass":-20,
+			"charm":50
+		}
 	},
 	{
 		"id":"c12",
 		"name":"修道服",
-		"description":"修女的修道服",
+		"description":"修女的修道服\n道德+20",
 		"types":"CLOTHES",
 		"prices":1000,
 		"can_use":true,
-		"important":true
+		"arrtibute_dict":{
+			"morals":20
+		}
 	},
 	{
 		"id":"c14",
@@ -119,29 +135,40 @@
 	{
 		"id":"c17",
 		"name":"倾国礼服",
-		"description":"倾国倾城的礼服",
+		"description":"倾国倾城的礼服\n魅力+160",
 		"types":"CLOTHES",
-		"prices":10000,
+		"prices":4000,
 		"can_use":true,
-		"important":true
+		"important":true,
+		"arrtibute_dict":{
+			"charm":160
+		}
 	},
 	{
 		"id":"c18",
 		"name":"魔公主礼服",
-		"description":"象征着魔公主的礼服",
+		"description":"象征着魔公主的礼服\n魅力+45 / 道德-100 / 魔化度+20",
 		"types":"CLOTHES",
 		"prices":10000,
 		"can_use":true,
-		"important":true
+		"important":true,
+		"arrtibute_dict":{
+			"charm":45,
+			"morals":-100,
+			"demonization":20
+		}
 	},
 	{
 		"id":"c19",
 		"name":"龙的礼服",
-		"description":"龙的礼服",
+		"description":"龙的礼服\n魅力+28",
 		"types":"CLOTHES",
 		"prices":10000,
 		"can_use":true,
-		"important":true
+		"important":true,
+		"arrtibute_dict":{
+			"charm":28
+		}
 	},
 	{
 		"id":"f01",
@@ -180,6 +207,590 @@
 		},
 		"body_dict":{
 			"weight":0.0025
+		}
+	},
+	{
+		"id":"w01",
+		"name":"模拟刀",
+		"description":"攻击等级1",
+		"types":"WEAPON",
+		"prices":15,
+		"can_use":false
+	},
+	{
+		"id":"w02",
+		"name":"铁制长剑",
+		"description":"攻击等级2",
+		"types":"WEAPON",
+		"prices":250,
+		"can_use":false
+	},
+	{
+		"id": "w03",
+		"name": "秘银之剑",
+		"description": "攻击等级3",
+		"types": "WEAPON",
+		"prices": 1200,
+		"can_use": false
+	},
+	{
+		"id": "w04",
+		"name": "东方单刃剑",
+		"description": "攻击等级4",
+		"types": "WEAPON",
+		"prices": 2000,
+		"can_use": false
+	},
+	{
+		"id": "w05",
+		"name": "见习之杖",
+		"description": "魔攻等级1",
+		"types": "WEAPON",
+		"prices": 15,
+		"can_use": false
+	},
+	{
+		"id": "w06",
+		"name": "水晶之杖",
+		"description": "魔攻等级2",
+		"types": "WEAPON",
+		"prices": 500,
+		"can_use": false
+	},
+	{
+		"id": "w07",
+		"name": "秘银之杖",
+		"description": "魔攻等级4",
+		"types": "WEAPON",
+		"prices": 1500,
+		"can_use": false
+	},
+	{
+		"id": "a01",
+		"name": "皮甲",
+		"description": "防御等级1 / 魔防等级1",
+		"types": "ARMOR",
+		"prices": 98,
+		"can_use": false
+	},
+	{
+		"id": "a02",
+		"name": "铁铠甲",
+		"description": "防御等级2 / 魔防等级2",
+		"types": "ARMOR",
+		"prices": 980,
+		"can_use": false
+	},
+	{
+		"id": "a03",
+		"name": "秘银的铠甲",
+		"description": "防御等级3 / 魔防等级3",
+		"types": "ARMOR",
+		"prices": 1980,
+		"can_use": false
+	},
+	{
+		"id": "a04",
+		"name": "丝甲",
+		"description": "防御等级4 / 魔防等级4",
+		"types": "ARMOR",
+		"prices": 2980,
+		"can_use": false
+	},
+	{
+		"id": "a05",
+		"name": "抗魔的法衣",
+		"description": "防御等级5 / 魔防等级5",
+		"types": "ARMOR",
+		"prices": 3980,
+		"can_use": false
+	},
+	{
+		"id":"o01",
+		"name":"油画组",
+		"description":"上艺术课时感受增长加快",
+		"types":"OTHER",
+		"prices":300,
+		"can_use":false
+	},
+	{
+		"id":"o02",
+		"name":"舞鞋",
+		"description":"上跳舞课时魅力、气质增长加快",
+		"types":"OTHER",
+		"prices":300,
+		"can_use":false
+	},
+	{
+		"id":"o03",
+		"name":"洋娃娃",
+		"description":"感受+5 / 疲劳-5",
+		"types":"OTHER",
+		"prices":500,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"sensitive":5,
+			"stress":-5
+		}
+	},
+	{
+		"id":"o04",
+		"name":"诗集",
+		"description":"感受+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"sensitive":5
+		}
+	},
+	{
+		"id":"o05",
+		"name":"书籍",
+		"description":"智力+8",
+		"types":"OTHER",
+		"prices":320,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"smarts":8
+		}
+	},
+	{
+		"id":"o06",
+		"name":"茶杯",
+		"description":"气质+10",
+		"types":"OTHER",
+		"prices":400,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"highclass":10
+		}
+	},
+	{
+		"id":"o07",
+		"name":"化妆用品",
+		"description":"魅力+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"charm":5
+		}
+	},
+	{
+		"id":"o08",
+		"name":"高跟鞋",
+		"description":"气质+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"temperament":5
+		}
+	},
+	{
+		"id":"o09",
+		"name":"裁缝用具",
+		"description":"体贴+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"temper":5
+		}
+	},
+	{
+		"id":"o10",
+		"name":"法律书籍",
+		"description":"道德+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"morals":5
+		}
+	},
+	{
+		"id":"o11",
+		"name":"磨亮的镜子",
+		"description":"自尊+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"pride":5
+	}
+	},
+	{
+		"id":"o12",
+		"name":"力量护腕",
+		"description":"体力+5",
+		"types":"OTHER",
+		"prices":200,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"stamina":5
+	}
+	},
+	{
+		"id":"o13",
+		"name":"花束",
+		"description":"魅力+10（仅在生日时可购入）",
+		"types":"OTHER",
+		"prices":400,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"charm":10
+	}
+	},
+	{
+		"id":"o14",
+		"name":"音乐盒",
+		"description":"感受+15（仅在生日时可购入）",
+		"types":"OTHER",
+		"prices":600,
+		"can_use":false,
+		"stackable":true,
+		"arrtibute_dict":{
+			"sensitive":15
+		}
+	},
+	{
+		"id":"o15",
+		"name":"猫眼石",
+		"description":"在魔界道具店购物的许可证",
+		"types":"OTHER",
+		"prices":600,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"o16",
+		"name":"旧香炉",
+		"description":"每月疲劳度-5 / 魔化度+1",
+		"types":"OTHER",
+		"prices":1000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"o17",
+		"name":"神圣的雕像",
+		"description":"每月疲劳度-5 / 罪孽+1",
+		"types":"OTHER",
+		"prices":1000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"o18",
+		"name":"精灵的戒指",
+		"description":"气质+10 / 魔化度-25",
+		"types":"OTHER",
+		"prices":1500,
+		"can_use":false,
+		"important":true,
+		"arrtibute_dict":{
+			"temper":10,
+			"demonization":-25
+		}
+	},
+	{
+		"id":"o19",
+		"name":"恶魔的项链",
+		"description":"气质-10 / 魅力+30 / 魔法+10 / 魔化度+10",
+		"types":"OTHER",
+		"prices":2000,
+		"can_use":false,
+		"important":true,
+		"arrtibute_dict":{
+			"temper":-10,
+			"charm":30,
+			"magic":10,
+			"demonization":10
+		}
+	},
+	{
+		"id":"co01",
+		"name":"妖精之萃",
+		"description":"疲劳-25 / 魔化度-3",
+		"types":"CONSUMABLES",
+		"prices":1000,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stress":-25,
+			"demonization":-3
+		}
+	},
+	{
+		"id":"co02",
+		"name":"超神水",
+		"description":"全部属性-5 / 魔化度-30",
+		"types":"CONSUMABLES",
+		"prices":1000,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stamina":-5,
+			"smarts":-5,
+			"charm":-5,
+			"pride":-5,
+			"morals":-5,
+			"highclass":-5,
+			"sensitive":-5,
+			"temper":-5,
+			"fame":-5,
+			"martial":-5,
+			"magic":-5,
+			"crime":-5,
+			"demonization":-30
+		}
+	},
+	{
+		"id":"co03",
+		"name":"魔界的清水",
+		"description":"疲劳-15 / 魔化度+10",
+		"types":"CONSUMABLES",
+		"prices":500,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stress":-15,
+			"demonization":10
+		}
+	},
+	{
+		"id":"co04",
+		"name":"禁断之果",
+		"description":"全部属性+5 / 魔化度+15",
+		"types":"CONSUMABLES",
+		"prices":1000,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stamina":5,
+			"smarts":5,
+			"charm":5,
+			"pride":5,
+			"morals":5,
+			"highclass":5,
+			"sensitive":5,
+			"temper":5,
+			"fame":5,
+			"martial":5,
+			"magic":5,
+			"crime":5,
+			"demonization":15
+		}
+	},
+	{
+		"id":"co05",
+		"name":"妖精之蜜",
+		"description":"体力+5 / 魔化度+3",
+		"types":"CONSUMABLES",
+		"prices":50,
+		"can_use":true,
+		"arrtibute_dict":{
+			"stamina":5,
+			"demonization":3
+		}
+	},
+	{
+		"id": "co06",
+		"name": "智慧之果",
+		"description": "智力+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"smarts": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co07",
+		"name": "光荣的果实",
+		"description": "自尊+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"pride": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co08",
+		"name": "秩序的种子",
+		"description": "道德+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"morals": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co09",
+		"name": "高贵的泉水",
+		"description": "气质+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"highclass": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co10",
+		"name": "温柔的露水",
+		"description": "体贴+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"temper": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co11",
+		"name": "艺术的麦芽糖",
+		"description": "感受+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"sensitive": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co12",
+		"name": "诱惑的香水",
+		"description": "魅力+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"charm": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co13",
+		"name": "洁净的撒叶",
+		"description": "罪孽-5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"crime": -5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co14",
+		"name": "武神的香",
+		"description": "武术+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"martial": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id": "co15",
+		"name": "天帝的香",
+		"description": "魔法+5 / 魔化度+3",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"magic": 5,
+			"demonization": 3
+		}
+	},
+	{
+		"id":"w08",
+		"name":"传说之鞭",
+		"description":"攻击等级4 / 魔攻等级3 \n防御等级+1 / 魔防等级+1",
+		"types":"WEAPON",
+		"prices":10000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"w09",
+		"name":"魔神之斧",
+		"description":"攻击等级5 / 防御等级+1",
+		"types":"WEAPON",
+		"prices":10000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"w10",
+		"name":"武神之剑",
+		"description":"攻击等级6 / 防御等级+2",
+		"types":"WEAPON",
+		"prices":10000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"o20",
+		"name":"传说的工具",
+		"description":"上艺术课时感受增长加快",
+		"types":"OTHER",
+		"prices":5000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"o21",
+		"name":"玻璃舞鞋",
+		"description":"上舞蹈课时魅力、气质增长加快",
+		"types":"OTHER",
+		"prices":5000,
+		"can_use":false,
+		"important":true
+	},
+	{
+		"id":"o22",
+		"name":"圣女的项链",
+		"description":"魔化度-999 / 气质+20",
+		"types":"OTHER",
+		"prices":10000,
+		"can_use":false,
+		"important":true,
+		"arrtibute_dict":{
+			"demonization":-999,
+			"highclass":20
+		}
+	},
+	{
+		"id":"o23",
+		"name":"妖精之轮",
+		"description":"感受+10 / 每月魔化度-1",
+		"types":"OTHER",
+		"prices":10000,
+		"can_use":false,
+		"important":true,
+		"arrtibute_dict":{
+			"sensitive":10
 		}
 	}
 ]

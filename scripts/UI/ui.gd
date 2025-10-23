@@ -355,7 +355,7 @@ func _on_plan_button_down() -> void:
 		now_canvas_type=CanvasType.PLAN
 		daughter_live.hide())
 	
-func _on_item_cancel_click() -> void:
+func _on_cancel_pressed() -> void:
 	CloseCanvas()
 
 func _on_plan_panel_plan_exit() -> void:
