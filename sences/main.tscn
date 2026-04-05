@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=50 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -26,15 +26,23 @@
 [ext_resource type="PackedScene" uid="uid://dg38cv1k10qb2" path="res://ui/item_panel.tscn" id="22_fmep2"]
 [ext_resource type="Script" uid="uid://ct6x8bug7l20n" path="res://scripts/ui/money.gd" id="22_ijfao"]
 [ext_resource type="Script" uid="uid://v6k2n3ng5f0s" path="res://scripts/ui/item_panel.gd" id="23_vy7bs"]
+[ext_resource type="Script" uid="uid://cidpdjuq0ulcj" path="res://scripts/main_sence/street.gd" id="24_lonm4"]
 [ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="25_kn2hr"]
 [ext_resource type="Script" uid="uid://7vnkn6n8a7fv" path="res://scripts/ui/plan_schedule.gd" id="26_78t24"]
 [ext_resource type="PackedScene" uid="uid://km6d22k236f6" path="res://ui/plan_choose.tscn" id="26_v8d0i"]
 [ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="27_52x8f"]
 [ext_resource type="PackedScene" uid="uid://o4x3t8m7rd4a" path="res://ui/plan_panel.tscn" id="27_78t24"]
-[ext_resource type="PackedScene" uid="uid://c18wvbtpryt3j" path="res://ui/item_shop.tscn" id="30_87hvr"]
+[ext_resource type="Script" uid="uid://bxwhwm0g1bsxo" path="res://ui/item_shop.gd" id="31_tcnmu"]
 [ext_resource type="Script" uid="uid://bj87ykb3bnrhy" path="res://scripts/ui/item_info.gd" id="32_c5n7d"]
+[ext_resource type="Texture2D" uid="uid://cfnrpyi54qki7" path="res://assets/sys/bg08.png" id="32_gj24v"]
 [ext_resource type="Texture2D" uid="uid://igda0sebo5ub" path="res://assets/sys/w_mess.png" id="32_vy7bs"]
+[ext_resource type="Texture2D" uid="uid://co6h1prb6jser" path="res://assets/sys/w_place.png" id="33_3x8t3"]
 [ext_resource type="Texture2D" uid="uid://fjo3isbdudiv" path="res://assets/sys/w_face1.png" id="33_c5n7d"]
+[ext_resource type="PackedScene" uid="uid://taji8blf4lnl" path="res://ui/shop_panel.tscn" id="34_3i0tg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t70hm"]
+atlas = ExtResource("33_3x8t3")
+region = Rect2(0, 0, 204, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxhw"]
 atlas = ExtResource("4_40i81")
@@ -87,6 +95,107 @@ metadata/_edit_lock_ = true
 position = Vector2(640, 560)
 scale = Vector2(2, 2)
 metadata/_edit_lock_ = true
+
+[node name="StreetShop" type="CanvasLayer" parent="."]
+
+[node name="ItemShop" type="Node2D" parent="StreetShop"]
+visible = false
+position = Vector2(640, 400)
+script = ExtResource("31_tcnmu")
+
+[node name="ShopBackGround" type="TextureRect" parent="StreetShop/ItemShop"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.0
+offset_top = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("32_gj24v")
+stretch_mode = 3
+
+[node name="ShopName" type="Sprite2D" parent="StreetShop/ItemShop"]
+position = Vector2(-426, -337)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_t70hm")
+
+[node name="NameLabel" type="Label" parent="StreetShop/ItemShop/ShopName"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.592
+anchor_right = 0.5
+anchor_bottom = 0.592
+offset_left = -132.0
+offset_top = -36.008
+offset_right = -72.0
+offset_bottom = -13.008
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.996078, 0.643137, 0.643137, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_blwv4")
+theme_override_font_sizes/font_size = 20
+text = "道具店"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopPanel" parent="StreetShop" instance=ExtResource("34_3i0tg")]
+visible = false
+position = Vector2(460, 360)
+
+[node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
+layer = 2
+
+[node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("19_e42fx")]
+visible = false
+position = Vector2(980, 600)
+scale = Vector2(2, 2)
+
+[node name="Arrtibute" parent="." instance=ExtResource("27_52x8f")]
+visible = false
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="ItemInfo" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("32_c5n7d")
+
+[node name="ItemBox" type="Sprite2D" parent="ItemInfo"]
+position = Vector2(758, 802)
+scale = Vector2(2, 2)
+texture = ExtResource("32_vy7bs")
+
+[node name="InfoText" type="Label" parent="ItemInfo/ItemBox"]
+offset_left = -190.0
+offset_top = -30.0
+offset_right = 160.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_font_sizes/font_size = 18
+text = "测试文本
+测试文本
+测试文本"
+autowrap_mode = 1
+max_lines_visible = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemIcon" type="Sprite2D" parent="ItemInfo"]
+position = Vector2(320, 800)
+scale = Vector2(2, 2)
+texture = ExtResource("33_c5n7d")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_nevkc")
@@ -1450,6 +1559,7 @@ scale = Vector2(2, 2)
 [node name="Item" type="Node" parent="UI"]
 
 [node name="ItemPanel" parent="UI/Item" instance=ExtResource("22_fmep2")]
+visible = false
 position = Vector2(-570, 360)
 script = ExtResource("23_vy7bs")
 
@@ -1462,6 +1572,7 @@ position = Vector2(980, 480)
 scale = Vector2(2, 2)
 
 [node name="Street" type="Node" parent="UI"]
+script = ExtResource("24_lonm4")
 
 [node name="Street" parent="UI/Street" instance=ExtResource("20_2n76t")]
 visible = false
@@ -1508,60 +1619,11 @@ position = Vector2(1960, 430)
 [node name="PlanPanel" parent="UI/PlanSchedule" instance=ExtResource("27_78t24")]
 position = Vector2(-990, 10)
 
-[node name="StreetShop" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ItemShop" parent="StreetShop" instance=ExtResource("30_87hvr")]
-position = Vector2(430, 360)
-
-[node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
-layer = 2
-
-[node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("19_e42fx")]
-visible = false
-position = Vector2(980, 600)
-scale = Vector2(2, 2)
-
-[node name="Arrtibute" parent="." instance=ExtResource("27_52x8f")]
-visible = false
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
-
-[node name="ItemInfo" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("32_c5n7d")
-
-[node name="ItemBox" type="Sprite2D" parent="ItemInfo"]
-position = Vector2(758, 802)
-scale = Vector2(2, 2)
-texture = ExtResource("32_vy7bs")
-
-[node name="InfoText" type="Label" parent="ItemInfo/ItemBox"]
-offset_left = -190.0
-offset_top = -30.0
-offset_right = 160.0
-offset_bottom = 47.0
-theme_override_colors/font_color = Color(0.996078, 0.94902, 0.901961, 1)
-theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
-theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
-theme_override_constants/line_spacing = 0
-theme_override_constants/paragraph_spacing = 0
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("15_1aw7l")
-theme_override_font_sizes/font_size = 18
-text = "测试文本
-测试文本
-测试文本"
-autowrap_mode = 1
-max_lines_visible = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="ItemIcon" type="Sprite2D" parent="ItemInfo"]
-position = Vector2(320, 800)
-scale = Vector2(2, 2)
-texture = ExtResource("33_c5n7d")
-
+[connection signal="attribute_settle" from="TalkLayer" to="Arrtibute" method="_on_talk_layer_attribute_settle"]
+[connection signal="talk_end" from="TalkLayer" to="UI" method="_on_talk_layer_talk_end"]
+[connection signal="talk_end" from="TalkLayer" to="UI/Street" method="_on_talk_layer_talk_end"]
+[connection signal="talk_start" from="TalkLayer" to="UI" method="_on_talk_layer_talk_start"]
+[connection signal="settle_end" from="Arrtibute" to="TalkLayer" method="_on_arrtibute_settle_end"]
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Status" to="UI/DailyAction" method="_on_status_button_down"]
 [connection signal="button_down" from="UI/DailyAction/Talk" to="UI" method="_on_talk_button_down"]
@@ -1575,5 +1637,3 @@ texture = ExtResource("33_c5n7d")
 [connection signal="plan_click" from="UI/PlanSchedule/PlanChoose" to="UI/PlanSchedule/PlanPanel" method="_on_plan_choose_plan_click"]
 [connection signal="plan_exit" from="UI/PlanSchedule/PlanPanel" to="UI" method="_on_plan_panel_plan_exit"]
 [connection signal="plan_ready" from="UI/PlanSchedule/PlanPanel" to="UI/PlanSchedule" method="_on_plan_panel_plan_ready"]
-[connection signal="attribute_settle" from="TalkLayer" to="Arrtibute" method="_on_talk_layer_attribute_settle"]
-[connection signal="settle_end" from="Arrtibute" to="TalkLayer" method="_on_arrtibute_settle_end"]

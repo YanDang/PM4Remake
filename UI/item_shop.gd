@@ -1,3 +1,3 @@
 extends Node2D
 
-@onready var shop_panel: Node2D = $ShopPanel
+@onready var shop_panel: Node2D = $"../ShopPanel"

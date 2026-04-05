@@ -19,4 +19,5 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 
 func ChoiceEvent(_choice_index:int):
 	health_stat.UpdateStatus()
+	ui.now_canvas_type = ui.CanvasType.HEALTH
 	ui.CloseCanvas()

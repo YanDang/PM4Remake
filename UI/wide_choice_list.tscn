@@ -55,6 +55,7 @@ grow_horizontal = 2
 theme_override_constants/v_separation = 0
 
 [node name="Choice0" type="Button" parent="NinePatchRect/GridContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

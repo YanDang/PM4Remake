@@ -27,7 +27,6 @@ func ChoiceEvent(choice_index:int):
 			}])
 			Global.money -= Global.growth_rates["money"]
 			money.UpdateStatus()
-			talk_layer.event_callable = Callable()
 			pay_money = false
 		await talk_layer.talk_end
 		print("对话结束")

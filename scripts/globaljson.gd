@@ -7,6 +7,7 @@ var icon_path:Dictionary
 var human_translation:Dictionary
 var category_translation:Dictionary
 var category_data:Dictionary
+@onready var special_name:Array = ["charles","jeep","daughter","christina","lee","lise","marie","baora"]
 #var arrtibute_translation:Dictionary
 
 # Called when the node enters the scene tree for the first time.

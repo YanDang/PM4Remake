@@ -1,0 +1,216 @@
+{
+	"item_shop":{
+		"first_time":[
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "欢迎光临。\n客人是第一次来的吧？\n我们这家店是王国第一的道具店。",
+				"voice": ""
+			},
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "商品完全齐备！\n没有什么是本店不卖的\n随意看看吧。",
+				"voice": ""
+			},
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "我也在收购旧货。\n如果有不要的东西\n就拿过来吧。",
+				"voice": ""
+			},
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "那么，今天要买什么吗？",
+				"voice": ""
+			}
+		],
+		"after_choice":[
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "接下来呢？",
+				"voice": ""
+			}
+		],
+		"leave":[
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "再来哦。",
+				"voice": ""
+			}
+		],
+		"normal":[
+			{
+				"character": "aer",
+				"emotion": "",
+				"text": "嗨，欢迎光临。\n今天要买什么吗？",
+				"voice": ""
+			}
+		]
+	},
+	"cloth_shop":{
+		"first_time":[
+			{
+				"character": "teresa",
+				"emotion": "",
+				"text": "欢迎光临。",
+				"voice": ""
+			},
+			{
+				"character": "teresa",
+				"emotion": "",
+				"text": "本店以我设计的洋装为中心，\n从春季到冬季的服装。",
+				"voice": ""
+			},
+			{
+				"character": "teresa",
+				"emotion": "",
+				"text": "日常穿的衣服到宴会礼服，\n不管什么都一应俱全。",
+				"voice": ""
+			},
+			{
+				"character": "teresa",
+				"emotion": "",
+				"text": "看到中意要买的衣服的话，\n请随时告诉我。",
+				"voice": ""
+			}
+		],
+		"leave":[
+			{
+				"character": "teresa",
+				"emotion": "",
+				"text": "谢谢惠顾。\n欢迎再度光临。",
+				"voice": ""
+			}
+		],
+		"normal":[
+			{
+				"character": "teresa",
+				"emotion": "",
+				"text": "欢迎光临。\n请随意看看。",
+				"voice": ""
+			}
+		]
+	},
+	"food_shop":{
+		"first_time":[
+			{
+				"character": "shirak",
+				"emotion": "",
+				"text": "嗨，客人是第一次来的吧。\n欢迎光临，\n我这家餐厅提供最棒的料理。",
+				"voice": ""
+			},
+			{
+				"character": "shirak",
+				"emotion": "",
+				"text": "从小吃到全餐应有尽有\n餐后的甜点和咖啡也是最棒的喔。",
+				"voice": ""
+			},
+			{
+				"character": "shirak",
+				"emotion": "",
+				"text": "啊，废话不多说了。\n总之来吃一次看看，\n保证好吃到舌头融化喔。",
+				"voice": ""
+			}
+		],
+		"leave":[
+			{
+				"character": "shirak",
+				"emotion": "",
+				"text": "谢谢。\n欢迎再来吃喔。",
+				"voice": ""
+			}
+		],
+		"normal":[
+			{
+				"character": "shirak",
+				"emotion": "",
+				"text": "喔，欢迎光临。\n那么，今天要点什么？",
+				"voice": ""
+			}
+		]
+	},
+	"church":{
+		"first_time":[
+			{
+				"character": "eva",
+				"emotion": "",
+				"text": "欢迎来到神之家。\n第一次来做礼拜吗。",
+				"voice": ""
+			},
+			{
+				"character": "eva",
+				"emotion": "",
+				"text": "在这里无论是什么人，\n都会被当作是神的子民看待的。\n绝对不会有任何疏忽……",
+				"voice": ""
+			},
+			{
+			    "character": "eva",
+				"emotion": "",
+				"text": "来吧，\n一起对伟大的天父献上祈祷吧。\n神是一直眷顾着我们的。",
+				"voice": ""
+			},
+			{
+				"character": "eva",
+				"emotion": "",
+				"text": "今天有什么事吗？",
+				"voice": ""
+			}
+		],
+		"leave":[
+			{
+				"character": "eva",
+				"emotion": "",
+				"text": "那么再见了……\n请随时保持信仰之心……",
+				"voice": ""
+			}
+		],
+		"normal":[
+			{
+				"character": "eva",
+				"emotion": "",
+				"text": "做礼拜可以洗净心灵，\n祝福您的灵魂……",
+				"voice": ""
+			},
+			{
+				"character": "eva",
+				"emotion": "",
+				"text": "今天有什么事吗？",
+				"voice": ""
+			}
+		]
+	},
+	"hospital":{
+		"first_time":[
+			{
+				"character": "nakras",
+				"emotion": "",
+				"text": "什么，第一次到院吗？\n这里是医院喔。",
+				"voice": ""
+			},
+			{
+				"character": "nakras",
+				"emotion": "",
+				"text": "无论什么病都可以快速治好。\n话说回来，平时多注意一些，\n就不用来这里报到啦。",
+				"voice": ""
+			},
+			{
+				"character": "nakras",
+				"emotion": "",
+				"text": "不过呢，也不要大意。\n如果一有什么就赶快到这里来吧。",
+				"voice": ""
+			}
+		],
+		"normal":[
+			{
+				"character": "nakras",
+				"emotion": "",
+				"text": "什么啊，没有事,\n生病之后再来吧。",
+				"voice": ""
+			}
+		]
+	}
+}

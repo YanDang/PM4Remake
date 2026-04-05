@@ -90,7 +90,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
 [node name="TalkEvent" type="Node2D" parent="."]
-position = Vector2(320, 800)
+position = Vector2(330, 816)
 scale = Vector2(2, 2)
 
 [node name="TalkBox" type="Sprite2D" parent="TalkEvent"]

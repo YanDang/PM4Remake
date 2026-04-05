@@ -4,7 +4,7 @@ extends Node
 @onready var arrtibute: CanvasLayer = $"../../Arrtibute"
 @onready var base_info: Sprite2D = $"../BaseInfo"
 
-@onready var talk_names:Array = ["greeting","softly","sternly","allowance"]
+@onready var talk_names:Array = ["greeting","softly","sternly","allowance","already"]
 @onready var ui: CanvasLayer = $".."
 @onready var talk: Node2D = $Talk
 
@@ -33,8 +33,9 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 		Global.already_talk = true
 		talk_layer.TalkStart(conversation[age_stage][talk_names[choice_index]],1,arrtibute_dict)
 	else:
-		talk_layer.TalkStart(conversation[age_stage][talk_names[choice_index]],0,arrtibute_dict)
+		talk_layer.TalkStart(conversation[age_stage]["already"],0,arrtibute_dict)
 	talk.hide()
 
 func ChoiceEvent(_choice_index:int):
+	ui.now_canvas_type = ui.CanvasType.DAILYTALK
 	ui.CloseCanvas()

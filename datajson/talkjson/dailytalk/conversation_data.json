@@ -37,6 +37,14 @@
 				"text": "谢谢爸爸！我会把钱存起来买小玩具~",
 				"voice": ""
 			}
+		],
+		"already": [
+			{
+				"character": "",
+				"emotion": "",
+				"text": "这个月已经对话过了。",
+				"voice": ""
+			}
 		]
 	},
 	"teen": {
@@ -71,6 +79,14 @@
 				"text": "谢啦爸，我会用在正经地方的！",
 				"voice": ""
 			}
+		],
+		"already": [
+			{
+				"character": "",
+				"emotion": "",
+				"text": "这个月已经对话过了。",
+				"voice": ""
+			}
 		]
 	},
 	"adult": {
@@ -103,6 +119,14 @@
 				"character": "daughter",
 				"emotion": "happy",
 				"text": "谢谢爸爸，我会认真规划这笔钱的。",
+				"voice": ""
+			}
+		],
+		"already": [
+			{
+				"character": "",
+				"emotion": "",
+				"text": "这个月已经对话过了。",
 				"voice": ""
 			}
 		]

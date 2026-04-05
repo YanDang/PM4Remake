@@ -12,6 +12,7 @@ extends CanvasLayer
 # 对话结束后结算
 enum SettleType {NULL,ATTRIBUTE,CHOICE}
 
+signal talk_start
 signal talk_end
 signal attribute_settle(attribute_dict)
 # 发出选择结果
@@ -53,6 +54,7 @@ func RegisterCallback(cb: Callable) -> void:
 	event_callable = cb
 
 func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:Dictionary={},data_list:Array=[]):
+	emit_signal("talk_start")
 	current_index = 0
 	settle = now_settle
 	match settle:
@@ -77,7 +79,10 @@ func TalkEnd():
 	if event_callable.is_null():
 		emit_signal("talk_end")
 	else:
+		# 请在函数里面复原状态
 		event_callable.call(child_choice_index)
+		# 用完就销毁
+		event_callable = Callable()
 
 func TalkPolling():
 	if current_index < talk_even.size():
@@ -97,6 +102,8 @@ func TalkPolling():
 						emit_signal("attribute_settle",attribute_dict)
 					SettleType.CHOICE:
 						choice_ui.init(choice_list)
+						if choice_list.size() > 2:
+							choice_ui.position.y -= choice_list.size() * choice_ui.base_heigh
 						await get_tree().process_frame # 等到下一帧
 						choice_ui.show()
 				allow_emit = false
@@ -125,7 +132,8 @@ func Happen(who:String,emotion:String,text:String,name_index:int=0) -> void:
 		talk_text.text = text
 		return 
 	# 普通npc的icon和其他的不一样
-	elif who in Globaljson.icon_path.keys():
+	elif who in Globaljson.special_name:
+		# 年龄差分
 		if who in special_name:
 			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + emotions[emotion] + ".png"
 		else:

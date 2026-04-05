@@ -1,0 +1,54 @@
+{
+	"street":[
+        {
+            "character": "jeep",
+            "emotion": "calm",
+            "text": "道具或是武器、服装、\n用餐、教会、医院等等，\n可以到提供这些生活所需的场所去。",
+            "voice": ""
+        }
+    ],
+    "stature":[
+        {
+            "character": "jeep",
+            "emotion": "calm",
+            "text": "小姐现在的状况，\n可以在这里确认。",
+            "voice": ""
+        }
+    ],
+    "talk":[
+        {
+            "character": "jeep",
+            "emotion": "calm",
+            "text": "可以和小姐进行特定话题的交谈。",
+            "voice": ""
+        },
+        {
+            "character": "jeep",
+            "emotion": "happy",
+            "text": "为了让小姐健全的成长，\n由主人主动提供谈话的机会\n也会比较好吧。",
+            "voice": ""
+        }
+    ],
+    "item":[
+        {
+            "character": "jeep",
+            "emotion": "calm",
+            "text": "可以使用道具，\n或是替换衣服。",
+            "voice": ""
+        }
+    ],
+    "health":[
+        {
+            "character": "jeep",
+            "emotion": "calm",
+            "text": "这里可以进行小姐的健康管理。",
+            "voice": ""
+        },
+        {
+            "character": "jeep",
+            "emotion": "calm",
+            "text": "在这里做的调整，除了健康状态外，\n会反映在小姐的身高体重、三围等\n数值的变化上。",
+            "voice": ""
+        }
+    ]
+}

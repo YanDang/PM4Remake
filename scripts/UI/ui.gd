@@ -6,8 +6,9 @@ extends CanvasLayer
 @onready var plan: Button = $Plan
 @onready var health_stat: Sprite2D = $HealthStat
 
-enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM,PLAN}
+enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM,PLAN,DAILYTALK}
 var now_canvas_type:CanvasType = CanvasType.MAIN
+var temp_canvas_type:CanvasType
 
 # 状态
 @onready var birthday: Sprite2D = $Birthday
@@ -69,11 +70,10 @@ func InitialUI() -> void:
 
 # 返回主界面
 func CloseCanvas() -> void:
+	print(now_canvas_type)
 	match now_canvas_type:
 		CanvasType.STATUS:
 			LeaveStatus()
-		CanvasType.TALK:
-			LeaveTalk()
 		CanvasType.HEALTH:
 			LeaveHealth()
 		CanvasType.ITEM:
@@ -84,10 +84,12 @@ func CloseCanvas() -> void:
 			LeaveSystem()
 		CanvasType.PLAN:
 			LeavePlan()
+		CanvasType.DAILYTALK:
+			LeaveTalk()
 	now_canvas_type = CanvasType.MAIN
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("cancel") and now_canvas_type != CanvasType.PLAN:
+	if event.is_action_pressed("cancel") and now_canvas_type != CanvasType.PLAN and now_canvas_type != CanvasType.TALK:
 		CloseCanvas()
 	if event.is_action_pressed("confirm"):
 		if now_canvas_type == CanvasType.STATUS:
@@ -257,7 +259,7 @@ func _on_talk_button_down() -> void:
 		plan.hide())
 	tween.tween_callback(func():
 		talk.show())
-	tween.tween_callback(func():now_canvas_type=CanvasType.TALK)
+	tween.tween_callback(func():now_canvas_type=CanvasType.DAILYTALK)
 
 func _on_health_button_down() -> void:
 	health_console.LoadJsonData()
@@ -359,4 +361,15 @@ func _on_cancel_pressed() -> void:
 	CloseCanvas()
 
 func _on_plan_panel_plan_exit() -> void:
+	now_canvas_type = CanvasType.PLAN
 	CloseCanvas()
+
+func _on_talk_layer_talk_start() -> void:
+	temp_canvas_type = now_canvas_type
+	now_canvas_type = CanvasType.TALK
+	
+func _on_talk_layer_talk_end() -> void:
+	print(now_canvas_type)
+	print("收到信号")
+	now_canvas_type = temp_canvas_type
+	print(now_canvas_type)
