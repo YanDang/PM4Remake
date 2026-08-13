@@ -52,12 +52,12 @@ region = Rect2(0, 0, 200, 85)
 atlas = ExtResource("4_40i81")
 region = Rect2(0, 85, 200, 85)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3oe0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcnmu"]
 atlas = ExtResource("7_nfa5d")
 region = Rect2(0, 378, 102, 34)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_licnl"]
-texture = SubResource("AtlasTexture_n3oe0")
+texture = SubResource("AtlasTexture_tcnmu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1aw7l"]
 atlas = ExtResource("7_nfa5d")

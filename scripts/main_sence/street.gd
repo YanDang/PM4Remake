@@ -27,6 +27,25 @@ func LoadJsonData():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	LoadJsonData()
+	shop_panel.cancel_pressed.connect(_on_shop_panel_cancel)
+
+func _on_shop_panel_cancel():
+	var tween = get_tree().create_tween()
+	item_info.hide()
+	tween.tween_property(shop_panel, "position", shop_panel.position-2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(func():
+		shop_panel.hide())
+	
+	if current_shop_index == 0:
+		# 道具店重新显示商店对话选项
+		talk_layer.RegisterCallback(ChoiceEvent)
+		var next_talk = "normal"
+		if conversation[current_shop_name].has("after_choice"):
+			next_talk = "after_choice"
+		talk_layer.TalkStart(conversation[current_shop_name][next_talk],2,{},["购买物品","卖出物品","离开商店"])
+	else:
+		# 服装店和餐厅直接离开商店
+		LeaveShopWithDialogue()
 
 func _on_choice_pressed(_choice_text: String,choice_index:int):
 	current_shop_index = choice_index
@@ -37,23 +56,51 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 	street.hide()
 	item_shop.show()
 	talk_layer.RegisterCallback(ChoiceEvent)
+	
+	var greeting_key = get_greeting_key()
+	
 	if choice_index == 0:
-		talk_layer.TalkStart(conversation[current_shop_name]['first_time'],2,{},["购买物品","卖出物品","离开商店"])
+		talk_layer.TalkStart(conversation[current_shop_name][greeting_key],2,{},["购买物品","卖出物品","离开商店"])
 	else:
-		talk_layer.TalkStart(conversation[current_shop_name]['first_time'],0)
+		talk_layer.TalkStart(conversation[current_shop_name][greeting_key],0)
+func LeaveShopWithDialogue():
+	if conversation[current_shop_name].has("leave"):
+		talk_layer.RegisterCallback(func(_idx): LeaveShop())
+		talk_layer.TalkStart(conversation[current_shop_name]["leave"], 0)
+	else:
+		LeaveShop()
+
 func LeaveShop():
 	item_shop.hide()
 	ui.now_canvas_type = ui.CanvasType.STREET
 	ui.CloseCanvas()
+	
+func get_greeting_key() -> String:
+	if not Global.visited_shops.has(current_shop_name):
+		Global.visited_shops[current_shop_name] = true
+		return "first_time"
+	return "normal"
 func ChoiceEvent(_choice_index:int):
+	# 4是医院，它们没有购买面板，结束对话直接离开
+	if current_shop_index >= 4:
+		LeaveShopWithDialogue()
+		return
+		
 	match _choice_index:
 		0:
 			var tween = get_tree().create_tween()  # 创建一个 Tween
 			tween.tween_callback(func():
 				shop_panel.show()
 				item_info.show()
-				shop_panel.InitPanel(Globaljson.shop_items[current_shop_name]))
+				shop_panel.InitPanel(Globaljson.shop_items[current_shop_name], 0)) # BUY mode
+			tween.tween_property(shop_panel, "position", shop_panel.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		1:
+			var tween = get_tree().create_tween()  # 创建一个 Tween
+			tween.tween_callback(func():
+				shop_panel.show()
+				item_info.show()
+				shop_panel.InitPanel(Inventory.slots, 1)) # SELL mode
 			tween.tween_property(shop_panel, "position", shop_panel.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		2:
-			LeaveShop()
+			LeaveShopWithDialogue()
 	

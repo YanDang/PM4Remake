@@ -14,6 +14,7 @@ var cloth_file_dict:Dictionary
 
 var eye_index = 0
 var all_animations = ["wink","wink_double"]
+var current_clothes: String = ""
 
 func _on_timer_timeout() -> void:
 	eye_index ^= 1
@@ -24,6 +25,7 @@ func ChangeClothes(clothes_name:String):
 	if not cloth_file_dict.get(clothes_name):
 		push_warning("Load Resource ERROR")
 		return
+	current_clothes = clothes_name
 	var atlas_tex = AtlasTexture.new()
 	print(Daughterstatus.age_stage_names[Daughterstatus.age_stage])
 	print(cloth_file_dict[clothes_name])

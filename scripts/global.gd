@@ -17,6 +17,9 @@ var health_index:int = 0
 # 这个月对话了吗
 var already_talk:bool = false
 
+# 记录访问过的商店
+var visited_shops: Dictionary = {}
+
 # 本月行动
 var month_plan:Array
 # 本月结束日期

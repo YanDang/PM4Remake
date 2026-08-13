@@ -56,6 +56,7 @@ func RegisterCallback(cb: Callable) -> void:
 func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:Dictionary={},data_list:Array=[]):
 	emit_signal("talk_start")
 	current_index = 0
+	child_choice_index = 0
 	settle = now_settle
 	match settle:
 		SettleType.NULL:
@@ -79,10 +80,10 @@ func TalkEnd():
 	if event_callable.is_null():
 		emit_signal("talk_end")
 	else:
-		# 请在函数里面复原状态
-		event_callable.call(child_choice_index)
-		# 用完就销毁
+		var cb = event_callable
+		# 先销毁再调用，以支持在回调中注册新的回调
 		event_callable = Callable()
+		cb.call(child_choice_index)
 
 func TalkPolling():
 	if current_index < talk_even.size():

@@ -90,6 +90,8 @@ func CloseCanvas() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel") and now_canvas_type != CanvasType.PLAN and now_canvas_type != CanvasType.TALK:
+		if now_canvas_type == CanvasType.ITEM and item_panel.is_using_item:
+			return
 		CloseCanvas()
 	if event.is_action_pressed("confirm"):
 		if now_canvas_type == CanvasType.STATUS:
@@ -358,6 +360,8 @@ func _on_plan_button_down() -> void:
 		daughter_live.hide())
 	
 func _on_cancel_pressed() -> void:
+	if now_canvas_type == CanvasType.ITEM and item_panel.is_using_item:
+		return
 	CloseCanvas()
 
 func _on_plan_panel_plan_exit() -> void:

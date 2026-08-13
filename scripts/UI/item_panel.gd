@@ -65,13 +65,19 @@ func on_button_unhovered(_button: Button,_i:int):
 	choice_high_light.hide()
 	emit_signal("item_hovered","")
 
+var is_using_item: bool = false
+
 # 点击物品就使用
 func on_button_pressed(_button:Button,item:Item):
+	if is_using_item:
+		return
+		
 	print(item.name)
 	if item.types == Item.ItemType.CLOTHES:
 		ui.CloseCanvas()
 		daughter_live.ChangeClothes(item.name)
 	if item.types == Item.ItemType.FOOD or item.types == Item.ItemType.CONSUMABLES:
+		is_using_item = true
 		arrtibute.AnnotationStart(item.arrtibute_dict)
 		for key in item.body_dict.keys():
 			Daughterstatus.body_stats[key] += item.body_dict[key] * Daughterstatus.body_stats[key]
@@ -79,6 +85,7 @@ func on_button_pressed(_button:Button,item:Item):
 		Inventory.RemoveItem(item.id,1)
 		RefreshInventory()
 		ui.now_canvas_type = ui.CanvasType.ITEM
+		is_using_item = false
 		#ui.CloseCanvas()
 
 func on_choice_pressed(i:int):

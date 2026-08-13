@@ -3,6 +3,9 @@ extends Node2D
 @onready var previous: Button = $Previous
 @onready var next: Button = $Next
 @onready var cancel: Button = $Cancel
+@onready var money: Sprite2D = $"../../UI/Money"
+@onready var shop_stat: Label = $ShopStat
+@onready var daughter_live: Node2D = $"../../DaughterLive"
 
 # 基本位移量
 var base_heigh:int = 38
@@ -12,6 +15,9 @@ var base_choice:int = 1
 static var max_item_nums:int = 5
 var start_index:int = 0
 var item_nums:int = 1
+
+enum ShopMode { BUY, SELL }
+var current_mode: ShopMode = ShopMode.BUY
 
 # 物品类型名字
 var type_name = ["clothes", "weapon", "armor", "food", "consumables", "other"]
@@ -27,17 +33,44 @@ var shop_slots:Array
 
 # 发射选择信号
 signal item_hovered(item_description:String)
+signal cancel_pressed
 
 # Called when the node enters the scene tree for the first time
-func InitPanel(this_shop_slots:Array):
-	shop_slots = this_shop_slots
+func InitPanel(this_shop_slots:Array, mode: int = ShopMode.BUY):
+	current_mode = mode
+	if current_mode == ShopMode.BUY:
+		shop_slots = this_shop_slots
+		shop_stat.text = "买 入"
+	elif current_mode == ShopMode.SELL:
+		Inventory.SortSlots()
+		shop_slots = filter_sellable_items(this_shop_slots)
+		shop_stat.text = "卖 出"
+		
 	item_nums = len(shop_slots)
+	start_index = 0
 	choice_high_light.hide()
-	# 加载选项
-	LoadChoices()
-	# 获取所有子节点（按钮）并连接信号
+	# 获取所有子节点（按钮）并更新
 	UpdateChoice()
-	cancel.pressed.connect(Callable(get_parent(), "_on_cancel_pressed"))
+	
+func filter_sellable_items(all_slots: Array) -> Array:
+	var sellable_slots = []
+	var current_clothes = ""
+	if daughter_live:
+		current_clothes = daughter_live.current_clothes
+		
+	for slot in all_slots:
+		if slot["item"]:
+			if slot["item"].important:
+				continue
+			if slot["item"].types == Item.ItemType.CLOTHES and slot["item"].name == current_clothes:
+				continue
+			sellable_slots.append(slot)
+	return sellable_slots
+	
+func _ready():
+	cancel.pressed.connect(func(): emit_signal("cancel_pressed"))
+	# 初始化时只加载一次选项按钮
+	LoadChoices()
 
 func GetItem(i:int) -> Item:
 	var slots_index = i + start_index
@@ -67,7 +100,40 @@ func on_button_unhovered(_button: Button,_i:int):
 func on_choice_pressed(i:int):
 	var item:Item = GetItem(i)
 	if item:
-		print(item.name)
+		if current_mode == ShopMode.BUY:
+			if Global.money >= item.prices:
+				Global.money -= item.prices
+				Inventory.AddItem(item.id)
+				print("购买成功: ", item.name)
+				
+				# 更新金钱UI
+				if money:
+					money.UpdateStatus()
+			else:
+				print("金钱不足，无法购买: ", item.name)
+		elif current_mode == ShopMode.SELL:
+			var sell_price = int(item.prices / 2)
+			Global.money += sell_price
+			Inventory.RemoveItem(item.id, 1)
+			print("卖出成功: ", item.name)
+			
+			if money:
+				money.UpdateStatus()
+			RefreshPanel()
+
+func RefreshPanel() -> void:
+	if current_mode == ShopMode.SELL:
+		Inventory.SortSlots()
+		shop_slots = filter_sellable_items(Inventory.slots)
+	
+	item_nums = len(shop_slots)
+	
+	if start_index >= item_nums and start_index > 0:
+		start_index -= max_item_nums
+		if start_index < 0:
+			start_index = 0
+			
+	UpdateChoice()
 
 ## 加载按钮,一次全加载出来算了……没用到的直接hide
 func LoadChoices() -> void:
@@ -96,9 +162,16 @@ func UpdateChoice() -> void:
 		# 获取所有的选项
 		temp_node = grid_container.get_node("Button"+str(i))
 		temp_node.show()
-		temp_node.text = shop_slots[slots_index]["item"].name
+		
+		var display_price = shop_slots[slots_index]["item"].prices
+		var count_str = ""
+		if current_mode == ShopMode.SELL:
+			display_price = int(display_price / 2)
+			count_str = " x" + str(shop_slots[slots_index]["count"])
+			
+		temp_node.text = shop_slots[slots_index]["item"].name + count_str
 		temp_node.icon = load("res://animation/item/%s.tres" % type_name[shop_slots[slots_index]["item"].types])
-		temp_node.get_node("Label").text = str(shop_slots[slots_index]["item"].prices) + " G"
+		temp_node.get_node("Label").text = str(display_price) + " G"
 	for i in range(choice_nums,max_item_nums):
 		temp_node = grid_container.get_node("Button"+str(i))
 		temp_node.hide()

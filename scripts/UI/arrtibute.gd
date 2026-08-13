@@ -29,10 +29,12 @@ extends CanvasLayer
 var move_vector = Vector2(250,0)
 var keys:Array
 var annotation_visible: bool = false
+var base_position: Vector2
 
 signal settle_end
 
 func _ready() -> void:
+	base_position = arrtibute_list.position
 	hide()
 	AttributeHide()
 
@@ -52,7 +54,7 @@ func _input(event: InputEvent) -> void:
 func AnnotationStart(arrtibute_dict:Dictionary):
 	show()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
-	tween.tween_property(arrtibute_list, "position", arrtibute_list.position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(arrtibute_list, "position", base_position-move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	for key in arrtibute_dict.keys():
 		if attribute_nodes.has(key):
 			var num:Label = attribute_nodes[key].get_node("Num")
@@ -74,7 +76,7 @@ func AnnotationStart(arrtibute_dict:Dictionary):
 	
 func AnnotationEnd():
 	var tween = get_tree().create_tween()  # 创建一个 Tween
-	tween.tween_property(arrtibute_list, "position", arrtibute_list.position+move_vector, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(arrtibute_list, "position", base_position, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(AttributeHide)
 	tween.tween_callback(hide)
 	tween.tween_callback(func():
