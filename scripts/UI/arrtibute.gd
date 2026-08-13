@@ -68,14 +68,18 @@ func AnnotationStart(arrtibute_dict:Dictionary):
 			Daughterstatus.attributes[key] = clamp(Daughterstatus.attributes[key]+arrtibute_dict[key],0,999)
 			num.text = str(int(Daughterstatus.attributes[key]))
 			progressbar.value = Daughterstatus.attributes[key]
-	tween.tween_callback(func():annotation_visible=true)
+	tween.tween_callback(func():
+		annotation_visible=true
+	)
 	
 func AnnotationEnd():
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(arrtibute_list, "position", arrtibute_list.position+move_vector, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(AttributeHide)
 	tween.tween_callback(hide)
-	tween.tween_callback(func():emit_signal("settle_end"))
+	tween.tween_callback(func():
+		settle_end.emit()
+	)
 
 func _on_talk_layer_attribute_settle(attribute_dict: Variant) -> void:
 	AnnotationStart(attribute_dict)

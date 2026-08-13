@@ -71,15 +71,15 @@ func on_button_pressed(_button:Button,item:Item):
 	if item.types == Item.ItemType.CLOTHES:
 		ui.CloseCanvas()
 		daughter_live.ChangeClothes(item.name)
-	if item.types == Item.ItemType.FOOD:
-		for key in item.arrtibute_dict.keys():
-			arrtibute.AnnotationStart(item.arrtibute_dict)
+	if item.types == Item.ItemType.FOOD or item.types == Item.ItemType.CONSUMABLES:
+		arrtibute.AnnotationStart(item.arrtibute_dict)
 		for key in item.body_dict.keys():
 			Daughterstatus.body_stats[key] += item.body_dict[key] * Daughterstatus.body_stats[key]
-		await arrtibute.settle_end
+		await arrtibute.settle_end 
 		Inventory.RemoveItem(item.id,1)
-		ui.CloseCanvas()
-		
+		RefreshInventory()
+		ui.now_canvas_type = ui.CanvasType.ITEM
+		#ui.CloseCanvas()
 
 func on_choice_pressed(i:int):
 	#var slots_index = i + start_index
@@ -116,7 +116,9 @@ func UpdateChoice() -> void:
 		# 获取所有的选项
 		temp_node = grid_container.get_node("Button"+str(i))
 		temp_node.show()
-		temp_node.text = Inventory.slots[slots_index]["item"].name
+		var current_item = Inventory.slots[slots_index]["item"]
+		var current_count = Inventory.slots[slots_index]["count"]
+		temp_node.text = current_item.name + " x" + str(current_count)
 		temp_node.icon = load("res://animation/item/%s.tres" % type_name[Inventory.slots[slots_index]["item"].types])
 		temp_node.get_node("Label").text = str(Inventory.slots[slots_index]["item"].prices) + " G"
 	for i in range(choice_nums,max_item_nums):
@@ -130,6 +132,20 @@ func UpdateChoice() -> void:
 		next.hide()
 	else:
 		next.show()
+
+func RefreshInventory() -> void:
+	# 1. 重新获取真实的物品总数
+	item_nums = len(Inventory.slots)
+	
+	# 2. 安全检查：防止删除物品后当前页码变成“空页”
+	# 比如物品只有5个了，但 start_index 还是 5，就会报错，需要自动退回上一页
+	if start_index >= item_nums and start_index > 0:
+		start_index -= max_item_nums
+		if start_index < 0:
+			start_index = 0
+			
+	# 3. 更新 UI
+	UpdateChoice()
 
 func _on_next_pressed() -> void:
 	start_index += 5

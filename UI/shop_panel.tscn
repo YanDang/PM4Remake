@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://taji8blf4lnl"]
 
-[ext_resource type="Script" uid="uid://kxmj48po7ey7" path="res://scripts/ui/shop_panel.gd" id="1_8cue6"]
+[ext_resource type="Script" uid="uid://kxmj48po7ey7" path="res://scripts/UI/shop_panel.gd" id="1_8cue6"]
 [ext_resource type="Texture2D" uid="uid://bg8ekjfgj25u2" path="res://assets/sys/w_shop.png" id="1_jgj1k"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="2_8cue6"]
 [ext_resource type="FontFile" uid="uid://bchm7jukxwjob" path="res://fronts/DIN1451.ttf" id="3_ls0g4"]
@@ -127,28 +127,20 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_2hmwb")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2hmwb")
 text = "取 消"
 
-[node name="ShopStat" type="Button" parent="."]
-offset_left = -165.0
+[node name="ShopStat" type="Label" parent="."]
+offset_left = -164.0
 offset_top = 88.0
-offset_right = -89.0
+offset_right = -88.0
 offset_bottom = 124.0
-theme_override_colors/font_outline_color = Color(0.447059, 0.337255, 0.231373, 1)
 theme_override_colors/font_color = Color(1, 0.835294, 0.639216, 1)
+theme_override_colors/font_outline_color = Color(0.447059, 0.337255, 0.231373, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_8cue6")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/hover = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_e42fx")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_e42fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e42fx")
 text = "买 入"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ChoiceHighLight" type="Sprite2D" parent="."]
 position = Vector2(19.5, -83)

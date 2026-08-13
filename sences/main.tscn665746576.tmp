@@ -167,7 +167,7 @@ visible = false
 script = ExtResource("32_c5n7d")
 
 [node name="ItemBox" type="Sprite2D" parent="ItemInfo"]
-position = Vector2(768, 818)
+position = Vector2(758, 802)
 scale = Vector2(2, 2)
 texture = ExtResource("32_vy7bs")
 
@@ -193,7 +193,7 @@ max_lines_visible = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="ItemIcon" type="Sprite2D" parent="ItemInfo"]
-position = Vector2(330, 816)
+position = Vector2(320, 800)
 scale = Vector2(2, 2)
 texture = ExtResource("33_c5n7d")
 
@@ -1619,7 +1619,6 @@ position = Vector2(1960, 430)
 [node name="PlanPanel" parent="UI/PlanSchedule" instance=ExtResource("27_78t24")]
 position = Vector2(-990, 10)
 
-[connection signal="item_hovered" from="StreetShop/ShopPanel" to="ItemInfo" method="_on_item_panel_item_hovered_item"]
 [connection signal="attribute_settle" from="TalkLayer" to="Arrtibute" method="_on_talk_layer_attribute_settle"]
 [connection signal="talk_end" from="TalkLayer" to="UI" method="_on_talk_layer_talk_end"]
 [connection signal="talk_end" from="TalkLayer" to="UI/Street" method="_on_talk_layer_talk_end"]
@@ -1633,7 +1632,7 @@ position = Vector2(-990, 10)
 [connection signal="button_down" from="UI/DailyAction/Street" to="UI" method="_on_street_button_down"]
 [connection signal="button_down" from="UI/DailyAction/System" to="UI" method="_on_system_button_down"]
 [connection signal="button_down" from="UI/Plan" to="UI" method="_on_plan_button_down"]
-[connection signal="item_hovered" from="UI/Item/ItemPanel" to="ItemInfo" method="_on_item_panel_item_hovered_item"]
+[connection signal="item_hovered" from="UI/Item/ItemPanel" to="ItemInfo" method="_on_item_panel_item_hovered"]
 [connection signal="cancel_click" from="UI/PlanSchedule/PlanChoose" to="UI/PlanSchedule/PlanPanel" method="_on_plan_choose_cancel_click"]
 [connection signal="plan_click" from="UI/PlanSchedule/PlanChoose" to="UI/PlanSchedule/PlanPanel" method="_on_plan_choose_plan_click"]
 [connection signal="plan_exit" from="UI/PlanSchedule/PlanPanel" to="UI" method="_on_plan_panel_plan_exit"]

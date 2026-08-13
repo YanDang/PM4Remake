@@ -724,6 +724,18 @@
 		}
 	},
 	{
+		"id": "co16",
+		"name": "圣水",
+		"description": "道德+5 / 魔化度-5",
+		"types": "CONSUMABLES",
+		"prices": 50,
+		"can_use": true,
+		"arrtibute_dict": {
+			"morals": 5,
+			"demonization": -5
+		}
+	},
+	{
 		"id":"w08",
 		"name":"传说之鞭",
 		"description":"攻击等级4 / 魔攻等级3 \n防御等级+1 / 魔防等级+1",

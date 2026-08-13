@@ -12,8 +12,8 @@ func _ready() -> void:
 		{"item": Globaljson.items["c04"], "count": 1},
 		{"item": Globaljson.items["c05"], "count": 1},
 		{"item": Globaljson.items["c16"], "count": 1},
-		{"item": Globaljson.items["f01"],"count":1},
-		{"item": Globaljson.items["f01"],"count":1}
+		{"item": Globaljson.items["f01"], "count": 2},
+		{"item": Globaljson.items["co03"], "count": 2},
 	]
 
 # 添加物品

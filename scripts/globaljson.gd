@@ -2,6 +2,7 @@ extends Node
 
 var health_growth:Dictionary
 var items:Dictionary
+var shop_items:Dictionary
 var clothes_path:Dictionary
 var icon_path:Dictionary
 var human_translation:Dictionary
@@ -14,6 +15,7 @@ var category_data:Dictionary
 func _ready() -> void:
 	health_growth = JSON.parse_string(FileAccess.open("res://datajson/growth_data.json", FileAccess.READ).get_as_text())
 	LoadItemsFromJson("res://datajson/item_data.json")
+	PrecalculateShopSlots(JSON.parse_string(FileAccess.open("res://datajson/shop_data.json", FileAccess.READ).get_as_text()))
 	clothes_path = JSON.parse_string(FileAccess.open("res://datajson/clothes_path_data.json", FileAccess.READ).get_as_text())
 	icon_path = JSON.parse_string(FileAccess.open("res://datajson/headshot_icon_data.json", FileAccess.READ).get_as_text())
 	human_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/human_translation.json", FileAccess.READ).get_as_text())
@@ -66,3 +68,19 @@ func ApplyJsonToItem(item:Item,dict:Dictionary):
 					item.types = value
 			else:
 				item.set(key, value)
+
+func PrecalculateShopSlots(shop_items_json:Dictionary):
+	for shop_name in shop_items_json.keys():
+		var item_ids_array = shop_items_json[shop_name]
+		shop_items[shop_name] = generate_shop_slots(item_ids_array)
+
+# 将读取的id转换为slots
+func generate_shop_slots(item_ids: Array) -> Array:
+	var slots: Array = []
+	for item_id in item_ids:
+		if items.has(item_id):
+			slots.append({
+				"item": items[item_id], 
+				"count": 1
+			})
+	return slots

@@ -27,8 +27,8 @@ func _ready() -> void:
 	# 初始隐藏
 	talk_layer.hide()
 	arrtibute.hide()
-	Global.month_plan = [&"farm", &"theory", &"art"]
-	Global.month_end_day = 30
+	#Global.month_plan = [&"farm", &"theory", &"art"]
+	#Global.month_end_day = 30
 	PlanStart()
 	await self.plan_end
 	PlanStart()
@@ -122,7 +122,6 @@ func _on_talk_layer_talk_end() -> void:
 	if Global.day <= plan_end_day:
 		Global.day += 1
 		date.UpdateStatus()
-		TimeLapse()
 		# 度过了一天
 		Global.week_index = (Global.week_index + 1) % 7
 		money.UpdateStatus()
@@ -131,3 +130,5 @@ func _on_talk_layer_talk_end() -> void:
 			# 工作|上课次数+1
 			Global.category_stage[plan_name][1] += 1
 			emit_signal("plan_end")
+		else:
+			TimeLapse()

@@ -48,7 +48,7 @@ var choice_list:Array
 
 # 函数触发
 var event_callable:Callable = Callable()
-var child_choice_index:int
+var child_choice_index:int = 0 # 默认值为0，即便没有触发选项也能正常结算
 
 func RegisterCallback(cb: Callable) -> void:
 	event_callable = cb
