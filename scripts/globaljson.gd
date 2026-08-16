@@ -5,9 +5,11 @@ var items:Dictionary
 var shop_items:Dictionary
 var clothes_path:Dictionary
 var icon_path:Dictionary
+var stand_sprite_data:Dictionary
 var human_translation:Dictionary
 var category_translation:Dictionary
 var category_data:Dictionary
+var event_data:Dictionary
 @onready var special_name:Array = ["charles","jeep","daughter","christina","lee","lise","marie","baora"]
 #var arrtibute_translation:Dictionary
 
@@ -18,9 +20,11 @@ func _ready() -> void:
 	PrecalculateShopSlots(JSON.parse_string(FileAccess.open("res://datajson/shop_data.json", FileAccess.READ).get_as_text()))
 	clothes_path = JSON.parse_string(FileAccess.open("res://datajson/clothes_path_data.json", FileAccess.READ).get_as_text())
 	icon_path = JSON.parse_string(FileAccess.open("res://datajson/headshot_icon_data.json", FileAccess.READ).get_as_text())
+	stand_sprite_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/stand_sprite_data.json", FileAccess.READ).get_as_text())
 	human_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/human_translation.json", FileAccess.READ).get_as_text())
 	category_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/category_translation.json", FileAccess.READ).get_as_text())
 	LoadCategoryFromTxt("res://datajson/category_data.txt")
+	event_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/event_data.json", FileAccess.READ).get_as_text())
 	#arrtibute_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/arrtibute_translation.json", FileAccess.READ).get_as_text())
 
 func LoadCategoryFromTxt(path:String):

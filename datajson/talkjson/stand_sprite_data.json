@@ -1,0 +1,9 @@
+{
+    "daughter": "Patricia Halliwel/ch{emotion}{age}{cloth}.png",
+    "charles": "Charles/pa{emotion}.png",
+    "lee": "Lee/pb{emotion}.png",
+    "baora": "Baora/pc{emotion}.png",
+    "lise": "Lise Tolbas/ra{emotion}{age}.png",
+    "christina": "Christina O'Hara Northerly/rb{emotion}{age}.png",
+    "marie": "Marie Strahlman/rc{emotion}{age}.png"
+}

@@ -1,0 +1,754 @@
+[
+  {
+    "voice_file": "adv01_014.ogg",
+    "prefix": "adv01",
+    "function": "adv01_2",
+    "text": "你好，利伊。\\n我有一件事情很在意。",
+    "pc": "0x23be91",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "adv01_028.ogg",
+    "prefix": "adv01",
+    "function": "adv01_2",
+    "text": "真是的，利伊真是太悠哉了。",
+    "pc": "0x23d4a9",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "adv01_045.ogg",
+    "prefix": "adv01",
+    "function": "adv01_2",
+    "text": "你好，利伊。\\n我有一件事情很在意。",
+    "pc": "0x241a71",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "adv01_059.ogg",
+    "prefix": "adv01",
+    "function": "adv01_2",
+    "text": "真是的，利伊真是太悠哉了。",
+    "pc": "0x243089",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev017_003.ogg",
+    "prefix": "ev017",
+    "function": "ev017_0",
+    "text": "今天來這裡的人好多喔。\\n不知道王子是否也會來呢？",
+    "pc": "0x11bb98",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev017_028.ogg",
+    "prefix": "ev017",
+    "function": "ev017_0",
+    "text": "今天來這裡的人好多喔。\\n不知道王子是否也會來呢？",
+    "pc": "0x121778",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev021_042.ogg",
+    "prefix": "ev021",
+    "function": "ev021_5",
+    "text": "聖誕快樂，利伊。",
+    "pc": "0x126125",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev021_049.ogg",
+    "prefix": "ev021",
+    "function": "ev021_5",
+    "text": "呼呼呼呼，利伊真是的。\\n太誇張了啦。",
+    "pc": "0x126b69",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev021_091.ogg",
+    "prefix": "ev021",
+    "function": "ev021_5",
+    "text": "聖誕快樂，利伊。",
+    "pc": "0x12bd05",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev025_002.ogg",
+    "prefix": "ev025",
+    "function": "ev025_0",
+    "text": "咦？\\n這不是利伊嗎。",
+    "pc": "0x12c605",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev025_018.ogg",
+    "prefix": "ev025",
+    "function": "ev025_4",
+    "text": "利伊優先",
+    "pc": "0x12e4ed",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev025_033.ogg",
+    "prefix": "ev025",
+    "function": "ev025_3",
+    "text": "利伊優先",
+    "pc": "0x12fdc1",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev025_036.ogg",
+    "prefix": "ev025",
+    "function": "ev025_0",
+    "text": "咦？\\n這不是利伊嗎。",
+    "pc": "0x1321e5",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev028_015.ogg",
+    "prefix": "ev028",
+    "function": "ev028_0",
+    "text": "請原諒我們！\\n原諒我們吧～\\n王子殿下！！",
+    "pc": "0x137271",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev028_048.ogg",
+    "prefix": "ev028",
+    "function": "ev028_0",
+    "text": "請原諒我們！\\n原諒我們吧～\\n王子殿下！！",
+    "pc": "0x13ce51",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev031_002.ogg",
+    "prefix": "ev031",
+    "function": "ev031_0",
+    "text": "嗨，夏洛璐！\\n午安。\\n很高興又見到你了呢。",
+    "pc": "0x13c9f2",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev031_025.ogg",
+    "prefix": "ev031",
+    "function": "ev031_0",
+    "text": "嗨，夏洛璐！\\n午安。\\n很高興又見到你了呢。",
+    "pc": "0x1425d2",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev034_004.ogg",
+    "prefix": "ev034",
+    "function": "ev034_0",
+    "text": "而且，今天的舞會，\\n聽說王子殿下也會出場喔？",
+    "pc": "0x1422fa",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev034_009.ogg",
+    "prefix": "ev034",
+    "function": "ev034_0",
+    "text": "哇呀啊啊啊啊！\\n王子殿下！",
+    "pc": "0x142d9e",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev034_010.ogg",
+    "prefix": "ev034",
+    "function": "ev034_0",
+    "text": "我是夏洛璐。\\n請大家多多指教。",
+    "pc": "0x14303d",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev034_013.ogg",
+    "prefix": "ev034",
+    "function": "ev034_1",
+    "text": "！\\n王子殿下向這裡走來了呢！",
+    "pc": "0x1433e1",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev034_025.ogg",
+    "prefix": "ev034",
+    "function": "ev034_4",
+    "text": "嗯。我也是，王子殿下向我這裡走來\\n的時候，我真的嚇了好大一跳呢。\\n但是是真的唷。",
+    "pc": "0x1457d6",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev034_030.ogg",
+    "prefix": "ev034",
+    "function": "ev034_0",
+    "text": "而且，今天的舞會，\\n聽說王子殿下也會出場喔？",
+    "pc": "0x147eda",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev034_035.ogg",
+    "prefix": "ev034",
+    "function": "ev034_0",
+    "text": "哇呀啊啊啊啊！\\n王子殿下！",
+    "pc": "0x14897e",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev034_036.ogg",
+    "prefix": "ev034",
+    "function": "ev034_0",
+    "text": "我是夏洛璐。\\n請大家多多指教。",
+    "pc": "0x148c1d",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev034_039.ogg",
+    "prefix": "ev034",
+    "function": "ev034_1",
+    "text": "！\\n王子殿下向這裡走來了呢！",
+    "pc": "0x148fc1",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev034_051.ogg",
+    "prefix": "ev034",
+    "function": "ev034_4",
+    "text": "嗯。我也是，王子殿下向我這裡走來\\n的時候，我真的嚇了好大一跳呢。\\n但是是真的唷。",
+    "pc": "0x14b3b6",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev037_001.ogg",
+    "prefix": "ev037",
+    "function": "ev037_0",
+    "text": "利伊！\\n發生什麼事了？",
+    "pc": "0x14b9dc",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev037_008.ogg",
+    "prefix": "ev037",
+    "function": "ev037_0",
+    "text": "利伊！利伊！\\n",
+    "pc": "0x14c448",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev037_017.ogg",
+    "prefix": "ev037",
+    "function": "ev037_0",
+    "text": "利伊！\\n發生什麼事了？",
+    "pc": "0x1515bc",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev037_024.ogg",
+    "prefix": "ev037",
+    "function": "ev037_0",
+    "text": "利伊！利伊！\\n",
+    "pc": "0x152028",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev050_001.ogg",
+    "prefix": "ev050",
+    "function": "ev050_0",
+    "text": "夏洛璐？\\n嗨～，午安。",
+    "pc": "0x158117",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev050_008.ogg",
+    "prefix": "ev050",
+    "function": "ev050_0",
+    "text": "夏洛璐？\\n嗨～，午安。",
+    "pc": "0x15dcf7",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev051_002.ogg",
+    "prefix": "ev051",
+    "function": "ev051_0",
+    "text": "噯呀，夏洛璐。\\n你好，出來散步嗎？",
+    "pc": "0x159226",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev051_007.ogg",
+    "prefix": "ev051",
+    "function": "ev051_0",
+    "text": "噯呀，夏洛璐。\\n你好，出來散步嗎？",
+    "pc": "0x15ee06",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev052_002.ogg",
+    "prefix": "ev052",
+    "function": "ev052_0",
+    "text": "哎呀，我還以為是誰，\\n原來是夏洛璐啊。\\n出來逛街嗎？",
+    "pc": "0x159e15",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev052_010.ogg",
+    "prefix": "ev052",
+    "function": "ev052_0",
+    "text": "哎呀，我還以為是誰，\\n原來是夏洛璐啊。\\n出來逛街嗎？",
+    "pc": "0x15f9f5",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev053_001.ogg",
+    "prefix": "ev053",
+    "function": "ev053_0",
+    "text": "噯呀～\\n午安，夏洛璐。\\n又出來散步嗎？",
+    "pc": "0x15b008",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev053_005.ogg",
+    "prefix": "ev053",
+    "function": "ev053_0",
+    "text": "那麼，夏洛璐。\\n我們就一起去吧。",
+    "pc": "0x15ba95",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev053_016.ogg",
+    "prefix": "ev053",
+    "function": "ev053_0",
+    "text": "噯呀～\\n午安，夏洛璐。\\n又出來散步嗎？",
+    "pc": "0x160be8",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev053_020.ogg",
+    "prefix": "ev053",
+    "function": "ev053_0",
+    "text": "那麼，夏洛璐。\\n我們就一起去吧。",
+    "pc": "0x161675",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev054_001.ogg",
+    "prefix": "ev054",
+    "function": "ev054_0",
+    "text": "夏洛璐！",
+    "pc": "0x15d094",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev054_007.ogg",
+    "prefix": "ev054",
+    "function": "ev054_0",
+    "text": "啊，夏洛璐。",
+    "pc": "0x15dd48",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev054_018.ogg",
+    "prefix": "ev054",
+    "function": "ev054_0",
+    "text": "夏洛璐！",
+    "pc": "0x162c74",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev054_024.ogg",
+    "prefix": "ev054",
+    "function": "ev054_0",
+    "text": "啊，夏洛璐。",
+    "pc": "0x163928",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev057_019.ogg",
+    "prefix": "ev057",
+    "function": "ev057_0",
+    "text": "呼呼呼，夏洛璐看起來，還真是\\n相當開心呢。就像小孩子一樣。",
+    "pc": "0x16377f",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev058_001.ogg",
+    "prefix": "ev058",
+    "function": "ev058_0",
+    "text": "夏洛璐，\\n今天是去了哪裡嗎？",
+    "pc": "0x163cce",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev058_008.ogg",
+    "prefix": "ev058",
+    "function": "ev058_0",
+    "text": "夏洛璐，\\n今天是去了哪裡嗎？",
+    "pc": "0x1698ae",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev059_001.ogg",
+    "prefix": "ev059",
+    "function": "ev059_0",
+    "text": "啊，夏洛璐。\\n午安。",
+    "pc": "0x165797",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev059_006.ogg",
+    "prefix": "ev059",
+    "function": "ev059_0",
+    "text": "啊，夏洛璐。\\n午安。",
+    "pc": "0x16b377",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev060_002.ogg",
+    "prefix": "ev060",
+    "function": "ev060_0",
+    "text": "啊，夏洛璐。\\n現在我正要去上魔法課呢。",
+    "pc": "0x1667a8",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev060_010.ogg",
+    "prefix": "ev060",
+    "function": "ev060_0",
+    "text": "啊，夏洛璐。\\n現在我正要去上魔法課呢。",
+    "pc": "0x16c388",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev061_002.ogg",
+    "prefix": "ev061",
+    "function": "ev061_0",
+    "text": "你好，夏洛璐。",
+    "pc": "0x167b36",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev061_005.ogg",
+    "prefix": "ev061",
+    "function": "ev061_0",
+    "text": "你好，夏洛璐。",
+    "pc": "0x16d716",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev062_001.ogg",
+    "prefix": "ev062",
+    "function": "ev062_0",
+    "text": "你看起來心情真好呢，\\n夏洛璐。\\n發生什麼好事嗎？",
+    "pc": "0x1687b7",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev062_009.ogg",
+    "prefix": "ev062",
+    "function": "ev062_0",
+    "text": "你看起來心情真好呢，\\n夏洛璐。\\n發生什麼好事嗎？",
+    "pc": "0x16e397",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev064_002.ogg",
+    "prefix": "ev064",
+    "function": "ev064_0",
+    "text": "是夏洛璐？",
+    "pc": "0x16acb9",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev064_025.ogg",
+    "prefix": "ev064",
+    "function": "ev064_0",
+    "text": "是夏洛璐？",
+    "pc": "0x170899",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev077_006.ogg",
+    "prefix": "ev077",
+    "function": "ev077_0",
+    "text": "（果然王子就是要騎在馬上，\\n才像個王子的形象嘛）",
+    "pc": "0x175482",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev077_013.ogg",
+    "prefix": "ev077",
+    "function": "ev077_0",
+    "text": "（果然王子就是要騎在馬上，\\n才像個王子的形象嘛）",
+    "pc": "0x17b062",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev090_001.ogg",
+    "prefix": "ev090",
+    "function": "ev090_0",
+    "text": "噯呀？\\n你在做什麼呢，利伊？",
+    "pc": "0x183e7e",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev090_009.ogg",
+    "prefix": "ev090",
+    "function": "ev090_0",
+    "text": "噯呀？\\n你在做什麼呢，利伊？",
+    "pc": "0x189a5e",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev091_001.ogg",
+    "prefix": "ev091",
+    "function": "ev091_0",
+    "text": "噯呀，利伊。\\n午安。",
+    "pc": "0x1853ec",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev091_009.ogg",
+    "prefix": "ev091",
+    "function": "ev091_1",
+    "text": "（只不過去買個東西而已，\\n利伊就這樣樂的，好像小孩子一樣。\\n呼呼呼）",
+    "pc": "0x18600e",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev091_010.ogg",
+    "prefix": "ev091",
+    "function": "ev091_0",
+    "text": "噯呀，利伊。\\n午安。",
+    "pc": "0x18afcc",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev092_002.ogg",
+    "prefix": "ev092",
+    "function": "ev092_0",
+    "text": "哎呀？\\n這不是利伊嗎。",
+    "pc": "0x1864ed",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev092_006.ogg",
+    "prefix": "ev092",
+    "function": "ev092_0",
+    "text": "啊，利伊㌍",
+    "pc": "0x186e45",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev092_009.ogg",
+    "prefix": "ev092",
+    "function": "ev092_0",
+    "text": "哎呀？\\n這不是利伊嗎。",
+    "pc": "0x18c0cd",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev092_013.ogg",
+    "prefix": "ev092",
+    "function": "ev092_0",
+    "text": "啊，利伊㌍",
+    "pc": "0x18ca25",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev093_001.ogg",
+    "prefix": "ev093",
+    "function": "ev093_0",
+    "text": "利伊，你在這裡幹什麼啊？",
+    "pc": "0x1874c0",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev093_006.ogg",
+    "prefix": "ev093",
+    "function": "ev093_0",
+    "text": "利伊，你在這裡幹什麼啊？",
+    "pc": "0x18d0a0",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev094_005.ogg",
+    "prefix": "ev094",
+    "function": "ev094_0",
+    "text": "你的說法真奇怪啊，利伊。",
+    "pc": "0x189115",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev094_013.ogg",
+    "prefix": "ev094",
+    "function": "ev094_0",
+    "text": "你的說法真奇怪啊，利伊。",
+    "pc": "0x18ecf5",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev097_002.ogg",
+    "prefix": "ev097",
+    "function": "ev097_0",
+    "text": "等一下，利伊？\\n剛剛是怎麼回事？",
+    "pc": "0x18c5b7",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev097_009.ogg",
+    "prefix": "ev097",
+    "function": "ev097_0",
+    "text": "等一下，利伊？\\n剛剛是怎麼回事？",
+    "pc": "0x192197",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev099_005.ogg",
+    "prefix": "ev099",
+    "function": "ev099_1",
+    "text": "呼呼呼，謝謝你。\\n這麼說來利伊，\\n你老是穿那一套呢。",
+    "pc": "0x18f698",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev100_002.ogg",
+    "prefix": "ev100",
+    "function": "ev100_0",
+    "text": "午安，利伊。\\n可惜今天不能去玩喔。",
+    "pc": "0x19032c",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev100_010.ogg",
+    "prefix": "ev100",
+    "function": "ev100_1",
+    "text": "你總是這麼健康呢，利伊？",
+    "pc": "0x19102a",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev100_014.ogg",
+    "prefix": "ev100",
+    "function": "ev100_0",
+    "text": "午安，利伊。\\n可惜今天不能去玩喔。",
+    "pc": "0x195f0c",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev101_001.ogg",
+    "prefix": "ev101",
+    "function": "ev101_0",
+    "text": "噯呀，這不是利伊嗎？\\n今天在這裡吃飯啊。",
+    "pc": "0x191952",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev101_011.ogg",
+    "prefix": "ev101",
+    "function": "ev101_0",
+    "text": "噯呀，這不是利伊嗎？\\n今天在這裡吃飯啊。",
+    "pc": "0x197532",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev102_002.ogg",
+    "prefix": "ev102",
+    "function": "ev102_0",
+    "text": "吶，利伊。",
+    "pc": "0x193798",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev102_005.ogg",
+    "prefix": "ev102",
+    "function": "ev102_0",
+    "text": "啊，等一下，利伊㌍",
+    "pc": "0x193fa0",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev102_007.ogg",
+    "prefix": "ev102",
+    "function": "ev102_0",
+    "text": "吶，利伊。",
+    "pc": "0x199378",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev102_010.ogg",
+    "prefix": "ev102",
+    "function": "ev102_0",
+    "text": "啊，等一下，利伊㌍",
+    "pc": "0x199b80",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev103_003.ogg",
+    "prefix": "ev103",
+    "function": "ev103_0",
+    "text": "噯呀呀，\\n你今天看起來也很開心呢，利伊。\\n小孩子在陪你玩嗎？",
+    "pc": "0x194649",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev104_002.ogg",
+    "prefix": "ev104",
+    "function": "ev104_0",
+    "text": "噯呀，這不是利伊嗎？\\n午安。",
+    "pc": "0x1958a7",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev104_006.ogg",
+    "prefix": "ev104",
+    "function": "ev104_0",
+    "text": "利伊，你好像很喜歡祭典呢？",
+    "pc": "0x195d65",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev104_014.ogg",
+    "prefix": "ev104",
+    "function": "ev104_0",
+    "text": "噯呀，這不是利伊嗎？\\n午安。",
+    "pc": "0x19b487",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev108_005.ogg",
+    "prefix": "ev108",
+    "function": "ev108_0",
+    "text": "耶～，原來利伊也會\\n",
+    "pc": "0x197165",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev108_021.ogg",
+    "prefix": "ev108",
+    "function": "ev108_0",
+    "text": "耶～，原來利伊也會\\n",
+    "pc": "0x19cd45",
+    "src": "room.g2"
+  },
+  {
+    "voice_file": "ev161_001.ogg",
+    "prefix": "ev161",
+    "function": "ev161_0",
+    "text": "吶吶，克莉絲提娜。\\n妳覺得王子殿下是什麼樣的人啊？",
+    "pc": "0x1b290f",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev167_008.ogg",
+    "prefix": "ev167",
+    "function": "ev167_0",
+    "text": "就在那裡，傳言說今年，\\n王子也會登場了唷！",
+    "pc": "0x1b9fca",
+    "src": "test.g2"
+  },
+  {
+    "voice_file": "ev302_004.ogg",
+    "prefix": "ev302",
+    "function": "ev302",
+    "text": "克莉絲提娜是想成為\\n和王子結婚的公主。",
+    "pc": "0x1ea9b2",
+    "src": "test.g2"
+  }
+]

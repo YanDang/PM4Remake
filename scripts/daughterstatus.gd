@@ -42,6 +42,8 @@ var attributes = {
 ## 年龄
 var age:int = 10
 var age_stage:AgeStageType = AgeStageType.CHILD
+## 当前衣服ID (用于立绘显示，如 01=便装)
+var current_clothes_id:String = "01"
 ## 出生日期
 var birth_year:int=1430
 var birth_month:int=4

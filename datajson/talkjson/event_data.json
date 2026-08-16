@@ -1,0 +1,52 @@
+{
+    "Square": [
+        {
+            "id": "meet_lise_test",
+            "priority": 100,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": ["met_lise"],
+                "min_affection": {
+                    "lise": 0
+                },
+                "max_affection": {},
+                "min_stats": {
+                    "charm": 0
+                },
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": ["met_lise"],
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "今天天气真好呢。"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "哇！你好呀，我是莉洁！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "你好！初次见面，请多关照。"
+                },
+                {
+                    "character": "lise",
+                    "action": "leave"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "她真是有精神呢。"
+                }
+            ]
+        }
+    ]
+}

@@ -20,6 +20,19 @@ var already_talk:bool = false
 # 记录访问过的商店
 var visited_shops: Dictionary = {}
 
+# 事件标记
+var flags: Dictionary = {}
+
+# 角色好感度
+var affection: Dictionary = {
+	"lise": 0,
+	"marie": 0,
+	"christina": 0,
+	"lee": 0,
+	"charles": 0,
+	"baora": 0
+}
+
 # 本月行动
 var month_plan:Array
 # 本月结束日期

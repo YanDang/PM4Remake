@@ -1,10 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://r377q4iaekpl"]
+[gd_scene load_steps=16 format=3 uid="uid://r377q4iaekpl"]
 
 [ext_resource type="Texture2D" uid="uid://yc4p6m20obgn" path="res://assets/Backgrounds/gd_000038.png" id="1_8vqpv"]
+[ext_resource type="Script" uid="uid://btlbipbntbj52" path="res://scripts/main_sence/city.gd" id="1_city"]
 [ext_resource type="SpriteFrames" uid="uid://bo4sxr1o7ghww" path="res://animation/city/site_point.tres" id="2_0kjyr"]
+[ext_resource type="Texture2D" uid="uid://cfnrpyi54qki7" path="res://assets/sys/bg08.png" id="3_u5re7"]
 [ext_resource type="FontFile" uid="uid://r4dk3kk7nllf" path="res://fronts/FZCQJW.ttf" id="3_uwjyw"]
+[ext_resource type="Texture2D" uid="uid://co6h1prb6jser" path="res://assets/sys/w_place.png" id="4_3d1yd"]
 [ext_resource type="Texture2D" uid="uid://b3w6wxfwkv1ti" path="res://assets/sys/1673.png" id="4_mqyke"]
 [ext_resource type="Texture2D" uid="uid://xma3x2h5c7g5" path="res://assets/sys/w_map2.png" id="5_mcshp"]
+[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://UI/wide_choice_list.tscn" id="10_aovku"]
+[ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://UI/arrtibute.tscn" id="11_1qdom"]
+[ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://UI/talk_layer.tscn" id="11_talk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtjib"]
+atlas = ExtResource("4_3d1yd")
+region = Rect2(0, 0, 204, 49)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqyke"]
 texture = ExtResource("4_mqyke")
@@ -17,6 +27,7 @@ region = Rect2(70, 145, 124, 51)
 texture = SubResource("AtlasTexture_c762w")
 
 [node name="City" type="Node"]
+script = ExtResource("1_city")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 640.0
@@ -25,6 +36,52 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_8vqpv")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Site" type="Node2D" parent="UI"]
+visible = false
+position = Vector2(640, 400)
+
+[node name="SiteBackGround" type="TextureRect" parent="UI/Site"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.0
+offset_top = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_u5re7")
+stretch_mode = 3
+
+[node name="SiteName" type="Sprite2D" parent="UI/Site"]
+position = Vector2(-426, -337)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_rtjib")
+
+[node name="NameLabel" type="Label" parent="UI/Site/SiteName"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.592
+anchor_right = 0.5
+anchor_bottom = 0.592
+offset_left = -132.0
+offset_top = -36.008
+offset_right = -72.0
+offset_bottom = -13.008
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.996078, 0.643137, 0.643137, 1)
+theme_override_colors/font_outline_color = Color(0.419608, 0.235294, 0.0941176, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_uwjyw")
+theme_override_font_sizes/font_size = 20
+text = "道具店"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SitePoints" type="Node2D" parent="UI"]
 
@@ -274,7 +331,7 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_uwjyw")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxTexture_mqyke")
-text = "街道"
+text = "医院"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -330,3 +387,19 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_x3v6e")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_x3v6e")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x3v6e")
 text = "回家"
+
+[node name="TalkLayer" parent="." instance=ExtResource("11_talk")]
+visible = false
+
+[node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("10_aovku")]
+visible = false
+position = Vector2(980, 600)
+scale = Vector2(2, 2)
+
+[node name="Arrtibute" parent="." instance=ExtResource("11_1qdom")]
+visible = false
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[connection signal="attribute_settle" from="TalkLayer" to="Arrtibute" method="_on_talk_layer_attribute_settle"]
+[connection signal="settle_end" from="Arrtibute" to="TalkLayer" method="_on_arrtibute_settle_end"]
