@@ -114,7 +114,7 @@ theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("3_26vjv")
 theme_override_font_sizes/font_size = 18
-text = "测试文本
+text = "测试文本测试文本测试文本测试文本测试文
 测试文本
 测试文本"
 autowrap_mode = 1

@@ -160,10 +160,14 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 	# 普通npc的icon和其他的不一样
 	elif who in Globaljson.special_name:
 		# 年龄差分
+		var face_emo = emotions[emotion]
+		if who != "daughter" and face_emo not in ["01", "02", "03"]:
+			face_emo = "01"
+			
 		if who in special_name:
-			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + emotions[emotion] + ".png"
+			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + face_emo + ".png"
 		else:
-			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + emotions[emotion] + ".png"
+			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + face_emo + ".png"
 		print(icon_path)
 		headshot.show()
 		if who == "daughter":
@@ -175,6 +179,7 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 			push_warning("Load emotion ERROR")
 			return
 	else:
+		headshot.show()
 		first_name.text = Globaljson.human_translation[who][name_index]
 		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + ".png"
 	headshot.texture = load(icon_path)
@@ -184,6 +189,8 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 	if get_tree().current_scene.name != "Main" and Globaljson.stand_sprite_data.has(who):
 		var template: String = Globaljson.stand_sprite_data[who]
 		var emo_code = emotions.get(emotion, "01")
+		if who != "daughter" and emo_code not in ["01", "02", "03"]:
+			emo_code = "01"
 		var age_code = ""
 		
 		if who in special_name:
@@ -211,22 +218,70 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 		var slot = active_sprites[who]
 		var tex = load(sprite_path)
 		if tex:
-			if who == "daughter" and emo_code == "01":
+			
+			if who in special_name and emo_code == "01":
 				var body_tex = AtlasTexture.new()
 				body_tex.atlas = tex
+				
+				# Default fallback values (daughter 'c')
 				var region_body = Rect2(0, 48, 268, 400)
 				var eye_pos = Vector2(2.5, -104.5)
-				var eye_region = Rect2(2, 2, 77, 43)
-				
-				if age_code == "l":
-					region_body = Rect2(0, 40, 280, 480)
-					eye_pos = Vector2(1, -103)
-					eye_region = Rect2(2, 2, 76, 36)
-				elif age_code == "h":
-					region_body = Rect2(0, 46, 372, 480)
-					eye_pos = Vector2(-7, -140)
-					eye_region = Rect2(2, 2, 75, 42)
-					
+				var eye_frames_y = 2
+				var eye_frames_h = 43
+				var eye_frame_w = 77
+				var frame_x0 = 2
+				var frame_x1 = 83
+				var frame_x2 = 164
+
+				if who == "daughter":
+					if age_code == "l":
+						region_body = Rect2(0, 40, 280, 480); eye_pos = Vector2(1, -103)
+						eye_frames_y = 2; eye_frames_h = 36; eye_frame_w = 76
+						frame_x0 = 2; frame_x1 = 82; frame_x2 = 162
+					elif age_code == "h":
+						region_body = Rect2(0, 46, 372, 480); eye_pos = Vector2(-6, -140)
+						eye_frames_y = 2; eye_frames_h = 42; eye_frame_w = 75
+						frame_x0 = 2; frame_x1 = 81; frame_x2 = 160
+				elif who == "lise":
+					if age_code == "c":
+						region_body = Rect2(0, 44, 252, 424); eye_pos = Vector2(-1.0, -97.5)
+						eye_frames_y = 3; eye_frames_h = 41; eye_frame_w = 80
+						frame_x0 = 1; frame_x1 = 83; frame_x2 = 165
+					elif age_code == "l":
+						region_body = Rect2(0, 42, 292, 462); eye_pos = Vector2(0.5, -120.5)
+						eye_frames_y = 3; eye_frames_h = 39; eye_frame_w = 75
+						frame_x0 = 2; frame_x1 = 82; frame_x2 = 162
+					elif age_code == "h":
+						region_body = Rect2(0, 44, 292, 482); eye_pos = Vector2(1.5, -147.0)
+						eye_frames_y = 2; eye_frames_h = 42; eye_frame_w = 81
+						frame_x0 = 1; frame_x1 = 84; frame_x2 = 167
+				elif who == "marie":
+					if age_code == "c":
+						region_body = Rect2(0, 48, 204, 388); eye_pos = Vector2(2.5, -117.5)
+						eye_frames_y = 3; eye_frames_h = 45; eye_frame_w = 61
+						frame_x0 = 2; frame_x1 = 65; frame_x2 = 128
+					elif age_code == "l":
+						region_body = Rect2(0, 48, 248, 430); eye_pos = Vector2(-1.0, -125.0)
+						eye_frames_y = 2; eye_frames_h = 46; eye_frame_w = 78
+						frame_x0 = 2; frame_x1 = 82; frame_x2 = 162
+					elif age_code == "h":
+						region_body = Rect2(0, 45, 244, 463); eye_pos = Vector2(4.0, -148.0)
+						eye_frames_y = 4; eye_frames_h = 41; eye_frame_w = 74
+						frame_x0 = 2; frame_x1 = 78; frame_x2 = 154
+				elif who == "christina":
+					if age_code == "c":
+						region_body = Rect2(0, 44, 240, 404); eye_pos = Vector2(-0.5, -110.0)
+						eye_frames_y = 4; eye_frames_h = 40; eye_frame_w = 73
+						frame_x0 = 2; frame_x1 = 77; frame_x2 = 152
+					elif age_code == "l":
+						region_body = Rect2(0, 50, 260, 450); eye_pos = Vector2(-6.0, -128.0)
+						eye_frames_y = 4; eye_frames_h = 46; eye_frame_w = 66
+						frame_x0 = 2; frame_x1 = 70; frame_x2 = 138
+					elif age_code == "h":
+						region_body = Rect2(0, 46, 264, 484); eye_pos = Vector2(-2.5, -144.5)
+						eye_frames_y = 3; eye_frames_h = 43; eye_frame_w = 75
+						frame_x0 = 2; frame_x1 = 79; frame_x2 = 156
+
 				body_tex.region = region_body
 				slot.texture = body_tex
 				
@@ -241,60 +296,48 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 				
 				var tex0 = AtlasTexture.new()
 				tex0.atlas = tex
+				tex0.region = Rect2(frame_x0, eye_frames_y, eye_frame_w, eye_frames_h)
 				var tex1 = AtlasTexture.new()
 				tex1.atlas = tex
+				tex1.region = Rect2(frame_x1, eye_frames_y, eye_frame_w, eye_frames_h)
 				var tex2 = AtlasTexture.new()
 				tex2.atlas = tex
-				
-				if age_code == "c":
-					tex0.region = Rect2(2, 2, 77, 43)
-					tex1.region = Rect2(83, 2, 77, 43)
-					tex2.region = Rect2(164, 2, 77, 43)
-				elif age_code == "l":
-					tex0.region = Rect2(2, 2, 76, 36)
-					tex1.region = Rect2(82, 2, 76, 36)
-					tex2.region = Rect2(162, 2, 76, 36)
-				elif age_code == "h":
-					tex0.region = Rect2(2, 2, 75, 42)
-					tex1.region = Rect2(81, 2, 75, 42)
-					tex2.region = Rect2(160, 2, 75, 42)
+				tex2.region = Rect2(frame_x2, eye_frames_y, eye_frame_w, eye_frames_h)
 				
 				var frames = SpriteFrames.new()
 				if not frames.has_animation("default"):
 					frames.add_animation("default")
 				frames.add_frame("default", tex0)
 				
-				if emo_code == "01":
-					frames.add_animation("wink")
-					frames.set_animation_loop("wink", false)
-					frames.set_animation_speed("wink", 10.0)
-					for t in [tex0, tex1, tex2, tex1, tex0]:
-						frames.add_frame("wink", t)
-						
-					frames.add_animation("wink_double")
-					frames.set_animation_loop("wink_double", false)
-					frames.set_animation_speed("wink_double", 10.0)
-					for t in [tex0, tex1, tex2, tex1, tex0, tex1, tex2, tex1, tex0]:
-						frames.add_frame("wink_double", t)
+				frames.add_animation("wink")
+				frames.set_animation_loop("wink", false)
+				frames.set_animation_speed("wink", 10.0)
+				for t in [tex0, tex1, tex2, tex1, tex0]:
+					frames.add_frame("wink", t)
+					
+				frames.add_animation("wink_double")
+				frames.set_animation_loop("wink_double", false)
+				frames.set_animation_speed("wink_double", 10.0)
+				for t in [tex0, tex1, tex2, tex1, tex0, tex1, tex2, tex1, tex0]:
+					frames.add_frame("wink_double", t)
 				
 				eye_sprite.sprite_frames = frames
 				eye_sprite.play("default")
 				eye_sprite.position = eye_pos
 				
-				if emo_code == "01":
-					var eye_timer = eye_sprite.get_node_or_null("EyeTimer")
-					if not eye_timer:
-						eye_timer = Timer.new()
-						eye_timer.name = "EyeTimer"
-						eye_timer.wait_time = randf_range(3.0, 5.0)
-						eye_timer.autostart = true
-						eye_timer.timeout.connect(func():
-							if eye_sprite and is_instance_valid(eye_sprite):
-								var anims = ["wink", "wink_double"]
-								eye_sprite.play(anims[randi() % 2])
-								eye_timer.wait_time = randf_range(3.0, 5.0)
-						)
-						eye_sprite.add_child(eye_timer)
+				var eye_timer = eye_sprite.get_node_or_null("EyeTimer")
+				if not eye_timer:
+					eye_timer = Timer.new()
+					eye_timer.name = "EyeTimer"
+					eye_timer.wait_time = randf_range(3.0, 5.0)
+					eye_timer.autostart = true
+					eye_timer.timeout.connect(func():
+						if eye_sprite and is_instance_valid(eye_sprite):
+							var anims = ["wink", "wink_double"]
+							eye_sprite.play(anims[randi() % 2])
+							eye_timer.wait_time = randf_range(3.0, 5.0)
+					)
+					eye_sprite.add_child(eye_timer)
 			else:
 				slot.texture = tex
 				var eye_sprite = slot.get_node_or_null("EyeAnimSprite")
@@ -345,5 +388,10 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 	print("收到选择信号")
 	child_choice_index = choice_index
 	print(choice_index)
-	TalkEnd()
 	choice_ui.hide()
+	if not event_callable.is_null():
+		var cb = event_callable
+		event_callable = Callable()
+		cb.call(choice_index)
+	else:
+		TalkEnd()

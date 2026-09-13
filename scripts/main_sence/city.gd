@@ -135,22 +135,90 @@ func CheckConditions(cond: Dictionary) -> bool:
 	return true
 
 func PlayEvent(event: Dictionary):
-	# 记录设置的新flag
+	# 设置基础flag
 	if event.has("set_flags"):
 		for flag in event["set_flags"]:
 			Global.flags[flag] = true
 			
+	# 根级别的被动好感度和属性增加（无UI动画，静默增加）
+	if event.has("add_affection"):
+		for chara in event["add_affection"]:
+			if not Global.affection.has(chara):
+				Global.affection[chara] = 0
+			Global.affection[chara] += event["add_affection"][chara]
+			
+	if event.has("add_stats"):
+		for stat in event["add_stats"]:
+			if Daughterstatus.attributes.has(stat):
+				Daughterstatus.attributes[stat] += event["add_stats"][stat]
+			elif Daughterstatus.body_stats.has(stat):
+				Daughterstatus.body_stats[stat] += event["add_stats"][stat]
+			
 	if talk_layer:
 		if ui:
 			ui.now_canvas_type = ui.CanvasType.TALK
-		talk_layer.RegisterCallback(func(_idx):
+			
+		var settle_type = 0
+		var choice_list = []
+		if event.has("choices"):
+			settle_type = 2
+			for c in event["choices"]:
+				choice_list.append(c["text"])
+				
+		talk_layer.RegisterCallback(func(idx):
+			if event.has("choices") and idx >= 0 and idx < event["choices"].size():
+				var choice_data = event["choices"][idx]
+				
+				# 结算好感度
+				if choice_data.has("add_affection"):
+					for chara in choice_data["add_affection"]:
+						if not Global.affection.has(chara):
+							Global.affection[chara] = 0
+						Global.affection[chara] += choice_data["add_affection"][chara]
+						
+				# 结算属性
+				var has_ui_stats = false
+				if choice_data.has("add_stats"):
+					var ui_stats = {}
+					for stat in choice_data["add_stats"]:
+						if talk_layer.arrtibute and talk_layer.arrtibute.attribute_nodes.has(stat):
+							ui_stats[stat] = choice_data["add_stats"][stat]
+							has_ui_stats = true
+						else:
+							if Daughterstatus.attributes.has(stat):
+								Daughterstatus.attributes[stat] += choice_data["add_stats"][stat]
+							elif Daughterstatus.body_stats.has(stat):
+								Daughterstatus.body_stats[stat] += choice_data["add_stats"][stat]
+					
+					if has_ui_stats:
+						talk_layer.arrtibute.AnnotationStart(ui_stats)
+						
+				# 记录选项触发的特定 flag
+				if choice_data.has("set_flags"):
+					for flag in choice_data["set_flags"]:
+						Global.flags[flag] = true
+						
+				if has_ui_stats:
+					await talk_layer.arrtibute.settle_end
+						
+				# 如果有后续对话，继续播放
+				if choice_data.has("next_dialogue") and choice_data["next_dialogue"].size() > 0:
+					talk_layer.RegisterCallback(func(_dummy):
+						site.hide()
+						site_points.show()
+						if ui:
+							ui.now_canvas_type = ui.CanvasType.MAIN
+					)
+					talk_layer.TalkStart(choice_data["next_dialogue"], 0)
+					return
+					
+			# 关闭界面并返回城镇
 			site.hide()
 			site_points.show()
 			if ui:
-				ui.now_canvas_type = ui.CanvasType.CITY # 假设后续有个 CITY 类型
-			# 这里可以处理事件播放完的后续
+				ui.now_canvas_type = ui.CanvasType.MAIN
 		)
-		talk_layer.TalkStart(event["dialogue_script"], 0)
+		talk_layer.TalkStart(event["dialogue_script"], settle_type, {}, choice_list)
 	else:
 		print("TalkLayer not found! Dialogue:\n", event["dialogue_script"])
 
@@ -171,7 +239,7 @@ func DefaultFallback(location_name: String):
 			site.hide()
 			site_points.show()
 			if ui:
-				ui.now_canvas_type = ui.CanvasType.CITY
+				ui.now_canvas_type = ui.CanvasType.MAIN
 		)
 		talk_layer.TalkStart(fallback_script, 0)
 	else:
@@ -188,3 +256,7 @@ func _input(event: InputEvent) -> void:
 		elif event.keycode == KEY_3:
 			Daughterstatus.age_stage = Daughterstatus.AgeStageType.ADULT
 			print("Debug: Switched Daughter to ADULT")
+		elif event.keycode == KEY_4:
+			Global.year = 1445
+			print("Debug: Switched Year to 1445")
+			

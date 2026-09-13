@@ -4,22 +4,10 @@
             "id": "meet_lise_test",
             "priority": 100,
             "conditions": {
-                "flags_required": [],
-                "flags_banned": ["met_lise"],
-                "min_affection": {
-                    "lise": 0
-                },
-                "max_affection": {},
-                "min_stats": {
-                    "charm": 0
-                },
-                "max_stats": {},
-                "min_year": 1440,
-                "max_year": 1448,
-                "min_month": 1,
-                "max_month": 12
+                "flags_banned": [
+                    "lise_test_done"
+                ]
             },
-            "set_flags": ["met_lise"],
             "dialogue_script": [
                 {
                     "character": "daughter",
@@ -28,25 +16,2291 @@
                 },
                 {
                     "character": "lise",
-                    "emotion": "happy",
-                    "action": "enter",
+                    "emotion": "surprised",
                     "text": "哇！你好呀，我是莉洁！"
                 },
                 {
                     "character": "daughter",
-                    "emotion": "surprised",
+                    "emotion": "happy",
                     "text": "你好！初次见面，请多关照。"
                 },
                 {
-                    "character": "lise",
-                    "action": "leave"
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "她真是有精神呢。"
+                }
+            ],
+            "set_flags": [
+                "lise_test_done"
+            ]
+        },
+        {
+            "id": "meet_charles_1445_square_walk",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "c_45_1"
+                ],
+                "flags_banned": [
+                    "c_45_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "午安，今天真是个散步的好天气呢。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "啊，夏洛璐。你一个人在这里闲逛吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "嗯，我很喜欢像这样在街头随便走走，看看\n大家平时生活的样子。"
                 },
                 {
                     "character": "daughter",
                     "emotion": "happy",
-                    "text": "她真是有精神呢。"
+                    "text": "原来如此。那如果有什么不知道的地方，我\n随时可以为你带路喔！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "哈哈，那真是太感谢了。毕竟我对这城里还\n有很多不熟悉的地方呢。"
+                }
+            ],
+            "set_flags": [
+                "c_45_2"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_charles_1445_square_lost",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "c_45_2"
+                ],
+                "flags_banned": [
+                    "c_45_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "哎呀... 这下可麻烦了。这条路刚刚好\n像走过？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "夏洛璐？你该不会是... 迷路了吧？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "啊哈哈，不用在意。不管是谁，走到不熟悉\n的路都会迷路的嘛。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "你本来是想去哪里呢？如果不嫌弃的话，我\n帮你带路吧。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "真的吗？那真是帮大忙了！其实我一直想去\n看看街上的那间教会呢。"
+                }
+            ],
+            "set_flags": [
+                "c_45_3"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_charles_1445_square_market",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "c_45_3"
+                ],
+                "flags_banned": [
+                    "c_45_4"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "午安，你现在是要去市场买东西吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "是的！正想去看看有什么好东西。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "如果不介意的话，我们一起走走吧。每次去\n到市场，看到琳琅满目的商品，我都会觉得\n很兴奋。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "好呀，那我们往那边的市场走吧！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "嗯，我很期待呢。"
+                }
+            ],
+            "set_flags": [
+                "c_45_4"
+            ]
+        },
+        {
+            "id": "meet_charles_1445_square_jewelry",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "c_45_4"
+                ],
+                "flags_banned": [
+                    "c_45_5"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "夏洛璐？你一直盯着那个首饰看，是很喜欢\n吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "surprised",
+                    "text": "啊！是你呀。嗯，我觉得那个首饰做工很精\n致，忍不住就看入迷了。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "原来夏洛璐对女孩子的饰品也有研究呢。是\n要买给谁的吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "啊！不不不！只是纯粹欣赏手工艺而已，你\n可别误会了！"
+                }
+            ],
+            "set_flags": [
+                "c_45_5"
+            ],
+            "add_affection": {
+                "charles": 10
+            }
+        },
+        {
+            "id": "meet_charles_1445_square_horse",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_banned": [
+                    "c_45_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "啊，夏洛璐。今天没有骑马出来吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "嗯。其实像这样慢慢走在街上，能看到更多\n平时忽略的风景。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "总感觉…夏洛璐你肩上承担着很沉重的东西\n呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "哈哈，被你看穿了吗？但是只要像这样跟你\n聊聊天，我就觉得轻松多了。"
+                }
+            ],
+            "set_flags": [
+                "c_45_1"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_lee_1445_square_flirting",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "l_45_1"
+                ],
+                "flags_banned": [
+                    "l_45_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嗨！又见面了呢！呐，要不要跟我一起去\n玩？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "去玩？可是我还有事情要做…"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "angry",
+                    "text": "别管那些啦！现在天气这么好，不出去跑一\n跑骨头都会生锈的！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "走吧走吧！我知道一个超棒的地方喔！"
+                }
+            ],
+            "set_flags": [
+                "l_45_2"
+            ],
+            "choices": [
+                {
+                    "text": "答应邀约",
+                    "add_affection": {
+                        "lee": 5
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "lee",
+                            "emotion": "happy",
+                            "text": "嘿嘿，跟我来就对了！\n今天一定要玩个痛快！"
+                        }
+                    ]
+                },
+                {
+                    "text": "冷淡拒绝",
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "calm",
+                            "text": "抱歉，我接下来还有工作呢。"
+                        },
+                        {
+                            "character": "lee",
+                            "emotion": "sad",
+                            "text": "人类真是辛苦啊，总是忙着工作工作。\n那我先走啦！"
+                        },
+                        {
+                            "character": "lee",
+                            "action": "leave",
+                            "emotion": "sad",
+                            "text": ""
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "id": "meet_charles_1446_square_magic",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "min_affection": {
+                    "charles": 20
+                },
+                "flags_banned": [
+                    "c_46_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "啊，夏洛璐。你带了这么多书，是要去哪里\n呀？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "午安。我现在正要去上魔法课呢。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "原来王子也需要学习魔法啊。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "对于自己不能理解的事物，人们总是会感到\n恐惧。魔法对你来说，是那样的东西吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "嗯…我觉得魔法可以帮助很多人，所以并不\n可怕呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "sad",
+                    "text": "你能这么想真是太好了。如果因为无法理解\n就一味逃避，那我们永远都无法进步。啊，\n对不起，我得赶去上课了。下次见。"
+                }
+            ],
+            "set_flags": [
+                "c_46_1"
+            ],
+            "add_affection": {
+                "charles": 10
+            }
+        },
+        {
+            "id": "meet_charles_1446_square_map",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "min_affection": {
+                    "charles": 20
+                },
+                "flags_required": [
+                    "c_46_1"
+                ],
+                "flags_banned": [
+                    "c_46_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "你看起来心情真好呢，夏洛璐。发生什么好\n事了吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "你看这个！这是刚绘制完成的全国地图！我\n从以前就好想要这个了。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "哇，好详细的地图。连偏远的村庄都标示出\n来了。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "看着这份地图，我就会想象着生活在这片土\n地上的所有人民。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "如果有机会的话，我真希望能亲自走遍这地\n图上的每一个角落…离开这座王城，好好地\n去旅行一次。"
+                }
+            ],
+            "set_flags": [
+                "c_46_2"
+            ]
+        },
+        {
+            "id": "meet_charles_1446_square_flute",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "min_affection": {
+                    "charles": 50
+                },
+                "flags_required": [
+                    "c_46_2"
+                ],
+                "flags_banned": [
+                    "c_46_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "哎呀？刚才那悠扬的笛声... 是夏洛璐\n吹的吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "耶？被你听到了呀，午安。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "真没想到夏洛璐还会吹笛子，而且吹得非常\n好听呢！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "哈哈，其实吹得不好，但我就是很喜欢。这\n是我从小到现在难得保留的兴趣之一。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "能得到你的夸奖，真是我的荣幸。那么，要\n听我再演奏一曲吗？"
+                }
+            ],
+            "set_flags": [
+                "c_46_3"
+            ],
+            "add_affection": {
+                "charles": 10
+            }
+        },
+        {
+            "id": "meet_charles_1446_square_harvest",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "min_month": 8,
+                "max_month": 8,
+                "min_affection": {
+                    "charles": 50
+                },
+                "flags_banned": [
+                    "c_46_4"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "午安，夏洛璐。你看起来好像很忙的样子\n呢？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "嗯，最近在忙着确认收获祭的筹备情况。因\n为是一年一度难得的节日，想让大家都能开\n开心心的。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "连这种事都要王子亲自来监督，真的好辛苦\n喔。需要我帮忙吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "不用啦，心意我领了。如果可以的话，到时\n候你只要来会场好好享受祭典就行了。等你\n喔！"
+                }
+            ],
+            "set_flags": [
+                "c_46_4"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_lee_1446_square_shopping",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "l_46_2"
+                ],
+                "flags_banned": [
+                    "l_46_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "利伊！今天也是出来买东西吗？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "呐呐，你要去买东西吗？可以一起去吗？我\n想买很多很多好吃的！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "好啊。不过利伊，你老是穿那一套衣服呢。\n虽然看起来很轻便，但冬天难道不会冷吗？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "完全不会！我的身体可是强壮得很！就算穿\n成这样走在冰山上也完全没事喔！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "真厉害呢，龙族的体质和人类完全不一样。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "啊哈哈！你要是不信，我现在就去山顶取一\n块万年雪来给你看！"
+                }
+            ],
+            "set_flags": [
+                "l_46_3"
+            ],
+            "add_affection": {
+                "lee": 5
+            }
+        },
+        {
+            "id": "meet_lee_1446_square_cold",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "l_46_3"
+                ],
+                "flags_banned": [
+                    "l_46_4"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "午安，利伊。抱歉，今天觉得有点头痛，不\n能陪你去玩了，我得去趟医院。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "医院！？“那个”医院是怎样的地方？要不\n要紧？会痛吗？会流血吗！？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "没那么夸张啦，我只是去拿点感冒药而已。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "calm",
+                    "text": "我听街上的老人说过，那里是治病的地方。\n人类还真是脆弱呢，动不动就会生病。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "放心吧！我可是从来不生病的！如果你走不\n动了，我可以背你去喔！"
+                }
+            ],
+            "set_flags": [
+                "l_46_4"
+            ],
+            "add_affection": {
+                "lee": 10
+            }
+        },
+        {
+            "id": "meet_lee_1446_square_harvest",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "l_46_4"
+                ],
+                "flags_banned": [
+                    "l_46_5"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "这不是利伊吗？午安。收获祭就快要到了\n耶，街上变得好热闹。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "呼呼呼，就是啊！说到祭典，我也是从准备\n阶段开始，就会兴奋到静不下来的地步呢！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "利伊好像很喜欢祭典呢？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嗯嗯，好喜欢！在我的故乡龙之谷，完全都\n没有这种热闹的活动。人类的祭典有很多好\n吃的，今年我也好期待啊！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "说到祭典，你会去参加武术大赛吗？以你的\n力气一定会赢的。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "calm",
+                    "text": "唔～老实说，我对那种在擂台上打打杀杀的\n规矩，不是太有兴趣。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "果然是个只知道吃喝玩乐的懒散家伙～"
+                }
+            ],
+            "set_flags": [
+                "l_46_5"
+            ],
+            "add_affection": {
+                "lee": 5
+            }
+        },
+        {
+            "id": "meet_charles_1447_square_maid",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "flags_banned": [
+                    "c_47_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "啊，夏洛璐，午安！今天也是来视察民情的\n吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "午安。咦？你穿的这身衣服，看起来像是在\n做女仆的工作呢？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "是的，我最近在酒馆打工做女仆，赚点零花\n钱补贴家用。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "原来如此。能够靠自己的双手辛勤工作，去\n体验人间百态，这也是非常难得的经验呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "请继续加油喔，我会在心里为你打气的。不\n过也不要太勉强自己了。"
+                }
+            ],
+            "set_flags": [
+                "c_47_1"
+            ],
+            "add_affection": {
+                "charles": 10
+            }
+        },
+        {
+            "id": "meet_charles_1447_square_performer",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "flags_required": [
+                    "c_47_4"
+                ],
+                "flags_banned": [
+                    "c_47_5"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "哦？那边好像有街头艺人在表演，围了好多\n人呢，我们去看看吧。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "好啊！哇，你看那个人！他的抛接杂耍技巧\n好厉害，连火把都能稳稳接住！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "不仅是技巧，能让这么多疲惫的市民停下脚\n步并露出笑容，这本身就是一种非凡的才能\n呢。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "夏洛璐你看事物的角度，总是和一般人不太\n一样呢。"
+                }
+            ],
+            "set_flags": [
+                "c_47_5"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_lee_1447_square_treasure",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "flags_required": [
+                    "l_47_2"
+                ],
+                "flags_banned": [
+                    "l_47_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "利伊，我听童话故事里说，龙族都有在洞穴\n里收集闪亮宝物的习惯，是真的吗？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "那是当然的啦！亮晶晶的宝石、金币、稀奇\n古怪的东西，我们龙族最喜欢了！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "那利伊也有属于自己的大宝库咯？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嘿嘿，那是秘密。不过，如果哪天我带你回\n龙之谷，也许会让你看看我的私人收藏喔！"
+                }
+            ],
+            "set_flags": [
+                "l_47_3"
+            ]
+        },
+        {
+            "id": "meet_charles_1448_square_inspect",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1448,
+                "max_year": 1448,
+                "flags_banned": [
+                    "c_48_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "啊，夏洛璐。你今天身后带了好多随从骑士\n呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "午安。因为今天正在执行公务，正式视察街\n上的商区情况。所以没有办法像平时那样跟\n你悠闲地聊天了。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "没关系的，你身为王子，国家大事才是最重\n要的，请以工作为重吧。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "谢谢你的理解。改天等我休假，一定会再找\n你好好聊聊的。"
+                }
+            ],
+            "set_flags": [
+                "c_48_1"
+            ]
+        },
+        {
+            "id": "meet_charles_1448_square_kingdom",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1448,
+                "max_year": 1448,
+                "flags_required": [
+                    "c_48_1"
+                ],
+                "flags_banned": [
+                    "c_48_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "看着这座繁华却暗流涌动的城市，我时常在\n想，这个王国的未来究竟会走向何方...",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "不用担心啦，一定会在夏洛璐的带领下，变\n得更加繁荣和平的。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "借你吉言。如果真有那么一天，我希望不仅\n是人类，连同其他种族也能在这个国家里和\n平共处。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "如果是温柔的夏洛璐，我相信你一定能做到\n的！我支持你！"
+                }
+            ],
+            "set_flags": [
+                "c_48_2"
+            ]
+        }
+    ],
+    "BusyStreet": [
+        {
+            "id": "meet_lee_1448_square_dragon",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1448,
+                "max_year": 1448,
+                "flags_banned": [
+                    "l_48_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "doubtful",
+                    "text": "呐呐，你觉得龙族，到底是一个怎样的种族\n呢？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "angry",
+                    "text": "嗯... 虽然力气很大，但其实很自由，\n而且非常直率，完全不会拐弯抹角，就像利\n伊一样！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嘿嘿！没错！我们龙族就是最棒的！如果有\n一天，你能亲自来到龙之谷，你一定会更喜\n欢那里的！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "好啊，如果有机会的话，我一定要去看看利\n伊的故乡。"
+                }
+            ],
+            "set_flags": [
+                "l_48_1"
+            ]
+        },
+        {
+            "id": "meet_charles_1445_busystreet_thugs",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "c_45_5"
+                ],
+                "flags_banned": [
+                    "c_45_6"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "能这样和你一起散步，真的很开心呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "嗯，托你的福，我也度过了一段很愉快的时\n光。"
+                },
+                {
+                    "character": "uda",
+                    "emotion": "happy",
+                    "text": "喂喂！刚才你不长眼睛撞到大爷我了！这件\n事没这么容易就算了！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "这位先生，是你自己突然走出来撞到我们\n的。错不在我们。"
+                },
+                {
+                    "character": "uda",
+                    "emotion": "happy",
+                    "text": "少废话！穿得这么有钱的样子，乖乖把钱交\n出来！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "不知悔改的家伙，看来需要给你们一点教训\n了。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "（好、好厉害！夏洛璐竟然三两下就把他们\n打跑了…）"
+                }
+            ],
+            "set_flags": [
+                "c_45_6"
+            ]
+        },
+        {
+            "id": "meet_charles_1445_busystreet_flowers",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "c_45_6"
+                ],
+                "flags_banned": [
+                    "c_45_7"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "啊，夏洛璐！今天的阳光真舒服呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "是啊。而且街上开满了各式各样美丽的花\n朵，让人心情也跟着好起来了。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "夏洛璐很喜欢花吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "嗯。花朵虽然短暂，却能在有限的生命里绽\n放最大的美丽，这就是生命的坚韧啊。"
+                }
+            ],
+            "set_flags": [
+                "c_45_7"
+            ],
+            "add_affection": {
+                "charles": 10
+            }
+        },
+        {
+            "id": "meet_lee_1445_busystreet_shopping",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_banned": [
+                    "l_45_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "surprised",
+                    "text": "哇！这件衣服好漂亮！这个首饰也闪闪发光\n的！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "（咦？这个穿着奇怪衣服的男孩子，在街上\n跑来跑去的，好有活力啊。）"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "呐呐！那边的女孩子！你觉得这个亮晶晶的\n东西适合我吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "angry",
+                    "text": "嗯，很适合你喔。看起来很有朝气呢！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嘿嘿！我就知道！我的眼光可是最好的！再\n见啦！"
+                }
+            ],
+            "set_flags": [
+                "l_45_1"
+            ],
+            "choices": [
+                {
+                    "text": "答应邀约",
+                    "add_affection": {
+                        "lee": 5
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "lee",
+                            "emotion": "happy",
+                            "text": "太好了！那我们马上走吧！\n我知道有一家店的东西特别好吃！"
+                        },
+                        {
+                            "character": "daughter",
+                            "emotion": "happy",
+                            "text": "嗯，我也好期待呢。"
+                        }
+                    ]
+                },
+                {
+                    "text": "冷淡拒绝",
+                    "next_dialogue": [
+                        {
+                            "character": "lee",
+                            "emotion": "sad",
+                            "text": "哎……那真是太可惜了。\n我还以为今天能和你一起玩呢。"
+                        },
+                        {
+                            "character": "lee",
+                            "action": "leave",
+                            "emotion": "sad",
+                            "text": "下次有机会我再来找你吧。再见！"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "meet_baora_1446_busystreet_magicstone",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "b_46_1"
+                ],
+                "flags_banned": [
+                    "b_46_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "午安，巴洛亚。你盯着地摊上的那颗石头看\n很久了呢。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "这个吗？这个就是你们人类称作“魔法石”\n的东西。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "好漂亮的石头喔。晶莹剔透的，里面好像还\n有光在流转。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "这么大颗的魔法石，在人类的地盘上可是很\n少见的。因为这种宝石，原本只会产于魔力\n浓厚的魔界土地上。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "为了夺取这些石头，你们人类的军队可是没\n少去骚扰魔界。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "sad",
+                    "text": "对不起…我不知道…"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "哼，这也用不着你来道歉。不过是贪婪的人\n类犯下的罪业罢了。"
+                }
+            ],
+            "set_flags": [
+                "b_46_2"
+            ],
+            "add_affection": {
+                "baora": 5
+            }
+        },
+        {
+            "id": "meet_lee_1446_busystreet_church",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "demon_gate_open"
+                ],
+                "flags_banned": [
+                    "l_46_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "嘿嘿嘿，终于找到你了！呐，现在我们去约\n会好不好？看，今天天气这么好！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "约会！？我们要去哪儿呢？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "angry",
+                    "text": "随便去哪里都好！总之快点离开这里！只要\n不是在这间教会附近就行！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "angry",
+                    "action": "enter",
+                    "text": "哼，一只有着低级爬虫类味道的龙，竟然也\n想约她？真是让人笑掉大牙。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "angry",
+                    "text": "你说什么！？你这个身上充满阴暗魔界臭味\n的家伙，别来碍事！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "sad",
+                    "text": "（糟了…利伊和巴洛亚好像要打起来了，\n我该帮谁说话好呢？）"
+                }
+            ],
+            "set_flags": [
+                "l_46_1"
+            ],
+            "choices": [
+                {
+                    "text": "站在利伊这边",
+                    "add_affection": {
+                        "lee": 10,
+                        "baora": -20
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "angry",
+                            "text": "巴洛亚！你怎么能这么说利伊，太过分了！"
+                        },
+                        {
+                            "character": "baora",
+                            "emotion": "sad",
+                            "text": "……哼，随便你。跟这种低等生物混在一起，\n你迟早会后悔的。"
+                        },
+                        {
+                            "character": "baora",
+                            "action": "leave",
+                            "emotion": "sad",
+                            "text": ""
+                        },
+                        {
+                            "character": "lee",
+                            "emotion": "happy",
+                            "text": "嘿嘿，还是你最好啦！走吧，我们去玩！"
+                        }
+                    ]
+                },
+                {
+                    "text": "站在巴洛亚这边",
+                    "add_affection": {
+                        "baora": 10,
+                        "lee": -20
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "angry",
+                            "text": "利伊！不可以对巴洛亚这么没礼貌！"
+                        },
+                        {
+                            "character": "lee",
+                            "emotion": "sad",
+                            "text": "呜哇…你怎么帮他不帮我！\n好过分！我不管你了！"
+                        },
+                        {
+                            "character": "lee",
+                            "action": "leave",
+                            "emotion": "sad",
+                            "text": ""
+                        },
+                        {
+                            "character": "baora",
+                            "emotion": "happy",
+                            "text": "哼，算你还有点眼光。走吧，别理那只蠢龙。"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "meet_lee_1446_busystreet_play",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "l_46_1"
+                ],
+                "flags_banned": [
+                    "l_46_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "doubtful",
+                    "text": "嗯？你怎么垂头丧气的，看起来好像没有精\n神呢？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "可能最近工作和上课安排得太满了，有点累\n了吧。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "既然这样，我们现在马上去玩吧！只要痛痛\n快快地大闹一场，一定就会很有精神的！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "可是…我接下来还有打工…"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "别管那些啦！偶尔偷偷懒也没关系的！呐\n呐，走吧走吧！跟我来！"
+                }
+            ],
+            "set_flags": [
+                "l_46_2"
+            ],
+            "choices": [
+                {
+                    "text": "同意邀约",
+                    "add_affection": {
+                        "lee": 10
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "happy",
+                            "text": "好！那今天就破例休息一天吧！"
+                        },
+                        {
+                            "character": "lee",
+                            "emotion": "happy",
+                            "text": "太好了！走吧！把烦恼全部忘掉！"
+                        }
+                    ]
+                },
+                {
+                    "text": "拒绝",
+                    "add_affection": {
+                        "lee": -5
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "sad",
+                            "text": "不行啦，如果我不去工作会被骂的。"
+                        },
+                        {
+                            "character": "lee",
+                            "emotion": "sad",
+                            "text": "呜……你真是个顽固的家伙。\n既然你这么坚持，那就算了。"
+                        },
+                        {
+                            "character": "lee",
+                            "action": "leave",
+                            "emotion": "sad",
+                            "text": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "meet_charles_1447_busystreet_oldman",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "flags_required": [
+                    "c_47_1"
+                ],
+                "flags_banned": [
+                    "c_47_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "sad",
+                    "text": "哎呀，这街上漂亮的女孩子还真是多呢。真\n是一道亮丽的风景线。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "（夏洛璐有时候盯着女孩子看的眼神...\n怎么感觉像个好色老头一样？）"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "嗯？你怎么一直盯着我看，是我脸上沾了什\n么东西吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "没、没有啦！只是觉得你好像很喜欢观察街\n上的女孩子..."
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "那是当然的，了解国民的精神面貌也是我的\n一项重要修行呢。不过，其中最特别的还是\n你喔。"
+                }
+            ],
+            "set_flags": [
+                "c_47_2"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_charles_1447_busystreet_carry",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "flags_required": [
+                    "c_47_2"
+                ],
+                "flags_banned": [
+                    "c_47_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "doubtful",
+                    "text": "哎呀，你拿这么多东西，看起来很重呢。需\n要帮忙吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "啊，夏洛璐。呼...没关系的，我刚从市\n场买完东西回来，还能坚持一下。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "这怎么行，作为一位绅士，怎么能让淑女拿\n着这么重的东西呢。来，我帮你拿一半吧。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "这怎么好意思呢...那...就麻烦你\n了，谢谢你，夏洛璐。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "不用客气，走吧，我送你回去。"
+                }
+            ],
+            "set_flags": [
+                "c_47_3"
+            ],
+            "add_affection": {
+                "charles": 5
+            }
+        },
+        {
+            "id": "meet_lee_1447_busystreet_hospital",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_affection": {
+                    "lee": 60
+                },
+                "flags_banned": [
+                    "l_47_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "sad",
+                    "text": "呜...今天真是倒霉，刚才在街上跑得太\n快，撞到石墙上了。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "利伊！你没事吧？你看你额头这里都肿起来\n了，还是去医院看看比较好吧。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "doubtful",
+                    "text": "医院？那是什么地方？有好吃的烤肉吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "不是吃的啦！那是医生治病救人的地方！快\n跟我走，我带你去上药！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "surprised",
+                    "text": "呜哇～不要拉我啦，我不喜欢那种充满苦味\n药水的地方！我舔一舔就会好啦！"
+                }
+            ],
+            "set_flags": [
+                "l_47_1"
+            ]
+        }
+    ],
+    "BlackStreet": [
+        {
+            "id": "meet_lee_1447_busystreet_bird",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_month": 8,
+                "max_month": 8,
+                "flags_required": [
+                    "l_46_4"
+                ],
+                "flags_banned": [
+                    "l_47_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "喂！你看你看！我刚才在树上抓到了一只小\n鸟喔！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哇，好可爱的小鸟！不过它的翅膀...看\n起来好像受伤了。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "doubtful",
+                    "text": "耶？受伤了吗？那它就不能飞了，我本来还\n想跟它一起玩的说，真没用。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "利伊，不可以这么说！我们一起照顾它吧，\n等它伤好了再让它飞回天空。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "照顾小鸟？感觉好像很有趣！嗯，既然你这\n么说，那就交给我们吧！"
+                }
+            ],
+            "set_flags": [
+                "l_47_2"
+            ],
+            "add_affection": {
+                "lee": 5
+            }
+        },
+        {
+            "id": "meet_baora_1445_blackstreet_intro",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "min_month": 5,
+                "max_month": 7,
+                "flags_banned": [
+                    "b_45_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "demon",
+                    "emotion": "calm",
+                    "text": "小丫头，一个人在黑街乱晃可是很危险的。\n你身上…散发着人类的甜美气味呢。",
+                    "action": "enter"
+                },
+                {
+                    "character": "rabbit",
+                    "emotion": "happy",
+                    "text": "有什么遗言，待会到我的胃袋里去慢慢说\n吧！嘿嘿嘿…"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "呀！你、你们想干什么，快住手！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "你们这群杂碎，在我的地盘上吵什么。"
+                },
+                {
+                    "character": "demon",
+                    "emotion": "surprised",
+                    "text": "咿呀呀呀！巴、巴洛亚大人！请饶命啊！王\n子殿下！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "滚，我不想听废话。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "那、那个…谢谢你救了我。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "angry",
+                    "text": "哼，还真是个愚蠢的人类。看在你好运的面\n子上，快点离开这里！"
+                }
+            ],
+            "set_flags": [
+                "b_45_1"
+            ]
+        },
+        {
+            "id": "meet_baora_1445_blackstreet_warning",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "b_45_1"
+                ],
+                "flags_banned": [
+                    "b_45_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "喂，你怎么又来了。我不是警告过你，这里\n对人类来说很危险吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "因为我知道巴洛亚在这里呀。只要有你在，\n就不会有危险吧？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "你这家伙…脑袋里到底装了什么东西？竟然\n对一个魔族这么信任。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "happy",
+                    "text": "下次如果遇到其他高级魔族，我可不保证还\n能救你！快点回去！"
+                }
+            ],
+            "set_flags": [
+                "b_45_2"
+            ],
+            "add_affection": {
+                "baora": 5
+            }
+        },
+        {
+            "id": "meet_baora_1445_blackstreet_weather",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "b_45_2"
+                ],
+                "flags_banned": [
+                    "b_45_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "原来是你。今天外面的天气很好吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "是啊！阳光明媚，很适合出来散步喔。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "阳光吗…那种刺眼的东西，对我们魔族来说\n可算不上好。黑街这种阴暗潮湿的地方，反\n而更让人安心。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "可是，一直待在暗处不会觉得闷吗？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "这就是种族的差异吧。如果你真的觉得人类\n的世界那么好，就不该老往这里跑。"
+                }
+            ],
+            "set_flags": [
+                "b_45_3"
+            ],
+            "add_affection": {
+                "baora": 5
+            }
+        },
+        {
+            "id": "meet_baora_1445_blackstreet_demonworld",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "b_45_4"
+                ],
+                "flags_banned": [
+                    "b_45_5"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "你听说过魔界吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "魔界？就是传说中充满可怕魔物的黑暗世界\n吗？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "对人类来说或许是那样吧。但那里对我们来\n说，却是唯一的故乡。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "自从我们被赶出地上的世界后，就只能在那\n里苟延残喘…不过，终有一天，我们会夺回\n属于我们的一切。"
+                }
+            ],
+            "set_flags": [
+                "b_45_5",
+                "demon_gate_open"
+            ],
+            "add_affection": {
+                "baora": 5
+            }
+        },
+        {
+            "id": "meet_baora_1445_blackstreet_observe",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "b_45_3"
+                ],
+                "flags_banned": [
+                    "b_45_4"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "巴洛亚！你怎么了？手臂上都是血！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "只是刚才处理了一点小麻烦受的擦伤，没什\n么大不了的，别大惊小怪。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "不可以！就算是小伤，放着不管也会发炎\n的！快坐下，我帮你包扎！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "happy",
+                    "text": "喂、你这家伙，别随便碰我…！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "好了！这样就没问题了。以后要小心点喔。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "……啰嗦。不过…给你添麻烦了。"
+                }
+            ],
+            "set_flags": [
+                "b_45_4"
+            ],
+            "add_affection": {
+                "baora": 5
+            }
+        },
+        {
+            "id": "meet_baora_1446_blackstreet_forest",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_banned": [
+                    "b_46_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "巴洛亚？好巧喔，你在这里做什么？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "难得你特地跑到黑街来。为了让你转换转换\n心情，我带你去一个好地方吧。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "好地方？在黑街里面吗？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "跟我来就知道了。闭上眼睛…好了，睁开\n吧。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "哇... 这里是？树上散发着幽蓝的光\n芒，好漂亮…"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "这里是魔界森林的边缘。喜欢吗？只有魔族\n才知道的秘密地点。"
+                }
+            ],
+            "set_flags": [
+                "b_46_1"
+            ],
+            "add_affection": {
+                "baora": 10
+            }
+        },
+        {
+            "id": "meet_baora_1446_blackstreet_injured",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "b_46_2"
+                ],
+                "flags_banned": [
+                    "b_46_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "巴洛亚？等一下，你身上怎么全是伤！连衣\n服都破了！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "啧，只是遇到几个不知死活的低级魔族罢\n了。这点伤不用管它。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "不可以！都在流血了怎么能不管！快点坐\n下，还好我随身带了绷带和药水！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "happy",
+                    "text": "喂，你轻一点…！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "这样就行了。虽然伤口很浅，但还是要小心\n感染。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "你都带着这些东西到处跑的吗？…给你添麻\n烦了。"
+                }
+            ],
+            "set_flags": [
+                "b_46_3"
+            ],
+            "add_affection": {
+                "baora": 15
+            }
+        },
+        {
+            "id": "meet_baora_1446_blackstreet_mother",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_required": [
+                    "b_46_3"
+                ],
+                "flags_banned": [
+                    "b_46_4"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "巴洛亚，你一直生活在魔界，那你的妈妈是\n个什么样的人呢？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "为什么突然这么问？我小的时候母亲就过世\n了，对她几乎完全没有记忆。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "sad",
+                    "text": "啊…对不起，我不是故意要提伤心事的。因\n为我看你偶尔会看着远方发呆，觉得有些孤\n单…"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "哼，魔族可不需要什么多余的感情。我说了\n一堆无聊的话，忘了它吧。"
+                }
+            ],
+            "set_flags": [
+                "b_46_4"
+            ],
+            "add_affection": {
+                "baora": 10
+            },
+            "add_stats": {
+                "demonization": 5
+            }
+        },
+        {
+            "id": "meet_baora_1447_blackstreet_forest",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_month": 4,
+                "max_month": 6,
+                "min_affection": {
+                    "baora": 30
+                },
+                "flags_banned": [
+                    "b_47_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "巴洛亚，你以前带我去的魔界森林，到底是\n个怎样的地方呢？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "魔界的森林啊... 那里充满了人类无法\n理解的庞大魔力，树木和花草都吸食着混沌\n生长。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "听起来好像很危险，但不知为何又觉得很迷\n人。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "虽然危险，但对我来说却是个能让人感到平\n静的地方。如果你想去，下次我可以再带你\n去。"
+                }
+            ],
+            "set_flags": [
+                "b_47_1"
+            ],
+            "add_affection": {
+                "baora": 5
+            },
+            "add_stats": {
+                "demonization": 5,
+                "magic": 10
+            }
+        },
+        {
+            "id": "meet_baora_1447_blackstreet_clothes",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_affection": {
+                    "baora": 40
+                },
+                "flags_required": [
+                    "b_47_1"
+                ],
+                "flags_banned": [
+                    "b_47_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "嗯？你今天穿的衣服...似乎和平常不太\n一样啊。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "哎呀，你注意到了吗？这是我刚买的新衣服\n喔，好看吗？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "哼，人类的审美总是喜欢弄些花里胡哨的东\n西，不过... 穿在你身上，倒也不算太\n难看。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "嘿嘿，那我就当作是你在夸奖我啰！谢谢\n你，巴洛亚！"
+                }
+            ],
+            "set_flags": [
+                "b_47_2",
+                "b_forest_visited"
+            ]
+        },
+        {
+            "id": "meet_baora_1447_blackstreet_magic",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_month": 10,
+                "max_month": 10,
+                "min_affection": {
+                    "baora": 75
+                },
+                "flags_required": [
+                    "b_forest_visited"
+                ],
+                "flags_banned": [
+                    "b_47_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "巴洛亚，魔族使用的魔法，和人类学习的魔\n法有什么不一样吗？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "人类的魔法不过是借用自然之力的皮毛罢\n了。真正的魔族魔法，是直接引动深渊的混\n沌。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "深渊的混沌...听起来好深奥啊..."
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "那是你们人类这种脆弱的生物永远无法掌控\n的力量。等你什么时候能真正理解黑暗，再\n来问我吧。"
+                }
+            ],
+            "set_flags": [
+                "b_47_3"
+            ]
+        },
+        {
+            "id": "meet_baora_1448_blackstreet_drink",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1448,
+                "max_year": 1448,
+                "flags_banned": [
+                    "b_48_1"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "喂，渴了吧？喝点这个，这可是魔界的特色\n饮料。没毒的。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "唔...这颜色紫紫绿绿的，看起来好可\n疑。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "没骗你，人类的劣质酒水，根本比不上这种\n充满魔力气息的饮品。快喝。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "咕嘟... 咦？虽然味道有点呛，但喝下\n去以后，身体好像变得热呼呼的呢。"
+                }
+            ],
+            "set_flags": [
+                "b_48_1"
+            ]
+        }
+    ],
+    "Market": [
+        {
+            "id": "meet_baora_1448_blackstreet_princess",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1448,
+                "max_year": 1448,
+                "flags_required": [
+                    "b_48_1"
+                ],
+                "flags_banned": [
+                    "b_48_2"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "你啊... 明明是个脆弱的人类，却总是\n往这种充满危险的黑街跑，难道就不害怕\n吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "因为我知道巴洛亚是个温柔的人呀。只要有\n你在附近，就不会有危险了。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "angry",
+                    "text": "哼，真受不了你这种天真的想法！要是哪天\n我不在了，看你怎么办！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "不过... 能够一直保持这份纯真，也许\n正是你作为人类最大的魅力所在吧。"
+                }
+            ],
+            "set_flags": [
+                "b_48_2"
+            ]
+        }
+    ],
+    "Castle": [
+        {
+            "id": "meet_lee_1445_market_eating",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "l_45_2"
+                ],
+                "flags_banned": [
+                    "l_45_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嚼嚼嚼…嗯！真好吃！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "咦？你…你刚才吃掉的是蜥蜴吗！？活生生\n的蜥蜴！？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "surprised",
+                    "text": "对呀！烤一下或者生吃都很美味喔！要不要\n也给你尝一口？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "呜哇！不、不用了！请你自己慢用吧…"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "sad",
+                    "text": "真可惜，人类果然不懂美食呢。"
+                }
+            ],
+            "set_flags": [
+                "l_45_3"
+            ],
+            "add_affection": {
+                "lee": 5
+            }
+        }
+    ],
+    "Street": [
+        {
+            "id": "meet_charles_1446_castle_festival",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1446,
+                "flags_banned": [
+                    "c_46_5"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "earl",
+                    "emotion": "calm",
+                    "text": "今年也能如往常一般，平安无事地召开建国\n纪念舞会，真是可喜可贺啊。",
+                    "action": "enter"
+                },
+                {
+                    "character": "mpara",
+                    "emotion": "happy",
+                    "text": "是啊是啊！而且听说今晚的舞会，王子殿下\n也会亲自出席喔！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "王子殿下也会来吗... 传闻中那位尊贵\n的王子，到底长什么样子呢。"
+                },
+                {
+                    "character": "gatz",
+                    "emotion": "surprised",
+                    "text": "哇呀啊啊啊啊！王子殿下出来了！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "大家晚上好，我是夏洛璐。希望各位今晚能\n尽兴。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "（咦！？原来一直陪我在街上散步的夏洛璐\n...就是王子殿下！？）"
+                }
+            ],
+            "set_flags": [
+                "c_46_5"
+            ]
+        },
+        {
+            "id": "meet_charles_1447_street_apple",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "flags_required": [
+                    "c_47_3"
+                ],
+                "flags_banned": [
+                    "c_47_4"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "今天街上的水果摊看起来很热闹呢。那个红\n彤彤的苹果看起来非常美味。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "真的耶，表皮还挂着水珠，看起来好新鲜、\n好甜的样子。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "老板，请给我两个苹果。来，这个给你。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哇！给我买的吗？谢谢你，夏洛璐！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "能够在散步的时候，和你一起分享这份甘\n甜，对我来说也是一种幸福呢。"
+                }
+            ],
+            "set_flags": [
+                "c_47_4"
+            ],
+            "add_affection": {
+                "charles": 10
+            }
         }
     ]
 }

@@ -160,31 +160,6 @@ text = "洋装店"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FoodShop" type="Node2D" parent="UI/SitePoints"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/FoodShop"]
-position = Vector2(320, 432)
-scale = Vector2(1.5, 1.5)
-sprite_frames = ExtResource("2_0kjyr")
-animation = &"hover"
-autoplay = "default"
-
-[node name="Label" type="Label" parent="UI/SitePoints/FoodShop"]
-offset_left = 200.0
-offset_top = 331.0
-offset_right = 365.0
-offset_bottom = 375.0
-scale = Vector2(1.5, 1.5)
-theme_override_colors/font_color = Color(0.968627, 0.996078, 0.85098, 1)
-theme_override_colors/font_outline_color = Color(0.576471, 0.258824, 0.121569, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("3_uwjyw")
-theme_override_font_sizes/font_size = 22
-theme_override_styles/normal = SubResource("StyleBoxTexture_mqyke")
-text = "餐厅"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ItemShop" type="Node2D" parent="UI/SitePoints"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/ItemShop"]
@@ -207,6 +182,31 @@ theme_override_fonts/font = ExtResource("3_uwjyw")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxTexture_mqyke")
 text = "道具店"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FoodShop" type="Node2D" parent="UI/SitePoints"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/FoodShop"]
+position = Vector2(320, 432)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_0kjyr")
+animation = &"hover"
+autoplay = "default"
+
+[node name="Label" type="Label" parent="UI/SitePoints/FoodShop"]
+offset_left = 200.0
+offset_top = 331.0
+offset_right = 365.0
+offset_bottom = 375.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.968627, 0.996078, 0.85098, 1)
+theme_override_colors/font_outline_color = Color(0.576471, 0.258824, 0.121569, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_uwjyw")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_mqyke")
+text = "餐厅"
 horizontal_alignment = 1
 vertical_alignment = 1
 
