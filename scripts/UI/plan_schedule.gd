@@ -20,6 +20,8 @@ func ChoiceEvent(choice_index:int):
 		if pay_money:
 			Global.month_plan = plan_panel.plan_list
 			Global.month_end_day = plan_panel.end_day
+			Global.schedule_plan_index = 0
+			Global.is_outing_mode = false
 			talk_layer.TalkStart([{
 				"character": "",
 				"emotion": "",

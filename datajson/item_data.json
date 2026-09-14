@@ -391,7 +391,7 @@
 		"can_use":false,
 		"stackable":true,
 		"arrtibute_dict":{
-			"temperament":5
+			"highclass":5
 		}
 	},
 	{
@@ -502,7 +502,7 @@
 		"can_use":false,
 		"important":true,
 		"arrtibute_dict":{
-			"temper":10,
+			"highclass":10,
 			"demonization":-25
 		}
 	},
@@ -515,7 +515,7 @@
 		"can_use":false,
 		"important":true,
 		"arrtibute_dict":{
-			"temper":-10,
+			"highclass":-10,
 			"charm":30,
 			"magic":10,
 			"demonization":10

@@ -1,0 +1,250 @@
+{
+    "daughter": {
+        "c": {
+            "body_region": [
+                0,
+                48,
+                268,
+                400
+            ],
+            "eye_pos": [
+                2.5,
+                -104.5
+            ],
+            "eye_frames_y": 2,
+            "eye_frames_h": 43,
+            "eye_frame_w": 77,
+            "frame_x": [
+                2,
+                83,
+                164
+            ]
+        },
+        "l": {
+            "body_region": [
+                0,
+                40,
+                280,
+                480
+            ],
+            "eye_pos": [
+                1.0,
+                -103.0
+            ],
+            "eye_frames_y": 2,
+            "eye_frames_h": 36,
+            "eye_frame_w": 76,
+            "frame_x": [
+                2,
+                82,
+                162
+            ]
+        },
+        "h": {
+            "body_region": [
+                0,
+                46,
+                372,
+                480
+            ],
+            "eye_pos": [
+                -6.5,
+                -140.0
+            ],
+            "eye_frames_y": 2,
+            "eye_frames_h": 42,
+            "eye_frame_w": 75,
+            "frame_x": [
+                2,
+                81,
+                160
+            ]
+        }
+    },
+    "lise": {
+        "c": {
+            "body_region": [
+                0,
+                48,
+                252,
+                420
+            ],
+            "eye_pos": [
+                -1.0,
+                -99.5
+            ],
+            "eye_frames_y": 3,
+            "eye_frames_h": 41,
+            "eye_frame_w": 80,
+            "frame_x": [
+                1,
+                83,
+                165
+            ]
+        },
+        "l": {
+            "body_region": [
+                0,
+                44,
+                292,
+                460
+            ],
+            "eye_pos": [
+                0.5,
+                -121.5
+            ],
+            "eye_frames_y": 3,
+            "eye_frames_h": 39,
+            "eye_frame_w": 75,
+            "frame_x": [
+                2,
+                82,
+                162
+            ]
+        },
+        "h": {
+            "body_region": [
+                0,
+                46,
+                292,
+                480
+            ],
+            "eye_pos": [
+                1.5,
+                -148.0
+            ],
+            "eye_frames_y": 2,
+            "eye_frames_h": 42,
+            "eye_frame_w": 81,
+            "frame_x": [
+                1,
+                84,
+                167
+            ]
+        }
+    },
+    "marie": {
+        "c": {
+            "body_region": [
+                0,
+                50,
+                204,
+                386
+            ],
+            "eye_pos": [
+                2.5,
+                -118.5
+            ],
+            "eye_frames_y": 3,
+            "eye_frames_h": 45,
+            "eye_frame_w": 61,
+            "frame_x": [
+                2,
+                67,
+                132
+            ]
+        },
+        "l": {
+            "body_region": [
+                0,
+                50,
+                248,
+                428
+            ],
+            "eye_pos": [
+                -1.0,
+                -126.0
+            ],
+            "eye_frames_y": 2,
+            "eye_frames_h": 46,
+            "eye_frame_w": 78,
+            "frame_x": [
+                2,
+                84,
+                166
+            ]
+        },
+        "h": {
+            "body_region": [
+                0,
+                50,
+                244,
+                458
+            ],
+            "eye_pos": [
+                4.0,
+                -150.5
+            ],
+            "eye_frames_y": 4,
+            "eye_frames_h": 41,
+            "eye_frame_w": 74,
+            "frame_x": [
+                2,
+                80,
+                158
+            ]
+        }
+    },
+    "christina": {
+        "c": {
+            "body_region": [
+                0,
+                48,
+                240,
+                400
+            ],
+            "eye_pos": [
+                -0.5,
+                -112.0
+            ],
+            "eye_frames_y": 4,
+            "eye_frames_h": 40,
+            "eye_frame_w": 73,
+            "frame_x": [
+                2,
+                79,
+                156
+            ]
+        },
+        "l": {
+            "body_region": [
+                0,
+                56,
+                260,
+                444
+            ],
+            "eye_pos": [
+                -6.0,
+                -131.0
+            ],
+            "eye_frames_y": 4,
+            "eye_frames_h": 46,
+            "eye_frame_w": 66,
+            "frame_x": [
+                2,
+                72,
+                142
+            ]
+        },
+        "h": {
+            "body_region": [
+                0,
+                51,
+                264,
+                479
+            ],
+            "eye_pos": [
+                -2.5,
+                -147.0
+            ],
+            "eye_frames_y": 3,
+            "eye_frames_h": 43,
+            "eye_frame_w": 75,
+            "frame_x": [
+                2,
+                81,
+                160
+            ]
+        }
+    }
+}

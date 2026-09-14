@@ -67,10 +67,31 @@ func filter_sellable_items(all_slots: Array) -> Array:
 			sellable_slots.append(slot)
 	return sellable_slots
 	
+func _on_cancel() -> void:
+	var arrtibute = _get_arrtibute_node()
+	if arrtibute and (arrtibute.visible or arrtibute.annotation_visible):
+		arrtibute.AnnotationEnd()
+	emit_signal("cancel_pressed")
+
 func _ready():
-	cancel.pressed.connect(func(): emit_signal("cancel_pressed"))
+	cancel.pressed.connect(_on_cancel)
+	previous.pressed.connect(_on_previous_pressed)
+	next.pressed.connect(_on_next_pressed)
 	# 初始化时只加载一次选项按钮
 	LoadChoices()
+
+func _get_arrtibute_node() -> CanvasLayer:
+	var node = get_node_or_null("../../Arrtibute")
+	if node:
+		return node
+	node = get_node_or_null("../Arrtibute")
+	if node:
+		return node
+	if get_tree() and get_tree().current_scene:
+		node = get_tree().current_scene.get_node_or_null("Arrtibute")
+		if node:
+			return node
+	return null
 
 func GetItem(i:int) -> Item:
 	var slots_index = i + start_index
@@ -104,6 +125,7 @@ func on_choice_pressed(i:int):
 			if Global.money >= item.prices:
 				Global.money -= item.prices
 				Inventory.AddItem(item.id)
+				_apply_shop_item_attributes(item, true)
 				print("购买成功: ", item.name)
 				
 				# 更新金钱UI
@@ -115,11 +137,37 @@ func on_choice_pressed(i:int):
 			var sell_price = int(item.prices / 2)
 			Global.money += sell_price
 			Inventory.RemoveItem(item.id, 1)
+			_apply_shop_item_attributes(item, false)
 			print("卖出成功: ", item.name)
 			
 			if money:
 				money.UpdateStatus()
 			RefreshPanel()
+
+# 处理商店购买与出售时的被动属性道具结算及下限检查，并调用属性动画
+func _apply_shop_item_attributes(item: Item, is_buy: bool) -> void:
+	if not item or not item.arrtibute_dict or item.arrtibute_dict.is_empty():
+		return
+	# 食物和消耗品存入背包由玩家主动使用，不在买卖时立即被动结算
+	if item.types == Item.ItemType.FOOD or item.types == Item.ItemType.CONSUMABLES:
+		return
+		
+	var delta_dict: Dictionary = {}
+	for k in item.arrtibute_dict.keys():
+		delta_dict[k] = item.arrtibute_dict[k] if is_buy else -item.arrtibute_dict[k]
+		
+	var arrtibute = _get_arrtibute_node()
+	if arrtibute:
+		arrtibute.AnnotationStart(delta_dict)
+	else:
+		Daughterstatus.ApplyAttributeDict(item.arrtibute_dict, is_buy)
+
+	print("[商店%s] %s -> 属性变动: %s (当前属性: %s)" % [
+		"购买" if is_buy else "卖出", 
+		item.name, 
+		str(delta_dict), 
+		str(Daughterstatus.attributes)
+	])
 
 func RefreshPanel() -> void:
 	if current_mode == ShopMode.SELL:

@@ -1,0 +1,2012 @@
+[
+  {
+    "id": "y1_spring",
+    "year": 1440,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000155.png",
+    "title": "春日花海",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "春天到了，带着女儿来到盛开的花原中度假。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "哇！爸爸你看，到处都是盛开的花朵，好漂亮啊！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "跟女儿一起玩",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "好呀！爸爸快来抓我～！"
+          }
+        ],
+        "stats": {
+          "stamina": 10,
+          "stress": 20
+        }
+      },
+      {
+        "text": "握住她的手",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "嘿嘿，被爸爸牵着手，感觉好安心呢。"
+          }
+        ],
+        "stats": {
+          "trust": 5
+        }
+      },
+      {
+        "text": "摘花给她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇，好香的花！谢谢爸爸，我要把它带回家！"
+          }
+        ],
+        "stats": {
+          "sensitive": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y1_summer",
+    "year": 1440,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000156.png",
+    "title": "海滨戏水",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "炎炎夏日，带女儿来到澄澈蔚蓝的海边度假。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "大海好广阔呀！海水凉凉的，好舒服！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "摸摸水",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "这边的海水很清澈呢，还可以看到小鱼在游动哦！"
+          }
+        ],
+        "stats": {
+          "smarts": 5
+        }
+      },
+      {
+        "text": "突然对女儿泼水",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇！爸爸好狡猾！看我的反击～哗啦！"
+          }
+        ],
+        "stats": {
+          "stamina": 15,
+          "stress": 30
+        }
+      },
+      {
+        "text": "一起做砂山",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "我们来堆一座最大最坚固的城堡吧！"
+          }
+        ],
+        "stats": {
+          "sensitive": 10,
+          "stress": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y1_autumn",
+    "year": 1440,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000157.png",
+    "title": "秋林果实",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋风渐起，金黄的树林里结满了成熟的果实。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "爸爸看！树上掉了好多好漂亮的果子呢！看我的投掷～"
+      }
+    ],
+    "choices": [
+      {
+        "text": "丢回去",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "呀～被反击了！看我的连环投球！"
+          }
+        ],
+        "stats": {
+          "stamina": 15,
+          "stress": 30
+        }
+      },
+      {
+        "text": "快速闪开",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "哎呀，被爸爸轻松躲开了，好厉害……"
+          }
+        ],
+        "stats": {
+          "trust": 5
+        }
+      },
+      {
+        "text": "斥责她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "对不起爸爸……我不该把果实拿来乱扔的……"
+          }
+        ],
+        "stats": {
+          "morals": 5,
+          "sensitive": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y1_winter",
+    "year": 1440,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000158.png",
+    "title": "雪中嬉戏",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "寒冬降临，白雪皑皑的山野宛如童话世界。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "下雪啦！到处都是白茫茫的，真神奇！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "听听她的感想",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "在这么冷的天气里，雪花却这么温柔，真不可思议呢。"
+          }
+        ],
+        "stats": {
+          "sensitive": 5
+        }
+      },
+      {
+        "text": "丢给她雪球",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇！是雪仗吗？我也不会认输的！接招～"
+          }
+        ],
+        "stats": {
+          "stamina": 15,
+          "stress": 30
+        }
+      },
+      {
+        "text": "抱住她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "呼……爸爸怀里好暖和呀，一点都不冷了。"
+          }
+        ],
+        "stats": {
+          "trust": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y2_spring",
+    "year": 1441,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000159.png",
+    "title": "救助小兽",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "春季的树林里，一只受伤的小幼兽蜷缩在草丛边。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "sad",
+        "text": "爸爸快看！这只小动物好像受伤了，好可怜……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "打倒野兽",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "怎么这样……它明明已经受伤了啊……"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 10
+        }
+      },
+      {
+        "text": "斥责她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "野外的野兽可能会伤人？唔……我明白了，是我太鲁莽了。"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 10
+        }
+      },
+      {
+        "text": "夸奖她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嗯！我们悄悄给它包扎一下就走吧，愿它早点好起来！"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "sensitive": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y2_summer",
+    "year": 1441,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000160.png",
+    "title": "海滨竞渡",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "初夏的阳光洒在海面上，波光粼粼。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "爸爸，今年我已经学会游泳了哦！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "帮忙她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "诶？其实我自己一个人也可以游过去的啦……"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "pride": -5,
+          "stress": 10
+        }
+      },
+      {
+        "text": "和女儿比赛",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "好呀！预备——跑！我一定不会输给爸爸的！"
+          }
+        ],
+        "stats": {
+          "stamina": 10,
+          "pride": 5,
+          "stress": 20
+        }
+      },
+      {
+        "text": "叫她回来",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "欸？我还想多游一会儿呢……"
+          }
+        ],
+        "stats": {
+          "pride": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y2_autumn",
+    "year": 1441,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000161.png",
+    "title": "林间甘果",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋日成熟的果实散发着甜美的清香。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "爸爸！我摘到了最大最甜的野果，给您吃！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "接过她给的果实",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嘻嘻，很甜吧？我找了好久才挑中这个呢！"
+          }
+        ],
+        "stats": {
+          "stamina": 5,
+          "temper": 10,
+          "stress": 25
+        }
+      },
+      {
+        "text": "告诉她新的果实",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇！原来那种高处的果子更好吃吗？爸爸知道得真多！"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "smarts": 10,
+          "stress": 25
+        }
+      },
+      {
+        "text": "叮咛她别吃太多",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "唔……也是呢，女孩子吃太多甜的会长胖的……"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "stamina": -10,
+          "charm": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "y2_winter",
+    "year": 1441,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000162.png",
+    "title": "温汤暖意",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "冬天的野外温泉热气腾腾，蒸腾的水汽温暖着身心。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "呼……好舒服啊，感觉浑身的疲倦都消散了呢……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "帮她洗",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "呀……爸爸，我已经十一岁了啦，会害羞的……"
+          }
+        ],
+        "stats": {
+          "trust": 10,
+          "morals": -5,
+          "highclass": -5
+        }
+      },
+      {
+        "text": "一起进温泉",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "啊……爸爸也进来了吗？水温正好呢……"
+          }
+        ],
+        "stats": {
+          "trust": 4,
+          "morals": -10,
+          "highclass": -10
+        }
+      },
+      {
+        "text": "一直看着她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "doubtful",
+            "text": "爸、爸爸……为什么一直这样盯着我看呀……？"
+          }
+        ],
+        "stats": {
+          "charm": 10,
+          "crime": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y3_spring",
+    "year": 1442,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000163.png",
+    "title": "古亭品茗",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "春意融融的花亭下，微风吹拂着落樱。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "在这么雅致的亭子里喝茶吃点心，真是一桩美事呢。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "教她所谓风雅",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "静心体会自然与茶道的韵味……我记住了，爸爸。"
+          }
+        ],
+        "stats": {
+          "highclass": 10
+        }
+      },
+      {
+        "text": "一起吃丸子",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嚼嚼……这个甜丸子真美味！爸爸也尝一个！"
+          }
+        ],
+        "stats": {
+          "stamina": 10
+        }
+      },
+      {
+        "text": "放松休息",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "嗯，闭上眼睛听着风铃声，整个人都平静下来了。"
+          }
+        ],
+        "stats": {
+          "temper": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y3_summer",
+    "year": 1442,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000164.png",
+    "title": "海潮贝贝",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "夏日潮退的浅滩上，布满了色彩斑斓的贝壳。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "爸爸看！这只粉色的贝壳上面有珍珠般的光泽呢！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "夸奖她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嘿嘿，爸爸也觉得好看吧？我要做成纪念品！"
+          }
+        ],
+        "stats": {
+          "trust": 1
+        }
+      },
+      {
+        "text": "还早呢",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "说的也是！那边肯定还有更稀奇的，我们继续去找！"
+          }
+        ],
+        "stats": {
+          "stamina": 10,
+          "pride": 5,
+          "stress": 25
+        }
+      },
+      {
+        "text": "给她看大的贝壳",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "surprised",
+            "text": "哇啊！这个大贝壳里面好像有海浪的回音耶！好神奇！"
+          }
+        ],
+        "stats": {
+          "smarts": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y3_autumn",
+    "year": 1442,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000165.png",
+    "title": "溪畔垂钓",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋日宁静的溪水旁，微波荡漾。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "唔……为什么我的浮漂一直没有动静呢……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "换饵",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "换这种虫饵试试？好的，我来试试看！"
+          }
+        ],
+        "stats": {
+          "smarts": 5
+        }
+      },
+      {
+        "text": "不管她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "哼，我自己一定能钓上大鱼给爸爸看的！"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "pride": 10
+        }
+      },
+      {
+        "text": "换人",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "好吧……那看爸爸的表演了，我要向爸爸学习！"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "smarts": 5,
+          "pride": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y3_winter",
+    "year": 1442,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000166.png",
+    "title": "雪峰极目",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "站在积雪的高坡上，冬日的天空清澈而高远。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "从这里望过去，整个城镇和群山都收在眼底呢，真壮观！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "一起眺望",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "站在这里，感觉心中的一切烦恼都变得渺小了呢，爸爸。"
+          }
+        ],
+        "stats": {
+          "trust": 25
+        }
+      },
+      {
+        "text": "握住她的手",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "爸爸的手好暖……能和爸爸一起看这样的景色，真幸福。"
+          }
+        ],
+        "stats": {
+          "sensitive": 5
+        }
+      },
+      {
+        "text": "帮她披上外套",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "谢谢爸爸，您总是这么细心地照顾我。"
+          }
+        ],
+        "stats": {
+          "temper": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y4_spring",
+    "year": 1443,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000167.png",
+    "title": "茵草午憩",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "暖融融的春日草地上，微风拂面，令人昏昏欲睡。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "呼啊……阳光晒在身上好舒服，有点犯困了呢……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "一起午睡",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "那……就稍微睡一会儿吧。爸爸，晚安……呼……"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "stress": -10
+        }
+      },
+      {
+        "text": "看着她的脸",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "doubtful",
+            "text": "嗯……？爸爸在看什么呀？我脸上沾到草叶了吗？"
+          }
+        ],
+        "stats": {
+          "charm": 5
+        }
+      },
+      {
+        "text": "搔她的鼻子",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "阿嚏！呜……爸爸好过分，居然捉弄我！"
+          }
+        ],
+        "stats": {
+          "sensitive": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y4_summer",
+    "year": 1443,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000168.png",
+    "title": "碧波少女",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十三岁的夏天，少女换上了泳装，亭亭玉立在浪花中。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "爸爸，这套泳衣……好看吗？会不会有点不好意思……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "夸奖她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "真、真的吗？谢谢爸爸……被您这么夸，好开心。"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "stress": 5
+        }
+      },
+      {
+        "text": "泼她水",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇！爸爸别突然泼水啦，头发都弄湿了～看招！"
+          }
+        ],
+        "stats": {
+          "stamina": 5,
+          "stress": 10
+        }
+      },
+      {
+        "text": "目不转睛盯着她勉",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "唔……爸爸为什么用这么专注的眼神看着我……脸好烫……"
+          }
+        ],
+        "stats": {
+          "charm": 5,
+          "stress": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y4_autumn",
+    "year": 1443,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000169.png",
+    "title": "夜空星语",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋夜的高原上，满天繁星如碎钻般闪耀在深蓝的天幕上。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "好漂亮的星空啊……就像童话里的银河一样。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "向星星祈祷",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "愿我们一家人能永远这样幸福地生活在一起……"
+          }
+        ],
+        "stats": {
+          "sensitive": 5
+        }
+      },
+      {
+        "text": "述说星星的故事",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "原来那颗最亮的是织女星啊……宇宙真是浩瀚深邃呢。"
+          }
+        ],
+        "stats": {
+          "smarts": 10,
+          "stress": 15
+        }
+      },
+      {
+        "text": "叫她离开",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "夜风太凉会感冒吗？嗯……好吧，听爸爸的回去休息。"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y4_winter",
+    "year": 1443,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000170.png",
+    "title": "雪人伙伴",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "庭院前的厚厚积雪被塑成了一个憨态可掬的雪人。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "爸爸快看！我给雪人戴上了树枝帽子，可爱吧？"
+      }
+    ],
+    "choices": [
+      {
+        "text": "夸奖她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嘻嘻，这个雪人可是按照爸爸的模样做出来的哦！"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "stamina": 10,
+          "stress": 25
+        }
+      },
+      {
+        "text": "无视",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "诶……爸爸不理我……是不是我做得不够好呢……"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "sensitive": 10
+        }
+      },
+      {
+        "text": "恶作剧",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "呀！别给雪人画胡子啦爸爸～哈哈哈哈！"
+          }
+        ],
+        "stats": {
+          "sensitive": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y5_spring",
+    "year": 1444,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000171.png",
+    "title": "编织花环",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十四岁的春天，女儿坐在草地上编织着野花花冠。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "我用三叶草和雏菊编了一个花环哦！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "道谢",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嘿嘿，能够让爸爸开心，就是我最快乐的事了！"
+          }
+        ],
+        "stats": {
+          "temper": 5
+        }
+      },
+      {
+        "text": "夸奖她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "爸爸喜欢就太好了，我对手艺还是挺有信心的呢！"
+          }
+        ],
+        "stats": {
+          "trust": 5
+        }
+      },
+      {
+        "text": "戴在头上",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇……真的像童话里的花之精灵一样吗？好开心！"
+          }
+        ],
+        "stats": {
+          "highclass": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y5_summer",
+    "year": 1444,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000172.png",
+    "title": "金色沙滩",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "夏日艳阳下，十四岁的少女侧卧在沙滩巾上沐浴阳光。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "夏天的阳光真是热烈呢，感觉全身都被晒得暖洋洋的。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "自己也来日光浴",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "爸爸也躺下来吧，听着海浪声，真的很惬意呢。"
+          }
+        ],
+        "stats": {
+          "temper": 5
+        }
+      },
+      {
+        "text": "帮她涂防晒油",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "啊……爸爸帮我涂背吗？嗯……那就拜托爸爸了……"
+          }
+        ],
+        "stats": {
+          "pride": 5,
+          "highclass": 5,
+          "sensitive": -10
+        }
+      },
+      {
+        "text": "进到海里",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "下水游泳去咯！爸爸快跟上我～！"
+          }
+        ],
+        "stats": {
+          "stamina": 15,
+          "stress": 25
+        }
+      }
+    ]
+  },
+  {
+    "id": "y5_autumn",
+    "year": 1444,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000173.png",
+    "title": "秋郊捕鸣",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋风习习，草丛中传来清脆悦耳的秋虫鸣唱。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "嘘……爸爸听，草丛里有纺织娘在唱歌呢，我们去看看吧？"
+      }
+    ],
+    "choices": [
+      {
+        "text": "抓虫",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "抓到了！……啊，小虫子好可怜，还是放它走吧。"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 5,
+          "sensitive": 5
+        }
+      },
+      {
+        "text": "走出去",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "在草地上散散步，听着自然的旋律，心情真舒畅。"
+          }
+        ],
+        "stats": {
+          "temper": 5,
+          "stress": 1
+        }
+      },
+      {
+        "text": "拿芒草玩",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哈哈，毛茸茸的芒草痒痒的，爸爸真有趣！"
+          }
+        ],
+        "stats": {
+          "trust": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "y5_winter",
+    "year": 1444,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000174.png",
+    "title": "雾气氤氲",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "深山雪景中的露天温泉，蒸腾的雾气弥漫在寒冬中。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "呼……外面的雪景真美，水里却像春日一样暖和。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "一起下去泡",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "哇……爸爸也进来了吗？总觉得……有点害羞呢……"
+          }
+        ],
+        "stats": {
+          "morals": -10,
+          "temper": 10
+        }
+      },
+      {
+        "text": "走掉",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "啊……爸爸怎么默默走开了？是水温太烫了吗？"
+          }
+        ],
+        "stats": {
+          "morals": 10,
+          "sensitive": -10
+        }
+      },
+      {
+        "text": "看着她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "doubtful",
+            "text": "爸爸……您为什么要用那种眼神看着我呢……心跳得好快……"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "charm": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y6_spring",
+    "year": 1445,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000175.png",
+    "title": "林间抉择",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十五岁的春季，两只幼兽在林间争斗受了伤。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "sad",
+        "text": "爸爸快看！它们打架受伤流血了，怎么办……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "分开她们",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "住手，不可以再打架了！……呼，终于把它们分开了。"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 10
+        }
+      },
+      {
+        "text": "试着治疗看看",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "别怕，我来给你们包扎伤口……好了，乖乖养伤吧。"
+          }
+        ],
+        "stats": {
+          "trust": 5,
+          "temper": 10,
+          "stress": 25
+        }
+      },
+      {
+        "text": "顺应自然",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "sad",
+            "text": "大自然的弱肉强食吗……虽然残酷，但这就是自然法则呢……"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "sensitive": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y6_summer",
+    "year": 1445,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000176.png",
+    "title": "海天残阳",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "傍晚的海滩，落日将大海染成了一片炽烈的晚霞。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "夕阳下的海浪……有一种壮丽又略带感伤的美丽呢。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "朝向夕阳那一方",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "迎着晚霞的海风吹过来，让人感受到生命的辽阔。"
+          }
+        ],
+        "stats": {
+          "sensitive": 10
+        }
+      },
+      {
+        "text": "看着女儿",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "doubtful",
+            "text": "爸爸……您看着我做什么呀？落日不是在那边吗……"
+          }
+        ],
+        "stats": {
+          "charm": 10
+        }
+      },
+      {
+        "text": "看着夕阳沉下去",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "落日虽短，但明天它依然会升起。爸爸，我们一起加油吧。"
+          }
+        ],
+        "stats": {
+          "temper": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y6_autumn",
+    "year": 1445,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000177.png",
+    "title": "树荫书香",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋阳明媚，红叶飘落在大树下的长椅上。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "在安静的大自然里读书，感觉字句都变得更加深刻了。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "一起看书",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "这一段写得真好呢，爸爸也这样觉得吗？"
+          }
+        ],
+        "stats": {
+          "smarts": 10
+        }
+      },
+      {
+        "text": "喂动物吃东西",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "小松鼠快来吃坚果吧～真乖真乖。"
+          }
+        ],
+        "stats": {
+          "sensitive": 10
+        }
+      },
+      {
+        "text": "睡觉",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "爸爸在看书，我就靠在爸爸身边眯一会儿吧……呼……"
+          }
+        ],
+        "stats": {
+          "temper": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y6_winter",
+    "year": 1445,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000178.png",
+    "title": "雪径漫步",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "冬日的林道上覆盖着银白的厚雪，少女在风雪中伫立。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "十五岁的冬天了呢……时间过得真快呀，爸爸。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "让她一人独处",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "……我正在思考自己的未来呢，我会成为让爸爸骄傲的人的。"
+          }
+        ],
+        "stats": {
+          "pride": 10
+        }
+      },
+      {
+        "text": "抱住她的肩",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "爸爸……有爸爸在身边，我什么困难都不会害怕了。"
+          }
+        ],
+        "stats": {
+          "trust": 10
+        }
+      },
+      {
+        "text": "把她叫近身边",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "爸爸叫我吗？来啦！我们走吧～"
+          }
+        ],
+        "stats": {
+          "sensitive": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y7_spring",
+    "year": 1446,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000179.png",
+    "title": "灵虎相逢",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十六岁的春季密林深处，一只威严而神秘的白色灵虎悄然现身。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "爸爸……那是传说中的森林圣兽白虎吗？好有威严……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "叫女儿回来",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "嘘……爸爸，别惊扰它，我们悄悄退回来。"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 10
+        }
+      },
+      {
+        "text": "吓走动物",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "喝！……白虎被惊动退回林中了，呼，真是险象环生。"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "pride": 10
+        }
+      },
+      {
+        "text": "静静的在旁守护",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "它没有敌意呢……神圣的生灵，愿大自然保佑你。"
+          }
+        ],
+        "stats": {
+          "stamina": 15,
+          "stress": 25
+        }
+      }
+    ]
+  },
+  {
+    "id": "y7_summer",
+    "year": 1446,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000180.png",
+    "title": "碧海弄潮",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十六岁少女的身姿愈发曼妙动人，潜入清凉的碧蓝海底。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "海底的世界真美啊！珊瑚和鱼群就在眼前游动呢！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "教她正确的潜水法",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "原来运用气息和划水节奏是这样……我学到了！"
+          }
+        ],
+        "stats": {
+          "martial": 10
+        }
+      },
+      {
+        "text": "戳鱼",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "哎呀爸爸，别捉弄那些无辜的小鱼啦！"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "morals": 10
+        }
+      },
+      {
+        "text": "浮上水面",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "呼哈！新鲜的空气真甜美！刚才游得太深了呢。"
+          }
+        ],
+        "stats": {
+          "trust": -25,
+          "stamina": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "y7_autumn",
+    "year": 1446,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000181.png",
+    "title": "秋水梳妆",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "秋日清澈如镜的湖泊前，十六岁的少女任由秀发在微风中飞扬。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "秋风把头发吹得有些乱了呢……不过感觉好舒服呀。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "出声叫她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "啊，爸爸！您在看我吗？嘻嘻，今天天气真好呢！"
+          }
+        ],
+        "stats": {
+          "sensitive": 10
+        }
+      },
+      {
+        "text": "按住衣服",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "谢谢爸爸帮我按住裙角……风确实有些大呢。"
+          }
+        ],
+        "stats": {
+          "temper": 10
+        }
+      },
+      {
+        "text": "给她梳子",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "哇，爸爸随身带了梳子吗？谢谢您，我来梳顺一下头发。"
+          }
+        ],
+        "stats": {
+          "highclass": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y7_winter",
+    "year": 1446,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000182.png",
+    "title": "冰上飞舞",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "冰封的湖面上，宛如光滑的镜子，少女在冰上优雅滑行。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "happy",
+        "text": "在冰面上滑行，就像在飞翔一样轻盈呢，爸爸！"
+      }
+    ],
+    "choices": [
+      {
+        "text": "一起滑",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "好呀！爸爸拉着我的手，我们一起滑到湖心去吧！"
+          }
+        ],
+        "stats": {
+          "stamina": 10
+        }
+      },
+      {
+        "text": "称赞她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "谢谢爸爸！我有在认真练习姿势哦，能得到爸爸的称赞真开心！"
+          }
+        ],
+        "stats": {
+          "highclass": 10
+        }
+      },
+      {
+        "text": "静静看着她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "冰上的倒影就像梦幻一样……女儿的身影真是越来越迷人了。"
+          }
+        ],
+        "stats": {
+          "charm": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y8_spring",
+    "year": 1447,
+    "season_index": 0,
+    "season_name": "春",
+    "cg": "res://assets/Vacation/gd_000183.png",
+    "title": "繁花与诗",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十七岁的最后一个春季，绚烂的樱花如雨飘落，少女宛如绝代佳人。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "转眼间，已经是十七岁的春天了呢……爸爸，时光过得真快啊。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "闻香味",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "这春风里带着落花的幽香，令人心旷神怡……"
+          }
+        ],
+        "stats": {
+          "highclass": 10
+        }
+      },
+      {
+        "text": "邀她去散步",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "好呀，就像小时候那样，和爸爸一起漫步在花瓣铺成的小路上。"
+          }
+        ],
+        "stats": {
+          "sensitive": 10
+        }
+      },
+      {
+        "text": "转身睡觉",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "呼……在这么温暖的花雨下小憩，疲劳彻底烟消云散了。"
+          }
+        ],
+        "stats": {
+          "highclass": -10,
+          "stress": -30
+        }
+      }
+    ]
+  },
+  {
+    "id": "y8_summer",
+    "year": 1447,
+    "season_index": 1,
+    "season_name": "夏",
+    "cg": "res://assets/Vacation/gd_000184.png",
+    "title": "注目之花",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十七岁盛夏的海滩上，出落得亭亭玉立的少女吸引了周围所有人的目光。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "爸爸……周围那些人好像一直在看我，稍微有点不自在呢……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "这也是难免的事",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "因、因为我已经长大了吗？……被爸爸这么说，好害羞啊。"
+          }
+        ],
+        "stats": {
+          "charm": 10
+        }
+      },
+      {
+        "text": "去找那些人理论",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "爸爸！不用去啦，别为了我和别人起冲突……我只要有爸爸在身边就好了。"
+          }
+        ],
+        "stats": {
+          "pride": 10
+        }
+      },
+      {
+        "text": "问她游不游泳",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嗯！不要在意别人的目光，我们去海里畅游吧！"
+          }
+        ],
+        "stats": {
+          "highclass": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y8_autumn",
+    "year": 1447,
+    "season_index": 2,
+    "season_name": "秋",
+    "cg": "res://assets/Vacation/gd_000185.png",
+    "title": "枫林仗剑",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "深秋满山红叶前，十七岁的少女手按佩剑，英姿飒爽。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "站在这高远的天地间，感觉自己已经拥有了面对未来一切的风雨的勇气。"
+      }
+    ],
+    "choices": [
+      {
+        "text": "远远地看着她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "静静注视着女儿成长得如此出色，作为父亲心中百感交集……"
+          }
+        ],
+        "stats": {
+          "sensitive": 10
+        }
+      },
+      {
+        "text": "拔刀",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "好气魄！爸爸，请指教我的剑术！喝！"
+          }
+        ],
+        "stats": {
+          "morals": 10
+        }
+      },
+      {
+        "text": "靠近她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "爸爸，无论将来我走向哪里，我都不会忘记您教导我的一切。"
+          }
+        ],
+        "stats": {
+          "pride": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "y8_winter",
+    "year": 1447,
+    "season_index": 3,
+    "season_name": "冬",
+    "cg": "res://assets/Vacation/gd_000186.png",
+    "title": "终曲暖泉",
+    "intro": [
+      {
+        "character": "",
+        "emotion": "",
+        "text": "十七岁深冬的天然露天温泉中，少女轻裹浴巾，眉目如画，如梦似幻。"
+      },
+      {
+        "character": "daughter",
+        "emotion": "calm",
+        "text": "和爸爸一起来度假……这已经是最后一次了吧？谢谢爸爸这八年来抚育我长大……"
+      }
+    ],
+    "choices": [
+      {
+        "text": "道歉",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "不用道歉啦爸爸……您是我世界上最敬爱的人啊。"
+          }
+        ],
+        "stats": {
+          "temper": 10
+        }
+      },
+      {
+        "text": "逃走",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "啊……爸爸慌慌张张跑开了呢，噗……还是和小时候一样害羞呢。"
+          }
+        ],
+        "stats": {
+          "morals": 10
+        }
+      },
+      {
+        "text": "视线仍然不离她",
+        "reaction": [
+          {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "爸爸……您的视线好深沉……我、我永远都是您的女儿啊……"
+          }
+        ],
+        "stats": {
+          "trust": -10,
+          "charm": 10
+        }
+      }
+    ]
+  }
+]

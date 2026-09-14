@@ -1,0 +1,68 @@
+{
+    "child": [
+        {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "爸爸！今天有什么有趣的事情吗？"
+        },
+        {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "我会听吉普的话，好好努力的！"
+        },
+        {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "嘻嘻，最喜欢爸爸摸摸头了~"
+        },
+        {
+            "character": "daughter",
+            "emotion": "surprised",
+            "text": "哇！吓我一跳，爸爸走路都没有声音的！"
+        }
+    ],
+    "teen": [
+        {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "爸爸，今天也要为了目标一起加油哦。"
+        },
+        {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "有时候会想，我长大了会成为一个怎样的人呢？"
+        },
+        {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "有爸爸一直在身边守护着我，我感到非常安心。"
+        },
+        {
+            "character": "daughter",
+            "emotion": "doubtful",
+            "text": "爸爸，我最近是不是长高了一点呢？"
+        }
+    ],
+    "adult": [
+        {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "父亲大人，工作辛苦了，请注意多休息。"
+        },
+        {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "不知不觉我也长这么大了……非常感谢父亲多年来的抚养与教导。"
+        },
+        {
+            "character": "daughter",
+            "emotion": "calm",
+            "text": "无论未来走向何方，我都不会忘记在这个家度过的美好时光。"
+        },
+        {
+            "character": "daughter",
+            "emotion": "happy",
+            "text": "如果有什么我能帮上忙的事情，请尽管吩咐我。"
+        }
+    ]
+}

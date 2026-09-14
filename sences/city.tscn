@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://r377q4iaekpl"]
+[gd_scene format=3 uid="uid://r377q4iaekpl"]
 
 [ext_resource type="Texture2D" uid="uid://yc4p6m20obgn" path="res://assets/Backgrounds/gd_000038.png" id="1_8vqpv"]
 [ext_resource type="Script" uid="uid://btlbipbntbj52" path="res://scripts/main_sence/city.gd" id="1_city"]
@@ -8,16 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://co6h1prb6jser" path="res://assets/sys/w_place.png" id="4_3d1yd"]
 [ext_resource type="Texture2D" uid="uid://b3w6wxfwkv1ti" path="res://assets/sys/1673.png" id="4_mqyke"]
 [ext_resource type="Texture2D" uid="uid://xma3x2h5c7g5" path="res://assets/sys/w_map2.png" id="5_mcshp"]
-[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://UI/wide_choice_list.tscn" id="10_aovku"]
-[ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://UI/arrtibute.tscn" id="11_1qdom"]
-[ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://UI/talk_layer.tscn" id="11_talk"]
+[ext_resource type="PackedScene" uid="uid://bv3nfskm8jxku" path="res://ui/wide_choice_list.tscn" id="10_aovku"]
+[ext_resource type="PackedScene" uid="uid://o1kucs5hpvp2" path="res://ui/arrtibute.tscn" id="11_1qdom"]
+[ext_resource type="PackedScene" uid="uid://dphqni55a6j0o" path="res://ui/talk_layer.tscn" id="11_talk"]
+[ext_resource type="Texture2D" uid="uid://iyu58owtr0j6" path="res://assets/sys/1731.png" id="14_date_bg"]
+[ext_resource type="Script" uid="uid://boot45ritj24f" path="res://scripts/ui/date.gd" id="15_date_scr"]
+[ext_resource type="FontFile" uid="uid://61pco5cuhnpb" path="res://fronts/Baloo_2/Baloo2-ExtraBold.ttf" id="16_baloo"]
+[ext_resource type="FontFile" uid="uid://c0avuh67i6ngv" path="res://fronts/EBGaramond-Bold.ttf" id="17_garamond"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqyke"]
+texture = ExtResource("4_mqyke")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtjib"]
 atlas = ExtResource("4_3d1yd")
 region = Rect2(0, 0, 204, 49)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqyke"]
-texture = ExtResource("4_mqyke")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c762w"]
 atlas = ExtResource("5_mcshp")
@@ -26,22 +30,124 @@ region = Rect2(70, 145, 124, 51)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3v6e"]
 texture = SubResource("AtlasTexture_c762w")
 
-[node name="City" type="Node"]
+[node name="City" type="Node" unique_id=1368007953]
 script = ExtResource("1_city")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=943349163]
 offset_right = 640.0
 offset_bottom = 480.0
 scale = Vector2(2, 2)
 texture = ExtResource("1_8vqpv")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=415760124]
 
-[node name="Site" type="Node2D" parent="UI"]
+[node name="Date" type="Sprite2D" parent="UI" unique_id=43637883]
+position = Vector2(232, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("14_date_bg")
+script = ExtResource("15_date_scr")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Week" type="Label" parent="UI/Date" unique_id=114007108]
+offset_left = -68.0
+offset_top = -4.0
+offset_right = -28.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_uwjyw")
+theme_override_font_sizes/font_size = 20
+text = "周一"
+vertical_alignment = 1
+
+[node name="Year" type="Label" parent="UI/Date" unique_id=1664084109]
+offset_left = -52.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0.835294, 0.776471, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("16_baloo")
+theme_override_font_sizes/font_size = 25
+text = "1440"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Month" type="Label" parent="UI/Date" unique_id=484099168]
+offset_left = -28.0
+offset_top = -15.0
+offset_right = 4.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("17_garamond")
+theme_override_font_sizes/font_size = 30
+text = "12"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Day" type="Label" parent="UI/Date" unique_id=1165571510]
+offset_left = 20.0
+offset_top = -40.5
+offset_right = 78.0
+offset_bottom = 32.5
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("17_garamond")
+theme_override_font_sizes/font_size = 50
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitSign" type="Label" parent="UI/Date" unique_id=1777607225]
+offset_left = 1.5
+offset_top = -31.0
+offset_right = 25.5
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.109804, 0.0941176, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("17_garamond")
+theme_override_font_sizes/font_size = 35
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionBadge" type="Label" parent="UI" unique_id=2133746131]
+offset_left = 127.0
+offset_top = 165.0
+offset_right = 337.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.968627, 0.996078, 0.85098, 1)
+theme_override_colors/font_outline_color = Color(0.576471, 0.258824, 0.121569, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_uwjyw")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_mqyke")
+text = "外出行动: 3 / 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Site" type="Node2D" parent="UI" unique_id=776882103]
 visible = false
 position = Vector2(640, 400)
 
-[node name="SiteBackGround" type="TextureRect" parent="UI/Site"]
+[node name="SiteBackGround" type="TextureRect" parent="UI/Site" unique_id=1255088304]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -57,12 +163,12 @@ size_flags_vertical = 4
 texture = ExtResource("3_u5re7")
 stretch_mode = 3
 
-[node name="SiteName" type="Sprite2D" parent="UI/Site"]
+[node name="SiteName" type="Sprite2D" parent="UI/Site" unique_id=1344802602]
 position = Vector2(-426, -337)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_rtjib")
 
-[node name="NameLabel" type="Label" parent="UI/Site/SiteName"]
+[node name="NameLabel" type="Label" parent="UI/Site/SiteName" unique_id=1470506746]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.592
@@ -83,18 +189,18 @@ text = "道具店"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SitePoints" type="Node2D" parent="UI"]
+[node name="SitePoints" type="Node2D" parent="UI" unique_id=1324455263]
 
-[node name="City" type="Node2D" parent="UI/SitePoints"]
+[node name="City" type="Node2D" parent="UI/SitePoints" unique_id=1978690110]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/City"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/City" unique_id=1911179280]
 position = Vector2(883, 344)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/City"]
+[node name="Label" type="Label" parent="UI/SitePoints/City" unique_id=910410704]
 offset_left = 760.0
 offset_top = 247.0
 offset_right = 925.0
@@ -110,16 +216,16 @@ text = "城"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BusyStreet" type="Node2D" parent="UI/SitePoints"]
+[node name="BusyStreet" type="Node2D" parent="UI/SitePoints" unique_id=103722439]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/BusyStreet"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/BusyStreet" unique_id=1938902944]
 position = Vector2(323, 272)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/BusyStreet"]
+[node name="Label" type="Label" parent="UI/SitePoints/BusyStreet" unique_id=561981469]
 offset_left = 200.0
 offset_top = 176.0
 offset_right = 365.0
@@ -135,16 +241,16 @@ text = "繁华街"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ClothShop" type="Node2D" parent="UI/SitePoints"]
+[node name="ClothShop" type="Node2D" parent="UI/SitePoints" unique_id=157082895]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/ClothShop"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/ClothShop" unique_id=1904392927]
 position = Vector2(184, 416)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/ClothShop"]
+[node name="Label" type="Label" parent="UI/SitePoints/ClothShop" unique_id=356418653]
 offset_left = 62.0
 offset_top = 318.0
 offset_right = 227.0
@@ -160,16 +266,16 @@ text = "洋装店"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemShop" type="Node2D" parent="UI/SitePoints"]
+[node name="ItemShop" type="Node2D" parent="UI/SitePoints" unique_id=397545882]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/ItemShop"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/ItemShop" unique_id=1600099947]
 position = Vector2(432, 360)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/ItemShop"]
+[node name="Label" type="Label" parent="UI/SitePoints/ItemShop" unique_id=49194402]
 offset_left = 308.0
 offset_top = 262.0
 offset_right = 473.0
@@ -185,16 +291,16 @@ text = "道具店"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FoodShop" type="Node2D" parent="UI/SitePoints"]
+[node name="FoodShop" type="Node2D" parent="UI/SitePoints" unique_id=1862790153]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/FoodShop"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/FoodShop" unique_id=1873109817]
 position = Vector2(320, 432)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/FoodShop"]
+[node name="Label" type="Label" parent="UI/SitePoints/FoodShop" unique_id=1086398410]
 offset_left = 200.0
 offset_top = 331.0
 offset_right = 365.0
@@ -210,16 +316,16 @@ text = "餐厅"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Square" type="Node2D" parent="UI/SitePoints"]
+[node name="Square" type="Node2D" parent="UI/SitePoints" unique_id=1534226336]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Square"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Square" unique_id=1615765099]
 position = Vector2(720, 464)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/Square"]
+[node name="Label" type="Label" parent="UI/SitePoints/Square" unique_id=1627536405]
 offset_left = 596.0
 offset_top = 358.0
 offset_right = 761.0
@@ -235,16 +341,16 @@ text = "广场"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Market" type="Node2D" parent="UI/SitePoints"]
+[node name="Market" type="Node2D" parent="UI/SitePoints" unique_id=799149909]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Market"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Market" unique_id=219758]
 position = Vector2(800, 568)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/Market"]
+[node name="Label" type="Label" parent="UI/SitePoints/Market" unique_id=1496000823]
 offset_left = 675.0
 offset_top = 467.0
 offset_right = 840.0
@@ -260,16 +366,16 @@ text = "市场"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Church" type="Node2D" parent="UI/SitePoints"]
+[node name="Church" type="Node2D" parent="UI/SitePoints" unique_id=654207377]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Church"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Church" unique_id=1314514557]
 position = Vector2(552, 584)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/Church"]
+[node name="Label" type="Label" parent="UI/SitePoints/Church" unique_id=456864474]
 offset_left = 428.0
 offset_top = 480.0
 offset_right = 593.0
@@ -285,16 +391,16 @@ text = "教会"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Street" type="Node2D" parent="UI/SitePoints"]
+[node name="Street" type="Node2D" parent="UI/SitePoints" unique_id=120442186]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Street"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Street" unique_id=1353036659]
 position = Vector2(336, 680)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/Street"]
+[node name="Label" type="Label" parent="UI/SitePoints/Street" unique_id=1358196872]
 offset_left = 212.0
 offset_top = 577.0
 offset_right = 377.0
@@ -310,16 +416,16 @@ text = "街道"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hospital" type="Node2D" parent="UI/SitePoints"]
+[node name="Hospital" type="Node2D" parent="UI/SitePoints" unique_id=1662003229]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Hospital"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/Hospital" unique_id=440210111]
 position = Vector2(584, 752)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/Hospital"]
+[node name="Label" type="Label" parent="UI/SitePoints/Hospital" unique_id=496406217]
 offset_left = 461.0
 offset_top = 646.0
 offset_right = 626.0
@@ -335,16 +441,16 @@ text = "医院"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlackStreet" type="Node2D" parent="UI/SitePoints"]
+[node name="BlackStreet" type="Node2D" parent="UI/SitePoints" unique_id=1798814077]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/BlackStreet"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/SitePoints/BlackStreet" unique_id=87748035]
 position = Vector2(904, 728)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_0kjyr")
 animation = &"hover"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="UI/SitePoints/BlackStreet"]
+[node name="Label" type="Label" parent="UI/SitePoints/BlackStreet" unique_id=1779120826]
 offset_left = 781.0
 offset_top = 619.0
 offset_right = 946.0
@@ -360,43 +466,43 @@ text = "黑街"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoHome" type="Button" parent="UI"]
+[node name="GoHome" type="Button" parent="UI" unique_id=753275009]
 custom_minimum_size = Vector2(100, 36)
 offset_left = 1016.0
 offset_top = 800.0
 offset_right = 1116.0
 offset_bottom = 836.0
 scale = Vector2(2, 2)
-theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
-theme_override_colors/font_outline_color = Color(0.576471, 0.258824, 0.121569, 1)
 theme_override_colors/font_color = Color(0.968627, 0.996078, 0.85098, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.996078, 0.85098, 1)
 theme_override_colors/font_pressed_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.917647, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.576471, 0.258824, 0.121569, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_uwjyw")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/focus = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/hover = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_x3v6e")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_x3v6e")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_x3v6e")
+theme_override_styles/focus = SubResource("StyleBoxTexture_x3v6e")
 text = "回家"
 
-[node name="TalkLayer" parent="." instance=ExtResource("11_talk")]
+[node name="TalkLayer" parent="." unique_id=1647695251 instance=ExtResource("11_talk")]
 visible = false
 
-[node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("10_aovku")]
+[node name="ChoiceUI" parent="TalkLayer" unique_id=938578970 instance=ExtResource("10_aovku")]
 visible = false
 position = Vector2(980, 600)
 scale = Vector2(2, 2)
 
-[node name="Arrtibute" parent="." instance=ExtResource("11_1qdom")]
+[node name="Arrtibute" parent="." unique_id=1159295979 instance=ExtResource("11_1qdom")]
 visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)

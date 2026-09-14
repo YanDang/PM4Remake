@@ -56,9 +56,39 @@ var choice_list:Array
 # 函数触发
 var event_callable:Callable = Callable()
 var child_choice_index:int = 0 # 默认值为0，即便没有触发选项也能正常结算
+var show_standing_sprites: bool = true
+var keep_visible_on_end: bool = false
+
+func SetStandingSpritesVisible(enabled: bool) -> void:
+	show_standing_sprites = enabled
+	if not enabled:
+		for sprite in active_sprites.values():
+			if is_instance_valid(sprite):
+				sprite.queue_free()
+		active_sprites.clear()
 
 func RegisterCallback(cb: Callable) -> void:
 	event_callable = cb
+
+func ProcessDialogueText(raw_text: String) -> String:
+	if raw_text.is_empty():
+		return raw_text
+	var processed = raw_text
+	var d_name = Daughterstatus.firstname
+	var s_name = Daughterstatus.secondname
+	var full_name = d_name + "·" + s_name
+	
+	processed = processed.replace("{daughter_name}", d_name)
+	processed = processed.replace("{firstname}", d_name)
+	processed = processed.replace("{secondname}", s_name)
+	processed = processed.replace("{fullname}", full_name)
+	
+	# 兼容可能残留的硬编码姓名
+	processed = processed.replace("帕特莉希娅", d_name)
+	processed = processed.replace("帕特丽西亚", d_name)
+	processed = processed.replace("帕特莉西娅", d_name)
+	
+	return processed
 
 func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:Dictionary={},data_list:Array=[]):
 	emit_signal("talk_start")
@@ -74,7 +104,9 @@ func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:
 			allow_emit = true
 		SettleType.CHOICE:
 			is_settle = true
-			choice_list = data_list
+			choice_list = []
+			for c in data_list:
+				choice_list.append(ProcessDialogueText(str(c)))
 			allow_emit = true
 	show()
 	talk_even = talk_array
@@ -83,7 +115,8 @@ func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:
 
 func TalkEnd():
 	set_process_input(false)  # 完全停止输入处理
-	hide()
+	if not keep_visible_on_end:
+		hide()
 	
 	# 结束对话时清理所有立绘
 	for sprite in active_sprites.values():
@@ -91,9 +124,8 @@ func TalkEnd():
 			sprite.queue_free()
 	active_sprites.clear()
 	
-	if event_callable.is_null():
-		emit_signal("talk_end")
-	else:
+	emit_signal("talk_end")
+	if not event_callable.is_null():
 		var cb = event_callable
 		# 先销毁再调用，以支持在回调中注册新的回调
 		event_callable = Callable()
@@ -155,7 +187,7 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 		# 旁白
 		headshot.hide()
 		first_name.text = ""
-		talk_text.text = text
+		talk_text.text = ProcessDialogueText(text)
 		return 
 	# 普通npc的icon和其他的不一样
 	elif who in Globaljson.special_name:
@@ -183,10 +215,10 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 		first_name.text = Globaljson.human_translation[who][name_index]
 		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + ".png"
 	headshot.texture = load(icon_path)
-	talk_text.text = text
+	talk_text.text = ProcessDialogueText(text)
 
 	# === 大立绘(Standing Sprite) 逻辑 ===
-	if get_tree().current_scene.name != "Main" and Globaljson.stand_sprite_data.has(who):
+	if show_standing_sprites and get_tree().current_scene and get_tree().current_scene.name.to_lower() != "main" and Globaljson.stand_sprite_data.has(who):
 		var template: String = Globaljson.stand_sprite_data[who]
 		var emo_code = emotions.get(emotion, "01")
 		if who != "daughter" and emo_code not in ["01", "02", "03"]:
@@ -219,68 +251,23 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 		var tex = load(sprite_path)
 		if tex:
 			
-			if who in special_name and emo_code == "01":
+			var blink_config = null
+			if Globaljson.eye_blink_data:
+				blink_config = Globaljson.eye_blink_data.get(who, {}).get(age_code, null)
+				
+			if blink_config and emo_code == "01":
 				var body_tex = AtlasTexture.new()
 				body_tex.atlas = tex
 				
-				# Default fallback values (daughter 'c')
-				var region_body = Rect2(0, 48, 268, 400)
-				var eye_pos = Vector2(2.5, -104.5)
-				var eye_frames_y = 2
-				var eye_frames_h = 43
-				var eye_frame_w = 77
-				var frame_x0 = 2
-				var frame_x1 = 83
-				var frame_x2 = 164
-
-				if who == "daughter":
-					if age_code == "l":
-						region_body = Rect2(0, 40, 280, 480); eye_pos = Vector2(1, -103)
-						eye_frames_y = 2; eye_frames_h = 36; eye_frame_w = 76
-						frame_x0 = 2; frame_x1 = 82; frame_x2 = 162
-					elif age_code == "h":
-						region_body = Rect2(0, 46, 372, 480); eye_pos = Vector2(-6, -140)
-						eye_frames_y = 2; eye_frames_h = 42; eye_frame_w = 75
-						frame_x0 = 2; frame_x1 = 81; frame_x2 = 160
-				elif who == "lise":
-					if age_code == "c":
-						region_body = Rect2(0, 44, 252, 424); eye_pos = Vector2(-1.0, -97.5)
-						eye_frames_y = 3; eye_frames_h = 41; eye_frame_w = 80
-						frame_x0 = 1; frame_x1 = 83; frame_x2 = 165
-					elif age_code == "l":
-						region_body = Rect2(0, 42, 292, 462); eye_pos = Vector2(0.5, -120.5)
-						eye_frames_y = 3; eye_frames_h = 39; eye_frame_w = 75
-						frame_x0 = 2; frame_x1 = 82; frame_x2 = 162
-					elif age_code == "h":
-						region_body = Rect2(0, 44, 292, 482); eye_pos = Vector2(1.5, -147.0)
-						eye_frames_y = 2; eye_frames_h = 42; eye_frame_w = 81
-						frame_x0 = 1; frame_x1 = 84; frame_x2 = 167
-				elif who == "marie":
-					if age_code == "c":
-						region_body = Rect2(0, 48, 204, 388); eye_pos = Vector2(2.5, -117.5)
-						eye_frames_y = 3; eye_frames_h = 45; eye_frame_w = 61
-						frame_x0 = 2; frame_x1 = 65; frame_x2 = 128
-					elif age_code == "l":
-						region_body = Rect2(0, 48, 248, 430); eye_pos = Vector2(-1.0, -125.0)
-						eye_frames_y = 2; eye_frames_h = 46; eye_frame_w = 78
-						frame_x0 = 2; frame_x1 = 82; frame_x2 = 162
-					elif age_code == "h":
-						region_body = Rect2(0, 45, 244, 463); eye_pos = Vector2(4.0, -148.0)
-						eye_frames_y = 4; eye_frames_h = 41; eye_frame_w = 74
-						frame_x0 = 2; frame_x1 = 78; frame_x2 = 154
-				elif who == "christina":
-					if age_code == "c":
-						region_body = Rect2(0, 44, 240, 404); eye_pos = Vector2(-0.5, -110.0)
-						eye_frames_y = 4; eye_frames_h = 40; eye_frame_w = 73
-						frame_x0 = 2; frame_x1 = 77; frame_x2 = 152
-					elif age_code == "l":
-						region_body = Rect2(0, 50, 260, 450); eye_pos = Vector2(-6.0, -128.0)
-						eye_frames_y = 4; eye_frames_h = 46; eye_frame_w = 66
-						frame_x0 = 2; frame_x1 = 70; frame_x2 = 138
-					elif age_code == "h":
-						region_body = Rect2(0, 46, 264, 484); eye_pos = Vector2(-2.5, -144.5)
-						eye_frames_y = 3; eye_frames_h = 43; eye_frame_w = 75
-						frame_x0 = 2; frame_x1 = 79; frame_x2 = 156
+				var br = blink_config["body_region"]
+				var region_body = Rect2(br[0], br[1], br[2], br[3])
+				var eye_pos = Vector2(blink_config["eye_pos"][0], blink_config["eye_pos"][1])
+				var eye_frames_y = blink_config["eye_frames_y"]
+				var eye_frames_h = blink_config["eye_frames_h"]
+				var eye_frame_w = blink_config["eye_frame_w"]
+				var frame_x0 = blink_config["frame_x"][0]
+				var frame_x1 = blink_config["frame_x"][1]
+				var frame_x2 = blink_config["frame_x"][2]
 
 				body_tex.region = region_body
 				slot.texture = body_tex
@@ -384,14 +371,8 @@ func _on_arrtibute_settle_end() -> void:
 	TalkEnd()
 
 # 选项触发后的事件
-func _on_choice_pressed(_choice_text: String,choice_index:int):
-	print("收到选择信号")
+func _on_choice_pressed(_choice_text: String, choice_index: int):
+	print("收到选择信号: ", choice_index)
 	child_choice_index = choice_index
-	print(choice_index)
 	choice_ui.hide()
-	if not event_callable.is_null():
-		var cb = event_callable
-		event_callable = Callable()
-		cb.call(choice_index)
-	else:
-		TalkEnd()
+	TalkEnd()

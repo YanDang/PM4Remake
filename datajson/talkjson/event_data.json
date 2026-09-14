@@ -32,7 +32,8 @@
             ],
             "set_flags": [
                 "lise_test_done"
-            ]
+            ],
+            "character": "lise"
         },
         {
             "id": "meet_charles_1445_square_walk",
@@ -80,7 +81,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1445_square_lost",
@@ -128,7 +130,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1445_square_market",
@@ -173,7 +176,8 @@
             ],
             "set_flags": [
                 "c_45_4"
-            ]
+            ],
+            "character": "charles"
         },
         {
             "id": "meet_charles_1445_square_jewelry",
@@ -215,7 +219,8 @@
             ],
             "add_affection": {
                 "charles": 10
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1445_square_horse",
@@ -254,7 +259,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_lee_1445_square_flirting",
@@ -330,7 +336,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "character": "lee"
         },
         {
             "id": "meet_charles_1446_square_magic",
@@ -382,7 +389,8 @@
             ],
             "add_affection": {
                 "charles": 10
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1446_square_map",
@@ -429,7 +437,8 @@
             ],
             "set_flags": [
                 "c_46_2"
-            ]
+            ],
+            "character": "charles"
         },
         {
             "id": "meet_charles_1446_square_flute",
@@ -479,7 +488,8 @@
             ],
             "add_affection": {
                 "charles": 10
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1446_square_harvest",
@@ -523,7 +533,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_lee_1446_square_shopping",
@@ -575,7 +586,8 @@
             ],
             "add_affection": {
                 "lee": 5
-            }
+            },
+            "character": "lee"
         },
         {
             "id": "meet_lee_1446_square_cold",
@@ -622,7 +634,8 @@
             ],
             "add_affection": {
                 "lee": 10
-            }
+            },
+            "character": "lee"
         },
         {
             "id": "meet_lee_1446_square_harvest",
@@ -679,7 +692,8 @@
             ],
             "add_affection": {
                 "lee": 5
-            }
+            },
+            "character": "lee"
         },
         {
             "id": "meet_charles_1447_square_maid",
@@ -723,7 +737,8 @@
             ],
             "add_affection": {
                 "charles": 10
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1447_square_performer",
@@ -766,7 +781,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_lee_1447_square_treasure",
@@ -805,7 +821,8 @@
             ],
             "set_flags": [
                 "l_47_3"
-            ]
+            ],
+            "character": "lee"
         },
         {
             "id": "meet_charles_1448_square_inspect",
@@ -841,7 +858,8 @@
             ],
             "set_flags": [
                 "c_48_1"
-            ]
+            ],
+            "character": "charles"
         },
         {
             "id": "meet_charles_1448_square_kingdom",
@@ -881,7 +899,564 @@
             ],
             "set_flags": [
                 "c_48_2"
-            ]
+            ],
+            "character": "charles"
+        },
+        {
+            "id": "square_lise_rival",
+            "name": "一起变强",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "met_lise"
+                ],
+                "flags_banned": [
+                    "square_lise_rival_done"
+                ],
+                "min_affection": {
+                    "lise": 5
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1441,
+                "max_year": 1442,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "square_lise_rival_done"
+            ],
+            "affection_changes": {
+                "lise": 10
+            },
+            "stat_changes": {
+                "martial": 3,
+                "stamina": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "{daughter_name}！好巧啊，又在广场遇到你了！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "莉洁！你今天也在跑步吗？"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "calm",
+                    "text": "那当然！为了成为像父亲那样优秀的骑士，每天的基础训练必不可少！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "我们可是互相促进的好对手，以后也要一起加油变强哦！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "嗯！我也一定会努力的！"
+                },
+                {
+                    "character": "lise",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lise": 10
+            },
+            "character": "lise"
+        },
+        {
+            "id": "square_charles_no_horse",
+            "name": "没骑马的王子",
+            "priority": 85,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "charles_no_horse_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "charles_no_horse_done"
+            ],
+            "affection_changes": {
+                "charles": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "咦？广场喷泉那边站着的那位年轻人……好眼熟啊。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "嗨，这不是{daughter_name}吗？竟然在这里遇到，真是巧呢。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "夏洛璐！今天……你没有骑马吗？"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "哈哈哈，骑马的话在城里太显眼了嘛。像这样偶尔步行在石砖路上，呼吸新鲜空气，也别有一番情趣呢。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "而且这样走着，才能遇到像你这样可爱的朋友呀。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "夏洛璐真是爱开玩笑呢。"
+                },
+                {
+                    "character": "charles",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "charles": 10
+            },
+            "character": "charles"
+        },
+        {
+            "id": "square_naughty_boys",
+            "name": "调皮的小孩",
+            "priority": 80,
+            "conditions": {
+                "flags_required": [
+                    "met_lise"
+                ],
+                "flags_banned": [
+                    "square_naughty_boys_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1442,
+                "max_year": 1444,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "square_naughty_boys_done"
+            ],
+            "dialogue_script": [
+                {
+                    "character": "",
+                    "text": "走在广场的小道上，突然从灌木丛里窜出几个调皮的小男孩！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "呀！你们干什么呀！"
+                },
+                {
+                    "character": "",
+                    "text": "男孩们做了个鬼脸，不仅朝路上扔泥巴，还大笑着想要恶作剧！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "angry",
+                    "text": "怎么可以这样随便欺负人呢！"
+                },
+                {
+                    "character": "jeep",
+                    "emotion": "calm",
+                    "text": "小姐，遇到这种没有教养的顽童，您打算怎么做呢？"
+                }
+            ],
+            "choices": [
+                {
+                    "text": "绝不原谅，好好教训他们一顿！",
+                    "set_flags": [
+                        "punished_naughty_boys"
+                    ],
+                    "stat_changes": {
+                        "martial": 5,
+                        "pride": 5,
+                        "stress": 2
+                    },
+                    "dialogue_script": [
+                        {
+                            "character": "daughter",
+                            "emotion": "angry",
+                            "text": "接招吧！让你们见识一下我平时练习的成果！"
+                        },
+                        {
+                            "character": "",
+                            "text": "女儿果断出招，敏捷地将几个小顽童撂倒在地！"
+                        },
+                        {
+                            "character": "",
+                            "text": "顽童们吓得哇哇大哭，连滚带爬地逃跑了！"
+                        },
+                        {
+                            "character": "daughter",
+                            "emotion": "happy",
+                            "text": "哼，知道厉害了吧！"
+                        }
+                    ],
+                    "add_stats": {
+                        "martial": 5,
+                        "pride": 5,
+                        "stress": 2
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "angry",
+                            "text": "接招吧！让你们见识一下我平时练习的成果！"
+                        },
+                        {
+                            "character": "",
+                            "text": "女儿果断出招，敏捷地将几个小顽童撂倒在地！"
+                        },
+                        {
+                            "character": "",
+                            "text": "顽童们吓得哇哇大哭，连滚带爬地逃跑了！"
+                        },
+                        {
+                            "character": "daughter",
+                            "emotion": "happy",
+                            "text": "哼，知道厉害了吧！"
+                        }
+                    ]
+                },
+                {
+                    "text": "宽容对待，耐心地原谅他们吧。",
+                    "set_flags": [
+                        "forgiven_naughty_boys"
+                    ],
+                    "stat_changes": {
+                        "morals": 5,
+                        "temper": 5,
+                        "stress": -3
+                    },
+                    "dialogue_script": [
+                        {
+                            "character": "daughter",
+                            "emotion": "calm",
+                            "text": "算了，恶作剧是不对的，但如果我也生气打人，就和他们一样了。"
+                        },
+                        {
+                            "character": "daughter",
+                            "emotion": "happy",
+                            "text": "喂！下次不准再对女孩子做这种事了哦，快回家去吧！"
+                        },
+                        {
+                            "character": "",
+                            "text": "调皮的男孩们愣了一下，不好意思地挠挠头，迅速溜走了。"
+                        },
+                        {
+                            "character": "jeep",
+                            "emotion": "happy",
+                            "text": "不骄不躁，以德报怨，小姐展现出了令人钦佩的胸怀呢。"
+                        }
+                    ],
+                    "add_stats": {
+                        "morals": 5,
+                        "temper": 5,
+                        "stress": -3
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "daughter",
+                            "emotion": "calm",
+                            "text": "算了，恶作剧是不对的，但如果我也生气打人，就和他们一样了。"
+                        },
+                        {
+                            "character": "daughter",
+                            "emotion": "happy",
+                            "text": "喂！下次不准再对女孩子做这种事了哦，快回家去吧！"
+                        },
+                        {
+                            "character": "",
+                            "text": "调皮的男孩们愣了一下，不好意思地挠挠头，迅速溜走了。"
+                        },
+                        {
+                            "character": "jeep",
+                            "emotion": "happy",
+                            "text": "不骄不躁，以德报怨，小姐展现出了令人钦佩的胸怀呢。"
+                        }
+                    ]
+                }
+            ],
+            "character": "jeep"
+        },
+        {
+            "id": "square_lise_recruiting",
+            "title": "骑士团招募",
+            "character": "lise",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1442,
+                "max_year": 1443,
+                "flags_banned": [
+                    "square_lise_recruiting_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "calm",
+                    "text": "王国骑士团招募新人的公告……只要通过严格的剑术考核就能加入吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "莉洁！你果然也来看这个公告了呢！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "是{daughter_name}啊！身为骑士的女儿，我绝不会走后门或者接受他人施舍，一定要凭自己的剑术堂堂正正考进去！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "不愧是莉洁，真有志气！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "smile",
+                    "text": "嗯！为了这一天，我每天都要挥剑一千次！我们一起加油吧！"
+                }
+            ],
+            "set_flags": [
+                "square_lise_recruiting_done"
+            ],
+            "add_affection": {
+                "lise": 10
+            }
+        },
+        {
+            "id": "square_lise_mend_clothes",
+            "title": "修补衣服",
+            "character": "lise",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1447,
+                "flags_banned": [
+                    "square_lise_mend_clothes_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "sad",
+                    "text": "糟糕了……刚才练习突刺的时候太用力，袖口整个裂开了……被母亲看到肯定又要挨训了。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "莉洁？怎么一个人垂头丧气的？"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "surprised",
+                    "text": "啊，{daughter_name}！你看这个袖子……我完全不擅长针线活啊……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "别担心，我刚好随身带了针线包，过来坐在长椅上，我帮你缝好吧！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "smile",
+                    "text": "真的吗？太感谢了！{daughter_name}的手真巧啊……缝得比原来的针脚还整齐呢！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "好啦，这样就看不出来了！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "太棒了！下次训练我请你喝果汁！"
+                }
+            ],
+            "set_flags": [
+                "square_lise_mend_clothes_done"
+            ],
+            "add_affection": {
+                "lise": 10
+            }
+        },
+        {
+            "id": "square_lise_dislike_dress",
+            "title": "不想穿礼服",
+            "character": "lise",
+            "priority": 65,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_month": 11,
+                "max_month": 12,
+                "flags_banned": [
+                    "square_lise_dislike_dress_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "angry",
+                    "text": "为什么贵族的晚宴一定要穿那种裙摆拖地的蓬蓬裙啊！连拔剑都做不到！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "莉洁？你这是被逼着试穿礼服了吗？"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "sad",
+                    "text": "母亲硬塞给我一件缀满蕾丝的礼服，说建国祭一定要穿……束腰紧得我快要不能呼吸了！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "不过我很期待看到莉洁穿礼服的淑女模样呢，一定特别英姿飒爽！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "surprised",
+                    "text": "诶？！连{daughter_name}你也这么说……唔，真拿你们没办法，那我就勉为其难穿一次好了……"
+                }
+            ],
+            "set_flags": [
+                "square_lise_dislike_dress_done"
+            ],
+            "add_affection": {
+                "lise": 10
+            }
+        },
+        {
+            "id": "square_christina_street_food",
+            "title": "平民小吃",
+            "character": "christina",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1443,
+                "max_year": 1444,
+                "flags_banned": [
+                    "square_christina_street_food_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "surprised",
+                    "text": "这……这个冒着香气、圆滚滚插在竹签上的东西是什么？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "克莉丝提娜？这是广场摊位卖的平民小吃烤丸子呀！"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "angry",
+                    "text": "平民小吃？！本小姐怎么可能在路边吃这种没有银质餐具伺候的粗粮……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "外酥里嫩，浇了甜酱油特别香哦，要尝一颗吗？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "calm",
+                    "text": "唔……既然你诚心诚意邀请，那本小姐就稍微品尝一口……"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "（嚼嚼）……！这焦香浓郁的味道！可恶，居然意外地非常好吃！再分我一颗！"
+                }
+            ],
+            "set_flags": [
+                "square_christina_street_food_done"
+            ],
+            "add_affection": {
+                "christina": 10
+            }
+        },
+        {
+            "id": "square_spy_info",
+            "title": "情报商的秘密情报",
+            "character": "magistrate",
+            "priority": 70,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1448,
+                "flags_banned": [
+                    "square_spy_info_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "",
+                    "text": "广场阴暗的长椅角落里，一个披着灰色斗篷的男人悄悄向{daughter_name}招了招手。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "请问您是……？"
+                },
+                {
+                    "character": "magistrate",
+                    "emotion": "calm",
+                    "text": "嘘……小姑娘，别出声。我是王国的情报商人。最近王城里可不太平啊。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "王城里？发生什么事了吗？"
+                },
+                {
+                    "character": "magistrate",
+                    "emotion": "calm",
+                    "text": "掌管财政的大臣最近频繁出入偏僻的黑街与城郊，似乎在暗中策划什么大买卖……有兴趣的话，可以多留意王城的动向。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "大臣……？我记下了，谢谢您的提醒。"
+                }
+            ],
+            "set_flags": [
+                "square_spy_info_done",
+                "knows_minister_secret"
+            ],
+            "add_affection": {}
         }
     ],
     "BusyStreet": [
@@ -920,7 +1495,8 @@
             ],
             "set_flags": [
                 "l_48_1"
-            ]
+            ],
+            "character": "lee"
         },
         {
             "id": "meet_charles_1445_busystreet_thugs",
@@ -974,7 +1550,8 @@
             ],
             "set_flags": [
                 "c_45_6"
-            ]
+            ],
+            "character": "charles"
         },
         {
             "id": "meet_charles_1445_busystreet_flowers",
@@ -1016,7 +1593,8 @@
             ],
             "add_affection": {
                 "charles": 10
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_lee_1445_busystreet_shopping",
@@ -1094,7 +1672,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "character": "lee"
         },
         {
             "id": "meet_baora_1446_busystreet_magicstone",
@@ -1151,7 +1730,8 @@
             ],
             "add_affection": {
                 "baora": 5
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_lee_1446_busystreet_church",
@@ -1264,7 +1844,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "character": "lee"
         },
         {
             "id": "meet_lee_1446_busystreet_play",
@@ -1353,7 +1934,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "character": "lee"
         },
         {
             "id": "meet_charles_1447_busystreet_oldman",
@@ -1401,7 +1983,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_charles_1447_busystreet_carry",
@@ -1449,7 +2032,8 @@
             ],
             "add_affection": {
                 "charles": 5
-            }
+            },
+            "character": "charles"
         },
         {
             "id": "meet_lee_1447_busystreet_hospital",
@@ -1494,7 +2078,463 @@
             ],
             "set_flags": [
                 "l_47_1"
-            ]
+            ],
+            "character": "lee"
+        },
+        {
+            "id": "busystreet_meet_christina",
+            "name": "初遇克莉丝提娜",
+            "priority": 100,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "met_christina"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "met_christina"
+            ],
+            "affection_changes": {
+                "christina": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "繁华街到处都是漂亮的商铺呢。"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "哼，这里的装潢勉强还配得上本小姐的品味。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "这位是……贵族家的大小姐吗？衣服好华丽！"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "哦？你很有眼光嘛！本小姐乃是名门诺斯利家的克莉丝提娜！"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "calm",
+                    "text": "未来的我，可是注定要嫁入王室成为王妃的完美女性哦！你可要牢牢记住我的名字！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "我叫{daughter_name}。克莉丝提娜小姐真是充满自信呢。"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "那是当然的！看在你这么有礼貌的份上，以后在街上碰到就准许你向我打招呼吧！"
+                },
+                {
+                    "character": "christina",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "christina": 5
+            },
+            "character": "christina"
+        },
+        {
+            "id": "busystreet_christina_runaway",
+            "name": "离家出走的大小姐",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "met_christina"
+                ],
+                "flags_banned": [
+                    "christina_runaway_done"
+                ],
+                "min_affection": {
+                    "christina": 10
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1442,
+                "max_year": 1443,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "christina_runaway_done"
+            ],
+            "affection_changes": {
+                "christina": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "dissatisfied",
+                    "action": "enter",
+                    "text": "真是气死我了！父亲大人竟然说我不懂人间疾苦！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "克莉丝提娜？你怎么一个人在这里生闷气呀？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "angry",
+                    "text": "{daughter_name}！我今天决定离家出走，让他们知道本小姐离开家也能过得很好！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "可是……离家出走的话，晚上住哪里？晚饭怎么解决呢？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "surprised",
+                    "text": "咦？！住处……还要自己找的吗？不是随时都有管家安排好的吗？！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "扑哧……克莉丝提娜，还是早点回家向父亲道歉吧，家人一定会担心的。"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "disappointed",
+                    "text": "呜……好吧，既然你都这么劝我了，本小姐就大发慈悲原谅父亲大人一次吧！"
+                },
+                {
+                    "character": "christina",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "christina": 10
+            },
+            "character": "christina"
+        },
+        {
+            "id": "busystreet_lee_outing",
+            "name": "繁华街的游玩",
+            "priority": 85,
+            "conditions": {
+                "flags_required": [
+                    "met_lee"
+                ],
+                "flags_banned": [
+                    "busystreet_lee_outing_done"
+                ],
+                "min_affection": {
+                    "lee": 10
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "busystreet_lee_outing_done"
+            ],
+            "affection_changes": {
+                "lee": 10
+            },
+            "stat_changes": {
+                "stress": -10
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "{daughter_name}！哈哈，我就知道你一定会来繁华街！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "利伊！你怎么总是神出鬼没的呀。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "别管那些啦，你看前面那家甜品摊，闻起来好香啊！走走走，我请你吃！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哇，等等我啦，走慢一点嘛！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "不能等不能等！难得出来玩，浪费时间太可惜了！哈哈哈哈！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "真拿利伊没办法……不过确实很开心呢！"
+                },
+                {
+                    "character": "lee",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lee": 10
+            },
+            "character": "lee"
+        },
+        {
+            "id": "busystreet_christina_future_prince",
+            "title": "未来的王妃宣言",
+            "character": "christina",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1441,
+                "max_year": 1442,
+                "flags_banned": [
+                    "busystreet_christina_future_prince_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "calm",
+                    "text": "哼，王国的贵族名媛虽然多，但论容貌、家世与礼仪，谁能比得上本小姐？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "克莉丝提娜在繁华街走得好端端，怎么突然自言自语起来了？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "surprised",
+                    "text": "咳……你听到了吗？听好啦{daughter_name}，本小姐未来的目标可是成为尊贵的王妃！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "哇，志向真远大呢！那现在的克莉丝提娜王妃候选人，要不要一起去吃甜筒冰淇淋？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "smile",
+                    "text": "冰、冰淇淋？哼，既然是你请客，本小姐就特许陪你一次！"
+                }
+            ],
+            "set_flags": [
+                "busystreet_christina_future_prince_done"
+            ],
+            "add_affection": {
+                "christina": 10
+            }
+        },
+        {
+            "id": "busystreet_christina_diet",
+            "title": "减肥之苦",
+            "character": "christina",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1447,
+                "flags_banned": [
+                    "busystreet_christina_diet_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "sad",
+                    "text": "呜……橱窗里的奶油草莓蛋糕看起来好美味……但是吃一口就会增加腰围……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "克莉丝提娜的身材明明已经非常完美苗条了，完全不需要节食吧？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "angry",
+                    "text": "你懂什么！完美的淑女对自己的要求必须是极致的！只要有一毫米的松懈都是罪过！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "但如果饿坏了身体，脸色会变差哦？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "surprised",
+                    "text": "脸色变差？！那可万万不行！唔……那今天就破例吃四分之一块好了！"
+                }
+            ],
+            "set_flags": [
+                "busystreet_christina_diet_done"
+            ],
+            "add_affection": {
+                "christina": 10
+            }
+        },
+        {
+            "id": "busystreet_christina_ball_talk",
+            "title": "建国祭舞会的话题",
+            "character": "christina",
+            "priority": 65,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1447,
+                "min_month": 11,
+                "max_month": 12,
+                "flags_banned": [
+                    "busystreet_christina_ball_talk_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "smile",
+                    "text": "再过不久就是建国祭的盛大宫廷舞会了呢，{daughter_name}。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "是啊，整座城镇都开始装点彩旗了。"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "calm",
+                    "text": "我听说夏洛璐王子会在舞会上邀请心仪的女孩共舞……哼，本小姐的舞步可是从小接受皇家舞师教导的！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "克莉丝提娜跳起华尔兹一定像天鹅一样优雅。"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "那是自然！不过你也不要落后太多哦，到时要是踩了别人的脚可就出丑了！加油练习吧！"
+                }
+            ],
+            "set_flags": [
+                "busystreet_christina_ball_talk_done"
+            ],
+            "add_affection": {
+                "christina": 10
+            }
+        },
+        {
+            "id": "busystreet_fortuneteller",
+            "title": "神秘占卜师的预言",
+            "character": "clare",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1447,
+                "flags_banned": [
+                    "busystreet_fortuneteller_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "clare",
+                    "emotion": "calm",
+                    "text": "迷途的少女啊，水晶球中映出了你命运的星轨……要听听神谕的低语吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "占卜师小姐？您能看出我的未来吗？"
+                },
+                {
+                    "character": "clare",
+                    "emotion": "calm",
+                    "text": "你的身上交织着光明与黑夜的双重印记，三位来自不同世界的青年将与你的命运产生深刻的羁绊……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "三位不同世界的青年……？"
+                },
+                {
+                    "character": "clare",
+                    "emotion": "smile",
+                    "text": "顺从本心的选择吧，无论走向何方，璀璨的未来都在你的双手之中。"
+                }
+            ],
+            "set_flags": [
+                "busystreet_fortuneteller_done"
+            ],
+            "add_affection": {}
+        },
+        {
+            "id": "busystreet_klais_proposal",
+            "title": "克莱斯的求婚试探",
+            "character": "klais",
+            "priority": 75,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1448,
+                "flags_required": [
+                    "street_klais_ship_done"
+                ],
+                "flags_banned": [
+                    "busystreet_klais_proposal_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "许久不见，美丽的{daughter_name}小姐，你比从前更加动人了。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "克莱斯先生，好久不见，您的生意一切顺利吗？"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "calm",
+                    "text": "托您的福，财运亨通。不过商海奔波久了，我常常在想，如果家中能有一位像你这般温柔知礼的女主人……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "诶？！"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "哈哈，不必紧张。如果你愿意接受我的心意，我名下所有的商船与庄园都可以写上你的名字。请细细考虑吧。"
+                }
+            ],
+            "set_flags": [
+                "busystreet_klais_proposal_done"
+            ],
+            "add_affection": {}
         }
     ],
     "BlackStreet": [
@@ -1546,7 +2586,8 @@
             ],
             "add_affection": {
                 "lee": 5
-            }
+            },
+            "character": "lee"
         },
         {
             "id": "meet_baora_1445_blackstreet_intro",
@@ -1605,7 +2646,8 @@
             ],
             "set_flags": [
                 "b_45_1"
-            ]
+            ],
+            "character": "baora"
         },
         {
             "id": "meet_baora_1445_blackstreet_warning",
@@ -1648,7 +2690,8 @@
             ],
             "add_affection": {
                 "baora": 5
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1445_blackstreet_weather",
@@ -1696,7 +2739,8 @@
             ],
             "add_affection": {
                 "baora": 5
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1445_blackstreet_demonworld",
@@ -1740,7 +2784,8 @@
             ],
             "add_affection": {
                 "baora": 5
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1445_blackstreet_observe",
@@ -1792,7 +2837,8 @@
             ],
             "add_affection": {
                 "baora": 5
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1446_blackstreet_forest",
@@ -1841,7 +2887,8 @@
             ],
             "add_affection": {
                 "baora": 10
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1446_blackstreet_injured",
@@ -1893,7 +2940,8 @@
             ],
             "add_affection": {
                 "baora": 15
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1446_blackstreet_mother",
@@ -1938,7 +2986,8 @@
             },
             "add_stats": {
                 "demonization": 5
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1447_blackstreet_forest",
@@ -1986,7 +3035,8 @@
             "add_stats": {
                 "demonization": 5,
                 "magic": 10
-            }
+            },
+            "character": "baora"
         },
         {
             "id": "meet_baora_1447_blackstreet_clothes",
@@ -2030,7 +3080,8 @@
             "set_flags": [
                 "b_47_2",
                 "b_forest_visited"
-            ]
+            ],
+            "character": "baora"
         },
         {
             "id": "meet_baora_1447_blackstreet_magic",
@@ -2074,7 +3125,8 @@
             ],
             "set_flags": [
                 "b_47_3"
-            ]
+            ],
+            "character": "baora"
         },
         {
             "id": "meet_baora_1448_blackstreet_drink",
@@ -2111,7 +3163,144 @@
             ],
             "set_flags": [
                 "b_48_1"
-            ]
+            ],
+            "character": "baora"
+        },
+        {
+            "id": "blackstreet_meet_baora",
+            "name": "黑街的少年",
+            "priority": 100,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "met_baora"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "met_baora"
+            ],
+            "affection_changes": {
+                "baora": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "这里的光线好昏暗……空气中弥漫着一股压抑的气氛，有点吓人呢。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "喂，前面的小姑娘。这里可不是温室里的小姐该来的地方。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "咦？！你、你是谁？"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "一个路过的人罢了。不想惹上麻烦的话，就趁早从这条黑街离开吧。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "doubtful",
+                    "text": "不过……你身上的气息，倒是有种难以言喻的特别感。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "气息？什么意思呀……"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "哼，没什么。记住我的忠告就是了。"
+                },
+                {
+                    "character": "baora",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "baora": 5
+            },
+            "character": "baora"
+        },
+        {
+            "id": "blackstreet_baora_talk",
+            "name": "巴洛亚的警告",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "met_baora"
+                ],
+                "flags_banned": [
+                    "baora_name_done"
+                ],
+                "min_affection": {
+                    "baora": 5
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "baora_name_done"
+            ],
+            "affection_changes": {
+                "baora": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "你竟然又跑到这里来了，真是个不怕死的小丫头。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "啊，是你！上次还没请教你的名字呢。"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "calm",
+                    "text": "名字？哼……我叫巴洛亚。知道了又能怎样？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "我叫{daughter_name}！既然知道了名字，那我们就算认识的朋友了吧！"
+                },
+                {
+                    "character": "baora",
+                    "emotion": "surprised",
+                    "text": "朋友？哈……敢把魔族当作朋友的人类，你还真是头一个。"
+                },
+                {
+                    "character": "baora",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "baora": 10
+            },
+            "character": "baora"
         }
     ],
     "Market": [
@@ -2153,7 +3342,305 @@
             ],
             "set_flags": [
                 "b_48_2"
-            ]
+            ],
+            "character": "baora"
+        },
+        {
+            "id": "market_charles_shopping",
+            "name": "王子的市场采购",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "charles_no_horse_done"
+                ],
+                "flags_banned": [
+                    "charles_shopping_done"
+                ],
+                "min_affection": {
+                    "charles": 10
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "charles_shopping_done"
+            ],
+            "affection_changes": {
+                "charles": 10
+            },
+            "stat_changes": {
+                "charm": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "{daughter_name}！正巧，我想在市场上逛逛，能陪我走走吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "夏洛璐！当然可以呀，市场的摊位可多了。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "平时在王宫里可看不到这么生机勃勃的民间市集呢。蔬菜水果、香料首饰应有尽有。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "看，那个琉璃发夹的颜色跟你很相配呢。送给你当作今天陪我逛街的谢礼吧！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哎？！太贵重了……谢谢你，夏洛璐！"
+                },
+                {
+                    "character": "charles",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "charles": 10
+            },
+            "character": "charles"
+        },
+        {
+            "id": "market_lise_cat",
+            "name": "偷吃的小猫",
+            "priority": 85,
+            "conditions": {
+                "flags_required": [
+                    "met_lise"
+                ],
+                "flags_banned": [
+                    "lise_cat_done"
+                ],
+                "min_affection": {
+                    "lise": 5
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1444,
+                "max_year": 1446,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "lise_cat_done"
+            ],
+            "affection_changes": {
+                "lise": 10
+            },
+            "stat_changes": {
+                "temper": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "嘘——小声一点，{daughter_name}你看那边！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "doubtful",
+                    "text": "嗯？鱼摊后面有什么吗？"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "有只小花猫叼着鱼干正偷偷摸摸地溜走呢！好可爱啊！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "哈哈，莉洁平时看起来像个勇敢的小战士，其实也超级喜欢小动物呢。"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "surprised",
+                    "text": "咳咳！我、我可是严肃认真的骑士预备军！喜欢可爱的小动物有什么奇怪的嘛！"
+                },
+                {
+                    "character": "lise",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lise": 10
+            },
+            "character": "lise"
+        },
+        {
+            "id": "market_marie_novel_13",
+            "title": "新出的小说第13集",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1444,
+                "max_year": 1445,
+                "flags_banned": [
+                    "market_marie_novel_13_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "排了好长的队伍……终于抢到首发的第13集了！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "恭喜玛丽！封面上的主角看起来好威风！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "这一卷剧情迎来大反转，主角终于找到了失落千年的古代遗迹！今晚我要一口气读通宵！"
+                }
+            ],
+            "set_flags": [
+                "market_marie_novel_13_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "market_marie_novel_53",
+            "title": "连载小说出到53集",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1447,
+                "flags_required": [
+                    "market_marie_novel_13_done"
+                ],
+                "flags_banned": [
+                    "market_marie_novel_53_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "不知不觉间，这部史诗长篇已经连载到第53集完结篇了呢……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "从我们小的时候一直读到现在，时间过得真快啊。"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "是啊……但书里英雄们守护世界的勇气，还有我和{daughter_name}之间的友谊，永远都不会褪色呢。"
+                }
+            ],
+            "set_flags": [
+                "market_marie_novel_53_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "market_klais_intro",
+            "title": "初识富豪克莱斯",
+            "character": "klais",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "flags_banned": [
+                    "market_klais_intro_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "klais",
+                    "emotion": "calm",
+                    "text": "这块从大陆北方运来的玉石成色不错，开个价，我全包了。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "（这位衣着华丽、气度不凡的绅士出手好阔绰啊……）"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "哦？那边可爱的小姐，被我的豪爽吓到了吗？我是大商人克莱斯，很高兴在这热闹的市场与你相逢。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "您好，克莱斯先生，我是{daughter_name}。"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "{daughter_name}……真是一个优雅的名字，希望今后还能有缘再会。"
+                }
+            ],
+            "set_flags": [
+                "market_klais_intro_done"
+            ],
+            "add_affection": {}
+        },
+        {
+            "id": "market_klais_shop",
+            "title": "买下店面的克莱斯",
+            "character": "klais",
+            "priority": 65,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "min_month": 10,
+                "flags_required": [
+                    "market_klais_intro_done"
+                ],
+                "flags_banned": [
+                    "market_klais_shop_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "{daughter_name}小姐，你看这里，这一整条街的门面我都已经买下来了。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "一整条街？！克莱斯先生的财力真是惊人！"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "calm",
+                    "text": "商场如战场，唯有放眼全局才能稳操胜券。不过，如果未来你能帮我打理这里，那我可就省心多了，哈哈！"
+                }
+            ],
+            "set_flags": [
+                "market_klais_shop_done"
+            ],
+            "add_affection": {}
         }
     ],
     "Castle": [
@@ -2203,7 +3690,109 @@
             ],
             "add_affection": {
                 "lee": 5
-            }
+            },
+            "character": "lee"
+        },
+        {
+            "id": "city_gatekeeper_greeting",
+            "name": "王宫卫士",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "city_gatekeeper_greeting_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "city_gatekeeper_greeting_done"
+            ],
+            "stat_changes": {
+                "highclass": 3,
+                "fame": 2
+            },
+            "dialogue_script": [
+                {
+                    "character": "gatekeeper",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "站住！此处乃是王国重地王宫大门，闲杂人等不得擅入！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "卫士先生好威严！请问怎样才能进入王宫参见陛下呢？"
+                },
+                {
+                    "character": "gatekeeper",
+                    "emotion": "calm",
+                    "text": "若想进入王宫觐见各阶层贵族与陛下，必须具备足够的礼仪教养与端庄气质！"
+                },
+                {
+                    "character": "gatekeeper",
+                    "emotion": "happy",
+                    "text": "小姐若有志于此，不妨先去城里的礼仪教室好生进修一番吧！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "明白了！多谢卫士先生的指点！"
+                },
+                {
+                    "character": "gatekeeper",
+                    "action": "leave"
+                }
+            ],
+            "character": "gatekeeper"
+        },
+        {
+            "id": "city_track_minister",
+            "title": "跟踪大臣",
+            "character": "minister",
+            "priority": 70,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1448,
+                "flags_required": [
+                    "square_spy_info_done"
+                ],
+                "flags_banned": [
+                    "city_track_minister_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "",
+                    "text": "城门侧翼的石阶小巷里，大臣正鬼鬼祟祟地将一袋沉甸甸的黄金递给一名黑衣人。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "（那是大臣……果然如情报商所言，他在暗中转移公款！）"
+                },
+                {
+                    "character": "minister",
+                    "emotion": "calm",
+                    "text": "把这笔物资送到魔界边境，不要让骑士团任何人察觉……快去！",
+                    "action": "enter"
+                },
+                {
+                    "character": "",
+                    "text": "黑衣人领命遁入暗影。{daughter_name}悄悄记下了这一切。"
+                }
+            ],
+            "set_flags": [
+                "city_track_minister_done",
+                "minister_evidence_obtained"
+            ],
+            "add_affection": {}
         }
     ],
     "Street": [
@@ -2252,7 +3841,8 @@
             ],
             "set_flags": [
                 "c_46_5"
-            ]
+            ],
+            "character": "charles"
         },
         {
             "id": "meet_charles_1447_street_apple",
@@ -2300,7 +3890,1676 @@
             ],
             "add_affection": {
                 "charles": 10
+            },
+            "character": "charles"
+        },
+        {
+            "id": "street_lise_fall",
+            "name": "摔倒的女儿",
+            "priority": 95,
+            "conditions": {
+                "flags_required": [
+                    "met_lise"
+                ],
+                "flags_banned": [
+                    "street_lise_fall_done"
+                ],
+                "min_affection": {
+                    "lise": 5
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1441,
+                "max_year": 1442,
+                "min_month": 6,
+                "max_month": 8
+            },
+            "set_flags": [
+                "street_lise_fall_done"
+            ],
+            "affection_changes": {
+                "lise": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哎呀——！好痛……被石子绊到了……"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "surprised",
+                    "action": "enter",
+                    "text": "{daughter_name}！你没事吧？"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "calm",
+                    "text": "来，把手给我。膝盖擦破皮了没有？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "sad",
+                    "text": "唔……只是稍微有点疼，没事的。"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "真坚强！不过走路也要注意脚下哦。来，我送你走一段吧！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "谢谢你，莉洁！"
+                },
+                {
+                    "character": "lise",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lise": 10
+            },
+            "character": "lise"
+        },
+        {
+            "id": "street_charles_hero",
+            "name": "骑士的英姿",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "street_charles_hero_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "street_charles_hero_done"
+            ],
+            "affection_changes": {
+                "charles": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "",
+                    "text": "街角传来一阵喧闹声，几个无赖正围着路过的商人拉拉扯扯。"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "angry",
+                    "action": "enter",
+                    "text": "住手！光天化日之下，岂容尔等在王国街市行凶！"
+                },
+                {
+                    "character": "",
+                    "text": "夏洛璐剑不出鞘，仅仅一个利落的身法便将混混们逼退数步，混混见势不妙落荒而逃！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "calm",
+                    "text": "老人家，您没事吧？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "overjoyed",
+                    "text": "好厉害……夏洛璐的身手太帅气了！"
+                },
+                {
+                    "character": "charles",
+                    "emotion": "happy",
+                    "text": "哈哈，守护王国百姓本就是骑士的职责所在。{daughter_name}，一个人在街上走也要注意安全哦。"
+                },
+                {
+                    "character": "charles",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "charles": 10
+            },
+            "character": "charles"
+        },
+        {
+            "id": "street_lee_encounter",
+            "name": "金发的少年",
+            "priority": 85,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "met_lee"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1445,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "met_lee"
+            ],
+            "affection_changes": {
+                "lee": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "街上的人流真多呢……咦，屋顶上好像有人？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "嘿咻——！从高处跳下来的感觉真是太棒啦！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哇啊！你、你怎么从那么高的地方跳下来呀！很危险的！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "哈哈哈！这点高度对我来说根本不算什么啦！"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "calm",
+                    "text": "唔……你身上有一种很好闻的气息呢。我叫利伊，你叫什么名字呀？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "我叫{daughter_name}……利伊，你真是一个特别的人呢。"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "{daughter_name}是吧！我记住啦，下次再找你一起玩！再见喽！"
+                },
+                {
+                    "character": "lee",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lee": 10
+            },
+            "character": "lee"
+        },
+        {
+            "id": "street_lise_katana_get",
+            "title": "得到东方单刃剑",
+            "character": "lise",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1444,
+                "max_year": 1445,
+                "flags_banned": [
+                    "street_lise_katana_get_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "{daughter_name}！快看快看！这是父亲托人从东方带回来的单刃刀！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哇！刀身带着冷冽的弧光，看起来好锋利！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "smile",
+                    "text": "重心非常轻巧，跟王国的双手骑士剑完全不同呢！有了它，我的敏捷剑技一定能更上一层楼！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "真替你高兴，莉洁！以后在街道巡逻坏人肯定不敢靠近你了！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "哈哈！有我在，绝对保卫大家的安全！"
+                }
+            ],
+            "set_flags": [
+                "street_lise_katana_get_done"
+            ],
+            "add_affection": {
+                "lise": 10
             }
+        },
+        {
+            "id": "street_christina_shopping_spree",
+            "title": "洋装店血拼邀约",
+            "character": "christina",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1444,
+                "max_year": 1445,
+                "flags_banned": [
+                    "street_christina_shopping_spree_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "smile",
+                    "text": "偶遇得正好，{daughter_name}！新一季的洋装图册刚送到店里，陪本小姐去采购吧！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "克莉丝提娜的衣橱不是已经装不下了吗？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "女孩子的衣橱永远缺少下一件当季最流行的洋装！走吧走吧，本小姐的心情非常愉快呢！"
+                }
+            ],
+            "choices": [
+                {
+                    "text": "欣然答应，陪大小姐去逛街",
+                    "add_affection": {
+                        "christina": 10
+                    },
+                    "add_stats": {
+                        "morals": 2,
+                        "stress": -5
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "christina",
+                            "emotion": "happy",
+                            "text": "哼，算你识趣！今天看上的缎带本小姐全包了！"
+                        }
+                    ]
+                },
+                {
+                    "text": "委婉婉拒，今天还有功课",
+                    "add_affection": {
+                        "christina": -5
+                    },
+                    "add_stats": {
+                        "morals": 5
+                    },
+                    "next_dialogue": [
+                        {
+                            "character": "christina",
+                            "emotion": "angry",
+                            "text": "哼！真是个不解风情的书呆子！本小姐自己去！"
+                        }
+                    ]
+                }
+            ],
+            "set_flags": [
+                "street_christina_shopping_spree_done"
+            ]
+        },
+        {
+            "id": "street_marie_explain_magic",
+            "title": "讲解魔法理论",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1444,
+                "max_year": 1445,
+                "flags_banned": [
+                    "street_marie_explain_magic_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "text": "按魔素的流动规律，若要在空气中激发火球，需要将精神力集中在指尖并构建环形回流……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "玛丽一个人在街道边散步边念叨什么呢？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "啊，{daughter_name}！我刚在温习古代魔法文献上的理论模型！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "玛丽懂的真多啊，连复杂的魔素回路都一清二楚！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "因为书本里藏着整个世界的奥秘呀！如果{daughter_name}想学，我可以随时借笔记给你哦！"
+                }
+            ],
+            "set_flags": [
+                "street_marie_explain_magic_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "street_klais_ship",
+            "title": "克莱斯的商船",
+            "character": "klais",
+            "priority": 65,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "flags_required": [
+                    "market_klais_intro_done"
+                ],
+                "flags_banned": [
+                    "street_klais_ship_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "klais",
+                    "emotion": "calm",
+                    "text": "远眺港口的那三桅大型帆船，便是我的远洋贸易船队。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "克莱斯先生！好宏伟壮观的帆船啊！"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "大海的那一边拥有无尽的香料、丝绸与黄金。真正的财富不在城堡的围墙里，而在这广袤的风浪之间。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "听起来就像冒险故事一样激动人心！"
+                },
+                {
+                    "character": "klais",
+                    "emotion": "smile",
+                    "text": "哈哈，美丽的小姐，将来若有机会，真想邀你一同扬帆出海呢。"
+                }
+            ],
+            "set_flags": [
+                "street_klais_ship_done"
+            ],
+            "add_affection": {}
+        }
+    ],
+    "ItemShop": [
+        {
+            "id": "itemshop_meet_marie",
+            "name": "初遇玛丽",
+            "priority": 100,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "met_marie"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "met_marie"
+            ],
+            "affection_changes": {
+                "marie": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "道具店里摆满了各种各样新奇的小物件呢。"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "欢迎光临……请问需要看点什么吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "你好！我是第一次来，这里的商品种类真丰富呀。"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "谢谢你……我是店主的女儿玛丽。店里的东西都是父亲到处搜集来的，如果你有不清楚的，随时可以问我哦。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "好的，谢谢你玛丽！我叫{daughter_name}，很高兴认识你！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "我也很高兴认识你，{daughter_name}……"
+                },
+                {
+                    "character": "marie",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "marie": 5
+            },
+            "character": "marie"
+        },
+        {
+            "id": "itemshop_marie_reading",
+            "name": "爱读书的玛丽",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "met_marie"
+                ],
+                "flags_banned": [
+                    "marie_reading_done"
+                ],
+                "min_affection": {
+                    "marie": 5
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1442,
+                "max_year": 1444,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "marie_reading_done"
+            ],
+            "affection_changes": {
+                "marie": 10
+            },
+            "stat_changes": {
+                "smarts": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "唔……接下来的剧情到底会怎样呢……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "玛丽看书看得好入迷呀。在看什么书呢？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "啊，{daughter_name}！这是最新一期的《寇拉德战记》！里面的冒险故事写得非常精彩！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "如果你也喜欢读书的话，这本小说我非常推荐哦！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "听起来好棒，我也找时间好好拜读一下！"
+                },
+                {
+                    "character": "marie",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "marie": 10
+            },
+            "character": "marie"
+        },
+        {
+            "id": "itemshop_lise_katana",
+            "name": "向往的单刃剑",
+            "priority": 85,
+            "conditions": {
+                "flags_required": [
+                    "met_lise"
+                ],
+                "flags_banned": [
+                    "lise_katana_done"
+                ],
+                "min_affection": {
+                    "lise": 10
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1443,
+                "max_year": 1445,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "lise_katana_done"
+            ],
+            "affection_changes": {
+                "lise": 10
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "哇……好漂亮的弧度，这寒光真是太耀眼了……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "莉洁？你站在武器展柜前面看了好久了呢。"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "{daughter_name}你看！这就是来自极东之地的‘东方单刃剑’！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "calm",
+                    "text": "虽然价格好昂贵我现在买不起……但总有一天，我要凭借自己的实力拥有一把属于我的宝剑！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "莉洁这么刻苦练习，一定能够实现的！"
+                },
+                {
+                    "character": "lise",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lise": 10
+            },
+            "character": "lise"
+        },
+        {
+            "id": "itemshop_marie_dinner_supplies",
+            "title": "买晚餐材料",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1441,
+                "max_year": 1442,
+                "flags_banned": [
+                    "itemshop_marie_dinner_supplies_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "text": "欢迎光临……啊，是{daughter_name}！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "玛丽！今天店里忙不忙？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "刚刚清点完从城外运来的香料和药草呢。父亲说今天晚饭要做蘑菇炖浓汤，让我等下去市场挑些新鲜的胡萝卜。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "听起来好好吃！等下我和你一起去市场提篮子吧！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "太好了！有{daughter_name}陪着，连买菜都变得开心起来了！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_dinner_supplies_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_book_vol1",
+            "title": "寇拉德战记第一集",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1442,
+                "max_year": 1443,
+                "flags_banned": [
+                    "itemshop_marie_book_vol1_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "{daughter_name}！你看你看！我终于收集到这本绝版的《寇拉德战记》第一集了！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "玛丽的眼睛都在闪闪发光呢！这是一本什么样的小说呀？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "讲的是古代圣殿骑士团跨越大洋平定巨兽的史诗冒险！文笔磅礴宏大，伏笔特别精妙！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "玛丽讲起书本的时候真是充满热情呢，我也好想借来读读看！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "好呀好呀！等我重温完第二遍就立刻拿给你！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_book_vol1_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_appraise_sign",
+            "title": "鉴定祖传招牌",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1443,
+                "max_year": 1444,
+                "flags_banned": [
+                    "itemshop_marie_appraise_sign_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "text": "用放大镜看这里……木质里沉淀着微弱的光系魔法阵，难怪挂在店门口百年不腐呢。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "玛丽在研究店门口的老招牌吗？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "嗯！这是祖父开店时亲手雕刻的招牌。我最近学了古物鉴定术，发现上面刻着守护商铺平安的祝福符文。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "好神奇！玛丽越来越像一名博学的鉴定学者了！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "嘻嘻，如果{daughter_name}有什么传家宝拿不准，也包在我身上！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_appraise_sign_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_gossip_sister",
+            "title": "议论修女",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1444,
+                "max_year": 1445,
+                "flags_banned": [
+                    "itemshop_marie_gossip_sister_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "text": "{daughter_name}，你平时常去教会祈祷吗？",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "偶尔会去，艾法修女总是很和蔼地为大家祈福呢。"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "我听说艾法修女以前其实是名震一方的骑士团圣疗师，连魔物首领都敬佩她的勇气呢！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "真的吗？那位温柔的修女竟然有这么厉害的过去！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "是吧！王城里潜藏的高人真是数不胜数呢！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_gossip_sister_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_forbidden_magic",
+            "title": "爸爸不许我学魔法",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "flags_banned": [
+                    "itemshop_marie_forbidden_magic_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "sad",
+                    "text": "唉……爸爸今天又把我的高阶魔法法典给收走了……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "席拉克叔叔为什么不让你学高级魔法呢？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "sad",
+                    "text": "他说高阶咒文太危险，容易遭到魔素反噬……可我只是想弄清楚古代魔法的咒力传导原理呀。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "叔叔也是出于爱护你才担心的吧，下次我们一起慢慢跟叔叔解释好吗？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "嗯！有{daughter_name}在，我就有勇气多了！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_forbidden_magic_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_suitor_1",
+            "title": "玛丽的追求者①",
+            "character": "marie",
+            "priority": 65,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "min_month": 8,
+                "flags_banned": [
+                    "itemshop_marie_suitor_1_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "那、那个……这位客人，只是买两瓶解毒剂的话，不需要附赠这么大一捧红玫瑰的……",
+                    "action": "enter"
+                },
+                {
+                    "character": "",
+                    "text": "年轻的贵族青年红着脸放下花束，结结巴巴说了声“请您务必收下”便飞快跑开了。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "哇！玛丽，这是追求者送的花吗？好浪漫呀！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "呀！{daughter_name}你什么时候来的！别笑话我了……我都不知道该把花摆在哪里才好……"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "玛丽这么温柔体贴又知性，有人追求是很正常的呀！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_suitor_1_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_suitor_2",
+            "title": "玛丽的追求者②",
+            "character": "marie",
+            "priority": 65,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1447,
+                "flags_required": [
+                    "itemshop_marie_suitor_1_done"
+                ],
+                "flags_banned": [
+                    "itemshop_marie_suitor_2_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "sad",
+                    "text": "上次送花的青年今天又来了……还写了一首好长好酸的情诗……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "玛丽觉得困扰了吗？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "text": "嗯……虽然很感谢他的心意，但我现在只想专心看店、研究古籍，还有陪着大家。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "那我去委婉地向他说明吧，帮玛丽守住安静的学习时光！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "happy",
+                    "text": "真的吗？太感谢了！{daughter_name}简直是我的守护骑士！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_suitor_2_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_marie_new_glasses",
+            "title": "想要副新眼镜",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1448,
+                "flags_banned": [
+                    "itemshop_marie_new_glasses_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "calm",
+                    "text": "这个银白色的细金属框镜架……感觉比我现在戴的椭圆框轻便不少呢。",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "玛丽戴新镜框的样子很文雅漂亮哦！"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "smile",
+                    "text": "{daughter_name}觉得好看吗？那我就挑这副好啦！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "无论哪一副，只要是玛丽戴着都很适合！"
+                }
+            ],
+            "set_flags": [
+                "itemshop_marie_new_glasses_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        },
+        {
+            "id": "itemshop_christina_intern",
+            "title": "克莉丝提娜实习打工",
+            "character": "christina",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1444,
+                "max_year": 1445,
+                "flags_banned": [
+                    "itemshop_christina_intern_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "surprised",
+                    "text": "哇啊！这个装着药草粉末的瓶子为什么这么滑溜溜的！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "克莉丝提娜？！你怎么系着道具店的围裙在柜台里？"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "angry",
+                    "text": "本、本小姐只是为了体验平民生活才来协助玛丽盘点的！才不是因为零花钱不够用呢！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "小心别把魔药打翻啦，我来帮你一起搬吧！"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "smile",
+                    "text": "呼……多亏有你，不然本小姐就要把这里炸翻了……"
+                }
+            ],
+            "set_flags": [
+                "itemshop_christina_intern_done"
+            ],
+            "add_affection": {
+                "christina": 10
+            }
+        }
+    ],
+    "FoodShop": [
+        {
+            "id": "foodshop_christina_gourmet",
+            "name": "大小姐的品味",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "met_christina"
+                ],
+                "flags_banned": [
+                    "foodshop_christina_gourmet_done"
+                ],
+                "min_affection": {
+                    "christina": 5
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1441,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "foodshop_christina_gourmet_done"
+            ],
+            "affection_changes": {
+                "christina": 10
+            },
+            "stat_changes": {
+                "highclass": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "这道焗烤舒芙蕾的火候把握得恰到好处，红茶的香气也很醇正。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "克莉丝提娜对美食品鉴懂得真多呀。"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "哼哼，作为名媛，从餐桌礼仪到美食鉴赏都是必修课哦！{daughter_name}，你也尝一口这块蛋糕吧，非常美味的！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "overjoyed",
+                    "text": "哇！真的好好吃！谢谢克莉丝提娜！"
+                },
+                {
+                    "character": "christina",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "christina": 10
+            },
+            "character": "christina"
+        },
+        {
+            "id": "foodshop_lise_feast",
+            "name": "没必要减肥",
+            "priority": 85,
+            "conditions": {
+                "flags_required": [
+                    "met_lise"
+                ],
+                "flags_banned": [
+                    "foodshop_lise_feast_done"
+                ],
+                "min_affection": {
+                    "lise": 10
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1444,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "foodshop_lise_feast_done"
+            ],
+            "affection_changes": {
+                "lise": 10
+            },
+            "stat_changes": {
+                "stamina": 8,
+                "stress": -8
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "老板！再来一份超大碗烤肉套餐和一份浓汤！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "莉洁！你已经吃了两份大餐了，不会撑吗？"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "完全不会！吃得饱饱的才有力气挥剑训练！说什么为了苗条而节食减肥，那可不是习武之人的作风！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "看着莉洁吃得这么香，我也突然胃口大开了呢！"
+                },
+                {
+                    "character": "lise",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "lise": 10
+            },
+            "character": "lise"
+        },
+        {
+            "id": "foodshop_lise_envy",
+            "title": "真让人羡慕啊",
+            "character": "lise",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "flags_banned": [
+                    "foodshop_lise_envy_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lise",
+                    "emotion": "sad",
+                    "text": "呜……为什么{daughter_name}吃那么多大餐身材还能保持得这么曼妙，我稍微吃多一点点肌肉就变结实了……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "莉洁天天高强度剑术训练，线条很健康匀称呀！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "smile",
+                    "text": "真、真的吗？听你这么说我心里好受多了！服务员，再来一份烤猪肋排！"
+                }
+            ],
+            "set_flags": [
+                "foodshop_lise_envy_done"
+            ],
+            "add_affection": {
+                "lise": 10
+            }
+        },
+        {
+            "id": "foodshop_lise_sweet_cookie",
+            "title": "介绍莉洁吃甜饼",
+            "character": "lise",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1447,
+                "flags_banned": [
+                    "foodshop_lise_sweet_cookie_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "莉洁，尝尝餐厅刚推出的蜂蜜黄油核桃饼！外皮焦脆，内馅是滚烫浓郁的甜酱！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "surprised",
+                    "text": "（咬一大口）……！哇！这个蜂蜜甜味直冲脑门，训练的疲劳一下子全部消失了！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "好吃吧？我就知道莉洁一定会喜欢！"
+                },
+                {
+                    "character": "lise",
+                    "emotion": "happy",
+                    "text": "超好吃！以后每次训练完我们都来吃吧！"
+                }
+            ],
+            "set_flags": [
+                "foodshop_lise_sweet_cookie_done"
+            ],
+            "add_affection": {
+                "lise": 10
+            }
+        }
+    ],
+    "ClothShop": [
+        {
+            "id": "clothshop_christina_fashion",
+            "name": "洋装大试穿",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [
+                    "met_christina"
+                ],
+                "flags_banned": [
+                    "clothshop_christina_fashion_done"
+                ],
+                "min_affection": {
+                    "christina": 10
+                },
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1443,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "clothshop_christina_fashion_done"
+            ],
+            "affection_changes": {
+                "christina": 10
+            },
+            "stat_changes": {
+                "charm": 5,
+                "highclass": 5
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "action": "enter",
+                    "text": "{daughter_name}！你来得正好，快来看看这件新到的丝绸荷叶边连衣裙！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "哇！做工好精致，蕾丝边也好优雅！"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "以本小姐独到的眼光来看，这件简直就是为你量身定做的！快去试衣间换上让我瞧瞧！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "克莉丝提娜对服装搭配真的好有热情呀，感觉自己也变漂亮了呢！"
+                },
+                {
+                    "character": "christina",
+                    "action": "leave"
+                }
+            ],
+            "add_affection": {
+                "christina": 10
+            },
+            "character": "christina"
+        },
+        {
+            "id": "clothshop_christina_tailored_dress",
+            "title": "定做的豪华礼服",
+            "character": "christina",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1446,
+                "flags_banned": [
+                    "clothshop_christina_tailored_dress_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "christina",
+                    "emotion": "smile",
+                    "text": "看！这是我特意从南方丝绸商会订购面料、让王室裁缝亲手缝制的晚宴礼服！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "上面的珍珠和刺绣好精美啊！穿在克莉丝提娜身上就像夜空中的月亮一样耀眼！"
+                },
+                {
+                    "character": "christina",
+                    "emotion": "happy",
+                    "text": "哼哼，算你有眼光！等建国祭的时候，我一定要让所有人都挪不开视线！"
+                }
+            ],
+            "set_flags": [
+                "clothshop_christina_tailored_dress_done"
+            ],
+            "add_affection": {
+                "christina": 10
+            }
+        },
+        {
+            "id": "clothshop_marie_measure_size",
+            "title": "用手量三围",
+            "character": "marie",
+            "priority": 60,
+            "conditions": {
+                "min_year": 1446,
+                "max_year": 1447,
+                "min_month": 6,
+                "max_month": 7,
+                "flags_banned": [
+                    "clothshop_marie_measure_size_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "呜哇！软尺碰在腰上好痒……裁缝阿姨轻一点嘛……",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "smile",
+                    "text": "玛丽也是来定做新衣服的吗？"
+                },
+                {
+                    "character": "marie",
+                    "emotion": "surprised",
+                    "text": "{daughter_name}！呀，不要看量三围的数据啦，好害羞的……！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "玛丽明明身材很好，不要害羞嘛！做好之后一定要穿给我看哦！"
+                }
+            ],
+            "set_flags": [
+                "clothshop_marie_measure_size_done"
+            ],
+            "add_affection": {
+                "marie": 10
+            }
+        }
+    ],
+    "Church": [
+        {
+            "id": "church_eva_blessing",
+            "name": "神殿的祈福",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "church_eva_blessing_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "church_eva_blessing_done"
+            ],
+            "stat_changes": {
+                "morals": 8,
+                "stress": -10,
+                "crime": -5
+            },
+            "dialogue_script": [
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "教堂里好安静……阳光穿过彩绘玻璃洒在地面上，心里感到无比平静。"
+                },
+                {
+                    "character": "eva",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "愿神明的慈爱庇佑你，年轻的孩子。迷途的心灵在这里将得到安息。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "伊娃修女，向神明虔诚祈祷的话，心中的迷茫真的会散去吗？"
+                },
+                {
+                    "character": "eva",
+                    "emotion": "happy",
+                    "text": "只要心存善念与坦荡，光辉便会照亮前行的道路。愿你健康纯真地成长，孩子。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "谢谢修女，感觉整个人都轻松了许多。"
+                },
+                {
+                    "character": "eva",
+                    "action": "leave"
+                }
+            ],
+            "character": "eva"
+        }
+    ],
+    "Hospital": [
+        {
+            "id": "hospital_nakras_checkup",
+            "name": "医生的叮嘱",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "hospital_nakras_checkup_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "hospital_nakras_checkup_done"
+            ],
+            "stat_changes": {
+                "stamina": 5,
+                "stress": -5
+            },
+            "dialogue_script": [
+                {
+                    "character": "nakras",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "哦？是{secondname}家的千金啊。今天哪里觉得不舒服吗？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "没有呢，那尔萨斯医生，我只是路过顺便来看看。"
+                },
+                {
+                    "character": "nakras",
+                    "emotion": "happy",
+                    "text": "嗯，面色红润，脉搏也很沉稳。不过平日里在学习和劳作之余，一定要注意休息，切莫积劳成疾。"
+                },
+                {
+                    "character": "nakras",
+                    "emotion": "calm",
+                    "text": "身体是梦想的基石，无论何时，健康永远是第一位的。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "好的，我会牢牢记在心里的，谢谢医生！"
+                },
+                {
+                    "character": "nakras",
+                    "action": "leave"
+                }
+            ],
+            "character": "nakras"
+        }
+    ],
+    "City": [
+        {
+            "id": "city_gatekeeper_greeting",
+            "name": "王宫卫士",
+            "priority": 90,
+            "conditions": {
+                "flags_required": [],
+                "flags_banned": [
+                    "city_gatekeeper_greeting_done"
+                ],
+                "min_affection": {},
+                "max_affection": {},
+                "min_stats": {},
+                "max_stats": {},
+                "min_year": 1440,
+                "max_year": 1448,
+                "min_month": 1,
+                "max_month": 12
+            },
+            "set_flags": [
+                "city_gatekeeper_greeting_done"
+            ],
+            "stat_changes": {
+                "highclass": 3,
+                "fame": 2
+            },
+            "dialogue_script": [
+                {
+                    "character": "gatekeeper",
+                    "emotion": "calm",
+                    "action": "enter",
+                    "text": "站住！此处乃是王国重地王宫大门，闲杂人等不得擅入！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "卫士先生好威严！请问怎样才能进入王宫参见陛下呢？"
+                },
+                {
+                    "character": "gatekeeper",
+                    "emotion": "calm",
+                    "text": "若想进入王宫觐见各阶层贵族与陛下，必须具备足够的礼仪教养与端庄气质！"
+                },
+                {
+                    "character": "gatekeeper",
+                    "emotion": "happy",
+                    "text": "小姐若有志于此，不妨先去城里的礼仪教室好生进修一番吧！"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "happy",
+                    "text": "明白了！多谢卫士先生的指点！"
+                },
+                {
+                    "character": "gatekeeper",
+                    "action": "leave"
+                }
+            ],
+            "character": "gatekeeper"
+        },
+        {
+            "id": "meet_lee_1445_market_eating",
+            "priority": 100,
+            "conditions": {
+                "min_year": 1445,
+                "max_year": 1445,
+                "flags_required": [
+                    "l_45_2"
+                ],
+                "flags_banned": [
+                    "l_45_3"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "lee",
+                    "emotion": "happy",
+                    "text": "嚼嚼嚼…嗯！真好吃！",
+                    "action": "enter"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "咦？你…你刚才吃掉的是蜥蜴吗！？活生生\n的蜥蜴！？"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "surprised",
+                    "text": "对呀！烤一下或者生吃都很美味喔！要不要\n也给你尝一口？"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "surprised",
+                    "text": "呜哇！不、不用了！请你自己慢用吧…"
+                },
+                {
+                    "character": "lee",
+                    "emotion": "sad",
+                    "text": "真可惜，人类果然不懂美食呢。"
+                }
+            ],
+            "set_flags": [
+                "l_45_3"
+            ],
+            "add_affection": {
+                "lee": 5
+            },
+            "character": "lee"
+        },
+        {
+            "id": "city_track_minister",
+            "title": "跟踪大臣",
+            "character": "minister",
+            "priority": 70,
+            "conditions": {
+                "min_year": 1447,
+                "max_year": 1448,
+                "flags_required": [
+                    "square_spy_info_done"
+                ],
+                "flags_banned": [
+                    "city_track_minister_done"
+                ]
+            },
+            "dialogue_script": [
+                {
+                    "character": "",
+                    "text": "城门侧翼的石阶小巷里，大臣正鬼鬼祟祟地将一袋沉甸甸的黄金递给一名黑衣人。"
+                },
+                {
+                    "character": "daughter",
+                    "emotion": "calm",
+                    "text": "（那是大臣……果然如情报商所言，他在暗中转移公款！）"
+                },
+                {
+                    "character": "minister",
+                    "emotion": "calm",
+                    "text": "把这笔物资送到魔界边境，不要让骑士团任何人察觉……快去！",
+                    "action": "enter"
+                },
+                {
+                    "character": "",
+                    "text": "黑衣人领命遁入暗影。{daughter_name}悄悄记下了这一切。"
+                }
+            ],
+            "set_flags": [
+                "city_track_minister_done",
+                "minister_evidence_obtained"
+            ],
+            "add_affection": {}
         }
     ]
 }

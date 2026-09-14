@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cpsx2l1q20xh8"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cpsx2l1q20xh8"]
 
 [ext_resource type="Texture2D" uid="uid://bkurfnsug3pey" path="res://assets/Schedule/art.png" id="1_scv25"]
 
@@ -31,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qkorf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fail",
 "speed": 2.0
 }, {
@@ -39,7 +39,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wn8uw")
 }],
-"loop": false,
+"loop": 0,
 "name": &"rest",
 "speed": 5.0
 }, {
@@ -50,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vtkue")
 }],
-"loop": true,
+"loop": 1,
 "name": &"success",
 "speed": 2.0
 }]

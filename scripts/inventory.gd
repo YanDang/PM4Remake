@@ -5,16 +5,24 @@ var slots: Array = []  # 每个元素是 {item: Item, count: int}
 
 func _ready() -> void: 
 	# 初始化示例
-	slots = [
-		{"item": Globaljson.items["c03"], "count": 1},
-		{"item": Globaljson.items["c01"], "count": 1},
-		{"item": Globaljson.items["c02"], "count": 1},
-		{"item": Globaljson.items["c04"], "count": 1},
-		{"item": Globaljson.items["c05"], "count": 1},
-		{"item": Globaljson.items["c16"], "count": 1},
-		{"item": Globaljson.items["f01"], "count": 2},
-		{"item": Globaljson.items["co03"], "count": 2},
+	var initial_items = [
+		{"id": "c03", "count": 1},
+		{"id": "c01", "count": 1},
+		{"id": "c02", "count": 1},
+		{"id": "c04", "count": 1},
+		{"id": "c05", "count": 1},
+		{"id": "c06", "count": 1},
+		{"id": "c14", "count": 1},
+		{"id": "c16", "count": 1},
+		{"id": "c19", "count": 1},
+		{"id": "f01", "count": 2},
+		{"id": "co03", "count": 2},
 	]
+	slots = []
+	for entry in initial_items:
+		var item_obj = Globaljson.items.get(entry["id"])
+		if item_obj:
+			slots.append({"item": item_obj, "count": entry["count"]})
 
 # 添加物品
 func AddItem(item_id: String, add_num: int = 1) -> bool:
@@ -44,6 +52,20 @@ func RemoveItem(item_id: String, remove_num: int = 1) -> bool:
 			return true
 	push_warning("Item not in inventory: %s" % item_id)
 	return false
+
+# 检查是否拥有某物品且数量大于0
+func HasItem(item_id: String) -> bool:
+	for slot in slots:
+		if slot.get("item") != null and slot["item"].id == item_id and slot.get("count", 0) > 0:
+			return true
+	return false
+
+# 获取某物品拥有数量
+func GetItemCount(item_id: String) -> int:
+	for slot in slots:
+		if slot.get("item") != null and slot["item"].id == item_id:
+			return slot.get("count", 0)
+	return 0
 
 func _compare_items(a: Dictionary, b: Dictionary) -> int:
 	if a["item"].types == b["item"].types:

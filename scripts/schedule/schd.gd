@@ -12,3 +12,7 @@ func LoadSpriteFrames(plan:String):
 
 func EventHappen(result:String):
 	anim.play(result)
+
+func StopAnimation() -> void:
+	if anim:
+		anim.stop()

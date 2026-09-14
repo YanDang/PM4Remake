@@ -23,9 +23,17 @@ func _on_timer_timeout() -> void:
 func ChangeClothes(clothes_name:String):
 	# 加载了不应该存在的衣服（没有美术资源了）
 	if not cloth_file_dict.get(clothes_name):
+		if clothes_name != "常服" and cloth_file_dict.get("常服"):
+			ChangeClothes("常服")
+			return
 		push_warning("Load Resource ERROR")
 		return
 	current_clothes = clothes_name
+	Daughterstatus.current_clothes_name = clothes_name
+	for item in Globaljson.items.values():
+		if item.name == clothes_name:
+			Daughterstatus.current_clothes_id = item.id.trim_prefix("c")
+			break
 	var atlas_tex = AtlasTexture.new()
 	print(Daughterstatus.age_stage_names[Daughterstatus.age_stage])
 	print(cloth_file_dict[clothes_name])
@@ -39,14 +47,15 @@ func ChangeClothes(clothes_name:String):
 		timer.start()
 
 func _ready() -> void:
-	Daughterstatus.age_stage = Daughterstatus.AgeStageType.CHILD
-	cloth_file_dict = Globaljson.clothes_path[Daughterstatus.age_stage_names[Daughterstatus.age_stage]]
+	cloth_file_dict = Globaljson.clothes_path.get(Daughterstatus.age_stage_names[Daughterstatus.age_stage], {})
 	print(Daughterstatus.age_stage)
-	Inventory.AddItem("c14")
-	Inventory.AddItem("c19")
-	Inventory.AddItem("c06")
+	for i in range(age_stage_nodes.size()):
+		if i == Daughterstatus.age_stage:
+			age_stage_nodes[i].show()
+		else:
+			age_stage_nodes[i].hide()
 	now_stage_node = age_stage_nodes[Daughterstatus.age_stage]
-	now_stage_node.show()
 	eyes = now_stage_node.get_node("Eyes") as AnimatedSprite2D
 	body = now_stage_node.get_node("Body") as Sprite2D
-	ChangeClothes("常服")
+	var target_clothes = Daughterstatus.current_clothes_name if Daughterstatus.current_clothes_name != "" else "常服"
+	ChangeClothes(target_clothes)

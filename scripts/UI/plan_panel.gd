@@ -64,17 +64,10 @@ func DayIconInit() -> void:
 
 # 计算本月天数
 func DaysInMonth(year: int, month: int) -> int:
-	var days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-	# 闰年规则：能被4整除且不能被100整除，或者能被400整除
-	var is_leap = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
-
-	if month == 2 and is_leap:
-		return 29
-	else:
-		return days_in_months[month - 1]
+	return Global.get_days_in_month(year, month)
 
 func StartPlan():
+	Global.sync_week_index()
 	# 更新label
 	$Year.text = str(Global.year)
 	$Month.text = months[Global.month-1]
