@@ -30,7 +30,11 @@ var affection: Dictionary = {
 	"christina": 0,
 	"lee": 0,
 	"charles": 0,
-	"baora": 0
+	"baora": 0,
+	"karen": 0,
+	"jeep": 0,
+	"father": 0,
+	"chris": 0
 }
 
 # 本月行动

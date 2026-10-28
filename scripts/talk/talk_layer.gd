@@ -84,6 +84,8 @@ func ProcessDialogueText(raw_text: String) -> String:
 	processed = processed.replace("{fullname}", full_name)
 	
 	# 兼容可能残留的硬编码姓名
+	processed = processed.replace("派翠西亚", d_name)
+	processed = processed.replace("派翠西亞", d_name)
 	processed = processed.replace("帕特莉希娅", d_name)
 	processed = processed.replace("帕特丽西亚", d_name)
 	processed = processed.replace("帕特莉西娅", d_name)
@@ -192,28 +194,33 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 	# 普通npc的icon和其他的不一样
 	elif who in Globaljson.special_name:
 		# 年龄差分
-		var face_emo = emotions[emotion]
-		if who != "daughter" and face_emo not in ["01", "02", "03"]:
+		var face_emo = emotions.get(emotion, "01")
+		if who == "jeep":
+			if face_emo not in ["01", "02", "03", "04", "05", "06"]:
+				face_emo = "01"
+		elif who != "daughter" and face_emo not in ["01", "02", "03"]:
 			face_emo = "01"
 			
 		if who in special_name:
 			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who][Daughterstatus.age_stage_names[Daughterstatus.age_stage]] + face_emo + ".png"
 		else:
 			icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + face_emo + ".png"
-		print(icon_path)
 		headshot.show()
 		if who == "daughter":
 			first_name.text = Daughterstatus.firstname
 		else:
 			first_name.text = Globaljson.human_translation[who][name_index]
-		if not emotions.get(emotion):
-			headshot.hide()
-			push_warning("Load emotion ERROR")
-			return
 	else:
-		headshot.show()
-		first_name.text = Globaljson.human_translation[who][name_index]
-		icon_path = "res://assets/PM4_FC/" + Globaljson.icon_path[who] + ".png"
+		if Globaljson.human_translation.has(who):
+			first_name.text = Globaljson.human_translation[who][name_index]
+		else:
+			first_name.text = ProcessDialogueText(who)
+		var icon_file = Globaljson.icon_path.get(who, "f_null")
+		icon_path = "res://assets/PM4_FC/" + str(icon_file) + ".png"
+		if str(icon_file) == "f_null":
+			headshot.hide()
+		else:
+			headshot.show()
 	headshot.texture = load(icon_path)
 	talk_text.text = ProcessDialogueText(text)
 

@@ -76,6 +76,7 @@ func RunScheduleLoop() -> void:
 			Global.schedule_plan_index += 1
 			continue
 			
+		await CheckScheduleEvents(plan_name)
 		PlanStart()
 		await self.plan_end
 		Global.schedule_plan_index += 1
@@ -454,3 +455,150 @@ func _advance_vacation_time() -> void:
 		Global.sync_week_index()
 		if date and date.has_method("UpdateStatus"):
 			date.UpdateStatus()
+
+func CheckScheduleEvents(target_plan: String) -> void:
+	var candidate_list: Array = []
+	if target_plan == "rest":
+		candidate_list = Globaljson.home_event_data.get("rest_events", [])
+	else:
+		var course_map: Dictionary = Globaljson.home_event_data.get("course_events", {})
+		if course_map.has(target_plan):
+			candidate_list = course_map[target_plan]
+	if candidate_list.is_empty():
+		return
+	var available_events: Array = []
+	for ev in candidate_list:
+		var ev_id = ev.get("id", "")
+		if ev_id != "" and not ev.get("repeatable", false) and Global.flags.get(ev_id, false):
+			continue
+		if CheckEventConditions(ev.get("conditions", {})):
+			available_events.append(ev)
+	if available_events.is_empty():
+		return
+	available_events.sort_custom(func(a, b): return a.get("priority", 0) > b.get("priority", 0))
+	await PlayScheduleEvent(available_events[0])
+
+func CheckEventConditions(cond: Dictionary) -> bool:
+	for req_flag in cond.get("flags_required", []):
+		if not Global.flags.get(req_flag, false):
+			return false
+	for ban_flag in cond.get("flags_banned", []):
+		if Global.flags.get(ban_flag, false):
+			return false
+	var min_aff = cond.get("min_affection", {})
+	for chara in min_aff.keys():
+		if Global.affection.get(chara, 0) < min_aff[chara]:
+			return false
+	var max_aff = cond.get("max_affection", {})
+	for chara in max_aff.keys():
+		if Global.affection.get(chara, 0) > max_aff[chara]:
+			return false
+	var min_stats = cond.get("min_stats", {})
+	for stat in min_stats.keys():
+		var current_val = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat, null))
+		if current_val == null or current_val < min_stats[stat]:
+			return false
+	var max_stats = cond.get("max_stats", {})
+	for stat in max_stats.keys():
+		var current_val = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat, null))
+		if current_val != null and current_val > max_stats[stat]:
+			return false
+	if cond.has("min_year") and Global.year < cond["min_year"]:
+		return false
+	if cond.has("max_year") and Global.year > cond["max_year"]:
+		return false
+	if cond.has("min_month") and Global.month < cond["min_month"]:
+		return false
+	if cond.has("max_month") and Global.month > cond["max_month"]:
+		return false
+	if cond.get("is_birth_month", false) and Global.month != Daughterstatus.birth_month:
+		return false
+	return true
+
+func PlayScheduleEvent(event: Dictionary) -> void:
+	is_vacation_running = true
+	schd.hide()
+	talk_layer.keep_visible_on_end = false
+
+	var ev_id = event.get("id", "")
+	if ev_id != "" and not event.get("repeatable", false):
+		Global.flags[ev_id] = true
+	if event.has("set_flags"):
+		for flag in event["set_flags"]:
+			Global.flags[flag] = true
+	if event.has("unlock_categories"):
+		for cat in event["unlock_categories"]:
+			if Global.category_stage.has(cat) and Global.category_stage[cat][0] == -1:
+				Global.category_stage[cat][0] = 0
+	if event.has("add_money"):
+		Global.money += int(event["add_money"])
+		if money and money.has_method("UpdateStatus"):
+			money.UpdateStatus()
+	var aff = event.get("add_affection", {})
+	for chara in aff:
+		Global.affection[chara] = Global.affection.get(chara, 0) + aff[chara]
+	var stats = event.get("add_stats", {})
+	for stat in stats:
+		if Daughterstatus.attributes.has(stat):
+			Daughterstatus.AddAttribute(stat, stats[stat])
+		elif Daughterstatus.body_stats.has(stat):
+			Daughterstatus.body_stats[stat] += stats[stat]
+
+	var settle_type = talk_layer.SettleType.NULL
+	var choice_list = []
+	if event.has("choices"):
+		settle_type = talk_layer.SettleType.CHOICE
+		for c in event["choices"]:
+			choice_list.append(c["text"])
+
+	var step1_state = {"index": -1, "done": false}
+	talk_layer.RegisterCallback(func(idx):
+		step1_state["index"] = idx
+		step1_state["done"] = true
+	)
+	talk_layer.TalkStart(event.get("dialogue_script", []), settle_type, {}, choice_list)
+	while not step1_state["done"]:
+		await get_tree().process_frame
+
+	if event.has("choices") and step1_state["index"] >= 0 and step1_state["index"] < event["choices"].size():
+		var choice_data = event["choices"][step1_state["index"]]
+		var choice_aff = choice_data.get("add_affection", {})
+		for chara in choice_aff:
+			Global.affection[chara] = Global.affection.get(chara, 0) + choice_aff[chara]
+		if choice_data.has("set_flags"):
+			for flag in choice_data["set_flags"]:
+				Global.flags[flag] = true
+		if choice_data.has("unlock_categories"):
+			for cat in choice_data["unlock_categories"]:
+				if Global.category_stage.has(cat) and Global.category_stage[cat][0] == -1:
+					Global.category_stage[cat][0] = 0
+		if choice_data.has("add_money"):
+			Global.money += int(choice_data["add_money"])
+			if money and money.has_method("UpdateStatus"):
+				money.UpdateStatus()
+
+		var next_diag = choice_data.get("next_dialogue", [])
+		if not next_diag.is_empty():
+			var next_state = {"done": false}
+			talk_layer.RegisterCallback(func(_dummy):
+				next_state["done"] = true
+			)
+			talk_layer.TalkStart(next_diag, talk_layer.SettleType.NULL)
+			while not next_state["done"]:
+				await get_tree().process_frame
+
+		var choice_stats = choice_data.get("add_stats", {})
+		if not choice_stats.is_empty():
+			var ui_stats = {}
+			for stat in choice_stats:
+				if arrtibute and arrtibute.attribute_nodes.has(stat):
+					ui_stats[stat] = choice_stats[stat]
+				elif Daughterstatus.attributes.has(stat):
+					Daughterstatus.AddAttribute(stat, choice_stats[stat])
+				elif Daughterstatus.body_stats.has(stat):
+					Daughterstatus.body_stats[stat] += choice_stats[stat]
+			if not ui_stats.is_empty():
+				arrtibute.AnnotationStart(ui_stats)
+				await arrtibute.settle_end
+
+	is_vacation_running = false

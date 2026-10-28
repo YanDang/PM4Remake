@@ -117,6 +117,9 @@ func GetAvailableEventForLocation(location_name: String) -> Dictionary:
 		
 	var available_events = []
 	for event in event_list:
+		var ev_id = event.get("id", "")
+		if ev_id != "" and not event.get("repeatable", false) and Global.flags.get(ev_id, false):
+			continue
 		if CheckConditions(event.get("conditions", {})):
 			available_events.append(event)
 			
@@ -256,23 +259,44 @@ func CheckConditions(cond: Dictionary) -> bool:
 		if current_val != null and current_val > max_stats[stat]:
 			return false
 		
-	# 检查时间
-	if cond.has("min_year") and Global.year < cond["min_year"]: return false
-	if cond.has("max_year") and Global.year > cond["max_year"]: return false
-	if cond.has("min_month") and Global.month < cond["min_month"]: return false
-	if cond.has("max_month") and Global.month > cond["max_month"]: return false
+	# 检查时间（支持跨年连续月份区间，例如 1444年10月 ~ 1445年3月）
+	var has_min_y = cond.has("min_year")
+	var has_max_y = cond.has("max_year")
+	var has_min_m = cond.has("min_month")
+	var has_max_m = cond.has("max_month")
+	if has_min_y and has_max_y and has_min_m and has_max_m and cond["min_year"] < cond["max_year"] and not cond.get("seasonal_month", false):
+		var cur_ym = Global.year * 100 + Global.month
+		var min_ym = int(cond["min_year"]) * 100 + int(cond["min_month"])
+		var max_ym = int(cond["max_year"]) * 100 + int(cond["max_month"])
+		if cur_ym < min_ym or cur_ym > max_ym:
+			return false
+	else:
+		if has_min_y and Global.year < cond["min_year"]: return false
+		if has_max_y and Global.year > cond["max_year"]: return false
+		if has_min_m and Global.month < cond["min_month"]: return false
+		if has_max_m and Global.month > cond["max_month"]: return false
 	
-	# 检查年龄
+	# 检查年龄与生日月
 	if cond.has("min_age") and Daughterstatus.age < cond["min_age"]: return false
 	if cond.has("max_age") and Daughterstatus.age > cond["max_age"]: return false
+	if cond.get("is_birth_month", false) and Global.month != Daughterstatus.birth_month: return false
 	
 	return true
 
 func PlayEvent(event: Dictionary):
-	# 设置基础flag
+	# 记录事件本身已触发并设置基础flag
+	var ev_id = event.get("id", "")
+	if ev_id != "" and not event.get("repeatable", false):
+		Global.flags[ev_id] = true
 	if event.has("set_flags"):
 		for flag in event["set_flags"]:
 			Global.flags[flag] = true
+	if event.has("unlock_categories"):
+		for cat in event["unlock_categories"]:
+			if Global.category_stage.has(cat) and Global.category_stage[cat][0] == -1:
+				Global.category_stage[cat][0] = 0
+	if event.has("add_money"):
+		Global.money += int(event["add_money"])
 			
 	# 根级别的被动好感度和属性增加（无UI动画，静默增加）
 	var aff = event.get("add_affection", event.get("affection_changes", {}))
@@ -328,10 +352,16 @@ func PlayEvent(event: Dictionary):
 					if has_ui_stats:
 						talk_layer.arrtibute.AnnotationStart(ui_stats)
 						
-				# 记录选项触发的特定 flag
+				# 记录选项触发的特定 flag、解锁行程与金币变化
 				if choice_data.has("set_flags"):
 					for flag in choice_data["set_flags"]:
 						Global.flags[flag] = true
+				if choice_data.has("unlock_categories"):
+					for cat in choice_data["unlock_categories"]:
+						if Global.category_stage.has(cat) and Global.category_stage[cat][0] == -1:
+							Global.category_stage[cat][0] = 0
+				if choice_data.has("add_money"):
+					Global.money += int(choice_data["add_money"])
 						
 				if has_ui_stats:
 					await talk_layer.arrtibute.settle_end

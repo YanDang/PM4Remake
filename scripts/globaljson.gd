@@ -10,6 +10,7 @@ var human_translation:Dictionary
 var category_translation:Dictionary
 var category_data:Dictionary
 var event_data:Dictionary
+var home_event_data:Dictionary = {}
 var eye_blink_data:Dictionary
 var vacation_data:Array = []
 @onready var special_name:Array = ["charles","jeep","daughter","christina","lee","lise","marie","baora"]
@@ -27,6 +28,8 @@ func _ready() -> void:
 	category_translation = JSON.parse_string(FileAccess.open("res://datajson/translation/category_translation.json", FileAccess.READ).get_as_text())
 	LoadCategoryFromTxt("res://datajson/category_data.txt")
 	event_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/event_data.json", FileAccess.READ).get_as_text())
+	if FileAccess.file_exists("res://datajson/talkjson/home_event_data.json"):
+		home_event_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/home_event_data.json", FileAccess.READ).get_as_text())
 	if FileAccess.file_exists("res://datajson/talkjson/eye_blink_data.json"):
 		eye_blink_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/eye_blink_data.json", FileAccess.READ).get_as_text())
 	if FileAccess.file_exists("res://datajson/talkjson/vacation_data.json"):
