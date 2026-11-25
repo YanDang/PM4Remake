@@ -1,0 +1,161 @@
+{
+  "items": {
+    "c01": {
+      "description": "〔日常服〕\n心爱的日常服"
+    },
+    "c02": {
+      "description": "〔夏服〕\n适合度过炎热夏日的夏服\n酷暑时的必需品",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是夏天的衣服。\n是为了夏天特别做的设计，\n推荐您在热天的时候穿。",
+          "voice": ""
+        }
+      ]
+    },
+    "c03": {
+      "description": "〔冬服〕\n对抗寒冷的冬服\n就算寒流来袭也不要紧",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是冬天的服装。\n制作上除了顾及保暖性之外，\n也特别加上了华丽的设计点缀。",
+          "voice": ""
+        }
+      ]
+    },
+    "c04": {
+      "description": "〔洋装〕\n气质＋１５",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是棉纱的洋装。使用适宜穿着的\n素材，稍微花俏适合年轻女孩。\n可当作舞会或舞蹈比赛的小礼服。",
+          "voice": ""
+        }
+      ]
+    },
+    "c05": {
+      "description": "〔丝质的洋装〕\n气质＋４０",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是丝质的洋装。丝绸的高级质感\n不但高雅，还可以衬托出清秀魅力。\n是参加舞会或舞蹈比赛的适合服装。",
+          "voice": ""
+        }
+      ]
+    },
+    "c06": {
+      "description": "〔豪华的礼服〕\n气质＋３０，魅力＋３０",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "本店原创设计的礼服。\n强调华丽以及女性魅力的一件杰作。\n是参加舞会或舞蹈比赛的适合服装。",
+          "voice": ""
+        }
+      ]
+    },
+    "c07": {
+      "description": "〔武术服〕\n魅力－５，武术能力＋１０",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是武术服。\n以轻便及自由度为设计重点，\n其中也可以微微衬托出女人味来。",
+          "voice": ""
+        }
+      ]
+    },
+    "c08": {
+      "description": "〔魔法师之服〕\n魅力－５，魔法能力＋１０",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "采用能提高魔法效果的特殊布料，\n染上依魔法协会所指定的魔法花纹\n而制成的标准服饰。",
+          "voice": ""
+        }
+      ]
+    },
+    "c11": {
+      "description": "〔皮衣〕\n气质－２０，魅力＋５０",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是皮衣。\n稍微激烈地强调表现出女性美。",
+          "voice": ""
+        }
+      ]
+    },
+    "c12": {
+      "description": "〔修道服〕\n道德＋２０",
+      "shop_dialogue": [
+        {
+          "character": "teresa",
+          "emotion": "calm",
+          "text": "这是教会工作的修道服。\n具有简单而耐穿的优点。",
+          "voice": ""
+        }
+      ]
+    },
+    "c14": {
+      "description": "〔结婚礼服〕\n「新娘礼服」"
+    },
+    "c15": {
+      "description": "〔不良之服〕\n「不良之服」"
+    },
+    "c16": {
+      "description": "〔睡衣〕\n「睡衣」"
+    },
+    "c17": {
+      "description": "〔倾国的礼服〕\n魅力＋１６０"
+    }
+  },
+  "purchase_prompt": [
+    {
+      "text": "决定了吗？",
+      "character": "teresa",
+      "emotion": "calm"
+    }
+  ],
+  "purchase_success": [
+    {
+      "text": "感谢购买。",
+      "character": "teresa",
+      "emotion": "calm"
+    }
+  ],
+  "decline": [
+    {
+      "text": "请慢慢挑选。",
+      "character": "teresa",
+      "emotion": "calm"
+    }
+  ],
+  "no_money": [
+    {
+      "text": "客人，\n预算好像搞错了喔……？",
+      "character": "teresa",
+      "emotion": "calm"
+    }
+  ],
+  "same_clothes": [
+    {
+      "text": "是现在穿着的衣服喔。",
+      "character": "jeep",
+      "emotion": "calm"
+    }
+  ],
+  "wrong_age": [
+    {
+      "text": "对小姐来说，\n好像尺寸还不太合呢。",
+      "character": "jeep",
+      "emotion": "calm"
+    }
+  ],
+  "equipped_text": "换成%s了。"
+}

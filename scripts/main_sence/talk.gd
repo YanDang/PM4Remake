@@ -29,7 +29,7 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 				Global.money -= 50
 				base_info.UpdateStatus()
 				arrtibute_dict = {"charm":5,"crime":6,"morals":-4,"stress":-20}
-		# 一年只有一次对话涨属性
+		# 每月只有一次对话涨属性
 		Global.already_talk = true
 		talk_layer.TalkStart(conversation[age_stage][talk_names[choice_index]],1,arrtibute_dict)
 	else:

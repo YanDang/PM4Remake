@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c4ks2hbreawnh"]
+[gd_scene load_steps=52 format=3 uid="uid://c4ks2hbreawnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjknye78ujdhb" path="res://assets/Backgrounds/gd_000005.png" id="1_1q3g2"]
 [ext_resource type="Script" uid="uid://hw6120jsuh6u" path="res://scripts/main_sence/main.gd" id="1_e225g"]
@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://co6h1prb6jser" path="res://assets/sys/w_place.png" id="33_3x8t3"]
 [ext_resource type="Texture2D" uid="uid://fjo3isbdudiv" path="res://assets/sys/w_face1.png" id="33_c5n7d"]
 [ext_resource type="PackedScene" uid="uid://taji8blf4lnl" path="res://UI/shop_panel.tscn" id="34_3i0tg"]
+[ext_resource type="Script" path="res://scripts/main_sence/system.gd" id="35_system"]
+[ext_resource type="PackedScene" path="res://UI/clothing_preview.tscn" id="36_preview"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t70hm"]
 atlas = ExtResource("33_3x8t3")
@@ -149,12 +151,19 @@ vertical_alignment = 1
 visible = false
 position = Vector2(-540, 360)
 
+[node name="ClothingPreview" parent="StreetShop" instance=ExtResource("36_preview")]
+
 [node name="TalkLayer" parent="." instance=ExtResource("25_kn2hr")]
 layer = 2
 
 [node name="ChoiceUI" parent="TalkLayer" instance=ExtResource("19_e42fx")]
 visible = false
 position = Vector2(980, 600)
+scale = Vector2(2, 2)
+
+[node name="NarrowChoiceUI" parent="TalkLayer" instance=ExtResource("20_2n76t")]
+visible = false
+position = Vector2(1090, 600)
 scale = Vector2(2, 2)
 
 [node name="Arrtibute" parent="." instance=ExtResource("27_52x8f")]
@@ -183,7 +192,7 @@ theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("15_1aw7l")
+theme_override_fonts/font = ExtResource("6_blwv4")
 theme_override_font_sizes/font_size = 18
 text = "测试文本
 测试文本
@@ -1580,6 +1589,7 @@ position = Vector2(1090, 380)
 scale = Vector2(2, 2)
 
 [node name="System" type="Node" parent="UI"]
+script = ExtResource("35_system")
 
 [node name="System" parent="UI/System" instance=ExtResource("20_2n76t")]
 visible = false

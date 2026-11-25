@@ -3,6 +3,7 @@ extends Node2D
 @onready var ui: CanvasLayer = $"../.."
 @onready var daughter_live: Node2D = $"../../../DaughterLive"
 @onready var arrtibute: CanvasLayer = $"../../../Arrtibute"
+@onready var talk_layer: CanvasLayer = $"../../../TalkLayer"
 
 @onready var previous: Button = $Previous
 @onready var next: Button = $Next
@@ -50,17 +51,21 @@ func GetItem(i:int) -> Item:
 # 鼠标悬停在按钮上时调用
 # 悬停时移动选框
 func on_button_hovered(_button: Button,i:int):
+	if is_using_item:
+		return
 	#print("鼠标悬浮在按钮上: ", button.name)
 	choice_high_light.position.y = choice_highlight_start.y + i * base_heigh
 	choice_high_light.show()
 	var item:Item = GetItem(i)
 	if item:
 		print("hover_emit")
-		emit_signal("item_hovered",item.description)
+		emit_signal("item_hovered", Clothing.GetDescription(item) if item.types == Item.ItemType.CLOTHES else item.description)
 
 # 鼠标离开按钮时调用
 # 离开时隐藏选框
 func on_button_unhovered(_button: Button,_i:int):
+	if is_using_item:
+		return
 	#print("鼠标离开按钮: ", button.name)
 	choice_high_light.hide()
 	emit_signal("item_hovered","")
@@ -74,8 +79,8 @@ func on_button_pressed(_button:Button,item:Item):
 		
 	print(item.name)
 	if item.types == Item.ItemType.CLOTHES:
-		ui.CloseCanvas()
-		daughter_live.ChangeClothes(item.name)
+		UseClothing(item)
+		return
 	if item.types == Item.ItemType.FOOD or item.types == Item.ItemType.CONSUMABLES:
 		is_using_item = true
 		arrtibute.AnnotationStart(item.arrtibute_dict)
@@ -87,6 +92,54 @@ func on_button_pressed(_button:Button,item:Item):
 		ui.now_canvas_type = ui.CanvasType.ITEM
 		is_using_item = false
 		#ui.CloseCanvas()
+
+func SetInteraction(enabled: bool) -> void:
+	for button in grid_container.get_children():
+		if button is Button:
+			button.disabled = not enabled
+	previous.disabled = not enabled
+	next.disabled = not enabled
+	cancel.disabled = not enabled
+
+func UseClothing(item: Item) -> void:
+	is_using_item = true
+	SetInteraction(false)
+	ui.item_info.hide()
+	var result = Clothing.Equip(item.id)
+	if result["error"] != OK:
+		talk_layer.RegisterCallback(FinishClothingMessage)
+		var message = "same_clothes" if result["error"] == ERR_ALREADY_IN_USE else "wrong_age"
+		talk_layer.TalkStart(Clothing.data[message])
+		return
+	# Close the inventory first, then present the new outfit and its attribute delta.
+	ui.now_canvas_type = ui.CanvasType.TALK
+	await ui.LeaveItem(false)
+	ui.hide()
+	ui.OnAnimation()
+	daughter_live.ChangeClothes(item.name)
+	ui.now_canvas_type = ui.CanvasType.MAIN
+	talk_layer.RegisterCallback(FinishClothingChange)
+	var text = Clothing.data["equipped_text"] % item.name
+	var settle = talk_layer.SettleType.NULL if result["changes"].is_empty() else talk_layer.SettleType.ATTRIBUTE
+	# Equip already changed the stats; the attribute panel only animates this delta.
+	talk_layer.TalkStart([{"character": "", "text": text}], settle, result["changes"], [], false, false)
+
+func FinishClothingMessage(_index: int) -> void:
+	is_using_item = false
+	SetInteraction(true)
+	ui.item_info.show()
+	ui.now_canvas_type = ui.CanvasType.ITEM
+
+func FinishClothingChange(_index: int) -> void:
+	is_using_item = false
+	SetInteraction(true)
+	ui.InitialUI()
+	ui.show()
+	ui.now_canvas_type = ui.CanvasType.MAIN
+	ui.base_info.UpdateStatus()
+	ui.health_stat.UpdateStatus()
+	ui.character_attribute.UpdateStatus()
+	ui.LeaveAnimation()
 
 func on_choice_pressed(i:int):
 	#var slots_index = i + start_index
@@ -104,14 +157,14 @@ func LoadChoices() -> void:
 		if i == 0:
 			new_choice =  $GridContainer/Button0
 		else:
-			new_choice =  $GridContainer/Button0.duplicate()
+			new_choice = $GridContainer/Button0.duplicate(0)
 			new_choice.name = "Button" + str(i)
 			grid_container.add_child(new_choice)
-		new_choice.pressed.connect(func():on_choice_pressed(i))
+		new_choice.pressed.connect(on_choice_pressed.bind(i))
 		# 连接鼠标进入信号，同时传递按钮和索引
-		new_choice.mouse_entered.connect(func(): on_button_hovered(new_choice, i))
+		new_choice.mouse_entered.connect(on_button_hovered.bind(new_choice, i))
 		# 连接鼠标离开信号（可选）
-		new_choice.mouse_exited.connect(func(): on_button_unhovered(new_choice, i))
+		new_choice.mouse_exited.connect(on_button_unhovered.bind(new_choice, i))
 
 ## 更新选项并且更新函数事件
 func UpdateChoice() -> void:
@@ -125,7 +178,8 @@ func UpdateChoice() -> void:
 		temp_node.show()
 		var current_item = Inventory.slots[slots_index]["item"]
 		var current_count = Inventory.slots[slots_index]["count"]
-		temp_node.text = current_item.name + " x" + str(current_count)
+		var equipped = current_item.types == Item.ItemType.CLOTHES and current_item.id == "c" + Daughterstatus.current_clothes_id
+		temp_node.text = current_item.name + ("（穿着中）" if equipped else " x" + str(current_count))
 		temp_node.icon = load("res://animation/item/%s.tres" % type_name[Inventory.slots[slots_index]["item"].types])
 		temp_node.get_node("Label").text = str(Inventory.slots[slots_index]["item"].prices) + " G"
 	for i in range(choice_nums,max_item_nums):

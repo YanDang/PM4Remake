@@ -163,4 +163,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_25g24")
 text = "退出游戏"
 
 [connection signal="button_down" from="GridContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="GridContainer/Load" to="." method="_on_load_button_down"]
+[connection signal="button_down" from="GridContainer/Setting" to="." method="_on_setting_button_down"]
 [connection signal="button_down" from="GridContainer/Exit" to="." method="_on_exit_button_down"]

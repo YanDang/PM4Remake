@@ -38,9 +38,12 @@ signal attribute_settle(attribute_dict)
 var icon_path:String
 
 var current_index:int = 0
+var is_revealing_text: bool = false
+var revealed_characters: float = 0.0
 
 func _ready() -> void:
 	set_process_input(false)
+	set_process(false)
 	hide()
 
 var talk_even:Array
@@ -50,6 +53,7 @@ var settle:SettleType
 # 需要结算
 var is_settle:bool = false
 var allow_emit:bool = true
+var apply_attribute_changes: bool = true
 var attribute_dict:Dictionary
 var choice_list:Array
 
@@ -92,11 +96,18 @@ func ProcessDialogueText(raw_text: String) -> String:
 	
 	return processed
 
-func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:Dictionary={},data_list:Array=[]):
+func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:Dictionary={},data_list:Array=[],narrow_choices:bool=false,apply_changes:bool=true):
+	is_revealing_text = false
+	set_process(false)
+	choice_ui.hide()
+	var narrow_choice_ui = get_node_or_null("NarrowChoiceUI")
+	choice_ui = narrow_choice_ui if narrow_choices and narrow_choice_ui != null else $ChoiceUI
+	choice_ui.hide()
 	emit_signal("talk_start")
 	current_index = 0
 	child_choice_index = 0
 	settle = now_settle
+	apply_attribute_changes = apply_changes
 	match settle:
 		SettleType.NULL:
 			is_settle = false
@@ -117,6 +128,9 @@ func TalkStart(talk_array:Array,now_settle:SettleType=SettleType.NULL,data_dict:
 
 func TalkEnd():
 	set_process_input(false)  # 完全停止输入处理
+	set_process(false)
+	is_revealing_text = false
+	GameSettings.voice_player.stop()
 	if not keep_visible_on_end:
 		hide()
 	
@@ -134,19 +148,47 @@ func TalkEnd():
 		cb.call(child_choice_index)
 
 func TalkPolling():
+	if is_revealing_text:
+		FinishTextReveal()
+		return
 	if current_index < talk_even.size():
 		var entry = talk_even[current_index]
 		Happen(entry.get("character", ""), entry.get("emotion", "01"), entry.get("text", ""), entry.get("name_index", 0), entry.get("action", ""))
 		current_index += 1
 		if entry.get("action", "") == "leave" and entry.get("text", "") == "":
 			TalkPolling()
+			return
+		BeginTextReveal()
+		GameSettings.PlayVoiceId(str(entry.get("voice", "")))
 	else:
 		if not is_settle:
 			# 不需要计算属性
 			TalkEnd()
-	if current_index == talk_even.size():
+	TrySettleCurrentLine()
+
+func BeginTextReveal() -> void:
+	revealed_characters = 0.0
+	is_revealing_text = talk_text.get_total_character_count() > 0
+	talk_text.visible_characters = 0 if is_revealing_text else -1
+	set_process(is_revealing_text)
+
+func _process(delta: float) -> void:
+	revealed_characters += GameSettings.GetTextSpeed() * delta
+	talk_text.visible_characters = int(revealed_characters)
+	if revealed_characters >= talk_text.get_total_character_count():
+		FinishTextReveal()
+
+func FinishTextReveal() -> void:
+	is_revealing_text = false
+	talk_text.visible_characters = -1
+	set_process(false)
+	TrySettleCurrentLine()
+
+func TrySettleCurrentLine() -> void:
+	if current_index == talk_even.size() and not is_revealing_text:
 		if is_settle:
 			if allow_emit:
+				allow_emit = false
 				# 发射结束信号,等待信号回传
 				match settle:
 					SettleType.ATTRIBUTE:
@@ -157,9 +199,9 @@ func TalkPolling():
 							choice_ui.position.y -= choice_list.size() * choice_ui.base_heigh
 						await get_tree().process_frame # 等到下一帧
 						choice_ui.show()
-				allow_emit = false
 		
 func _input(event: InputEvent) -> void:
+	var was_revealing_text = is_revealing_text
 	if event.is_action_pressed("confirm"):
 		TalkPolling()
 	elif event.is_action_pressed("next_view"):
@@ -167,10 +209,12 @@ func _input(event: InputEvent) -> void:
 			TalkPolling()
 	elif event.is_action_pressed("back_view"):
 		if current_index > 1:
+			is_revealing_text = false
+			set_process(false)
 			current_index -= 2 
 			TalkPolling()
 	# 吃事件,阻止事件向下传递
-	if settle != SettleType.CHOICE and get_viewport():
+	if (settle != SettleType.CHOICE or was_revealing_text or not choice_ui.visible) and get_viewport():
 		get_viewport().set_input_as_handled()
 		
 		

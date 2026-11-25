@@ -9,6 +9,9 @@ var month:int = 4
 var day:int = 1
 var week_index = 3
 
+# 父亲姓名（新游戏命名时可修改）
+var father_name: String = "海威尔"
+
 # 所持金
 var money:int = clamp(2000,-5000,9999999)
 # 健康策略

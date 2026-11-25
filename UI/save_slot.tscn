@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sys/w_save.png" id="1"]
+[ext_resource type="FontFile" path="res://fronts/EBGaramond-Bold.ttf" id="2"]
+[ext_resource type="FontFile" path="res://fronts/FZCQJW.ttf" id="3"]
+
+[sub_resource type="AtlasTexture" id="SlotTexture"]
+atlas = ExtResource("1")
+region = Rect2(0, 102, 292, 48)
+
+[sub_resource type="StyleBoxTexture" id="SlotStyle"]
+texture = SubResource("SlotTexture")
+
+[node name="SaveSlot" type="Button"]
+offset_right = 292.0
+offset_bottom = 48.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("SlotStyle")
+theme_override_styles/hover = SubResource("SlotStyle")
+theme_override_styles/pressed = SubResource("SlotStyle")
+theme_override_styles/focus = SubResource("SlotStyle")
+theme_override_styles/disabled = SubResource("SlotStyle")
+
+[node name="DataLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 43.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.56, 0.56, 0.56, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.18, 0.12, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 25
+text = "Data 1"
+vertical_alignment = 1
+
+[node name="DateLabel" type="Label" parent="."]
+offset_left = 98.0
+offset_top = 5.0
+offset_right = 278.0
+offset_bottom = 41.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.84, 1)
+theme_override_colors/font_outline_color = Color(0.4, 0.15, 0.08, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
+vertical_alignment = 1
+horizontal_alignment = 1

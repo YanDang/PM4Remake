@@ -89,6 +89,7 @@ func RunScheduleLoop() -> void:
 	if Global.month > 12:
 		Global.month = 1
 		Global.year += 1
+	Global.already_talk = false
 	Global.schedule_plan_index = 0
 	Global.month_end_day = Global.get_current_month_end_day()
 	Global.sync_week_index()

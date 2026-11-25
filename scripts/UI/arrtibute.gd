@@ -72,7 +72,7 @@ func _update_character_attribute_ui() -> void:
 			char_attr.UpdateStatus()
 
 # 初始直接生成所有按钮，用到的show
-func AnnotationStart(arrtibute_dict:Dictionary):
+func AnnotationStart(arrtibute_dict:Dictionary, apply_changes: bool = true):
 	if arrtibute_dict == null or arrtibute_dict.is_empty():
 		call_deferred("emit_signal", "settle_end")
 		return
@@ -92,8 +92,9 @@ func AnnotationStart(arrtibute_dict:Dictionary):
 
 	for key in arrtibute_dict.keys():
 		var delta = float(arrtibute_dict[key])
-		var old_val = Daughterstatus.attributes.get(key, 0.0)
-		Daughterstatus.AddAttribute(key, delta)
+		var old_val = Daughterstatus.attributes.get(key, 0.0) if apply_changes else Daughterstatus.attributes.get(key, 0.0) - delta
+		if apply_changes:
+			Daughterstatus.AddAttribute(key, delta)
 		var new_val = Daughterstatus.attributes.get(key, 0.0)
 
 		if attribute_nodes.has(key):
@@ -142,4 +143,4 @@ func AnnotationEnd():
 	)
 
 func _on_talk_layer_attribute_settle(attribute_dict: Variant) -> void:
-	AnnotationStart(attribute_dict)
+	AnnotationStart(attribute_dict, talk_layer.apply_attribute_changes)

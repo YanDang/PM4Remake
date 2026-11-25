@@ -46,6 +46,8 @@ var age_stage:AgeStageType = AgeStageType.CHILD
 var current_clothes_id:String = "01"
 ## 当前衣服名称 (用于服装保存与持久化)
 var current_clothes_name:String = "常服"
+# Actual worn-clothing contribution, separate from permanent character growth.
+var clothing_bonus: Dictionary = {}
 ## 出生日期
 var birth_year:int=1430
 var birth_month:int=4

@@ -34,6 +34,17 @@ var shop_slots:Array
 # 发射选择信号
 signal item_hovered(item_description:String)
 signal cancel_pressed
+signal clothing_selected(item: Item)
+var interaction_enabled: bool = true
+
+func SetInteraction(enabled: bool) -> void:
+	interaction_enabled = enabled
+	for button in grid_container.get_children():
+		if button is Button:
+			button.disabled = not enabled
+	previous.disabled = not enabled
+	next.disabled = not enabled
+	cancel.disabled = not enabled
 
 # Called when the node enters the scene tree for the first time
 func InitPanel(this_shop_slots:Array, mode: int = ShopMode.BUY):
@@ -68,6 +79,8 @@ func filter_sellable_items(all_slots: Array) -> Array:
 	return sellable_slots
 	
 func _on_cancel() -> void:
+	if not interaction_enabled:
+		return
 	var arrtibute = _get_arrtibute_node()
 	if arrtibute and (arrtibute.visible or arrtibute.annotation_visible):
 		arrtibute.AnnotationEnd()
@@ -75,8 +88,10 @@ func _on_cancel() -> void:
 
 func _ready():
 	cancel.pressed.connect(_on_cancel)
-	previous.pressed.connect(_on_previous_pressed)
-	next.pressed.connect(_on_next_pressed)
+	if not previous.pressed.is_connected(_on_previous_pressed):
+		previous.pressed.connect(_on_previous_pressed)
+	if not next.pressed.is_connected(_on_next_pressed):
+		next.pressed.connect(_on_next_pressed)
 	# 初始化时只加载一次选项按钮
 	LoadChoices()
 
@@ -96,32 +111,41 @@ func _get_arrtibute_node() -> CanvasLayer:
 func GetItem(i:int) -> Item:
 	var slots_index = i + start_index
 	var item:Item
-	if slots_index < len(shop_slots):
+	if slots_index >= 0 and slots_index < len(shop_slots):
 		item = shop_slots[slots_index]["item"]
 	return item
 
 # 鼠标悬停在按钮上时调用
 # 悬停时移动选框
 func on_button_hovered(_button: Button,i:int):
+	if not interaction_enabled:
+		return
 	#print("鼠标悬浮在按钮上: ", button.name)
 	choice_high_light.position.y = choice_highlight_start.y + i * base_heigh
 	choice_high_light.show()
 	var item:Item = GetItem(i)
 	if item:
 		print("hover_emit")
-		emit_signal("item_hovered",item.description)
+		emit_signal("item_hovered", Clothing.GetDescription(item) if item.types == Item.ItemType.CLOTHES else item.description)
 
 # 鼠标离开按钮时调用
 # 离开时隐藏选框
 func on_button_unhovered(_button: Button,_i:int):
+	if not interaction_enabled:
+		return
 	#print("鼠标离开按钮: ", button.name)
 	choice_high_light.hide()
 	emit_signal("item_hovered","")
 
 func on_choice_pressed(i:int):
+	if not interaction_enabled:
+		return
 	var item:Item = GetItem(i)
 	if item:
 		if current_mode == ShopMode.BUY:
+			if item.types == Item.ItemType.CLOTHES:
+				clothing_selected.emit(item)
+				return
 			if Global.money >= item.prices:
 				Global.money -= item.prices
 				Inventory.AddItem(item.id)
@@ -149,7 +173,7 @@ func _apply_shop_item_attributes(item: Item, is_buy: bool) -> void:
 	if not item or not item.arrtibute_dict or item.arrtibute_dict.is_empty():
 		return
 	# 食物和消耗品存入背包由玩家主动使用，不在买卖时立即被动结算
-	if item.types == Item.ItemType.FOOD or item.types == Item.ItemType.CONSUMABLES:
+	if item.types in [Item.ItemType.CLOTHES, Item.ItemType.FOOD, Item.ItemType.CONSUMABLES]:
 		return
 		
 	var delta_dict: Dictionary = {}
@@ -191,14 +215,15 @@ func LoadChoices() -> void:
 		if i == 0:
 			new_choice =  $GridContainer/Button0
 		else:
-			new_choice =  $GridContainer/Button0.duplicate()
+			# Do not copy the first row's bound signals into every other row.
+			new_choice = $GridContainer/Button0.duplicate(0)
 			new_choice.name = "Button" + str(i)
 			grid_container.add_child(new_choice)
-		new_choice.pressed.connect(func():on_choice_pressed(i))
+		new_choice.pressed.connect(on_choice_pressed.bind(i))
 		# 连接鼠标进入信号，同时传递按钮和索引
-		new_choice.mouse_entered.connect(func(): on_button_hovered(new_choice, i))
+		new_choice.mouse_entered.connect(on_button_hovered.bind(new_choice, i))
 		# 连接鼠标离开信号（可选）
-		new_choice.mouse_exited.connect(func(): on_button_unhovered(new_choice, i))
+		new_choice.mouse_exited.connect(on_button_unhovered.bind(new_choice, i))
 
 ## 更新选项并且更新函数事件
 func UpdateChoice() -> void:

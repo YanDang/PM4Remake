@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var plan: Button = $Plan
 @onready var health_stat: Sprite2D = $HealthStat
 
-enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM,PLAN,DAILYTALK}
+enum CanvasType {MAIN,STATUS,TALK,HEALTH,ITEM,STREET,SYSTEM,PLAN,DAILYTALK,SAVE,SETTINGS,SHOP}
 var now_canvas_type:CanvasType = CanvasType.MAIN
 var temp_canvas_type:CanvasType
 
@@ -43,6 +43,7 @@ var temp_canvas_type:CanvasType
 
 # 动画位移
 var move_vector = Vector2(500,0)
+var records_positions: Dictionary = {}
 
 func _ready() -> void:
 	InitialUI()
@@ -89,6 +90,13 @@ func CloseCanvas() -> void:
 	now_canvas_type = CanvasType.MAIN
 	
 func _input(event: InputEvent) -> void:
+	if SceneTransition.is_transitioning or now_canvas_type in [CanvasType.SAVE, CanvasType.SETTINGS]:
+		return
+	if now_canvas_type == CanvasType.SHOP:
+		if event.is_action_pressed("cancel"):
+			$Street._on_shop_panel_cancel()
+			get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("cancel") and now_canvas_type != CanvasType.PLAN and now_canvas_type != CanvasType.TALK:
 		if now_canvas_type == CanvasType.ITEM and item_panel.is_using_item:
 			return
@@ -137,24 +145,26 @@ func LeaveHealth() -> void:
 	tween.parallel().tween_property(plan, "position", plan.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(LeaveAnimation)
 
-func LeaveItem() -> void:
+func LeaveItem(restore_main_ui: bool = true) -> void:
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	item_info.hide()
 	tween.tween_property(item_panel, "position", item_panel.position-2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():
 		item_panel.hide())
 	tween.tween_callback(func():
-		daily_action.show()
-		plan.show()
-		health_stat.show()
-		base_info.show()
-		date.show())
+		if restore_main_ui:
+			daily_action.show()
+			plan.show()
+			health_stat.show()
+			base_info.show()
+			date.show())
 	tween.tween_property(daily_action, "position", daily_action.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(plan, "position", plan.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(health_stat, "position", health_stat.position-move_vector, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(base_info, "position", base_info.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(date, "position", date.position+move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(LeaveAnimation)
+	await tween.finished
 
 func LeaveStreet() -> void:
 	var tween = get_tree().create_tween()  # 创建一个 Tween
@@ -184,6 +194,43 @@ func LeaveSystem() -> void:
 	tween.tween_property(daily_action, "position", daily_action.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(plan, "position", plan.position-move_vector, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(LeaveAnimation)
+
+func AnimateTitleExit() -> void:
+	OnAnimation()
+	var talk_layer = get_node("../TalkLayer")
+	var slide_distance = get_viewport().get_visible_rect().size.x
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	# 日期和对话框向左退出，属性面板和选项向右退出。
+	for component in [date, talk_layer.get_node("TalkEvent")]:
+		tween.tween_property(component, "position:x", component.position.x - slide_distance, 0.55)
+	for component in [base_info, health_stat, daily_action, plan, system, talk_layer.choice_ui]:
+		if component.is_visible_in_tree():
+			tween.tween_property(component, "position:x", component.position.x + slide_distance, 0.55)
+	tween.tween_property(daughter_live, "modulate:a", 0.0, 0.55)
+	await tween.finished
+
+func AnimateRecordsInterface(entering: bool) -> void:
+	var components = [date, base_info, health_stat, system]
+	var slide_distance = get_viewport().get_visible_rect().size.x
+	if entering:
+		show()
+		daughter_live.show()
+		system.show()
+	else:
+		for component in components:
+			records_positions[component] = component.position
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	for component in components:
+		var offset = Vector2(-slide_distance if component == date else slide_distance, 0)
+		var target = records_positions[component] if entering else records_positions[component] + offset
+		tween.tween_property(component, "position", target, 0.45)
+	tween.tween_property(daughter_live, "modulate:a", 1.0 if entering else 0.0, 0.45)
+	await tween.finished
+	if not entering:
+		hide()
+		daughter_live.hide()
 
 func LeavePlan() -> void:
 	var tween = get_tree().create_tween()  # 创建一个 Tween
@@ -360,6 +407,11 @@ func _on_plan_button_down() -> void:
 		daughter_live.hide())
 	
 func _on_cancel_pressed() -> void:
+	if now_canvas_type in [CanvasType.TALK, CanvasType.SAVE, CanvasType.SETTINGS] or SceneTransition.is_transitioning:
+		return
+	if now_canvas_type == CanvasType.SHOP:
+		$Street._on_shop_panel_cancel()
+		return
 	if now_canvas_type == CanvasType.ITEM and item_panel.is_using_item:
 		return
 	CloseCanvas()

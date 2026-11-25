@@ -15,7 +15,11 @@ func _ready() -> void:
 	ui.show()
 	item_info.hide()
 	talk_layer.TalkEnd()
-	call_deferred("CheckMonthlyHomeEvents")
+	if SaveManager.restoring_save:
+		# The save already includes the result of this month's home event.
+		SaveManager.restoring_save = false
+	else:
+		call_deferred("CheckMonthlyHomeEvents")
 
 # 更新主场景房间背景（根据当前季节与画作解锁等级）
 func UpdateRoomBackground() -> void:
@@ -27,6 +31,8 @@ func UpdateRoomBackground() -> void:
 
 # 按键调试支持：F5切换季节，F6切换画作等级
 func _input(event: InputEvent) -> void:
+	if SceneTransition.is_transitioning or ui.now_canvas_type in [ui.CanvasType.SAVE, ui.CanvasType.SETTINGS]:
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_F5:
 			# F5: 推进3个月切换季节 (春 4月 -> 夏 7月 -> 秋 10月 -> 冬 1月 -> 春 4月)

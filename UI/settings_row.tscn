@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sys/w_opt.png" id="1"]
+[ext_resource type="FontFile" path="res://fronts/FZCQJW.ttf" id="2"]
+
+[sub_resource type="AtlasTexture" id="RowTexture"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 440, 56)
+
+[node name="SettingRow" type="Control"]
+offset_right = 440.0
+offset_bottom = 56.0
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 440.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = SubResource("RowTexture")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 184.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.84, 1)
+theme_override_colors/font_outline_color = Color(0.5, 0.21, 0.08, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1

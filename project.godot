@@ -25,6 +25,10 @@ Daughterstatus="*res://scripts/daughterstatus.gd"
 Global="*res://scripts/global.gd"
 Globaljson="*res://scripts/globaljson.gd"
 Inventory="*res://scripts/inventory.gd"
+SceneTransition="*res://scripts/scene_transition.gd"
+SaveManager="*res://scripts/save_manager.gd"
+GameSettings="*res://scripts/game_settings.gd"
+Clothing="*res://scripts/clothing.gd"
 
 [display]
 
