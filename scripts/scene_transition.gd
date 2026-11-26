@@ -41,5 +41,7 @@ func QuitGame() -> void:
 		return
 	is_transitioning = true
 	show()
+	GameSettings.music_player.stop()
+	GameSettings.StopVoice()
 	await FadeTo(1.0)
 	get_tree().quit()

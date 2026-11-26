@@ -23,6 +23,14 @@ func Equip(item_id: String) -> Dictionary:
 		return {"error": ERR_UNAVAILABLE, "changes": {}}
 	if item_id == "c" + Daughterstatus.current_clothes_id:
 		return {"error": ERR_ALREADY_IN_USE, "changes": {}}
+	return ApplyOutfit(item)
+
+func EnsureAgeCompatibleOutfit() -> void:
+	var current: Item = Globaljson.items.get("c" + Daughterstatus.current_clothes_id)
+	if not CanWear(current):
+		ApplyOutfit(Globaljson.items["c01"])
+
+func ApplyOutfit(item: Item) -> Dictionary:
 	var changes: Dictionary = {}
 	var next_bonus: Dictionary = {}
 	var keys = Daughterstatus.clothing_bonus.keys()

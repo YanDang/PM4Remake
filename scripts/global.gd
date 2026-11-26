@@ -1,5 +1,14 @@
 extends Node
 
+const FINAL_YEAR := 1448
+const FINAL_MONTH := 3
+const ENDING_SCENE := "res://sences/ending.tscn"
+const HARVEST_SCENE := "res://sences/harvest.tscn"
+const HARVEST_MONTH := 9
+const VACATION_COST := 100
+const COURSE_LEVEL_NAMES := ["初级", "中级", "高级", "专家"]
+const COURSE_PROMOTION_COUNTS := [4, 12, 24]
+
 var week_list = ["周日","周一","周二","周三","周四","周五","周六"]
 var health_tactics = ["顺其自然","活泼取向","娴静取向","进行减肥"]
 
@@ -105,6 +114,7 @@ var art_painting_level: int = 0
 
 # 记录各季度已触发过的度假剧情事件，键为 "年_季节索引" (例如 "1440_0")
 var triggered_vacation_events: Dictionary = {}
+var completed_vacation_months: Dictionary = {}
 
 # 获取当前季节索引: 0:春(3-5月), 1:夏(6-8月), 2:秋(9-11月), 3:冬(12,1,2月)
 func get_current_season_index() -> int:
@@ -160,3 +170,153 @@ func get_days_in_month(y: int = year, m: int = month) -> int:
 # 获取当月最后一天的日期 (28/29/30/31)
 func get_current_month_end_day() -> int:
 	return get_days_in_month(year, month)
+
+func IsHarvestMonth() -> bool:
+	return month == HARVEST_MONTH and year < FINAL_YEAR
+
+func GetPlanEndDay(index: int) -> int:
+	return get_current_month_end_day() if index == 2 else (index + 1) * 10
+
+func GetPlanExpense(action: String, start_day: int, end_day: int) -> int:
+	if action == "vacation":
+		return VACATION_COST
+	if action == "recover":
+		return 0
+	var level := "level%d" % category_stage[action][0]
+	var activity: Dictionary = Globaljson.category_data[action][level]
+	if activity["type"] != "LESSON" or activity["money"] >= 0:
+		return 0
+	var class_days := 0
+	for date_day in range(start_day, end_day + 1):
+		if get_weekday(year, month, date_day) != 0:
+			class_days += 1
+	return class_days * -int(activity["money"])
+
+func GetDailyWage(action: String) -> int:
+	var activity: Dictionary = Globaljson.category_data[action]["level0"]
+	var completed_terms: int = category_stage[action][1]
+	var raises := mini(3, floori(completed_terms / 5.0))
+	var story_raise: int = activity["money_growth"] if action == "casino" and flags.get("work_casino_master", false) else 0
+	return int(activity["money"] + activity["money_growth"] * raises) + story_raise
+
+func GetWinterVacationKey(calendar_year: int, calendar_month: int) -> String:
+	var winter_start_year := calendar_year - 1 if calendar_month < 3 else calendar_year
+	return "winter_%d" % winter_start_year
+
+func GetStoryDialogue(event: Dictionary) -> Array:
+	var dialogue: Array = event.get("dialogue_script", [])
+	var crime: float = Daughterstatus.attributes["crime"]
+	var morals: float = Daughterstatus.attributes["morals"]
+	if crime >= 100 and crime > morals and event.has("rebellious_dialogue"):
+		return event["rebellious_dialogue"] + dialogue
+	return dialogue
+
+func UpdateCourseRank(action: String) -> void:
+	var progress: Array = category_stage[action]
+	var levels: Dictionary = Globaljson.category_data.get(action, {})
+	var base_level: Dictionary = levels.get("level0", {})
+	if progress[0] < 0 or base_level.get("type") != "LESSON":
+		return
+	for index in range(COURSE_PROMOTION_COUNTS.size()):
+		var rank := index + 1
+		if progress[1] >= COURSE_PROMOTION_COUNTS[index] and levels.has("level%d" % rank):
+			progress[0] = maxi(progress[0], rank)
+	if action == "art":
+		art_painting_level = maxi(art_painting_level, progress[0])
+
+func sync_calendar() -> void:
+	sync_week_index()
+	var previous_stage := Daughterstatus.age_stage
+	Daughterstatus.sync_age(year, month, day)
+	if previous_stage != Daughterstatus.age_stage:
+		Clothing.EnsureAgeCompatibleOutfit()
+		UpdateGrowthRates()
+
+func UpdateGrowthRates() -> void:
+	var stage: String = Daughterstatus.age_stage_names[Daughterstatus.age_stage]
+	growth_rates = Globaljson.health_growth[stage][health_tactics[health_index]].duplicate(true)
+
+func ApplyMonthlyGrowth() -> void:
+	var rates: Dictionary = growth_rates["monthly"]
+	for part in Daughterstatus.body_stats:
+		var growth_key: String = "hip" if part == "hips" else part
+		Daughterstatus.body_stats[part] = maxf(1.0, Daughterstatus.body_stats[part] + rates.get(growth_key, 0))
+	Daughterstatus.AddAttribute("stamina", rates.get("stamina", 0))
+
+func advance_day() -> void:
+	day += 1
+	if day > get_current_month_end_day():
+		day = 1
+		month += 1
+		if month > 12:
+			month = 1
+			year += 1
+	sync_calendar()
+
+func passed_training_deadline() -> bool:
+	return year * 100 + month > FINAL_YEAR * 100 + FINAL_MONTH
+
+func finish_training_month() -> void:
+	if SceneTransition.is_transitioning or day != get_current_month_end_day():
+		return
+	ApplyMonthlyGrowth()
+	Inventory.ApplyMonthlyItemEffects()
+	Daughterstatus.CheckOverwork()
+	already_talk = false
+	schedule_plan_index = 0
+	if year * 100 + month >= FINAL_YEAR * 100 + FINAL_MONTH:
+		SceneTransition.ChangeScene(ENDING_SCENE)
+		return
+	advance_day()
+	month_end_day = get_current_month_end_day()
+	get_tree().change_scene_to_file("res://sences/main.tscn")
+
+func MeetsHomeEventConditions(cond: Dictionary) -> bool:
+	for flag in cond.get("flags_required", []):
+		if not flags.get(flag, false):
+			return false
+	for flag in cond.get("flags_banned", []):
+		if flags.get(flag, false):
+			return false
+	if year < cond.get("min_year", year) or year > cond.get("max_year", year):
+		return false
+	if month < cond.get("min_month", month) or month > cond.get("max_month", month):
+		return false
+	if day < cond.get("min_day", day) or day > cond.get("max_day", day):
+		return false
+	var current_month := year * 100 + month
+	if current_month < cond.get("min_year_month", current_month) or current_month > cond.get("max_year_month", current_month):
+		return false
+	if cond.get("is_birth_month", false) and month != Daughterstatus.birth_month:
+		return false
+	var vacation_months: Array = cond.get("vacation_months_any", [])
+	if not vacation_months.is_empty() and not vacation_months.any(
+		func(required_month): return completed_vacation_months.get(required_month, false)
+	):
+		return false
+	var combined_affection: Dictionary = cond.get("combined_affection", {})
+	if not combined_affection.is_empty():
+		var total := 0.0
+		for character in combined_affection["characters"]:
+			total += affection.get(character, 0)
+		if total <= combined_affection["above"]:
+			return false
+	for character in cond.get("min_affection", {}):
+		if affection.get(character, 0) < cond["min_affection"][character]:
+			return false
+	for character in cond.get("max_affection", {}):
+		if affection.get(character, 0) > cond["max_affection"][character]:
+			return false
+	for stat in cond.get("min_stats", {}):
+		var value = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat))
+		if value == null or value < cond["min_stats"][stat]:
+			return false
+	for stat in cond.get("max_stats", {}):
+		var value = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat))
+		if value != null and value > cond["max_stats"][stat]:
+			return false
+	for stat in cond.get("stats_below", {}):
+		var value = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat))
+		if value == null or value >= cond["stats_below"][stat]:
+			return false
+	return true

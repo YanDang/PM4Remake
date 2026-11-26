@@ -5,6 +5,7 @@ extends Node2D
 @onready var cancel: Button = $Cancel
 @onready var money: Sprite2D = $"../../UI/Money"
 @onready var shop_stat: Label = $ShopStat
+@onready var purchase_notice: Label = $PurchaseNotice
 @onready var daughter_live: Node2D = $"../../DaughterLive"
 
 # 基本位移量
@@ -48,9 +49,10 @@ func SetInteraction(enabled: bool) -> void:
 
 # Called when the node enters the scene tree for the first time
 func InitPanel(this_shop_slots:Array, mode: int = ShopMode.BUY):
+	purchase_notice.hide()
 	current_mode = mode
 	if current_mode == ShopMode.BUY:
-		shop_slots = this_shop_slots
+		shop_slots = this_shop_slots.filter(func(slot): return CanBuyThisMonth(slot["item"]))
 		shop_stat.text = "买 入"
 	elif current_mode == ShopMode.SELL:
 		Inventory.SortSlots()
@@ -62,6 +64,9 @@ func InitPanel(this_shop_slots:Array, mode: int = ShopMode.BUY):
 	choice_high_light.hide()
 	# 获取所有子节点（按钮）并更新
 	UpdateChoice()
+
+func CanBuyThisMonth(item: Item) -> bool:
+	return not item.birthday_only or Global.month == Daughterstatus.birth_month
 	
 func filter_sellable_items(all_slots: Array) -> Array:
 	var sellable_slots = []
@@ -69,18 +74,22 @@ func filter_sellable_items(all_slots: Array) -> Array:
 	if daughter_live:
 		current_clothes = daughter_live.current_clothes
 		
-	for slot in all_slots:
+	for index in range(all_slots.size()):
+		var slot: Dictionary = all_slots[index]
 		if slot["item"]:
 			if slot["item"].important:
 				continue
 			if slot["item"].types == Item.ItemType.CLOTHES and slot["item"].name == current_clothes:
 				continue
-			sellable_slots.append(slot)
+			if Inventory.IsEquippedGear(slot["item"]) and Inventory.GetItemCount(slot["item"].id) <= 1:
+				continue
+			sellable_slots.append({"item": slot["item"], "count": slot["count"], "inventory_index": index})
 	return sellable_slots
 	
 func _on_cancel() -> void:
 	if not interaction_enabled:
 		return
+	purchase_notice.hide()
 	var arrtibute = _get_arrtibute_node()
 	if arrtibute and (arrtibute.visible or arrtibute.annotation_visible):
 		arrtibute.AnnotationEnd()
@@ -143,12 +152,20 @@ func on_choice_pressed(i:int):
 	var item:Item = GetItem(i)
 	if item:
 		if current_mode == ShopMode.BUY:
+			if not CanBuyThisMonth(item):
+				return
+			purchase_notice.hide()
 			if item.types == Item.ItemType.CLOTHES:
 				clothing_selected.emit(item)
 				return
+			if not item.monthly_effects.is_empty() and Inventory.HasItem(item.id):
+				purchase_notice.text = "已持有%s，每种只能购买一件。" % item.name
+				purchase_notice.show()
+				return
 			if Global.money >= item.prices:
+				if not Inventory.AddItem(item.id):
+					return
 				Global.money -= item.prices
-				Inventory.AddItem(item.id)
 				_apply_shop_item_attributes(item, true)
 				print("购买成功: ", item.name)
 				
@@ -156,11 +173,16 @@ func on_choice_pressed(i:int):
 				if money:
 					money.UpdateStatus()
 			else:
-				print("金钱不足，无法购买: ", item.name)
+				purchase_notice.text = "余额不足，需 %d G，现有 %d G" % [item.prices, Global.money]
+				purchase_notice.show()
 		elif current_mode == ShopMode.SELL:
+			if Inventory.IsEquippedGear(item) and Inventory.GetItemCount(item.id) <= 1:
+				return
+			var inventory_index: int = shop_slots[i + start_index]["inventory_index"]
+			if not Inventory.RemoveFromSlot(inventory_index):
+				return
 			var sell_price = int(item.prices / 2)
 			Global.money += sell_price
-			Inventory.RemoveItem(item.id, 1)
 			_apply_shop_item_attributes(item, false)
 			print("卖出成功: ", item.name)
 			
@@ -173,7 +195,7 @@ func _apply_shop_item_attributes(item: Item, is_buy: bool) -> void:
 	if not item or not item.arrtibute_dict or item.arrtibute_dict.is_empty():
 		return
 	# 食物和消耗品存入背包由玩家主动使用，不在买卖时立即被动结算
-	if item.types in [Item.ItemType.CLOTHES, Item.ItemType.FOOD, Item.ItemType.CONSUMABLES]:
+	if item.types in [Item.ItemType.CLOTHES, Item.ItemType.WEAPON, Item.ItemType.ARMOR, Item.ItemType.FOOD, Item.ItemType.CONSUMABLES]:
 		return
 		
 	var delta_dict: Dictionary = {}
@@ -258,9 +280,11 @@ func UpdateChoice() -> void:
 		next.show()
 
 func _on_next_pressed() -> void:
+	purchase_notice.hide()
 	start_index += 5
 	UpdateChoice()
 
 func _on_previous_pressed() -> void:
+	purchase_notice.hide()
 	start_index -= 5
 	UpdateChoice()

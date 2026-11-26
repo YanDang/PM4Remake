@@ -23,3 +23,9 @@ var important:bool = false
 var arrtibute_dict:Dictionary
 
 var body_dict:Dictionary
+var combat_bonus: Dictionary
+var monthly_effects: Dictionary
+var birthday_only := false
+
+func GetStackLimit() -> int:
+	return maxi(1, max_stack) if stackable else 1

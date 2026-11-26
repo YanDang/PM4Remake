@@ -201,6 +201,13 @@ func TriggerEvent(location_name: String):
 	if site_data.has(location_name):
 		site_bg.texture = load("res://assets/sys/" + site_data[location_name]["bg"])
 		site_name_label.text = site_data[location_name]["name"]
+	if location_name == "Hospital" and Daughterstatus.is_ill and talk_layer:
+		talk_layer.RegisterCallback(func(index):
+			Daughterstatus.FinishHospitalTreatment(index)
+			ReturnToCityMap()
+		)
+		talk_layer.TalkStart(Daughterstatus.HOSPITAL_TREATMENT)
+		return
 	
 	var chosen_event = GetAvailableEventForLocation(location_name)
 	if chosen_event.is_empty():
@@ -305,7 +312,7 @@ func PlayEvent(event: Dictionary):
 			Global.affection[chara] = 0
 		Global.affection[chara] += aff[chara]
 		
-	var stats = event.get("add_stats", event.get("stats_changes", {}))
+	var stats = event.get("add_stats", event.get("stat_changes", event.get("stats_changes", {})))
 	for stat in stats:
 		if Daughterstatus.attributes.has(stat):
 			Daughterstatus.AddAttribute(stat, stats[stat])
@@ -378,7 +385,7 @@ func PlayEvent(event: Dictionary):
 			# 关闭界面并返回城镇
 			ReturnToCityMap()
 		)
-		talk_layer.TalkStart(event["dialogue_script"], settle_type, {}, choice_list)
+		talk_layer.TalkStart(Global.GetStoryDialogue(event), settle_type, {}, choice_list)
 	else:
 		print("TalkLayer not found! Dialogue:\n", event["dialogue_script"])
 
@@ -426,15 +433,13 @@ func StartTimeLapseAndExit() -> void:
 	# 时间流逝跳动动画（逐日推进并刷新表盘）
 	while Global.day < plan_end_day:
 		await get_tree().create_timer(0.08).timeout
-		Global.day += 1
-		Global.week_index = (Global.week_index + 1) % 7
+		Global.advance_day()
 		if date:
 			date.UpdateStatus()
 			
 	# 若不是最后一旬，推进1天到下一旬的首日（如10日->11日，20日->21日）
 	if Global.schedule_plan_index < 2 and Global.day == plan_end_day:
-		Global.day += 1
-		Global.week_index = (Global.week_index + 1) % 7
+		Global.advance_day()
 		if date:
 			date.UpdateStatus()
 			
@@ -446,17 +451,7 @@ func StartTimeLapseAndExit() -> void:
 	Global.schedule_plan_index += 1
 	
 	if Global.schedule_plan_index >= 3:
-		# 本月所有计划执行完毕，跨月并返回主场景
-		Global.day = 1
-		Global.month += 1
-		if Global.month > 12:
-			Global.month = 1
-			Global.year += 1
-		Global.already_talk = false
-		Global.schedule_plan_index = 0
-		Global.month_end_day = Global.get_current_month_end_day()
-		Global.sync_week_index()
-		get_tree().change_scene_to_file("res://sences/main.tscn")
+		Global.finish_training_month()
 	else:
 		# 返回排程场景继续后续计划
 		get_tree().change_scene_to_file("res://sences/schedule.tscn")
@@ -482,6 +477,8 @@ func DefaultFallback(location_name: String):
 		print("TalkLayer not found! No event dialogue played.")
 
 func _input(event: InputEvent) -> void:
+	if not OS.has_feature("editor") or "--debug-shortcuts" not in OS.get_cmdline_user_args():
+		return
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_1:
 			Daughterstatus.age_stage = Daughterstatus.AgeStageType.CHILD

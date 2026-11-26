@@ -2,6 +2,8 @@ extends Node
 
 const SAVE_PANEL_SCENE = preload("res://UI/save_panel.tscn")
 const SETTINGS_PANEL_SCENE = preload("res://UI/settings_panel.tscn")
+const GUIDE_TOPICS := ["street", "stature", "talk", "item", "health"]
+const GUIDE_LABELS := ["上街", "状态", "对话", "道具", "健康", "返回"]
 
 @onready var menu: Node2D = $System
 @onready var ui: CanvasLayer = $".."
@@ -11,6 +13,7 @@ var confirming_title: bool = false
 var save_panel: CanvasLayer
 var records_transitioning: bool = false
 var settings_panel: CanvasLayer
+var choosing_guide_topic := false
 
 func _on_choice_pressed(_choice_text: String, choice_index: int) -> void:
 	if confirming_title or records_transitioning or SceneTransition.is_transitioning or (is_instance_valid(save_panel) and save_panel.visible) or (is_instance_valid(settings_panel) and settings_panel.visible):
@@ -24,6 +27,9 @@ func _on_choice_pressed(_choice_text: String, choice_index: int) -> void:
 	if choice_index == 2:
 		OpenSettingsPanel()
 		return
+	if choice_index == 4:
+		OpenBeginnerGuide()
+		return
 	if choice_index != 3:
 		return
 	confirming_title = true
@@ -34,6 +40,23 @@ func _on_choice_pressed(_choice_text: String, choice_index: int) -> void:
 		"character": "",
 		"text": "要返回到游戏的标题画面。\n这样可以吗？"
 	}], talk_layer.SettleType.CHOICE, {}, ["是", "否"], true)
+
+func OpenBeginnerGuide() -> void:
+	menu.hide()
+	choosing_guide_topic = true
+	talk_layer.RegisterCallback(ChooseBeginnerGuideTopic)
+	talk_layer.TalkStart(
+		[{"character": "", "text": "想了解哪一项？"}],
+		talk_layer.SettleType.CHOICE, {}, GUIDE_LABELS, true
+	)
+
+func ChooseBeginnerGuideTopic(index: int) -> void:
+	choosing_guide_topic = false
+	if index < 0 or index >= GUIDE_TOPICS.size():
+		menu.show()
+		return
+	talk_layer.RegisterCallback(func(_index): menu.show())
+	talk_layer.TalkStart(Globaljson.beginner_guide_data[GUIDE_TOPICS[index]])
 
 func OpenSavePanel(open_mode: int = 0) -> void:
 	if not is_instance_valid(save_panel):
@@ -77,6 +100,12 @@ func ConfirmReturnToTitle(choice_index: int) -> void:
 		ui.now_canvas_type = ui.CanvasType.SYSTEM
 
 func _input(event: InputEvent) -> void:
-	if confirming_title and event.is_action_pressed("cancel"):
-		get_viewport().set_input_as_handled()
+	if not event.is_action_pressed("cancel"):
+		return
+	if confirming_title:
 		talk_layer._on_choice_pressed("否", 1)
+	elif choosing_guide_topic:
+		talk_layer._on_choice_pressed("返回", GUIDE_TOPICS.size())
+	else:
+		return
+	get_viewport().set_input_as_handled()

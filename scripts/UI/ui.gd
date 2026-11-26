@@ -49,8 +49,11 @@ func _ready() -> void:
 	InitialUI()
 	talk.init(["打招呼","温柔地说话","严厉地说话","给零用钱"])
 	health.init(["顺其自然","以活泼为目标培养","以娴静为目标培养","进行减肥"])
-	street.init(["道具店","洋装店","餐厅","教会","医院"])
-	system.init(["储存游戏","读取记录","设定选项","标题界面"])
+	var street_choices := ["道具店", "洋装店", "餐厅", "教会", "医院"]
+	if Global.IsHarvestMonth():
+		street_choices.append("收获祭")
+	street.init(street_choices)
+	system.init(["储存游戏","读取记录","设定选项","标题界面","新手指引"])
 
 func InitialUI() -> void:
 	daughter_live.show()
@@ -382,6 +385,7 @@ func _on_system_button_down() -> void:
 	tween.tween_callback(func():now_canvas_type=CanvasType.SYSTEM)
 
 func _on_plan_button_down() -> void:
+	plan_choose.UpdateCategoryStatus()
 	OnAnimation()
 	var tween = get_tree().create_tween()  # 创建一个 Tween
 	tween.tween_property(daily_action, "position", daily_action.position+move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

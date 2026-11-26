@@ -54,12 +54,19 @@ func _on_shop_panel_cancel():
 		var next_talk = "normal"
 		if conversation[current_shop_name].has("after_choice"):
 			next_talk = "after_choice"
-		talk_layer.TalkStart(conversation[current_shop_name][next_talk],2,{},["购买物品","卖出物品","离开商店"])
+		talk_layer.TalkStart(conversation[current_shop_name][next_talk],2,{},ItemShopChoices())
 	else:
 		# 服装店和餐厅直接离开商店
 		LeaveShopWithDialogue()
 
 func _on_choice_pressed(_choice_text: String,choice_index:int):
+	if SceneTransition.is_transitioning:
+		return
+	if choice_index == shop_names.size():
+		if Global.IsHarvestMonth():
+			ui.now_canvas_type = ui.CanvasType.TALK
+			SceneTransition.ChangeScene(Global.HARVEST_SCENE)
+		return
 	current_shop_index = choice_index
 	current_shop_name = shop_names[current_shop_index]
 	ui.now_canvas_type = ui.CanvasType.TALK
@@ -72,10 +79,18 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 	
 	var greeting_key = get_greeting_key()
 	
-	if choice_index == 0:
-		talk_layer.TalkStart(conversation[current_shop_name][greeting_key],2,{},["购买物品","卖出物品","离开商店"])
+	if current_shop_name == "hospital" and Daughterstatus.is_ill:
+		talk_layer.RegisterCallback(FinishHospitalVisit)
+		talk_layer.TalkStart(Daughterstatus.HOSPITAL_TREATMENT)
+	elif choice_index == 0:
+		talk_layer.TalkStart(conversation[current_shop_name][greeting_key],2,{},ItemShopChoices())
 	else:
 		talk_layer.TalkStart(conversation[current_shop_name][greeting_key],0)
+
+func FinishHospitalVisit(choice_index: int) -> void:
+	Daughterstatus.FinishHospitalTreatment(choice_index)
+	ui.health_stat.UpdateStatus()
+	LeaveShopWithDialogue()
 func LeaveShopWithDialogue():
 	if conversation[current_shop_name].has("leave"):
 		talk_layer.RegisterCallback(func(_idx): LeaveShop())
@@ -95,20 +110,29 @@ func get_greeting_key() -> String:
 		Global.visited_shops[current_shop_name] = true
 		return "first_time"
 	return "normal"
+func ItemShopChoices() -> Array:
+	var choices := ["购买物品", "卖出物品", "离开商店"]
+	if Inventory.HasItem("o15"):
+		choices.append("珍品柜台")
+	return choices
+
 func ChoiceEvent(_choice_index:int):
 	# 4是医院，它们没有购买面板，结束对话直接离开
 	if current_shop_index >= 4:
 		LeaveShopWithDialogue()
 		return
+	if _choice_index == 3 and (current_shop_name != "item_shop" or not Inventory.HasItem("o15")):
+		return
 		
 	match _choice_index:
-		0:
+		0, 3:
+			var stock := "rare_shop" if _choice_index == 3 else current_shop_name
 			shop_transitioning = true
 			var tween = get_tree().create_tween()  # 创建一个 Tween
 			tween.tween_callback(func():
 				shop_panel.show()
 				item_info.show()
-				shop_panel.InitPanel(Globaljson.shop_items[current_shop_name], 0)
+				shop_panel.InitPanel(Globaljson.shop_items[stock], 0)
 				shop_panel.SetInteraction(false)) # BUY mode
 			tween.tween_property(shop_panel, "position", shop_panel.position+2*move_vector, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 			await tween.finished

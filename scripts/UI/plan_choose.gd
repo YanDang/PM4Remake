@@ -35,8 +35,6 @@ var activate_list:Array=[
 	[Vector2(-125,-126),Vector2(-57,-126),Vector2(-4,-128),Rect2(0,356,224,50)]
 ]
 
-var course_levels = ["初级","中级","高级","专家"]
-
 func _ready():
 	plan_info.hide()
 	# 枚举所有按钮，增加选框移动事件
@@ -56,7 +54,9 @@ func _ready():
 func UpdateCategoryStatus() -> void:
 	for grid_container in grids:
 		for button in grid_container.get_children():
-			if Global.category_stage[button.name][0] == -1:
+			if button.name == "recover":
+				button.visible = Daughterstatus.is_ill
+			elif Global.category_stage[button.name][0] == -1:
 				button.hide()
 			else:
 				button.show()
@@ -75,16 +75,17 @@ func on_button_hovered(button:TextureButton):
 	if activate_index == 0:
 		var category_stage = Global.category_stage[button.name][0]
 		category_dict = Globaljson.category_data[button.name]["level"+str(category_stage)]
-		category_name.text += "  " + course_levels[category_stage]
+		category_name.text += "  " + Global.COURSE_LEVEL_NAMES[category_stage]
 	else:
 		category_dict = Globaljson.category_data[button.name]["level0"]
-	if category_dict["money"] > 0:
+	var amount := Global.GetDailyWage(button.name) if category_dict["type"] == "WORK" else int(category_dict["money"])
+	if amount > 0:
 		num.add_theme_color_override("font_color",colors["up"])
-	elif category_dict["money"] < 0:
+	elif amount < 0:
 		num.add_theme_color_override("font_color",colors["down"])
 	else:
 		num.add_theme_color_override("font_color",colors["normal"])
-	num.text = str(int(category_dict["money"]))
+	num.text = str(amount)
 
 func on_button_unhovered(_button:TextureButton):
 	choose_high_light.hide()

@@ -1,0 +1,256 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/Battle/harvest.gd" id="1"]
+[ext_resource type="FontFile" path="res://fronts/FZCQJW.ttf" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="Card"]
+bg_color = Color(0.13, 0.21, 0.20, 1)
+border_width_top = 2
+border_color = Color(0.78, 0.58, 0.33, 1)
+content_margin_left = 42.0
+content_margin_top = 34.0
+content_margin_right = 42.0
+content_margin_bottom = 34.0
+
+[sub_resource type="StyleBoxFlat" id="MeterTrack"]
+bg_color = Color(0.08, 0.14, 0.14, 1)
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="PlayerMeter"]
+bg_color = Color(0.29, 0.62, 0.50, 1)
+
+[sub_resource type="StyleBoxFlat" id="RivalMeter"]
+bg_color = Color(0.73, 0.46, 0.32, 1)
+
+[sub_resource type="Theme" id="Theme"]
+default_font = ExtResource("2")
+default_font_size = 25
+Label/colors/font_color = Color(0.97, 0.92, 0.81, 1)
+ProgressBar/styles/background = SubResource("MeterTrack")
+
+[node name="Harvest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.07, 0.12, 0.12, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(840, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Card")
+
+[node name="Content" type="VBoxContainer" parent="Center/Card"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="ContestTabs" type="HBoxContainer" parent="Center/Card/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ArenaTab" type="Button" parent="Center/Card/Content/ContestTabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "擂台"
+
+[node name="GardenTab" type="Button" parent="Center/Card/Content/ContestTabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "园艺评比"
+
+[node name="StoryTab" type="Button" parent="Center/Card/Content/ContestTabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "故事演说"
+
+[node name="Title" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "收获祭擂台"
+theme_override_font_sizes/font_size = 52
+
+[node name="Contestants" type="HBoxContainer" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 44
+
+[node name="Player" type="VBoxContainer" parent="Center/Card/Content/Contestants"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerName" type="Label" parent="Center/Card/Content/Contestants/Player"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlayerHealth" type="ProgressBar" parent="Center/Card/Content/Contestants/Player"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/fill = SubResource("PlayerMeter")
+show_percentage = false
+
+[node name="PlayerStats" type="Label" parent="Center/Card/Content/Contestants/Player"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="PlayerGear" type="Label" parent="Center/Card/Content/Contestants/Player"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74, 0.82, 0.73, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="Rival" type="VBoxContainer" parent="Center/Card/Content/Contestants"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="RivalName" type="Label" parent="Center/Card/Content/Contestants/Rival"]
+layout_mode = 2
+text = "守擂人"
+
+[node name="RivalHealth" type="ProgressBar" parent="Center/Card/Content/Contestants/Rival"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/fill = SubResource("RivalMeter")
+show_percentage = false
+
+[node name="Forecast" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.68, 0.42, 1)
+
+[node name="Status" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 3
+
+[node name="Controls" type="HBoxContainer" parent="Center/Card/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Register" type="Button" parent="Center/Card/Content/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(148, 48)
+layout_mode = 2
+text = "报名参赛"
+
+[node name="Actions" type="HBoxContainer" parent="Center/Card/Content/Controls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Physical" type="Button" parent="Center/Card/Content/Controls/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+text = "武技"
+
+[node name="Magic" type="Button" parent="Center/Card/Content/Controls/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+text = "术法"
+
+[node name="Guard" type="Button" parent="Center/Card/Content/Controls/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 48)
+layout_mode = 2
+text = "防守蓄势"
+
+[node name="Entries" type="HBoxContainer" parent="Center/Card/Content/Controls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Entry0" type="Button" parent="Center/Card/Content/Controls/Entries"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="Entry1" type="Button" parent="Center/Card/Content/Controls/Entries"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="Entry2" type="Button" parent="Center/Card/Content/Controls/Entries"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="Withdrawal" type="HBoxContainer" parent="Center/Card/Content/Controls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ConfirmWithdrawal" type="Button" parent="Center/Card/Content/Controls/Withdrawal"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(148, 48)
+layout_mode = 2
+text = "确认退赛"
+
+[node name="KeepPlaying" type="Button" parent="Center/Card/Content/Controls/Withdrawal"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(148, 48)
+layout_mode = 2
+text = "继续比赛"
+
+[node name="Space" type="Control" parent="Center/Card/Content/Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Back" type="Button" parent="Center/Card/Content/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(148, 48)
+layout_mode = 2
+text = "返回房间"
+
+[connection signal="pressed" from="Center/Card/Content/ContestTabs/ArenaTab" to="." method="SelectContest" binds=[0]]
+[connection signal="pressed" from="Center/Card/Content/ContestTabs/GardenTab" to="." method="SelectContest" binds=[1]]
+[connection signal="pressed" from="Center/Card/Content/ContestTabs/StoryTab" to="." method="SelectContest" binds=[2]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Register" to="." method="Register"]
+[connection signal="pressed" from="Center/Card/Content/Controls/Actions/Physical" to="." method="PlayTurn" binds=[0]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Actions/Magic" to="." method="PlayTurn" binds=[1]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Actions/Guard" to="." method="PlayTurn" binds=[2]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Entries/Entry0" to="." method="SubmitEntry" binds=[0]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Entries/Entry1" to="." method="SubmitEntry" binds=[1]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Entries/Entry2" to="." method="SubmitEntry" binds=[2]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Withdrawal/ConfirmWithdrawal" to="." method="Finish" binds=["withdrawn"]]
+[connection signal="pressed" from="Center/Card/Content/Controls/Withdrawal/KeepPlaying" to="." method="KeepPlaying"]
+[connection signal="pressed" from="Center/Card/Content/Controls/Back" to="." method="GoBack"]

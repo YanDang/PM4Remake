@@ -7,16 +7,41 @@ const GLOBAL_FIELDS = [
 	"year", "month", "day", "week_index", "father_name", "money", "health_index",
 	"already_talk", "visited_shops", "flags", "affection", "month_plan",
 	"month_end_day", "schedule_plan_index", "is_outing_mode", "outing_actions_left",
-	"growth_rates", "category_stage", "art_painting_level", "triggered_vacation_events"
+	"growth_rates", "category_stage", "art_painting_level", "triggered_vacation_events",
+	"completed_vacation_months"
 ]
 const DAUGHTER_FIELDS = [
 	"firstname", "secondname", "attributes", "age", "age_stage", "current_clothes_id",
 	"current_clothes_name", "birth_year", "birth_month", "birth_day", "is_ill",
-	"bloodtype", "body_stats", "clothing_bonus"
+	"bloodtype", "body_stats", "clothing_bonus", "equipped_gear"
 ]
 
 var save_directory: String = "user://saves"
+var ending_collection_path: String = "user://ending_gallery.cfg"
 var restoring_save: bool = false
+
+func ReadEndingCollection() -> ConfigFile:
+	var collection := ConfigFile.new()
+	var error := collection.load(ending_collection_path)
+	if error != OK and error != ERR_FILE_NOT_FOUND:
+		push_warning("Could not read ending collection: %s" % error_string(error))
+	return collection
+
+func RecordEnding(id: String, daughter_name: String) -> Error:
+	var collection := ConfigFile.new()
+	var load_error := collection.load(ending_collection_path)
+	if load_error != OK and load_error != ERR_FILE_NOT_FOUND:
+		return load_error
+	if collection.has_section_key("endings", id):
+		return OK
+	collection.set_value("endings", id, daughter_name)
+	var temporary_path := ending_collection_path + ".tmp"
+	var error := collection.save(temporary_path)
+	if error == OK:
+		error = DirAccess.rename_absolute(temporary_path, ending_collection_path)
+	if error != OK:
+		DirAccess.remove_absolute(temporary_path)
+	return error
 
 func SlotPath(slot: int) -> String:
 	return save_directory.path_join("slot_%02d.json" % (slot + 1))
@@ -73,6 +98,11 @@ func ReadSlot(slot: int) -> Dictionary:
 	# Older version-1 records predate equipment bonuses; retain their stored stats.
 	if not state["daughter"].has("clothing_bonus"):
 		state["daughter"]["clothing_bonus"] = {}
+	if not state["daughter"].has("equipped_gear"):
+		state["daughter"]["equipped_gear"] = {"weapon": "", "armor": ""}
+	if not state["global"].has("completed_vacation_months"):
+		# A calendar-year winter flag alone cannot determine the vacation month.
+		state["global"]["completed_vacation_months"] = {}
 	for field in ["saved_at", "father_name", "daughter_name"]:
 		if not metadata[field] is String:
 			return {}
@@ -81,7 +111,29 @@ func ReadSlot(slot: int) -> Dictionary:
 			return {}
 	if not ValidateState(state):
 		return {}
+	MigrateWinterVacationRewards(state["global"])
+	var date: Dictionary = state["global"]
+	var daughter: Dictionary = state["daughter"]
+	metadata["age"] = Daughterstatus.age_on(
+		date["year"], date["month"], date["day"],
+		daughter["birth_year"], daughter["birth_month"], daughter["birth_day"]
+	)
 	return data
+
+func MigrateWinterVacationRewards(game: Dictionary) -> void:
+	var visits: Dictionary = game["completed_vacation_months"]
+	var rewards: Dictionary = game["triggered_vacation_events"]
+	var first_winter_month_by_year := {}
+	for date_key in visits:
+		if not str(date_key).is_valid_int() or not visits[date_key]:
+			continue
+		var date := int(date_key)
+		var month := date % 100
+		var year := floori(date / 100.0)
+		if month in [1, 2, 12] and rewards.get("%d_3" % year, false):
+			first_winter_month_by_year[year] = mini(month, first_winter_month_by_year.get(year, month))
+	for year in first_winter_month_by_year:
+		rewards[Global.GetWinterVacationKey(year, first_winter_month_by_year[year])] = true
 
 func IsNumber(value: Variant) -> bool:
 	return (value is int or value is float) and is_finite(float(value))
@@ -138,11 +190,19 @@ func ValidateState(state: Dictionary) -> bool:
 		for value in progress:
 			if not IsNumber(value) or float(value) != floor(float(value)):
 				return false
+	var owned_items := {}
 	for entry in state["inventory"]:
 		if not entry is Dictionary or not entry.get("id") is String or not IsNumber(entry.get("count")):
 			return false
 		if not Globaljson.items.has(entry["id"]) or entry["count"] < 1 or entry["count"] != floor(entry["count"]):
 			return false
+		owned_items[entry["id"]] = true
+	for gear_slot in ["weapon", "armor"]:
+		var item_id: String = daughter["equipped_gear"][gear_slot]
+		if not item_id.is_empty():
+			var item: Item = Globaljson.items.get(item_id)
+			if item == null or not owned_items.has(item_id) or Inventory.GearSlot(item) != gear_slot:
+				return false
 	return true
 
 func RestoreFields(node: Node, data: Dictionary, fields: Array) -> void:
@@ -154,6 +214,19 @@ func RestoreFields(node: Node, data: Dictionary, fields: Array) -> void:
 			value = value.duplicate(true)
 		node.set(field, value)
 
+func StartNewGame() -> void:
+	var global_defaults = Global.get_script().new()
+	var daughter_defaults = Daughterstatus.get_script().new()
+	RestoreFields(Global, CaptureFields(global_defaults, GLOBAL_FIELDS), GLOBAL_FIELDS)
+	RestoreFields(Daughterstatus, CaptureFields(daughter_defaults, DAUGHTER_FIELDS), DAUGHTER_FIELDS)
+	global_defaults.free()
+	daughter_defaults.free()
+	Inventory.ResetSlots()
+	Global.month_end_day = Global.get_current_month_end_day()
+	Global.sync_calendar()
+	Global.UpdateGrowthRates()
+	restoring_save = false
+
 func LoadSlot(slot: int) -> Error:
 	if slot < 0 or slot >= SLOT_COUNT:
 		return ERR_INVALID_PARAMETER
@@ -162,15 +235,15 @@ func LoadSlot(slot: int) -> Error:
 		return ERR_FILE_CORRUPT if FileAccess.file_exists(SlotPath(slot)) else ERR_FILE_NOT_FOUND
 	# Validate the entire record before changing any live game data.
 	var state = data["state"]
-	var inventory: Array = []
-	for entry in state["inventory"]:
-		inventory.append({"item": Globaljson.items[entry["id"]], "count": int(entry["count"])})
 	RestoreFields(Global, state["global"], GLOBAL_FIELDS)
 	RestoreFields(Daughterstatus, state["daughter"], DAUGHTER_FIELDS)
 	# JSON numbers are floats; course stages are used as array indexes.
 	for category in Global.category_stage:
 		Global.category_stage[category] = [int(Global.category_stage[category][0]), int(Global.category_stage[category][1])]
-	Inventory.slots = inventory
+		Global.UpdateCourseRank(category)
+	Inventory.RestoreSlots(state["inventory"])
+	Global.sync_calendar()
+	Global.UpdateGrowthRates()
 	restoring_save = true
 	return OK
 

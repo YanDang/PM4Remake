@@ -92,7 +92,7 @@ func _on_plan_choose_plan_click(plan_button: TextureButton) -> void:
 	is_busy = true
 	if plan_index < 3:
 		# 将当前计划加入行程安排
-		plan_list.append(plan_button.name)
+		plan_list.append(String(plan_button.name))
 		var start_index = plan_index*10+Global.week_index
 		var end_index
 		if plan_index == 2:
@@ -134,7 +134,7 @@ func DelAllPlan() -> void:
 		return
 	for i in range(Global.week_index,Global.week_index+end_day):
 		plan_icons[i].hide()
-	# 重置plan_index
+	plan_list.clear()
 	plan_index = 0
 	is_busy = false
 	

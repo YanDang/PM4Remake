@@ -73,7 +73,7 @@ func on_button_unhovered(_button: Button,_i:int):
 var is_using_item: bool = false
 
 # 点击物品就使用
-func on_button_pressed(_button:Button,item:Item):
+func on_button_pressed(item: Item, slot_index: int):
 	if is_using_item:
 		return
 		
@@ -81,13 +81,17 @@ func on_button_pressed(_button:Button,item:Item):
 	if item.types == Item.ItemType.CLOTHES:
 		UseClothing(item)
 		return
+	if not Inventory.GearSlot(item).is_empty():
+		if Inventory.ToggleGear(item):
+			UpdateChoice()
+		return
 	if item.types == Item.ItemType.FOOD or item.types == Item.ItemType.CONSUMABLES:
 		is_using_item = true
 		arrtibute.AnnotationStart(item.arrtibute_dict)
 		for key in item.body_dict.keys():
 			Daughterstatus.body_stats[key] += item.body_dict[key] * Daughterstatus.body_stats[key]
 		await arrtibute.settle_end 
-		Inventory.RemoveItem(item.id,1)
+		Inventory.RemoveFromSlot(slot_index)
 		RefreshInventory()
 		ui.now_canvas_type = ui.CanvasType.ITEM
 		is_using_item = false
@@ -142,12 +146,9 @@ func FinishClothingChange(_index: int) -> void:
 	ui.LeaveAnimation()
 
 func on_choice_pressed(i:int):
-	#var slots_index = i + start_index
-	#if slots_index < len(Inventory.slots):
-		#var item:Item = Inventory.slots[slots_index]["item"]
 	var item:Item = GetItem(i)
 	if item:
-		on_button_pressed(grid_container.get_node("Button" + str(i)), item)
+		on_button_pressed(item, i + start_index)
 
 ## 加载按钮,一次全加载出来算了……没用到的直接hide
 func LoadChoices() -> void:
@@ -179,7 +180,12 @@ func UpdateChoice() -> void:
 		var current_item = Inventory.slots[slots_index]["item"]
 		var current_count = Inventory.slots[slots_index]["count"]
 		var equipped = current_item.types == Item.ItemType.CLOTHES and current_item.id == "c" + Daughterstatus.current_clothes_id
-		temp_node.text = current_item.name + ("（穿着中）" if equipped else " x" + str(current_count))
+		var suffix := " x" + str(current_count)
+		if equipped:
+			suffix = "（穿着中）"
+		elif Inventory.IsEquippedGear(current_item):
+			suffix = "（装备中）"
+		temp_node.text = current_item.name + suffix
 		temp_node.icon = load("res://animation/item/%s.tres" % type_name[Inventory.slots[slots_index]["item"].types])
 		temp_node.get_node("Label").text = str(Inventory.slots[slots_index]["item"].prices) + " G"
 	for i in range(choice_nums,max_item_nums):

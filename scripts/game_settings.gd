@@ -6,6 +6,11 @@ const DEFAULTS = {"music_volume": 1, "sound_volume": 1, "voice_volume": 1, "text
 const VOLUME_LEVELS = [0.0, 0.25, 0.6, 1.0]
 const TEXT_SPEEDS = [90.0, 40.0, 15.0]
 const AUDIO_BUSES = {"music_volume": "Music", "sound_volume": "SFX", "voice_volume": "Voice"}
+const SCENE_TRACKS := {
+	"title": "title", "records": "title", "settings": "title", "gallery": "title",
+	"main": "room", "schedule": "room", "ending": "room",
+	"city": "outing", "harvest": "outing", "arena": "outing"
+}
 
 var values: Dictionary = DEFAULTS.duplicate()
 var config_path: String = "user://settings.cfg"
@@ -15,6 +20,7 @@ var voice_player: AudioStreamPlayer
 var click_sound: AudioStreamWAV
 var windowed_size: Vector2i
 var windowed_position: Vector2i
+var chinese_voice_id := ""
 
 func _ready() -> void:
 	for bus_name in AUDIO_BUSES.values():
@@ -29,6 +35,11 @@ func _ready() -> void:
 		windowed_size = DisplayServer.window_get_size()
 		windowed_position = DisplayServer.window_get_position()
 	LoadSettings()
+	if DisplayServer.has_feature(DisplayServer.FEATURE_TEXT_TO_SPEECH):
+		var voices := DisplayServer.tts_get_voices_for_language("zh")
+		if not voices.is_empty():
+			chinese_voice_id = voices[0]
+	get_tree().scene_changed.connect(PlaySceneMusic)
 	get_tree().node_added.connect(ConnectButtonSound)
 
 func CreatePlayer(bus_name: String) -> AudioStreamPlayer:
@@ -79,6 +90,8 @@ func ApplyValue(key: String) -> void:
 		var volume = VOLUME_LEVELS[int(values[key])]
 		AudioServer.set_bus_mute(index, volume == 0.0)
 		AudioServer.set_bus_volume_db(index, linear_to_db(maxf(volume, 0.001)))
+		if key == "voice_volume" and volume == 0.0:
+			StopVoice()
 	elif key == "fullscreen" and DisplayServer.get_name() != "headless":
 		if values[key]:
 			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
@@ -94,6 +107,24 @@ func ApplyValue(key: String) -> void:
 func GetTextSpeed() -> float:
 	return TEXT_SPEEDS[int(values["text_speed"])]
 
+func PlaySceneMusic() -> void:
+	var scene := get_tree().current_scene
+	if scene == null:
+		return
+	var track: String = SCENE_TRACKS.get(scene.scene_file_path.get_file().get_basename(), "")
+	if track.is_empty():
+		return
+	var path := "res://audio/music/%s.wav" % track
+	if not ResourceLoader.exists(path):
+		return
+	var stream: AudioStreamWAV = load(path)
+	stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	stream.loop_end = roundi(stream.get_length() * stream.mix_rate)
+	if DisplayServer.get_name() == "headless":
+		music_player.stream = stream
+	else:
+		PlayMusic(stream)
+
 func PlayMusic(stream: AudioStream) -> void:
 	if music_player.stream == stream and music_player.playing:
 		return
@@ -108,8 +139,13 @@ func PlayVoice(stream: AudioStream) -> void:
 	voice_player.stream = stream
 	voice_player.play()
 
-func PlayVoiceId(identifier: String) -> void:
+func StopVoice() -> void:
 	voice_player.stop()
+	if not chinese_voice_id.is_empty() and (DisplayServer.tts_is_speaking() or DisplayServer.tts_is_paused()):
+		DisplayServer.tts_stop()
+
+func PlayVoiceId(identifier: String, subtitle: String = "") -> void:
+	StopVoice()
 	if identifier.is_empty():
 		return
 	var paths: Array[String] = []
@@ -125,6 +161,9 @@ func PlayVoiceId(identifier: String) -> void:
 			if stream is AudioStream:
 				PlayVoice(stream)
 				return
+	var volume := roundi(VOLUME_LEVELS[int(values["voice_volume"])] * 100.0)
+	if volume > 0 and not chinese_voice_id.is_empty() and not subtitle.strip_edges().is_empty():
+		DisplayServer.tts_speak(subtitle, chinese_voice_id, volume)
 
 func ConnectButtonSound(node: Node) -> void:
 	if node is BaseButton and not node.button_down.is_connected(PlayClick):

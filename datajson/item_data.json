@@ -211,6 +211,7 @@
 	},
 	{
 		"id":"w01",
+		"combat_bonus": {"attack": 2},
 		"name":"模拟刀",
 		"description":"攻击等级1",
 		"types":"WEAPON",
@@ -219,6 +220,7 @@
 	},
 	{
 		"id":"w02",
+		"combat_bonus": {"attack": 4},
 		"name":"铁制长剑",
 		"description":"攻击等级2",
 		"types":"WEAPON",
@@ -227,6 +229,7 @@
 	},
 	{
 		"id": "w03",
+		"combat_bonus": {"attack": 6},
 		"name": "秘银之剑",
 		"description": "攻击等级3",
 		"types": "WEAPON",
@@ -235,6 +238,7 @@
 	},
 	{
 		"id": "w04",
+		"combat_bonus": {"attack": 8},
 		"name": "东方单刃剑",
 		"description": "攻击等级4",
 		"types": "WEAPON",
@@ -243,6 +247,7 @@
 	},
 	{
 		"id": "w05",
+		"combat_bonus": {"magic": 2},
 		"name": "见习之杖",
 		"description": "魔攻等级1",
 		"types": "WEAPON",
@@ -251,6 +256,7 @@
 	},
 	{
 		"id": "w06",
+		"combat_bonus": {"magic": 4},
 		"name": "水晶之杖",
 		"description": "魔攻等级2",
 		"types": "WEAPON",
@@ -259,6 +265,7 @@
 	},
 	{
 		"id": "w07",
+		"combat_bonus": {"magic": 8},
 		"name": "秘银之杖",
 		"description": "魔攻等级4",
 		"types": "WEAPON",
@@ -267,6 +274,7 @@
 	},
 	{
 		"id": "a01",
+		"combat_bonus": {"defense": 1, "magic_defense": 1},
 		"name": "皮甲",
 		"description": "防御等级1 / 魔防等级1",
 		"types": "ARMOR",
@@ -275,6 +283,7 @@
 	},
 	{
 		"id": "a02",
+		"combat_bonus": {"defense": 2, "magic_defense": 2},
 		"name": "铁铠甲",
 		"description": "防御等级2 / 魔防等级2",
 		"types": "ARMOR",
@@ -283,6 +292,7 @@
 	},
 	{
 		"id": "a03",
+		"combat_bonus": {"defense": 3, "magic_defense": 3},
 		"name": "秘银的铠甲",
 		"description": "防御等级3 / 魔防等级3",
 		"types": "ARMOR",
@@ -291,6 +301,7 @@
 	},
 	{
 		"id": "a04",
+		"combat_bonus": {"defense": 4, "magic_defense": 4},
 		"name": "丝甲",
 		"description": "防御等级4 / 魔防等级4",
 		"types": "ARMOR",
@@ -299,6 +310,7 @@
 	},
 	{
 		"id": "a05",
+		"combat_bonus": {"defense": 5, "magic_defense": 5},
 		"name": "抗魔的法衣",
 		"description": "防御等级5 / 魔防等级5",
 		"types": "ARMOR",
@@ -444,6 +456,7 @@
 	},
 	{
 		"id":"o13",
+		"birthday_only": true,
 		"name":"花束",
 		"description":"魅力+10（仅在生日时可购入）",
 		"types":"OTHER",
@@ -456,6 +469,7 @@
 	},
 	{
 		"id":"o14",
+		"birthday_only": true,
 		"name":"音乐盒",
 		"description":"感受+15（仅在生日时可购入）",
 		"types":"OTHER",
@@ -469,7 +483,7 @@
 	{
 		"id":"o15",
 		"name":"猫眼石",
-		"description":"在魔界道具店购物的许可证",
+		"description":"出示给道具店店员，可进入珍品柜台。",
 		"types":"OTHER",
 		"prices":600,
 		"can_use":false,
@@ -477,6 +491,7 @@
 	},
 	{
 		"id":"o16",
+		"monthly_effects": {"stress": -5, "demonization": 1},
 		"name":"旧香炉",
 		"description":"每月疲劳度-5 / 魔化度+1",
 		"types":"OTHER",
@@ -486,6 +501,7 @@
 	},
 	{
 		"id":"o17",
+		"monthly_effects": {"stress": -5, "crime": 1},
 		"name":"神圣的雕像",
 		"description":"每月疲劳度-5 / 罪孽+1",
 		"types":"OTHER",
@@ -737,6 +753,7 @@
 	},
 	{
 		"id":"w08",
+		"combat_bonus": {"attack": 8, "magic": 6, "defense": 1, "magic_defense": 1},
 		"name":"传说之鞭",
 		"description":"攻击等级4 / 魔攻等级3 \n防御等级+1 / 魔防等级+1",
 		"types":"WEAPON",
@@ -746,6 +763,7 @@
 	},
 	{
 		"id":"w09",
+		"combat_bonus": {"attack": 10, "defense": 1},
 		"name":"魔神之斧",
 		"description":"攻击等级5 / 防御等级+1",
 		"types":"WEAPON",
@@ -755,6 +773,7 @@
 	},
 	{
 		"id":"w10",
+		"combat_bonus": {"attack": 12, "defense": 2},
 		"name":"武神之剑",
 		"description":"攻击等级6 / 防御等级+2",
 		"types":"WEAPON",
@@ -795,6 +814,7 @@
 	},
 	{
 		"id":"o23",
+		"monthly_effects": {"demonization": -1},
 		"name":"妖精之轮",
 		"description":"感受+10 / 每月魔化度-1",
 		"types":"OTHER",

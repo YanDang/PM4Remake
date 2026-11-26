@@ -1,5 +1,7 @@
 extends Node
 
+const ALLOWANCE_COST := 50
+
 @onready var talk_layer: CanvasLayer = $"../../TalkLayer"
 @onready var arrtibute: CanvasLayer = $"../../Arrtibute"
 @onready var base_info: Sprite2D = $"../BaseInfo"
@@ -18,6 +20,11 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 	var arrtibute_dict:Dictionary = {}
 	talk_layer.RegisterCallback(ChoiceEvent)
 	if Global.already_talk == false:
+		if choice_index == 3 and Global.money < ALLOWANCE_COST:
+			talk.hide()
+			talk_layer.RegisterCallback(func(_index): talk.show())
+			talk_layer.TalkStart([{"character": "", "text": "所持金不足。给零用钱需要 %d G，目前有 %d G。" % [ALLOWANCE_COST, Global.money]}])
+			return
 		match choice_index:
 			0:
 				arrtibute_dict = {"charm":5,"fame":2,"stress":-3}
@@ -26,7 +33,7 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 			2:
 				arrtibute_dict = {"pride":6,"highclass":4,"smarts":3,"temper":4,"stress":8}
 			3:
-				Global.money -= 50
+				Global.money -= ALLOWANCE_COST
 				base_info.UpdateStatus()
 				arrtibute_dict = {"charm":5,"crime":6,"morals":-4,"stress":-20}
 		# 每月只有一次对话涨属性

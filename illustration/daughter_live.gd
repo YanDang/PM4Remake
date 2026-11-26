@@ -34,14 +34,31 @@ func ChangeClothes(clothes_name:String):
 		if item.name == clothes_name:
 			Daughterstatus.current_clothes_id = item.id.trim_prefix("c")
 			break
+	UpdatePortrait()
+
+func UpdatePortrait() -> void:
+	var sick_path := Daughterstatus.StandingPortraitPath("11") if Daughterstatus.is_ill else ""
+	now_stage_node.modulate = Color.WHITE
+	if not sick_path.is_empty() and ResourceLoader.exists(sick_path):
+		body.texture = load(sick_path)
+		# Align the feet with the normal portrait's standing position.
+		body.offset.y = (region[Daughterstatus.age_stage].size.y - body.texture.get_height()) / 2.0
+		eyes.hide()
+		timer.stop()
+		return
+	body.offset.y = 0.0
+	eyes.show()
 	var atlas_tex = AtlasTexture.new()
-	print(Daughterstatus.age_stage_names[Daughterstatus.age_stage])
-	print(cloth_file_dict[clothes_name])
-	atlas_tex.atlas = load(cloth_file_dict[clothes_name])
+	atlas_tex.atlas = load(cloth_file_dict[current_clothes])
 	atlas_tex.region = region[Daughterstatus.age_stage]
 	body.texture = atlas_tex
+	if Daughterstatus.is_ill:
+		now_stage_node.modulate = Color(0.83, 0.88, 0.93)
+		eyes.stop()
+		timer.stop()
+		return
 	# 结婚礼服不支持眨眼动画
-	if clothes_name == "结婚礼服":
+	if current_clothes == "结婚礼服":
 		timer.stop()
 	else:
 		timer.start()
@@ -59,3 +76,4 @@ func _ready() -> void:
 	body = now_stage_node.get_node("Body") as Sprite2D
 	var target_clothes = Daughterstatus.current_clothes_name if Daughterstatus.current_clothes_name != "" else "常服"
 	ChangeClothes(target_clothes)
+	Daughterstatus.health_changed.connect(UpdatePortrait)

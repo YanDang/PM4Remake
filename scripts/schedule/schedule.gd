@@ -23,6 +23,7 @@ var plan_type:SchdType
 
 var plan_end_day:int
 var is_vacation_running:bool = false
+var skipped_course := ""
 
 # 各课程/工作的核心主属性映射
 var primary_attributes: Dictionary = {
@@ -52,13 +53,15 @@ func _ready() -> void:
 	# 初始隐藏
 	talk_layer.hide()
 	arrtibute.hide()
-	Global.sync_week_index()
+	Global.sync_calendar()
 	date.UpdateStatus()
 	RunScheduleLoop()
 
 func RunScheduleLoop() -> void:
 	while Global.schedule_plan_index < 3:
 		plan_name = Global.month_plan[Global.schedule_plan_index]
+		if plan_name == "recover" and not Daughterstatus.is_ill:
+			plan_name = "rest"
 		
 		# 如果该排程为外出，跳转至 city.tscn
 		if plan_name == "outing":
@@ -76,35 +79,37 @@ func RunScheduleLoop() -> void:
 			Global.schedule_plan_index += 1
 			continue
 			
-		await CheckScheduleEvents(plan_name)
+		plan_end_day = Global.GetPlanEndDay(Global.schedule_plan_index)
+		skipped_course = ""
+		if CanAffordCourse():
+			await CheckScheduleEvents(plan_name)
+		if not CanAffordCourse():
+			skipped_course = Globaljson.category_translation[plan_name]
+			plan_name = "rest"
 		PlanStart()
 		await self.plan_end
+		if plan_name == "recover":
+			Daughterstatus.TryFinishHomeRecovery()
+		var previous_rank: int = Global.category_stage[plan_name][0]
+		Global.UpdateCourseRank(plan_name)
+		var rank: int = Global.category_stage[plan_name][0]
+		if rank > previous_rank:
+			await AnnouncePromotion(rank)
 		Global.schedule_plan_index += 1
 		
-	# 3个计划全部执行完毕，跨月
 	talk_layer.keep_visible_on_end = false
 	talk_layer.hide()
-	Global.day = 1
-	Global.month += 1
-	if Global.month > 12:
-		Global.month = 1
-		Global.year += 1
-	Global.already_talk = false
-	Global.schedule_plan_index = 0
-	Global.month_end_day = Global.get_current_month_end_day()
-	Global.sync_week_index()
-	get_tree().change_scene_to_file("res://sences/main.tscn")
+	Global.finish_training_month()
 	
+func CanAffordCourse() -> bool:
+	var expense := Global.GetPlanExpense(plan_name, Global.day, plan_end_day)
+	return expense == 0 or Global.money >= expense
+
 func PlanStart():
-	plan_name = Global.month_plan[Global.schedule_plan_index]
-	plan_level = "level%d" % (Global.category_stage[plan_name][0])
+	plan_level = "level0" if plan_name == "recover" else "level%d" % Global.category_stage[plan_name][0]
 	plan_type = SchdType[Globaljson.category_data[plan_name][plan_level]["type"]]
 	schd.show()
 	schd.LoadSpriteFrames(plan_name)
-	if Global.schedule_plan_index == 2:
-		plan_end_day = Global.get_current_month_end_day()
-	else:
-		plan_end_day = (Global.schedule_plan_index + 1) * 10
 	talk_layer.keep_visible_on_end = true
 	TimeLapse()
 
@@ -196,23 +201,31 @@ func TimeLapse():
 								"emotion": "",
 								"text": "工作进展顺利。",
 								"voice": ""}],1,CalArrtibute(true))
-					Global.money += Globaljson.category_data[plan_name][plan_level]["money"]
+					Global.money += Global.GetDailyWage(plan_name)
 				else:
 					talk_layer.TalkStart([{"character": "",
 								"emotion": "",
 								"text": "闯祸了……",
 								"voice": ""}],1,CalArrtibute(false))
 					# 失败收益减半
-					Global.money += Globaljson.category_data[plan_name][plan_level]["money"] / 2
+					Global.money += floori(Global.GetDailyWage(plan_name) / 2.0)
 		SchdType.REST:
+			var rest_message := "今天休息。"
+			if plan_name == "recover":
+				rest_message = "今天在家疗养。"
+			if not skipped_course.is_empty():
+				rest_message = "钱不够支付本旬的%s课程，这一旬在家休息。" % skipped_course
+				skipped_course = ""
 			talk_layer.TalkStart([{"character": "",
 								"emotion": "",
-								"text": "今天休息。",
+								"text": rest_message,
 								"voice": ""}],1,CalArrtibute(true))
 func CalArrtibute(result:bool) -> Dictionary:
 	var arrtibute_change:Dictionary
 	if result:
-		if plan_name == "rest":
+		if plan_name == "recover":
+			schd.EventHappen("house")
+		elif plan_name == "rest":
 			schd.EventHappen("rest")
 		else:
 			schd.EventHappen("success")
@@ -271,30 +284,28 @@ func _on_talk_layer_talk_end() -> void:
 	if Global.day >= plan_end_day:
 		# 工作|上课次数+1
 		Global.category_stage[plan_name][1] += 1
-		_check_art_painting_unlock()
 		# 若不是最后一旬，推进1天到下一旬的首日（如10日->11日，20日->21日）
 		if Global.schedule_plan_index < 2:
-			Global.day += 1
-			Global.week_index = (Global.week_index + 1) % 7
+			Global.advance_day()
 			date.UpdateStatus()
 			money.UpdateStatus()
 		call_deferred("emit_signal", "plan_end")
 	else:
-		Global.day += 1
-		# 度过了一天
-		Global.week_index = (Global.week_index + 1) % 7
+		Global.advance_day()
 		date.UpdateStatus()
 		money.UpdateStatus()
 		await get_tree().create_timer(0.05).timeout
 		TimeLapse()
 
-func _check_art_painting_unlock() -> void:
+func AnnouncePromotion(rank: int) -> void:
+	is_vacation_running = true
+	talk_layer.keep_visible_on_end = false
+	var message := "%s课程晋升为%s。" % [Globaljson.category_translation[plan_name], Global.COURSE_LEVEL_NAMES[rank]]
 	if plan_name == "art":
-		var current_stage = Global.category_stage["art"][0]
-		# 艺术课程分别达到中级(1)，上级(2)，专业(3)之后，再参加一次课程就会解锁不同的画作
-		if current_stage >= 1 and Global.art_painting_level < current_stage:
-			Global.art_painting_level = current_stage
-			print("[艺术课] 完成艺术课程，解锁对应画作等级: %d" % Global.art_painting_level)
+		message += " 房间解锁了新的挂画。"
+	talk_layer.TalkStart([{"character": "", "text": message}])
+	await talk_layer.talk_end
+	is_vacation_running = false
 
 func ExecuteVacation() -> void:
 	is_vacation_running = true
@@ -312,7 +323,7 @@ func ExecuteVacation() -> void:
 		plan_end_day = (Global.schedule_plan_index + 1) * 10
 		
 	# 1. 检查金钱
-	var vacation_cost = 100
+	var vacation_cost := Global.VACATION_COST
 	if Global.money < vacation_cost:
 		print("[度假] 金钱不足 (%d < %d)，无法外出度假" % [Global.money, vacation_cost])
 		var broke_dialogue = [
@@ -345,7 +356,7 @@ func ExecuteVacation() -> void:
 	# 2. 定位度假事件与对应 CG
 	var year_idx = clampi(Global.year - 1440, 0, 7)
 	var season_idx = Global.get_current_season_index()
-	var season_key = "%d_%d" % [Global.year, season_idx]
+	var season_key := Global.GetWinterVacationKey(Global.year, Global.month) if season_idx == 3 else "%d_%d" % [Global.year, season_idx]
 	var already_triggered = Global.triggered_vacation_events.get(season_key, false)
 
 	var current_vacation: Dictionary = {}
@@ -440,20 +451,19 @@ func ExecuteVacation() -> void:
 	# 9. 时间流逝（天数跳动至阶段末尾）
 	await _advance_vacation_time()
 
+	Global.completed_vacation_months[str(Global.year * 100 + Global.month)] = true
 	Global.category_stage["vacation"][1] += 1
 	is_vacation_running = false
 
 func _advance_vacation_time() -> void:
 	while Global.day < plan_end_day:
 		await get_tree().create_timer(0.06).timeout
-		Global.day += 1
-		Global.sync_week_index()
+		Global.advance_day()
 		if date and date.has_method("UpdateStatus"):
 			date.UpdateStatus()
 	# 若不是最后一旬（例如上旬、中旬），推进1天到下一旬的首日（如10日->11日，20日->21日）
 	if Global.schedule_plan_index < 2 and Global.day == plan_end_day:
-		Global.day += 1
-		Global.sync_week_index()
+		Global.advance_day()
 		if date and date.has_method("UpdateStatus"):
 			date.UpdateStatus()
 
@@ -480,41 +490,7 @@ func CheckScheduleEvents(target_plan: String) -> void:
 	await PlayScheduleEvent(available_events[0])
 
 func CheckEventConditions(cond: Dictionary) -> bool:
-	for req_flag in cond.get("flags_required", []):
-		if not Global.flags.get(req_flag, false):
-			return false
-	for ban_flag in cond.get("flags_banned", []):
-		if Global.flags.get(ban_flag, false):
-			return false
-	var min_aff = cond.get("min_affection", {})
-	for chara in min_aff.keys():
-		if Global.affection.get(chara, 0) < min_aff[chara]:
-			return false
-	var max_aff = cond.get("max_affection", {})
-	for chara in max_aff.keys():
-		if Global.affection.get(chara, 0) > max_aff[chara]:
-			return false
-	var min_stats = cond.get("min_stats", {})
-	for stat in min_stats.keys():
-		var current_val = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat, null))
-		if current_val == null or current_val < min_stats[stat]:
-			return false
-	var max_stats = cond.get("max_stats", {})
-	for stat in max_stats.keys():
-		var current_val = Daughterstatus.attributes.get(stat, Daughterstatus.body_stats.get(stat, null))
-		if current_val != null and current_val > max_stats[stat]:
-			return false
-	if cond.has("min_year") and Global.year < cond["min_year"]:
-		return false
-	if cond.has("max_year") and Global.year > cond["max_year"]:
-		return false
-	if cond.has("min_month") and Global.month < cond["min_month"]:
-		return false
-	if cond.has("max_month") and Global.month > cond["max_month"]:
-		return false
-	if cond.get("is_birth_month", false) and Global.month != Daughterstatus.birth_month:
-		return false
-	return true
+	return Global.MeetsHomeEventConditions(cond)
 
 func PlayScheduleEvent(event: Dictionary) -> void:
 	is_vacation_running = true

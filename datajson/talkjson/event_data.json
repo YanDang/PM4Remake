@@ -1,6 +1,60 @@
 {
   "Square": [
     {
+      "id": "square_courage_afterward",
+      "priority": 96,
+      "conditions": {
+        "min_year": 1444,
+        "min_month": 1,
+        "max_year": 1447,
+        "max_month": 3,
+        "flags_required": ["blackstreet_ev026_friends_adventure"]
+      },
+      "dialogue_script": [
+        {"character": "lise", "emotion": "calm", "text": "那天之后，广场的摊主想在告示板上谢谢我们。她还问，是不是该写个好听点的称号。"},
+        {"character": "daughter", "emotion": "calm", "text": "有人叫我勇者。可要是那次只有我一个人，我也不知道能帮上多少忙。"},
+        {"character": "lise", "emotion": "happy", "text": "那就写你觉得最值得记住的事，反正告示板还有地方。"}
+      ],
+      "choices": [
+        {
+          "text": "请她写下帮过忙的人",
+          "set_flags": ["courage_shared_credit"],
+          "add_affection": {"lise": 5},
+          "add_stats": {"fame": 6},
+          "next_dialogue": [
+            {"character": "lise", "emotion": "happy", "text": "那我先去找那个借灯给我们的人。上次太匆忙，我连她的名字都没问。"}
+          ]
+        },
+        {
+          "text": "请她写上新的照明巡查办法",
+          "set_flags": ["courage_safer_streets"],
+          "add_affection": {"lise": 3},
+          "add_stats": {"morals": 6},
+          "next_dialogue": [
+            {"character": "lise", "emotion": "calm", "text": "好。星期五收摊后我也来巡一遍，看看哪盏灯总是没人点。"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "square_lise_fathers_logbook",
+      "priority": 97,
+      "conditions": {
+        "min_year": 1446,
+        "min_month": 6,
+        "max_year": 1447,
+        "max_month": 3,
+        "flags_required": ["home_ev018_lise_father_news"],
+        "min_affection": {"lise": 25}
+      },
+      "dialogue_script": [
+        {"character": "lise", "emotion": "sad", "text": "有个归队的人把爸爸的巡查簿送来了。最后一页记着三个折返的平民，他去把他们带回队里。"},
+        {"character": "lise", "emotion": "calm", "text": "那个人说，爸爸是在回程时遇袭的。簿子里还夹着我给他的旧地图，他一直带在身上。"},
+        {"character": "daughter", "emotion": "calm", "text": "我陪你把它收好。等你想看那张地图的时候，我们再一起打开。"}
+      ],
+      "add_affection": {"lise": 5}
+    },
+    {
       "id": "meet_lise_test",
       "priority": 100,
       "conditions": {
@@ -6547,6 +6601,44 @@
     }
   ],
   "BusyStreet": [
+    {
+      "id": "busystreet_christina_after_ball",
+      "priority": 98,
+      "conditions": {
+        "min_year": 1447,
+        "min_month": 10,
+        "max_year": 1448,
+        "max_month": 2,
+        "flags_required": ["home_ev034_royal_ball_debut"],
+        "min_affection": {"christina": 40}
+      },
+      "rebellious_dialogue": [
+        {"character": "daughter", "emotion": "calm", "text": "今晚好多人忙着说谁守了礼数、谁惹了麻烦。我宁愿跟你出来站一会儿。"}
+      ],
+      "dialogue_script": [
+        {"character": "daughter", "emotion": "happy", "text": "还没来得及恭喜你。和王子跳舞的那一刻，你等了很久吧？"},
+        {"character": "christina", "emotion": "calm", "text": "是啊。跳完我才发现，明早起床我最想做的，还是把画到一半的礼服缝完。"},
+        {"character": "christina", "emotion": "sad", "text": "我原以为一支舞能替我决定以后的路。现在我想看看，有没有人愿意为我亲手做的东西留个名字。"}
+      ],
+      "choices": [
+        {
+          "text": "约她带上样衣参加街市",
+          "set_flags": ["christina_after_ball_market"],
+          "add_affection": {"christina": 5},
+          "next_dialogue": [
+            {"character": "christina", "emotion": "happy", "text": "那你陪我去问摊位。我想先听听街上的人想穿什么。"}
+          ]
+        },
+        {
+          "text": "让她慢慢决定",
+          "set_flags": ["christina_after_ball_reflection"],
+          "add_affection": {"christina": 3},
+          "next_dialogue": [
+            {"character": "christina", "emotion": "calm", "text": "也好。明早先缝好那件衣服，等它能穿了再说。"}
+          ]
+        }
+      ]
+    },
     {
       "id": "meet_lee_1448_square_dragon",
       "priority": 100,
@@ -15199,6 +15291,8 @@
       "conditions": {
         "min_year": 1444,
         "max_year": 1446,
+        "flags_required": ["met_lise"],
+        "min_stats": {"martial": 120},
         "flags_banned": [
           "blackstreet_ev026_friends_adventure"
         ]
@@ -30839,7 +30933,7 @@
       "id": "christina_talk_ev172_14",
       "priority": 68,
       "conditions": {
-        "min_year": 1448,
+        "min_year": 1447,
         "max_year": 1447,
         "min_month": 8,
         "max_month": 9,

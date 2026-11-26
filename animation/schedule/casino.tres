@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://5a7lmiqtpw27"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://5a7lmiqtpw27"]
 
 [ext_resource type="Texture2D" uid="uid://6eib7jm3m5iu" path="res://assets/Schedule/casino.png" id="1_ex3r2"]
 

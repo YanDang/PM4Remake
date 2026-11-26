@@ -13,9 +13,9 @@ func _on_choice_pressed(_choice_text: String,choice_index:int):
 	var health_tactics:String = Global.health_tactics[choice_index]
 	talk_layer.RegisterCallback(ChoiceEvent)
 	Global.health_index = choice_index
+	Global.UpdateGrowthRates()
 	talk_layer.TalkStart(conversation[health_tactics])
 	health.hide()
-	Global.growth_rates = Globaljson.health_growth[Daughterstatus.age_stage_names[Daughterstatus.age_stage]][health_tactics]
 
 func ChoiceEvent(_choice_index:int):
 	health_stat.UpdateStatus()

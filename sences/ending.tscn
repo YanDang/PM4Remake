@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/ending.gd" id="1"]
+[ext_resource type="FontFile" path="res://fronts/FZCQJW.ttf" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="Paper"]
+bg_color = Color(0.968, 0.94, 0.875, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.762, 0.67, 0.48, 1)
+content_margin_left = 52.0
+content_margin_top = 42.0
+content_margin_right = 52.0
+content_margin_bottom = 42.0
+
+[sub_resource type="StyleBoxFlat" id="Button"]
+bg_color = Color(0.152, 0.274, 0.256, 1)
+
+[sub_resource type="StyleBoxFlat" id="ButtonHover"]
+bg_color = Color(0.23, 0.38, 0.34, 1)
+
+[sub_resource type="StyleBoxFlat" id="ButtonFocus"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72, 0.61, 0.37, 1)
+
+[sub_resource type="Theme" id="Theme"]
+default_font = ExtResource("2")
+default_font_size = 26
+Label/colors/font_color = Color(0.12, 0.19, 0.18, 1)
+Button/colors/font_color = Color(0.98, 0.94, 0.85, 1)
+Button/styles/normal = SubResource("Button")
+Button/styles/hover = SubResource("ButtonHover")
+Button/styles/pressed = SubResource("ButtonHover")
+Button/styles/focus = SubResource("ButtonFocus")
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.075, 0.146, 0.138, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(750, 455)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Paper")
+
+[node name="Content" type="VBoxContainer" parent="Center/Card"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Section" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34, 0.3, 0.21, 1)
+theme_override_font_sizes/font_size = 22
+text = "养成结局"
+
+[node name="Heading" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+
+[node name="Story" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = 12
+autowrap_mode = 3
+
+[node name="Routes" type="VBoxContainer" parent="Center/Card/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CollectionNotice" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34, 0.3, 0.21, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Advance" type="Button" parent="Center/Card/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(174, 52)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "阅读后日谈"
+
+[connection signal="pressed" from="Center/Card/Content/Advance" to="." method="_on_advance_pressed"]

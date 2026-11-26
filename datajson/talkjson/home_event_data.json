@@ -1,6 +1,27 @@
 {
   "monthly_events": [
     {
+      "id": "home_future_plan",
+      "priority": 100,
+      "conditions": {
+        "min_year_month": 144801,
+        "max_year_month": 144803
+      },
+      "rebellious_dialogue": [
+        {"character": "daughter", "emotion": "calm", "text": "这阵子大家总拿我做过的错事来猜我以后会怎样。今天能先听我把话说完吗？"}
+      ],
+      "dialogue_script": [
+        {"character": "daughter", "emotion": "calm", "text": "再过几个月，我就要自己安排日子了。爸爸，你觉得我该先试试哪件事？"}
+      ],
+      "choices": [
+        {"text": "跟测绘队去画地图", "set_flags": ["future_cartography"]},
+        {"text": "找人一起开工坊", "set_flags": ["future_workshop"]},
+        {"text": "走山路给人送信", "set_flags": ["future_courier"]},
+        {"text": "和街坊办一桌饭", "set_flags": ["future_community"]},
+        {"text": "先多试几样", "set_flags": ["future_explore"]}
+      ]
+    },
+    {
       "id": "home_m00_3_intro",
       "priority": 100,
       "conditions": {
@@ -3670,10 +3691,16 @@
       "id": "home_ev040_massage_father",
       "priority": 94,
       "conditions": {
-        "min_year": 1446,
-        "max_year": 1446,
-        "min_month": 8,
-        "max_month": 8,
+        "min_year_month": 144803,
+        "max_year_month": 144803,
+        "min_day": 1,
+        "max_day": 1,
+        "min_affection": {
+          "father": 150
+        },
+        "stats_below": {
+          "morals": 350
+        },
         "flags_banned": [
           "home_ev040_massage_father"
         ]
@@ -5866,8 +5893,13 @@
       "id": "rest_ev300_hotspring_friends",
       "priority": 90,
       "conditions": {
-        "min_year": 1442,
-        "max_year": 1446,
+        "min_year_month": 144212,
+        "max_year_month": 144302,
+        "vacation_months_any": ["144112", "144201", "144202"],
+        "combined_affection": {
+          "characters": ["lise", "marie", "christina"],
+          "above": 15
+        },
         "flags_banned": [
           "rest_ev300_hotspring_friends"
         ]

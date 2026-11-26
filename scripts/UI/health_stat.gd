@@ -4,6 +4,7 @@ extends Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	UpdateStatus()
+	Daughterstatus.health_changed.connect(UpdateStatus)
 
 
 func UpdateStatus() -> void:
@@ -13,3 +14,5 @@ func UpdateStatus() -> void:
 	$Height.text = str(int(Daughterstatus.body_stats["height"]))
 	$Weight.text = str(int(Daughterstatus.body_stats["weight"]))
 	$Tactics.text = Global.health_tactics[Global.health_index]
+	if Daughterstatus.is_ill:
+		$Tactics.text += " · 生病"

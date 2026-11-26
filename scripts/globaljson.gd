@@ -11,6 +11,8 @@ var category_translation:Dictionary
 var category_data:Dictionary
 var event_data:Dictionary
 var home_event_data:Dictionary = {}
+var daughter_click_data: Dictionary
+var beginner_guide_data: Dictionary
 var eye_blink_data:Dictionary
 var vacation_data:Array = []
 @onready var special_name:Array = ["charles","jeep","daughter","christina","lee","lise","marie","baora"]
@@ -30,6 +32,8 @@ func _ready() -> void:
 	event_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/event_data.json", FileAccess.READ).get_as_text())
 	if FileAccess.file_exists("res://datajson/talkjson/home_event_data.json"):
 		home_event_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/home_event_data.json", FileAccess.READ).get_as_text())
+	daughter_click_data = JSON.parse_string(FileAccess.get_file_as_string("res://datajson/talkjson/dailytalk/click_data.json"))
+	beginner_guide_data = JSON.parse_string(FileAccess.get_file_as_string("res://datajson/talkjson/beginnerguide/beginnerguide_data.json"))
 	if FileAccess.file_exists("res://datajson/talkjson/eye_blink_data.json"):
 		eye_blink_data = JSON.parse_string(FileAccess.open("res://datajson/talkjson/eye_blink_data.json", FileAccess.READ).get_as_text())
 	if FileAccess.file_exists("res://datajson/talkjson/vacation_data.json"):
@@ -41,7 +45,9 @@ func LoadCategoryFromTxt(path:String):
 	# csv存储格式，逗号分隔符,Linux格式换行
 	var key_words:Array = row_list[0].split(',')
 	for row_text in row_list.slice(1):
-		var row_array:Array = row_text.split(',')
+		if row_text.strip_edges().is_empty():
+			continue
+		var row_array:Array = row_text.strip_edges().split(',')
 		var temp_dict:Dictionary
 		# 'level' + str
 		var temp_key:String = key_words[1] + row_array[1]
@@ -65,6 +71,8 @@ func LoadItemsFromJson(path:String):
 	for item_dict in data:
 		var item := Item.new()
 		ApplyJsonToItem(item, item_dict)
+		if not item_dict.has("stackable"):
+			item.stackable = item.types in [Item.ItemType.FOOD, Item.ItemType.CONSUMABLES]
 		items[item.id] = item
 
 func ApplyJsonToItem(item:Item,dict:Dictionary):

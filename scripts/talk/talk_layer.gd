@@ -130,7 +130,7 @@ func TalkEnd():
 	set_process_input(false)  # 完全停止输入处理
 	set_process(false)
 	is_revealing_text = false
-	GameSettings.voice_player.stop()
+	GameSettings.StopVoice()
 	if not keep_visible_on_end:
 		hide()
 	
@@ -159,7 +159,7 @@ func TalkPolling():
 			TalkPolling()
 			return
 		BeginTextReveal()
-		GameSettings.PlayVoiceId(str(entry.get("voice", "")))
+		GameSettings.PlayVoiceId(str(entry.get("voice", "")), talk_text.text)
 	else:
 		if not is_settle:
 			# 不需要计算属性
@@ -220,6 +220,8 @@ func _input(event: InputEvent) -> void:
 		
 # 谁，什么情绪，说啥了
 func Happen(who:String, emotion:String, text:String, name_index:int=0, action:String="") -> void:
+	if who == "daughter":
+		emotion = Daughterstatus.PortraitEmotion(emotion)
 	if action == "leave":
 		if active_sprites.has(who):
 			var sprite = active_sprites[who]
@@ -265,7 +267,11 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 			headshot.hide()
 		else:
 			headshot.show()
-	headshot.texture = load(icon_path)
+	if ResourceLoader.exists(icon_path):
+		headshot.texture = load(icon_path)
+	else:
+		headshot.texture = null
+		headshot.hide()
 	talk_text.text = ProcessDialogueText(text)
 
 	# === 大立绘(Standing Sprite) 逻辑 ===
@@ -283,6 +289,11 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 			
 		var cloth_code = Daughterstatus.current_clothes_id
 		var sprite_path = "res://assets/" + template.replace("{emotion}", emo_code).replace("{age}", age_code).replace("{cloth}", cloth_code)
+		if who == "daughter":
+			sprite_path = Daughterstatus.StandingPortraitPath(emo_code)
+			if not ResourceLoader.exists(sprite_path):
+				emo_code = "01"
+				sprite_path = Daughterstatus.StandingPortraitPath(emo_code)
 		
 		if not active_sprites.has(who):
 			var new_sprite = Sprite2D.new()
@@ -299,7 +310,9 @@ func Happen(who:String, emotion:String, text:String, name_index:int=0, action:St
 			UpdateSpritePositions(true)
 			
 		var slot = active_sprites[who]
-		var tex = load(sprite_path)
+		var tex = load(sprite_path) if ResourceLoader.exists(sprite_path) else null
+		if who == "daughter":
+			slot.self_modulate = Color(0.83, 0.88, 0.93) if Daughterstatus.is_ill and emo_code != "11" else Color.WHITE
 		if tex:
 			
 			var blink_config = null

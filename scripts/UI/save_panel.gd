@@ -172,7 +172,8 @@ func ConfirmSave() -> void:
 		if load_error != OK:
 			ShowError("读取失败（%s）。\n原有游戏进度未改变。" % error_string(load_error))
 			return
-		SceneTransition.ChangeScene("res://sences/main.tscn", ExitForLoad)
+		var destination := Global.ENDING_SCENE if Global.passed_training_deadline() else "res://sences/main.tscn"
+		SceneTransition.ChangeScene(destination, ExitForLoad)
 		return
 	var error = SaveManager.SaveSlot(pending_slot, overwrite_confirmed)
 	if error == ERR_ALREADY_EXISTS:

@@ -30,6 +30,10 @@ SaveManager="*res://scripts/save_manager.gd"
 GameSettings="*res://scripts/game_settings.gd"
 Clothing="*res://scripts/clothing.gd"
 
+[audio]
+
+general/text_to_speech=true
+
 [display]
 
 window/size/viewport_width=1280
